@@ -230,7 +230,7 @@ const PriceCalculator = () => {
                 </div>
 
                 <a
-                  href={`https://wa.me/966500000000?text=${whatsappMessage}`}
+                  href={`https://wa.me/966503807517?text=${whatsappMessage}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 gradient-electric text-foreground px-8 py-4 rounded-lg font-semibold glow-electric hover:opacity-90 transition-opacity"
