@@ -1,95 +1,81 @@
 import { motion } from "framer-motion";
-import { Check } from "lucide-react";
+import { ArrowLeft, ArrowRight, Check } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { Language, siteContent } from "@/content/site";
 
-const packages = [
-  {
-    name: "أساسي",
-    oldPrice: "800",
-    price: "500",
-    discount: "وفّر 300 ريال",
-    features: ["قالب جاهز", "تعديل بيانات", "تصميم متجاوب"],
-    popular: false,
-  },
-  {
-    name: "متوسط",
-    oldPrice: "2,000",
-    price: "1,200",
-    discount: "وفّر 800 ريال",
-    features: ["تصميم شبه مخصص", "5 صفحات", "تحسين محركات البحث"],
-    popular: true,
-  },
-  {
-    name: "متقدم",
-    oldPrice: "5,000",
-    price: "3,000",
-    discount: "عرض محدود",
-    features: ["تصميم كامل مخصص", "منطق متقدم", "لوحة تحكم"],
-    popular: false,
-  },
-];
+type PricingSectionProps = {
+  content: (typeof siteContent)[Language]["pricing"];
+  language: Language;
+};
 
-const PricingSection = () => {
+const PricingSection = ({ content, language }: PricingSectionProps) => {
+  const isArabic = language === "ar";
+  const ArrowIcon = isArabic ? ArrowLeft : ArrowRight;
+
   return (
-    <section id="pricing" className="py-24 gradient-navy">
+    <section id="pricing" className="relative overflow-hidden py-24 gradient-navy">
+      <div className="absolute left-0 top-1/3 h-80 w-80 rounded-full bg-primary/10 blur-[120px]" />
       <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="mx-auto mb-16 max-w-3xl text-center"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">باقات المواقع</h2>
-          <p className="text-muted-foreground text-lg">اختر الباقة المناسبة لمشروعك</p>
+          <span className="mb-4 inline-flex rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-sm font-semibold text-primary">
+            {content.eyebrow}
+          </span>
+          <h2 className="mb-4 text-3xl font-bold md:text-5xl">{content.title}</h2>
+          <p className="text-lg leading-relaxed text-muted-foreground">
+            {content.description}
+          </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-6 mb-12">
-          {packages.map((pkg, i) => (
+        <div className="mb-12 grid gap-6 md:grid-cols-3">
+          {content.packages.map((pkg, i) => (
             <motion.div
               key={pkg.name}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.15 }}
-              className={`rounded-xl p-8 card-hover relative ${
+              className={`card-hover relative rounded-2xl p-8 ${
                 pkg.popular
-                  ? "bg-card border-2 border-primary glow-electric"
-                  : "bg-card border border-border"
+                  ? "border-2 border-primary bg-card glow-electric"
+                  : "border border-border bg-card/80"
               }`}
             >
               {pkg.popular && (
-                <span className="absolute -top-3 right-1/2 translate-x-1/2 gradient-electric text-foreground text-xs font-bold px-4 py-1 rounded-full whitespace-nowrap">
-                  🔥 الأكثر طلباً
+                <span className="absolute -top-3 right-1/2 translate-x-1/2 whitespace-nowrap rounded-full px-4 py-1 text-xs font-bold text-foreground gradient-electric">
+                  {content.popular}
                 </span>
               )}
-              <h3 className="text-xl font-bold mb-4">{pkg.name}</h3>
-              <div className="mb-2">
-                <span className="text-muted-foreground text-sm line-through">{pkg.oldPrice} ريال</span>
-              </div>
-              <div className="mb-3">
-                <span className="text-3xl font-bold text-gradient">{pkg.price}</span>
-                <span className="text-muted-foreground text-sm mr-1">ريال</span>
-              </div>
-              <Badge className="mb-6 bg-destructive/20 text-destructive border-destructive/30 hover:bg-destructive/30">
-                🏷️ {pkg.discount}
+              <Badge className="mb-5 border-primary/20 bg-primary/10 text-primary hover:bg-primary/10">
+                {pkg.badge}
               </Badge>
-              <ul className="space-y-3 mb-8">
+              <h3 className="mb-2 text-2xl font-bold">{pkg.name}</h3>
+              <p className="mb-6 min-h-12 text-sm leading-relaxed text-muted-foreground">{pkg.subtitle}</p>
+              <div className="mb-6">
+                <span className="text-3xl font-bold text-gradient">{pkg.price}</span>
+              </div>
+              <ul className="mb-8 space-y-3">
                 {pkg.features.map((f) => (
-                  <li key={f} className="flex items-center gap-3 text-muted-foreground">
-                    <Check size={16} className="text-primary shrink-0" />
+                  <li key={f} className="flex items-center gap-3 text-sm text-muted-foreground">
+                    <Check size={16} className="shrink-0 text-primary" />
                     {f}
                   </li>
                 ))}
               </ul>
               <a
                 href="#contact"
-                className={`block text-center py-3 rounded-lg font-semibold transition-all ${
+                className={`flex items-center justify-center gap-2 rounded-xl py-3 font-semibold transition-all ${
                   pkg.popular
-                    ? "gradient-electric text-foreground glow-electric hover:opacity-90"
+                    ? "text-foreground gradient-electric glow-electric hover:opacity-90"
                     : "border border-border text-foreground hover:bg-secondary"
                 }`}
               >
-                ابدأ الآن
+                {content.cta}
+                <ArrowIcon size={16} />
               </a>
             </motion.div>
           ))}
@@ -99,15 +85,16 @@ const PricingSection = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="text-center bg-card border border-border rounded-xl p-8"
+          className="rounded-2xl border border-border bg-card/80 p-8 text-center"
         >
-          <h3 className="text-xl font-bold mb-2">📱 تطبيقات الجوال</h3>
-          <p className="text-muted-foreground mb-4">تواصل للحصول على سعر مخصص</p>
+          <h3 className="mb-2 text-xl font-bold">{content.customTitle}</h3>
+          <p className="mb-4 text-muted-foreground">{content.customDescription}</p>
           <a
             href="#contact"
-            className="inline-block gradient-electric text-foreground px-8 py-3 rounded-lg font-semibold glow-electric hover:opacity-90 transition-opacity"
+            className="inline-flex items-center gap-2 rounded-xl px-8 py-3 font-semibold text-foreground transition-opacity gradient-electric glow-electric hover:opacity-90"
           >
-            تواصل معنا
+            {content.customCta}
+            <ArrowIcon size={16} />
           </a>
         </motion.div>
       </div>

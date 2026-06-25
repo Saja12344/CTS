@@ -64,7 +64,6 @@
 
   body {
     @apply bg-background text-foreground font-arabic;
-    direction: rtl;
   }
 }
 

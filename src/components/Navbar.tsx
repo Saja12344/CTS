@@ -1,20 +1,26 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { ArrowLeft, ArrowRight, Menu, X } from "lucide-react";
 import logo from "@/assets/logo.png";
+import { Language, siteContent } from "@/content/site";
 
-const navLinks = [
-  { label: "الرئيسية", href: "#hero" },
-  { label: "خدماتنا", href: "#services" },
-  { label: "الأسعار", href: "#pricing" },
-  { label: "الحاسبة", href: "#calculator" },
-  { label: "لماذا نحن", href: "#why-us" },
-  { label: "تواصل معنا", href: "#contact" },
-];
+type NavbarProps = {
+  content: (typeof siteContent)[Language]["nav"];
+  language: Language;
+  onLanguageChange: (language: Language) => void;
+};
 
-const Navbar = () => {
+const Navbar = ({ content, language, onLanguageChange }: NavbarProps) => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const isArabic = language === "ar";
+  const ArrowIcon = isArabic ? ArrowLeft : ArrowRight;
+  const navLinks = [
+    { label: content.home, href: "#hero" },
+    { label: content.services, href: "#services" },
+    { label: content.pricing, href: "#pricing" },
+    { label: content.whyUs, href: "#why-us" },
+  ];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -26,34 +32,47 @@ const Navbar = () => {
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className={`fixed top-0 right-0 left-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-background/90 backdrop-blur-lg border-b border-border" : "bg-transparent"
+      className={`fixed left-0 right-0 top-0 z-50 transition-all duration-300 ${
+        scrolled ? "border-b border-border bg-background/90 shadow-2xl shadow-black/10 backdrop-blur-xl" : "bg-transparent"
       }`}
     >
-      <div className="container flex items-center justify-between h-16 md:h-20">
+      <div className="container flex h-16 items-center justify-between md:h-20">
         <a href="#hero" className="flex items-center gap-2">
-          {/* <img src={logo} alt="CTS Logo" className="h-8 md:h-10 w-auto" /> */}
-          <img src={logo} alt="CTS Logo" className="h-5 md:h-6 w-auto" />
-          <span className="text-foreground text-sm font-normal hidden sm:inline">Core Tech Solutions</span>
+          <img src={logo} alt="CTS Logo" className="h-6 w-auto md:h-7" />
+          <span className="hidden text-sm font-semibold tracking-wide text-foreground sm:inline">Core Tech Solutions</span>
         </a>
 
         {/* Desktop */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden items-center gap-8 md:flex">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="text-muted-foreground hover:text-foreground transition-colors text-sm font-medium"
+              className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
             >
               {link.label}
             </a>
           ))}
+          <a
+            href="#contact"
+            className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-5 py-2.5 text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
+          >
+            {content.contact}
+            <ArrowIcon size={16} />
+          </a>
+          <button
+            onClick={() => onLanguageChange(isArabic ? "en" : "ar")}
+            className="rounded-full border border-border px-4 py-2 text-sm font-semibold text-muted-foreground transition-colors hover:border-primary/50 hover:text-foreground"
+          >
+            {content.language}
+          </button>
         </div>
 
         {/* Mobile toggle */}
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
-          className="md:hidden text-foreground"
+          className="text-foreground md:hidden"
+          aria-label={content.menuLabel}
         >
           {mobileOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
@@ -64,19 +83,35 @@ const Navbar = () => {
         <motion.div
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: "auto" }}
-          className="md:hidden bg-background/95 backdrop-blur-lg border-b border-border"
+          className="border-b border-border bg-background/95 backdrop-blur-lg md:hidden"
         >
-          <div className="container py-4 flex flex-col gap-4">
+          <div className="container flex flex-col gap-4 py-4">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={() => setMobileOpen(false)}
-                className="text-muted-foreground hover:text-foreground transition-colors text-sm py-2"
+                className="py-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
               >
                 {link.label}
               </a>
             ))}
+            <a
+              href="#contact"
+              onClick={() => setMobileOpen(false)}
+              className="rounded-xl bg-primary px-5 py-3 text-center text-sm font-semibold text-primary-foreground"
+            >
+              {content.contact}
+            </a>
+            <button
+              onClick={() => {
+                onLanguageChange(isArabic ? "en" : "ar");
+                setMobileOpen(false);
+              }}
+              className="rounded-xl border border-border px-5 py-3 text-center text-sm font-semibold text-muted-foreground"
+            >
+              {content.language}
+            </button>
           </div>
         </motion.div>
       )}

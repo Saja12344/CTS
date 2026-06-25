@@ -1,44 +1,89 @@
 import { motion } from "framer-motion";
-import { Clock, Palette, HeadphonesIcon, BadgeDollarSign } from "lucide-react";
+import { ClipboardCheck, Layers3, LifeBuoy, LineChart, Shield, Sparkles } from "lucide-react";
+import { Language, siteContent } from "@/content/site";
 
-const reasons = [
-  { icon: Clock, title: "تسليم بوقته", description: "نلتزم بالمواعيد المتفق عليها" },
-  { icon: Palette, title: "جودة تعكس هويتك", description: "تصاميم تعبر عن علامتك التجارية" },
-  { icon: HeadphonesIcon, title: "دعم ما بعد التسليم", description: "نوفر دعم فني مستمر بعد الإطلاق" },
-  { icon: BadgeDollarSign, title: "أسعار تنافسية", description: "جودة عالية بأسعار مناسبة" },
-];
+type WhyUsSectionProps = {
+  content: (typeof siteContent)[Language]["why"];
+};
 
-const WhyUsSection = () => {
+const icons = [ClipboardCheck, Layers3, LineChart, LifeBuoy];
+
+const WhyUsSection = ({ content }: WhyUsSectionProps) => {
   return (
-    <section id="why-us" className="py-24 bg-background">
+    <section id="why-us" className="bg-background py-24">
       <div className="container">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">لماذا نحن؟</h2>
-          <p className="text-muted-foreground text-lg">نتميز بما نقدمه لعملائنا</p>
-        </motion.div>
+        <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="lg:sticky lg:top-28"
+          >
+            <span className="mb-4 inline-flex rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-sm font-semibold text-primary">
+              {content.eyebrow}
+            </span>
+            <h2 className="mb-5 text-3xl font-bold leading-tight md:text-5xl">
+              {content.title}
+            </h2>
+            <p className="mb-8 text-lg leading-relaxed text-muted-foreground">
+              {content.description}
+            </p>
+            <div className="rounded-3xl border border-primary/20 bg-card p-6">
+              <div className="mb-4 flex items-center gap-3">
+                <div className="rounded-2xl bg-primary/10 p-3 text-primary">
+                  <Shield size={24} />
+                </div>
+                <div>
+                  <h3 className="font-bold">{content.standardTitle}</h3>
+                  <p className="text-sm text-muted-foreground">{content.standardDescription}</p>
+                </div>
+              </div>
+              <div className="grid grid-cols-3 gap-3 text-center">
+                {content.steps.map((step) => (
+                  <div key={step} className="rounded-2xl bg-secondary/60 px-3 py-4 text-sm font-semibold">
+                    {step}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {reasons.map((r, i) => (
+          <div className="grid gap-6 sm:grid-cols-2">
+            {content.reasons.map((r, i) => {
+              const Icon = icons[i];
+              return (
+              <motion.div
+                key={r.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="rounded-2xl border border-border bg-card/80 p-6"
+              >
+                <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-xl gradient-electric">
+                  <Icon size={24} className="text-foreground" />
+                </div>
+                <h3 className="mb-2 text-lg font-bold">{r.title}</h3>
+                <p className="text-sm leading-relaxed text-muted-foreground">{r.description}</p>
+              </motion.div>
+              );
+            })}
+
             <motion.div
-              key={r.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="text-center p-6"
+              className="rounded-2xl border border-primary/30 bg-primary/10 p-6 sm:col-span-2"
             >
-              <div className="w-14 h-14 rounded-xl gradient-electric flex items-center justify-center mx-auto mb-5">
-                <r.icon size={24} className="text-foreground" />
+              <div className="mb-4 flex items-center gap-3 text-primary">
+                <Sparkles size={22} />
+                <h3 className="text-lg font-bold">{content.highlightTitle}</h3>
               </div>
-              <h3 className="text-lg font-bold mb-2">{r.title}</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">{r.description}</p>
+              <p className="leading-relaxed text-muted-foreground">
+                {content.highlightDescription}
+              </p>
             </motion.div>
-          ))}
+          </div>
         </div>
       </div>
     </section>
