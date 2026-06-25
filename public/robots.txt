@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://saja12344.github.io/CTS/sitemap.xml
+Sitemap: https://cts-red.vercel.app/sitemap.xml
