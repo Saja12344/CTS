@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { FormEvent, useState } from "react";
-import { CalendarCheck, MessageCircle, Send } from "lucide-react";
+import { Send } from "lucide-react";
 import { Language, siteContent } from "@/content/site";
 
 type ContactSectionProps = {
@@ -13,14 +13,13 @@ const ContactSection = ({ content }: ContactSectionProps) => {
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     const text = encodeURIComponent(
-      `${content.whatsappIntro}\n\n${content.nameLabel}: ${form.name}\n${content.serviceLabel}: ${form.service}\n${content.messageLabel}: ${form.message}`
+      `${content.whatsappIntro}\n\n${content.nameLabel}: ${form.name}\n${content.serviceLabel}: ${form.service}\n${content.messageLabel}: ${form.message}`,
     );
-    window.open(`https://wa.me/966503807517?text=${text}`, "_blank");
+    window.open(`https://wa.me/966503807517?text=${text}`, "_blank", "noopener,noreferrer");
   };
 
   return (
-    <section id="contact" className="relative overflow-hidden py-24 gradient-navy">
-      <div className="absolute bottom-0 right-1/2 h-80 w-80 translate-x-1/2 rounded-full bg-primary/10 blur-[120px]" />
+    <section id="contact" className="border-b border-border bg-background py-20 md:py-28">
       <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -28,78 +27,97 @@ const ContactSection = ({ content }: ContactSectionProps) => {
           viewport={{ once: true }}
           className="mx-auto mb-12 max-w-3xl text-center"
         >
-          <span className="mb-4 inline-flex rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-sm font-semibold text-primary">
-            {content.eyebrow}
-          </span>
-          <h2 className="mb-4 text-3xl font-bold md:text-5xl">{content.title}</h2>
-          <p className="text-lg leading-relaxed text-muted-foreground">
-            {content.description}
-          </p>
+          <p className="mb-3 text-sm font-medium uppercase tracking-wider text-muted-foreground">{content.eyebrow}</p>
+          <h2 className="mb-4 text-3xl font-bold tracking-tight md:text-5xl">{content.title}</h2>
+          <p className="text-lg leading-relaxed text-muted-foreground">{content.description}</p>
         </motion.div>
 
-        <div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-stretch">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
+        <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+          <motion.aside
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="rounded-3xl border border-border bg-card/80 p-8"
+            className="rounded-2xl border border-border bg-card/40 p-8"
           >
-            <div className="mb-8 flex h-16 w-16 items-center justify-center rounded-2xl gradient-electric">
-              <CalendarCheck size={28} className="text-foreground" />
-            </div>
-            <h3 className="mb-3 text-2xl font-bold">{content.cardTitle}</h3>
-            <p className="mb-6 leading-relaxed text-muted-foreground">
-              {content.cardDescription}
-            </p>
-            <div className="space-y-3 text-sm text-muted-foreground">
-              {content.steps.map((item) => (
-                <div key={item} className="flex items-center gap-3 rounded-2xl bg-secondary/60 px-4 py-3">
-                  <MessageCircle size={16} className="text-primary" />
+            <h3 className="mb-3 text-xl font-semibold">{content.cardTitle}</h3>
+            <p className="mb-6 leading-relaxed text-muted-foreground">{content.cardDescription}</p>
+            <ol className="space-y-3 text-sm text-muted-foreground">
+              {content.steps.map((item, index) => (
+                <li key={item} className="flex items-center gap-3 rounded-xl bg-secondary/50 px-4 py-3">
+                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-primary/15 text-xs font-semibold text-primary">
+                    {index + 1}
+                  </span>
                   <span>{item}</span>
-                </div>
+                </li>
               ))}
-            </div>
-          </motion.div>
+            </ol>
+          </motion.aside>
 
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="rounded-3xl border border-border bg-background/70 p-6 backdrop-blur md:p-8"
+            className="rounded-2xl border border-border bg-card/30 p-6 md:p-8"
           >
             <form onSubmit={handleSubmit} className="space-y-5">
-              <input
-                type="text"
-                placeholder={content.namePlaceholder}
-                value={form.name}
-                onChange={(e) => setForm({ ...form, name: e.target.value })}
-                className="w-full rounded-xl border border-border bg-card px-5 py-4 text-foreground transition placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
-                required
-              />
-              <select
-                value={form.service}
-                onChange={(e) => setForm({ ...form, service: e.target.value })}
-                className="w-full appearance-none rounded-xl border border-border bg-card px-5 py-4 text-foreground transition focus:outline-none focus:ring-2 focus:ring-primary"
-                required
-              >
-                <option value="" disabled>{content.servicePlaceholder}</option>
-                {content.options.map((option) => (
-                  <option key={option} value={option}>{option}</option>
-                ))}
-              </select>
-              <textarea
-                placeholder={content.messagePlaceholder}
-                rows={5}
-                value={form.message}
-                onChange={(e) => setForm({ ...form, message: e.target.value })}
-                className="w-full resize-none rounded-xl border border-border bg-card px-5 py-4 text-foreground transition placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
-                required
-              />
+              <div>
+                <label htmlFor="contact-name" className="sr-only">
+                  {content.nameLabel}
+                </label>
+                <input
+                  id="contact-name"
+                  name="name"
+                  type="text"
+                  autoComplete="name"
+                  placeholder={content.namePlaceholder}
+                  value={form.name}
+                  onChange={(e) => setForm({ ...form, name: e.target.value })}
+                  className="w-full rounded-xl border border-border bg-background px-5 py-4 text-foreground transition placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                  required
+                />
+              </div>
+              <div>
+                <label htmlFor="contact-service" className="sr-only">
+                  {content.serviceLabel}
+                </label>
+                <select
+                  id="contact-service"
+                  name="service"
+                  value={form.service}
+                  onChange={(e) => setForm({ ...form, service: e.target.value })}
+                  className="w-full appearance-none rounded-xl border border-border bg-background px-5 py-4 text-foreground transition focus:outline-none focus:ring-2 focus:ring-primary"
+                  required
+                >
+                  <option value="" disabled>
+                    {content.servicePlaceholder}
+                  </option>
+                  {content.options.map((option) => (
+                    <option key={option} value={option}>
+                      {option}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              <div>
+                <label htmlFor="contact-message" className="sr-only">
+                  {content.messageLabel}
+                </label>
+                <textarea
+                  id="contact-message"
+                  name="message"
+                  placeholder={content.messagePlaceholder}
+                  rows={5}
+                  value={form.message}
+                  onChange={(e) => setForm({ ...form, message: e.target.value })}
+                  className="w-full resize-none rounded-xl border border-border bg-background px-5 py-4 text-foreground transition placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                  required
+                />
+              </div>
               <button
                 type="submit"
-                className="flex w-full items-center justify-center gap-2 rounded-xl py-4 text-lg font-semibold text-foreground transition-opacity gradient-electric glow-electric hover:opacity-90"
+                className="flex w-full items-center justify-center gap-2 rounded-full bg-primary py-4 text-lg font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
               >
-                <Send size={18} />
+                <Send size={18} aria-hidden="true" />
                 {content.submit}
               </button>
             </form>

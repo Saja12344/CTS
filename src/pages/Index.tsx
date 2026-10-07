@@ -2,9 +2,14 @@ import { useEffect, useState } from "react";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import ServicesSection from "@/components/ServicesSection";
-import PricingSection from "@/components/PricingSection";
+import ProblemsSection from "@/components/ProblemsSection";
+import HowWeWorkSection from "@/components/HowWeWorkSection";
+import WorkSection from "@/components/WorkSection";
 import WhyUsSection from "@/components/WhyUsSection";
+import IndustriesSection from "@/components/IndustriesSection";
+import AboutSection from "@/components/AboutSection";
 import ContactSection from "@/components/ContactSection";
+import FinalCtaSection from "@/components/FinalCtaSection";
 import Footer from "@/components/Footer";
 import { Language, siteContent } from "@/content/site";
 
@@ -27,11 +32,18 @@ const Index = () => {
   return (
     <div dir={dir} className="font-arabic">
       <Navbar content={content.nav} language={language} onLanguageChange={setLanguage} />
-      <HeroSection content={content.hero} language={language} />
-      <ServicesSection content={content.services} />
-      <PricingSection content={content.pricing} language={language} />
-      <WhyUsSection content={content.why} />
-      <ContactSection content={content.contact} />
+      <main>
+        <HeroSection content={content.hero} language={language} />
+        <ServicesSection content={content.services} language={language} />
+        <ProblemsSection content={content.problems} />
+        <HowWeWorkSection content={content.process} />
+        <WorkSection content={content.work} />
+        <WhyUsSection content={content.why} />
+        <IndustriesSection content={content.industries} />
+        <AboutSection content={content.about} />
+        <ContactSection content={content.contact} />
+        <FinalCtaSection content={content.finalCta} />
+      </main>
       <Footer content={content.footer} language={language} />
     </div>
   );
