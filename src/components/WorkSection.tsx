@@ -9,7 +9,7 @@ const WorkSection = ({ content }: WorkSectionProps) => {
   const hasProjects = content.projects.length > 0;
 
   return (
-    <section id="work" className="border-b border-border bg-card/30 py-20 md:py-28">
+    <section id="work" className="section-surface py-20 md:py-28">
       <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -69,7 +69,7 @@ const WorkSection = ({ content }: WorkSectionProps) => {
             <p className="mb-6 leading-relaxed text-muted-foreground">{content.emptyDescription}</p>
             <a
               href="#contact"
-              className="inline-flex rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
+              className="btn-brand px-6 py-3 text-sm"
             >
               {content.emptyCta}
             </a>

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,50 +6,57 @@
 
 @layer base {
   :root {
-    --background: 220 40% 6%;
-    --foreground: 210 40% 98%;
+    /* Core Tech brand palette */
+    --brand-deep: 240 4% 6%; /* #0F0F10 */
+    --brand-charcoal: 0 0% 16%; /* #2A2A2A */
+    --brand-soft-gray: 240 6% 91%; /* #E8E8EA */
+    --brand-light: 240 9% 96%; /* #F5F5F7 */
+    --brand-accent: 27 26% 80%; /* #D9C9BD */
 
-    --card: 220 35% 10%;
-    --card-foreground: 210 40% 98%;
+    --background: var(--brand-deep);
+    --foreground: var(--brand-light);
 
-    --popover: 220 35% 10%;
-    --popover-foreground: 210 40% 98%;
+    --card: var(--brand-charcoal);
+    --card-foreground: var(--brand-light);
 
-    --primary: 210 100% 50%;
-    --primary-foreground: 210 40% 98%;
+    --popover: var(--brand-charcoal);
+    --popover-foreground: var(--brand-light);
 
-    --secondary: 220 30% 16%;
-    --secondary-foreground: 210 40% 98%;
+    --primary: var(--brand-light);
+    --primary-foreground: var(--brand-deep);
 
-    --muted: 220 25% 18%;
-    --muted-foreground: 215 20% 60%;
+    --secondary: 0 0% 20%;
+    --secondary-foreground: var(--brand-light);
 
-    --accent: 210 100% 50%;
-    --accent-foreground: 210 40% 98%;
+    --muted: 0 0% 18%;
+    --muted-foreground: 240 4% 68%;
+
+    --accent: var(--brand-accent);
+    --accent-foreground: var(--brand-deep);
 
     --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: var(--brand-light);
 
-    --border: 220 25% 18%;
-    --input: 220 25% 18%;
-    --ring: 210 100% 50%;
+    --border: 0 0% 22%;
+    --input: 0 0% 22%;
+    --ring: var(--brand-accent);
 
-    --radius: 0.75rem;
+    --radius: 0.875rem;
 
-    --navy-deep: 220 45% 4%;
-    --navy: 220 40% 8%;
-    --navy-light: 220 35% 14%;
-    --electric: 210 100% 50%;
-    --electric-glow: 210 100% 60%;
+    --navy-deep: var(--brand-deep);
+    --navy: var(--brand-charcoal);
+    --navy-light: 0 0% 20%;
+    --electric: var(--brand-accent);
+    --electric-glow: var(--brand-soft-gray);
 
-    --sidebar-background: 220 40% 6%;
-    --sidebar-foreground: 210 40% 98%;
-    --sidebar-primary: 210 100% 50%;
-    --sidebar-primary-foreground: 210 40% 98%;
-    --sidebar-accent: 220 30% 16%;
-    --sidebar-accent-foreground: 210 40% 98%;
-    --sidebar-border: 220 25% 18%;
-    --sidebar-ring: 210 100% 50%;
+    --sidebar-background: var(--brand-deep);
+    --sidebar-foreground: var(--brand-light);
+    --sidebar-primary: var(--brand-light);
+    --sidebar-primary-foreground: var(--brand-deep);
+    --sidebar-accent: var(--brand-charcoal);
+    --sidebar-accent-foreground: var(--brand-light);
+    --sidebar-border: 0 0% 22%;
+    --sidebar-ring: var(--brand-accent);
   }
 }
 
@@ -63,36 +70,60 @@
   }
 
   body {
-    @apply bg-background text-foreground font-arabic;
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+}
+
+@layer components {
+  .brand-wordmark {
+    @apply text-sm font-semibold tracking-tight text-foreground;
+  }
+
+  .brand-solutions {
+    @apply block text-[10px] font-light uppercase tracking-[0.35em] text-muted-foreground;
+  }
+
+  .section-surface {
+    @apply border-b border-border bg-background;
+  }
+
+  .section-surface-alt {
+    @apply border-b border-border bg-card/40;
+  }
+
+  .section-surface-light {
+    @apply border-b border-border bg-[hsl(var(--brand-light))] text-[hsl(var(--brand-deep))];
+  }
+
+  .section-surface-light .text-muted-foreground {
+    color: hsl(0 0% 35%);
+  }
+
+  .btn-brand {
+    @apply inline-flex items-center justify-center rounded-full bg-primary px-8 py-4 text-sm font-semibold text-primary-foreground transition-colors hover:bg-[hsl(var(--brand-soft-gray))];
+  }
+
+  .btn-brand-outline {
+    @apply inline-flex items-center justify-center rounded-full border border-border px-8 py-4 text-sm font-semibold text-foreground transition-colors hover:bg-secondary;
+  }
+
+  .link-brand {
+    @apply inline-flex items-center gap-2 text-sm font-medium text-[hsl(var(--brand-accent))] transition-opacity hover:opacity-80;
   }
 }
 
 @layer utilities {
-  .gradient-electric {
-    background: linear-gradient(135deg, hsl(210 100% 50%), hsl(210 100% 65%));
-  }
-
-  .gradient-navy {
-    background: linear-gradient(180deg, hsl(220 45% 4%), hsl(220 40% 8%));
-  }
-
   .text-gradient {
-    background: linear-gradient(135deg, hsl(210 100% 55%), hsl(210 100% 75%));
+    background: linear-gradient(135deg, hsl(var(--brand-light)), hsl(var(--brand-accent)));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
-  .glow-electric {
-    box-shadow: 0 0 30px -5px hsl(210 100% 50% / 0.4);
-  }
-
-  .card-hover {
-    @apply transition-all duration-300;
-  }
-
-  .card-hover:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 20px 40px -15px hsl(210 100% 50% / 0.2);
+  .text-gradient-metallic {
+    background: linear-gradient(180deg, hsl(var(--brand-light)), hsl(240 4% 72%), hsl(var(--brand-light)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 }

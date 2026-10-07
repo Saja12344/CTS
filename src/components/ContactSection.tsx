@@ -19,7 +19,7 @@ const ContactSection = ({ content }: ContactSectionProps) => {
   };
 
   return (
-    <section id="contact" className="border-b border-border bg-background py-20 md:py-28">
+    <section id="contact" className="section-surface-alt py-20 md:py-28">
       <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -44,7 +44,7 @@ const ContactSection = ({ content }: ContactSectionProps) => {
             <ol className="space-y-3 text-sm text-muted-foreground">
               {content.steps.map((item, index) => (
                 <li key={item} className="flex items-center gap-3 rounded-xl bg-secondary/50 px-4 py-3">
-                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-primary/15 text-xs font-semibold text-primary">
+                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[hsl(var(--brand-accent)/0.2)] text-xs font-semibold text-[hsl(var(--brand-accent))]">
                     {index + 1}
                   </span>
                   <span>{item}</span>
@@ -115,7 +115,7 @@ const ContactSection = ({ content }: ContactSectionProps) => {
               </div>
               <button
                 type="submit"
-                className="flex w-full items-center justify-center gap-2 rounded-full bg-primary py-4 text-lg font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
+                className="btn-brand w-full gap-2 py-4 text-lg"
               >
                 <Send size={18} aria-hidden="true" />
                 {content.submit}

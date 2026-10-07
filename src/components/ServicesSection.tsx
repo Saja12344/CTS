@@ -12,7 +12,7 @@ const ServicesSection = ({ content, language }: ServicesSectionProps) => {
   const ArrowIcon = isArabic ? ArrowLeft : ArrowRight;
 
   return (
-    <section id="services" className="border-b border-border bg-background py-20 md:py-28">
+    <section id="services" className="section-surface-alt py-20 md:py-28">
       <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -33,13 +33,13 @@ const ServicesSection = ({ content, language }: ServicesSectionProps) => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.08 }}
-              className="flex flex-col rounded-2xl border border-border bg-card/50 p-8"
+              className="flex flex-col rounded-2xl border border-border bg-[hsl(var(--brand-charcoal))] p-8"
             >
               <h3 className="mb-3 text-xl font-semibold">{service.title}</h3>
               <p className="mb-6 flex-1 leading-relaxed text-muted-foreground">{service.description}</p>
               <a
                 href={service.href}
-                className="inline-flex items-center gap-2 text-sm font-semibold text-primary transition-opacity hover:opacity-80"
+                className="link-brand"
               >
                 {content.learnMore}
                 <ArrowIcon size={16} />

@@ -7,7 +7,7 @@ type IndustriesSectionProps = {
 
 const IndustriesSection = ({ content }: IndustriesSectionProps) => {
   return (
-    <section id="industries" className="border-b border-border bg-card/30 py-20 md:py-28">
+    <section id="industries" className="section-surface py-20 md:py-28">
       <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

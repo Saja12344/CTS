@@ -7,7 +7,7 @@ type HowWeWorkSectionProps = {
 
 const HowWeWorkSection = ({ content }: HowWeWorkSectionProps) => {
   return (
-    <section id="process" className="border-b border-border bg-background py-20 md:py-28">
+    <section id="process" className="section-surface-alt py-20 md:py-28">
       <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -29,7 +29,7 @@ const HowWeWorkSection = ({ content }: HowWeWorkSectionProps) => {
               transition={{ delay: i * 0.05 }}
               className="rounded-2xl border border-border bg-card/40 p-5"
             >
-              <p className="mb-3 text-xs font-semibold tracking-widest text-primary">{step.number}</p>
+              <p className="mb-3 text-xs font-semibold tracking-widest text-[hsl(var(--brand-accent))]">{step.number}</p>
               <h3 className="mb-2 text-base font-semibold">{step.title}</h3>
               <p className="text-sm leading-relaxed text-muted-foreground">{step.subtitle}</p>
             </motion.li>
