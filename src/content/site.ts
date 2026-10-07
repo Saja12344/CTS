@@ -3,9 +3,9 @@ export type Language = "ar" | "en";
 export const siteContent = {
   ar: {
     seo: {
-      title: "Core Tech Solutions | حلول تقنية للشركات",
+      title: "Core Tech Solutions | شركة تقنية B2B",
       description:
-        "Core Tech Solutions شريك تقني B2B يبني مواقع، منتجات رقمية، لوحات تحكم، وتكاملات مصممة حول احتياج العمل — بوضوح، منهجية، وهندسة قابلة للتوسع.",
+        "Core Tech Solutions شركة تقنية B2B تبني منتجات رقمية، أنظمة داخلية، تكاملات، وتحسيناً للعمليات الرقمية — بتقنية عملية ومنهجية واضحة.",
     },
     nav: {
       home: "الرئيسية",
@@ -18,171 +18,135 @@ export const siteContent = {
       language: "English",
     },
     hero: {
-      brand: "Core Tech Solutions",
-      headline: "منتجات رقمية واضحة",
-      headlineAccent: "مبنية حول عملك",
+      headline: "نبني ما تحتاجه شركتك في خطوتها التالية.",
       description:
-        "نصمم ونطور مواقع، أنظمة، وتجارب رقمية تساعد الشركات على تشغيل أعمالها وتحسينها — من التحليل إلى الإطلاق.",
+        "من المنتجات الرقمية والأنظمة الداخلية إلى الأتمتة والتكاملات — نحوّل الاحتياج إلى تقنية قابلة للتطبيق.",
       primaryCta: "ابدأ مشروعاً",
       secondaryCta: "استعرض أعمالنا",
     },
     services: {
-      eyebrow: "ماذا نقدم",
-      title: "حلول رقمية مبنية حول احتياج عملك",
-      description: "خدمات أساسية نركز عليها مع فرق الأعمال — بدون تعقيد غير ضروري.",
-      learnMore: "اعرف المزيد",
+      eyebrow: "ما نبنيه",
+      title: "تقنية مصممة لطريقة عملك.",
       items: [
         {
-          title: "التحول الرقمي",
-          description: "تحويل العمليات التقليدية إلى حلول رقمية أكثر كفاءة وقابلية للتوسع.",
-          href: "#problems",
+          number: "01",
+          title: "منتجات رقمية",
+          description: "مواقع وتطبيقات ومنصات موجهة للعملاء — مبنية على احتياج حقيقي.",
         },
         {
-          title: "تطوير برمجيات مخصصة",
-          description: "بناء مواقع، تطبيقات، ولوحات تحكم مصممة حسب سياق عملك ومتطلباتك.",
-          href: "#work",
+          number: "02",
+          title: "أنظمة الأعمال",
+          description: "أدوات داخلية ولوحات تحكم أنظمة أوضح وأكثر كفاءة.",
         },
         {
-          title: "تدقيق وتحسين رقمي",
-          description: "مراجعة المنتجات والمواقع الحالية وتحديد فرص تحسين الأداء والتجربة.",
-          href: "#problems",
+          number: "03",
+          title: "أتمتة وتكاملات",
+          description: "ربط الأدوات والبيانات ومسارات العمل لتقليل التكرار اليدوي.",
         },
         {
-          title: "تكاملات وأتمتة",
-          description: "ربط الأدوات، النماذج، قواعد البيانات، ومسارات العمل لتقليل العمل اليدوي.",
-          href: "#process",
+          number: "04",
+          title: "تحسين رقمي",
+          description: "تدقيق وتحسين منتجات ومواقع ومسارات عمل قائمة.",
         },
       ],
     },
     problems: {
-      eyebrow: "المشاكل التي نحلها",
-      title: "التقنية يجب أن تحل مشكلة عمل — لا أن تخلق مشكلة أخرى",
+      eyebrow: "احتياجات العمل",
+      title: "عندما تصبح التقنية عنق زجاجة، نعالجها.",
       items: [
-        {
-          problem: "موقعك لم يعد يعكس شركتك",
-          solution: "إعادة تصميم الواجهة وتجربة الاستخدام الرقمية",
-        },
-        {
-          problem: "عملياتك ما زالت يدوية",
-          solution: "تحول رقمي وأتمتة مسارات العمل",
-        },
-        {
-          problem: "لديك فكرة منتج بدون فريق تقني",
-          solution: "تطوير منتج مخصص من الفكرة إلى الإطلاق",
-        },
-        {
-          problem: "منتجك الرقمي يحتاج تحسيناً",
-          solution: "تدقيق تقني وتحسين الأداء والبنية",
-        },
-      ],
-    },
-    process: {
-      eyebrow: "كيف نعمل",
-      title: "منهجية واضحة من البداية إلى الإطلاق",
-      steps: [
-        { number: "01", title: "Discover", subtitle: "فهم العمل، المستخدم، والمشكلة" },
-        { number: "02", title: "Define", subtitle: "تحويل المتطلبات إلى اتجاه منتج وتقني واضح" },
-        { number: "03", title: "Design", subtitle: "تصميم تجربة رقمية وهيكل منتج مركز" },
-        { number: "04", title: "Build", subtitle: "تطوير، ربط، اختبار، وتحسين الحل" },
-        { number: "05", title: "Launch", subtitle: "إطلاق المنتج ودعم مرحلته التالية" },
+        { number: "01", text: "حضورك الرقمي لم يعد يعكس شركتك كما ينبغي." },
+        { number: "02", text: "جزء كبير من التشغيل ما زال يعتمد على عمل يدوي." },
+        { number: "03", text: "لديك فكرة منتج وتحتاج التقنية لتحويلها إلى واقع." },
+        { number: "04", text: "منتجك الرقمي الحالي يحتاج أداءً وتجربة أفضل." },
       ],
     },
     work: {
       eyebrow: "أعمال مختارة",
-      title: "مشاريع نفتخر بتقديمها",
-      description: "كل مشروع يُعرض بسياق المشكلة والحل — وليس كصورة فقط.",
-      emptyTitle: "قريباً: دراسات حالة مفصّلة",
-      emptyDescription:
-        "نُجهّز عرضاً لأعمال مختارة من مشاريع Core Tech. إذا لديك مشروع للعرض هنا، شاركنا التفاصيل.",
-      emptyCta: "شارك تفاصيل مشروع",
+      title: "Selected Work",
       labels: {
-        problem: "المشكلة",
+        challenge: "التحدي",
         solution: "الحل",
-        services: "الخدمات",
-        result: "الأثر",
+        outcome: "النتيجة",
       },
-      projects: [] as Array<{
-        name: string;
-        summary: string;
-        problem: string;
-        solution: string;
-        services: string[];
-        result?: string;
-      }>,
+      projects: [
+        {
+          name: "Core Tech Solutions — منصة الشركة",
+          summary: "منصة تعريفية ثنائية اللغة لعرض قدرات Core Tech ومسار التواصل مع العملاء.",
+          challenge: "توحيد رسالة الشركة التقنية B2B بلغة واضحة بالعربية والإنجليزية.",
+          solution: "موقع editorial سريع الاستجابة يعرض القدرات، المنهجية، ونموذج تواصل مباشر.",
+          outcome: "منصة منشورة وجاهزة للاستخدام كقناة حضور رقمي للشركة.",
+          image: "/placeholder.svg",
+        },
+      ],
+    },
+    process: {
+      eyebrow: "المنهجية",
+      title: "من أول محادثة إلى منتج يعمل.",
+      steps: [
+        { number: "01", title: "Discover", subtitle: "فهم العمل، المستخدم، والمشكلة." },
+        { number: "02", title: "Define", subtitle: "تحويل المتطلبات إلى اتجاه منتج وتقني واضح." },
+        { number: "03", title: "Design", subtitle: "تصميم تجربة رقمية وهيكل منتج مركز." },
+        { number: "04", title: "Build", subtitle: "تطوير، ربط، اختبار، وتحسين." },
+        { number: "05", title: "Launch", subtitle: "إطلاق المنتج ودعم مرحلته التالية." },
+      ],
     },
     why: {
       eyebrow: "لماذا Core Tech",
-      title: "شريك تقني يركز على العمل أولاً",
-      points: [
-        "تقنية مرتبطة بأهداف العمل",
-        "حلول رقمية مصممة حسب السياق",
-        "تفكير منتج + هندسة تنفيذ",
-        "بنية حديثة قابلة للتوسع",
-        "عملية وتواصل واضحان",
+      title: "تقنية بدون تعقيد غير ضروري.",
+      principles: [
+        {
+          title: "BUSINESS-FIRST",
+          description: "نحل المشكلة الفعلية قبل اختيار التقنية.",
+        },
+        {
+          title: "BUILT TO SCALE",
+          description: "نصمم الحلول مع مرحلة النمو التالية في الحسبان.",
+        },
+        {
+          title: "CLEAR FROM DAY ONE",
+          description: "نطاق محدد، تواصل مباشر، وتسليم عملي.",
+        },
       ],
     },
-    industries: {
-      eyebrow: "قطاعات نخدمها",
-      title: "نركز حيث يكون للتقنية أثر تشغيلي حقيقي",
-      items: [
-        {
-          name: "الشركات الصغيرة والمتوسطة",
-          description: "حضور رقمي، منتجات مخصصة، وأنظمة تشغيل دون تعقيد زائد.",
-        },
-        {
-          name: "شركات الخدمات",
-          description: "مواقع ومسارات تواصل وتحويل تدعم المبيعات وخدمة العملاء.",
-        },
-        {
-          name: "فرق العمليات",
-          description: "لوحات تحكم، تكاملات، وأتمتة لإدارة البيانات والعمل اليومي.",
-        },
-      ],
+    audience: {
+      eyebrow: "من نعمل معهم",
+      items: ["شركات في مرحلة نمو", "شركات خدمات", "جهات تُحدّث تشغيلها الرقمي"],
     },
     about: {
       eyebrow: "من نحن",
       title: "Core Tech Solutions",
-      paragraphs: [
-        "Core Tech Solutions شريك تقني B2B يساعد الشركات على بناء وتحسين منتجاتها الرقمية — من المواقع والتطبيقات إلى الأنظمة الداخلية والتكاملات.",
-        "نبدأ بفهم المشكلة التجارية، ثم نحوّلها إلى حل واضح قابل للبناء والتوسع. هدفنا ليس عرض تقني معقد، بل منتج يخدم فريقك وعملاءك.",
-        "نعمل بمنهجية Discover → Define → Design → Build → Launch، مع تواصل مباشر ونطاق محدد في كل مرحلة.",
-      ],
+      lead: "Core Tech Solutions شركة تقنية B2B تساعد الشركات على بناء وتحسين وربط عملياتها الرقمية.",
+      capabilities: ["منتجات رقمية", "أنظمة داخلية", "أتمتة", "تكاملات", "تحسين"],
     },
     contact: {
-      eyebrow: "تواصل",
-      title: "لنناقش مشروعك",
-      description: "صف ما تريد بناءه أو تحسينه، وسنرد بتصور أولي للمسار والخطوات.",
-      cardTitle: "ماذا يحدث بعد الإرسال؟",
-      cardDescription: "مراجعة سريعة، توضيح النطاق، ثم اقتراح خطوات عملية قبل البدء.",
-      steps: ["رد أولي", "تحديد النطاق", "عرض تنفيذ واضح"],
-      namePlaceholder: "اسمك أو اسم الشركة",
-      servicePlaceholder: "نوع الحل المطلوب",
-      messagePlaceholder: "ما الذي تحاول بناءه أو تحسينه؟",
+      eyebrow: "ابدأ",
+      title: "هل لديك شيء يستحق البناء؟",
+      description: "أخبرنا بما تريد بناءه أو تحسينه أو أتمتته.",
+      whatsappNote: "أو تواصل مباشرة عبر واتساب بعد إرسال النموذج.",
+      namePlaceholder: "الاسم",
+      servicePlaceholder: "نوع الحل",
+      messagePlaceholder: "التفاصيل",
       options: [
-        "موقع أو منصة",
-        "تطبيق جوال",
-        "لوحة تحكم أو نظام داخلي",
-        "تكاملات وأتمتة",
-        "تدقيق وتحسين منتج حالي",
-        "استشارة تقنية",
+        "منتج رقمي",
+        "نظام داخلي",
+        "أتمتة وتكاملات",
+        "تحسين منتج حالي",
+        "استشارة",
       ],
       submit: "إرسال عبر واتساب",
       whatsappIntro: "مرحباً Core Tech Solutions",
       nameLabel: "الاسم",
-      serviceLabel: "الخدمة",
+      serviceLabel: "نوع الحل",
       messageLabel: "التفاصيل",
     },
-    finalCta: {
-      title: "هل لديك تحدٍ رقمي؟",
-      description: "أخبرنا بما تحاول بناءه أو تحسينه أو تحويله.",
-      cta: "ابدأ مشروعاً",
-    },
     footer: {
-      tagline: "حلول تقنية B2B — واضحة، قابلة للتوسع، ومبنية حول عملك.",
+      tagline: "حلول تقنية B2B — مبنية لما يلي.",
       services: "الخدمات",
       work: "الأعمال",
       about: "من نحن",
       contact: "تواصل",
+      linkedin: "LinkedIn",
+      linkedinUrl: "https://www.linkedin.com/",
       rights: "جميع الحقوق محفوظة",
     },
     pricing: {
@@ -235,9 +199,9 @@ export const siteContent = {
   },
   en: {
     seo: {
-      title: "Core Tech Solutions | Technology Solutions for Businesses",
+      title: "Core Tech Solutions | B2B Technology Company",
       description:
-        "Core Tech Solutions is a B2B technology partner building websites, digital products, dashboards, and integrations shaped around business needs — with clarity, process, and scalable engineering.",
+        "Core Tech Solutions is a B2B technology company building digital products, internal systems, integrations, and optimization — with practical engineering and a clear process.",
     },
     nav: {
       home: "Home",
@@ -250,171 +214,129 @@ export const siteContent = {
       language: "العربية",
     },
     hero: {
-      brand: "Core Tech Solutions",
-      headline: "Clear digital products",
-      headlineAccent: "built around your business",
+      headline: "We build what your business needs next.",
       description:
-        "We design and develop websites, systems, and digital experiences that help companies run and improve their operations — from discovery to launch.",
+        "From digital products and internal systems to automation and integrations, we turn business needs into practical technology.",
       primaryCta: "Start a Project",
-      secondaryCta: "Explore Our Work",
+      secondaryCta: "View Our Work",
     },
     services: {
-      eyebrow: "What we do",
-      title: "Digital solutions built around your business",
-      description: "Core services we focus on with business teams — without unnecessary complexity.",
-      learnMore: "Learn More",
+      eyebrow: "What we build",
+      title: "Technology built for the way you work.",
       items: [
         {
-          title: "Digital Transformation",
-          description: "Turn traditional operations into more efficient, scalable digital workflows.",
-          href: "#problems",
+          number: "01",
+          title: "Digital Products",
+          description: "Websites, applications, and customer-facing platforms designed around real needs.",
         },
         {
-          title: "Custom Software Development",
-          description: "Websites, applications, and dashboards designed for your business context.",
-          href: "#work",
+          number: "02",
+          title: "Business Systems",
+          description: "Internal tools, dashboards, and systems that make operations clearer and more efficient.",
         },
         {
-          title: "Digital Audit & Optimization",
-          description: "Review existing products and websites to find performance and experience improvements.",
-          href: "#problems",
+          number: "03",
+          title: "Automation & Integrations",
+          description: "Connect tools, data, and workflows to reduce repetitive manual work.",
         },
         {
-          title: "Integrations & Automation",
-          description: "Connect tools, forms, data, and workflows to reduce manual work.",
-          href: "#process",
+          number: "04",
+          title: "Digital Optimization",
+          description: "Audit and improve existing digital products, websites, and workflows.",
         },
       ],
     },
     problems: {
-      eyebrow: "Problems we solve",
-      title: "Technology should solve a business problem — not create another one",
+      eyebrow: "Business needs",
+      title: "When technology becomes a bottleneck, we fix it.",
       items: [
-        {
-          problem: "Your website no longer represents your business",
-          solution: "Website redesign and digital experience",
-        },
-        {
-          problem: "Your processes are still manual",
-          solution: "Digital transformation and workflow solutions",
-        },
-        {
-          problem: "You have a product idea but no technical team",
-          solution: "Custom product development",
-        },
-        {
-          problem: "Your existing digital product needs improvement",
-          solution: "Technical audit and optimization",
-        },
-      ],
-    },
-    process: {
-      eyebrow: "How we work",
-      title: "A clear path from discovery to launch",
-      steps: [
-        { number: "01", title: "Discover", subtitle: "Understand the business, users, and problem" },
-        { number: "02", title: "Define", subtitle: "Turn requirements into a clear product and technical direction" },
-        { number: "03", title: "Design", subtitle: "Create a focused digital experience and product structure" },
-        { number: "04", title: "Build", subtitle: "Develop, integrate, test, and refine the solution" },
-        { number: "05", title: "Launch", subtitle: "Deploy the product and support its next stage" },
+        { number: "01", text: "Your digital presence no longer reflects your business." },
+        { number: "02", text: "Too much of your operation still depends on manual work." },
+        { number: "03", text: "You have a product idea but need the technology to bring it to life." },
+        { number: "04", text: "Your existing digital product needs to perform better." },
       ],
     },
     work: {
       eyebrow: "Selected work",
-      title: "Projects we are proud to deliver",
-      description: "Each project is shown with problem and solution context — not just visuals.",
-      emptyTitle: "Case studies coming soon",
-      emptyDescription:
-        "We are preparing selected work from Core Tech projects. If you have a project to feature here, share the details with us.",
-      emptyCta: "Share project details",
+      title: "Selected Work",
       labels: {
-        problem: "Problem",
+        challenge: "Challenge",
         solution: "Solution",
-        services: "Services",
-        result: "Impact",
+        outcome: "Outcome",
       },
-      projects: [] as Array<{
-        name: string;
-        summary: string;
-        problem: string;
-        solution: string;
-        services: string[];
-        result?: string;
-      }>,
+      projects: [
+        {
+          name: "Core Tech Solutions — Company Platform",
+          summary: "Bilingual company platform presenting Core Tech capabilities and a direct contact path.",
+          challenge: "Unify B2B technology positioning with clear Arabic and English messaging.",
+          solution: "A fast, responsive editorial site structured around capabilities, process, and contact.",
+          outcome: "Published web presence used as the company's primary digital channel.",
+          image: "/placeholder.svg",
+        },
+      ],
+    },
+    process: {
+      eyebrow: "Process",
+      title: "From first conversation to working product.",
+      steps: [
+        { number: "01", title: "Discover", subtitle: "Understand the business, users, and problem." },
+        { number: "02", title: "Define", subtitle: "Turn requirements into a clear product and technical direction." },
+        { number: "03", title: "Design", subtitle: "Create a focused digital experience and product structure." },
+        { number: "04", title: "Build", subtitle: "Develop, integrate, test, and refine." },
+        { number: "05", title: "Launch", subtitle: "Deploy the product and support its next stage." },
+      ],
     },
     why: {
       eyebrow: "Why Core Tech",
-      title: "A technology partner with a business-first mindset",
-      points: [
-        "Business-first technology",
-        "Tailored digital solutions",
-        "Product thinking + engineering",
-        "Modern and scalable architecture",
-        "Clear process and communication",
+      title: "Technology without the unnecessary complexity.",
+      principles: [
+        {
+          title: "BUSINESS-FIRST",
+          description: "We solve the actual problem before choosing the technology.",
+        },
+        {
+          title: "BUILT TO SCALE",
+          description: "Solutions are designed with the next stage in mind.",
+        },
+        {
+          title: "CLEAR FROM DAY ONE",
+          description: "Defined scope, direct communication, and practical delivery.",
+        },
       ],
     },
-    industries: {
-      eyebrow: "Industries",
-      title: "Where technology creates real operational impact",
-      items: [
-        {
-          name: "SMEs",
-          description: "Digital presence, custom products, and operating systems without excess complexity.",
-        },
-        {
-          name: "Service Businesses",
-          description: "Websites and conversion journeys that support sales and customer service.",
-        },
-        {
-          name: "Operations Teams",
-          description: "Dashboards, integrations, and automation for daily data and workflow management.",
-        },
-      ],
+    audience: {
+      eyebrow: "Who we work with",
+      items: ["Growing businesses", "Service businesses", "Organizations modernizing operations"],
     },
     about: {
       eyebrow: "About",
       title: "Core Tech Solutions",
-      paragraphs: [
-        "Core Tech Solutions is a B2B technology partner helping companies build and improve their digital products — from websites and apps to internal systems and integrations.",
-        "We start with the business problem, then translate it into a clear solution that can be built and scaled. The goal is not technical complexity for its own sake, but a product that serves your team and customers.",
-        "We work through Discover → Define → Design → Build → Launch, with direct communication and defined scope at every stage.",
-      ],
+      lead: "Core Tech Solutions is a B2B technology company helping businesses build, improve, and connect their digital operations.",
+      capabilities: ["Digital products", "Internal systems", "Automation", "Integrations", "Optimization"],
     },
     contact: {
-      eyebrow: "Contact",
-      title: "Let's discuss your project",
-      description: "Tell us what you want to build or improve, and we will respond with an initial view of the path forward.",
-      cardTitle: "What happens after you reach out?",
-      cardDescription: "A quick review, scope clarification, then practical next steps before we start.",
-      steps: ["Initial reply", "Scope alignment", "Clear proposal"],
-      namePlaceholder: "Your name or company",
+      eyebrow: "Start",
+      title: "Have something worth building?",
+      description: "Tell us what you want to build, improve, or automate.",
+      whatsappNote: "Or continue the conversation on WhatsApp after submitting the form.",
+      namePlaceholder: "Name",
       servicePlaceholder: "Type of solution",
-      messagePlaceholder: "What are you trying to build or improve?",
-      options: [
-        "Website or platform",
-        "Mobile application",
-        "Dashboard or internal system",
-        "Integrations and automation",
-        "Audit and optimization",
-        "Technical consultation",
-      ],
+      messagePlaceholder: "Details",
+      options: ["Digital product", "Internal system", "Automation & integrations", "Product optimization", "Consultation"],
       submit: "Send via WhatsApp",
       whatsappIntro: "Hello Core Tech Solutions",
       nameLabel: "Name",
-      serviceLabel: "Service",
+      serviceLabel: "Type of solution",
       messageLabel: "Details",
     },
-    finalCta: {
-      title: "Have a digital challenge?",
-      description: "Tell us what you're trying to build, improve, or transform.",
-      cta: "Start a Project",
-    },
     footer: {
-      tagline: "B2B technology solutions — clear, scalable, and built around your business.",
+      tagline: "B2B technology solutions — built for what's next.",
       services: "Services",
       work: "Work",
       about: "About",
       contact: "Contact",
+      linkedin: "LinkedIn",
+      linkedinUrl: "https://www.linkedin.com/",
       rights: "All rights reserved",
     },
     pricing: {

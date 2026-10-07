@@ -1,6 +1,5 @@
-import { motion } from "framer-motion";
 import { FormEvent, useState } from "react";
-import { Send } from "lucide-react";
+import SectionReveal from "@/components/SectionReveal";
 import { Language, siteContent } from "@/content/site";
 
 type ContactSectionProps = {
@@ -19,49 +18,23 @@ const ContactSection = ({ content }: ContactSectionProps) => {
   };
 
   return (
-    <section id="contact" className="section-surface-alt py-20 md:py-28">
+    <section id="contact" className="section-shell bg-[hsl(var(--brand-light))] py-20 text-[hsl(var(--brand-deep))] md:py-28">
       <div className="container">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mx-auto mb-12 max-w-3xl text-center"
-        >
-          <p className="mb-3 text-sm font-medium uppercase tracking-wider text-muted-foreground">{content.eyebrow}</p>
-          <h2 className="mb-4 text-3xl font-bold tracking-tight md:text-5xl">{content.title}</h2>
-          <p className="text-lg leading-relaxed text-muted-foreground">{content.description}</p>
-        </motion.div>
+        <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
+          <SectionReveal>
+            <p className="micro-label mb-4 text-[hsl(var(--brand-deep)/0.55)]">{content.eyebrow}</p>
+            <h2 className="editorial-title mb-5 text-[hsl(var(--brand-deep))]">{content.title}</h2>
+            <p className="editorial-body mb-6 text-[hsl(var(--brand-deep)/0.72)]">{content.description}</p>
+            <a href="#contact-form" className="btn-primary">
+              {content.submit}
+            </a>
+            <p className="mt-6 text-sm text-[hsl(var(--brand-deep)/0.55)]">{content.whatsappNote}</p>
+          </SectionReveal>
 
-        <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-          <motion.aside
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="rounded-2xl border border-border bg-card/40 p-8"
-          >
-            <h3 className="mb-3 text-xl font-semibold">{content.cardTitle}</h3>
-            <p className="mb-6 leading-relaxed text-muted-foreground">{content.cardDescription}</p>
-            <ol className="space-y-3 text-sm text-muted-foreground">
-              {content.steps.map((item, index) => (
-                <li key={item} className="flex items-center gap-3 rounded-xl bg-secondary/50 px-4 py-3">
-                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[hsl(var(--brand-accent)/0.2)] text-xs font-semibold text-[hsl(var(--brand-accent))]">
-                    {index + 1}
-                  </span>
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ol>
-          </motion.aside>
-
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="rounded-2xl border border-border bg-card/30 p-6 md:p-8"
-          >
-            <form onSubmit={handleSubmit} className="space-y-5">
+          <SectionReveal delay={0.08}>
+            <form id="contact-form" onSubmit={handleSubmit} className="space-y-4 border border-[hsl(var(--brand-deep)/0.12)] bg-[hsl(var(--brand-light))] p-6 md:p-8">
               <div>
-                <label htmlFor="contact-name" className="sr-only">
+                <label htmlFor="contact-name" className="micro-label mb-2 block text-[hsl(var(--brand-deep)/0.55)]">
                   {content.nameLabel}
                 </label>
                 <input
@@ -69,15 +42,14 @@ const ContactSection = ({ content }: ContactSectionProps) => {
                   name="name"
                   type="text"
                   autoComplete="name"
-                  placeholder={content.namePlaceholder}
                   value={form.name}
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
-                  className="w-full rounded-xl border border-border bg-background px-5 py-4 text-foreground transition placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                  className="w-full border border-[hsl(var(--brand-deep)/0.15)] bg-transparent px-4 py-3 text-[hsl(var(--brand-deep))] outline-none focus:border-[hsl(var(--brand-deep)/0.45)]"
                   required
                 />
               </div>
               <div>
-                <label htmlFor="contact-service" className="sr-only">
+                <label htmlFor="contact-service" className="micro-label mb-2 block text-[hsl(var(--brand-deep)/0.55)]">
                   {content.serviceLabel}
                 </label>
                 <select
@@ -85,7 +57,7 @@ const ContactSection = ({ content }: ContactSectionProps) => {
                   name="service"
                   value={form.service}
                   onChange={(e) => setForm({ ...form, service: e.target.value })}
-                  className="w-full appearance-none rounded-xl border border-border bg-background px-5 py-4 text-foreground transition focus:outline-none focus:ring-2 focus:ring-primary"
+                  className="w-full border border-[hsl(var(--brand-deep)/0.15)] bg-transparent px-4 py-3 text-[hsl(var(--brand-deep))] outline-none focus:border-[hsl(var(--brand-deep)/0.45)]"
                   required
                 >
                   <option value="" disabled>
@@ -99,29 +71,24 @@ const ContactSection = ({ content }: ContactSectionProps) => {
                 </select>
               </div>
               <div>
-                <label htmlFor="contact-message" className="sr-only">
+                <label htmlFor="contact-message" className="micro-label mb-2 block text-[hsl(var(--brand-deep)/0.55)]">
                   {content.messageLabel}
                 </label>
                 <textarea
                   id="contact-message"
                   name="message"
-                  placeholder={content.messagePlaceholder}
                   rows={5}
                   value={form.message}
                   onChange={(e) => setForm({ ...form, message: e.target.value })}
-                  className="w-full resize-none rounded-xl border border-border bg-background px-5 py-4 text-foreground transition placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                  className="w-full resize-none border border-[hsl(var(--brand-deep)/0.15)] bg-transparent px-4 py-3 text-[hsl(var(--brand-deep))] outline-none focus:border-[hsl(var(--brand-deep)/0.45)]"
                   required
                 />
               </div>
-              <button
-                type="submit"
-                className="btn-brand w-full gap-2 py-4 text-lg"
-              >
-                <Send size={18} aria-hidden="true" />
+              <button type="submit" className="btn-primary w-full justify-center border-[hsl(var(--brand-deep))] bg-[hsl(var(--brand-deep))] text-[hsl(var(--brand-light))] hover:bg-transparent hover:text-[hsl(var(--brand-deep))]">
                 {content.submit}
               </button>
             </form>
-          </motion.div>
+          </SectionReveal>
         </div>
       </div>
     </section>

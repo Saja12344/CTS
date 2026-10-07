@@ -1,5 +1,6 @@
-import { motion } from "framer-motion";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { motion, useReducedMotion } from "framer-motion";
+import logo from "@/assets/logo.png";
+import { premiumEase } from "@/lib/motion";
 import { Language, siteContent } from "@/content/site";
 
 type HeroSectionProps = {
@@ -8,41 +9,56 @@ type HeroSectionProps = {
 };
 
 const HeroSection = ({ content, language }: HeroSectionProps) => {
+  const reduceMotion = useReducedMotion();
   const isArabic = language === "ar";
-  const ArrowIcon = isArabic ? ArrowLeft : ArrowRight;
 
   return (
-    <section id="hero" className="section-surface relative overflow-hidden pt-28 pb-20 md:pt-36 md:pb-28">
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[hsl(var(--brand-accent)/0.45)] to-transparent" />
-      <div className="container relative z-10">
+    <section id="hero" className="section-shell relative min-h-[88vh] overflow-hidden bg-background">
+      <div className="hero-ambient" aria-hidden="true" />
+      <div className="container relative flex min-h-[88vh] flex-col justify-end pb-16 pt-32 md:pb-24 md:pt-40">
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
+          initial={reduceMotion ? false : { opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className={`mx-auto max-w-4xl ${isArabic ? "text-center md:text-right" : "text-center md:text-left"}`}
+          transition={{ duration: 0.8, ease: premiumEase }}
+          className={`mb-10 flex items-center gap-3 ${isArabic ? "md:justify-start" : "md:justify-start"} justify-center`}
         >
-          <div className={`mb-8 ${isArabic ? "md:text-right" : "md:text-left"} text-center`}>
-            <p className="brand-wordmark text-base md:text-lg">Core Tech</p>
-            <span className="brand-solutions mt-1">Solutions</span>
+          <img src={logo} alt="" className="h-8 w-auto md:h-9" aria-hidden="true" />
+          <div className={isArabic ? "text-right" : "text-left"}>
+            <p className="text-sm font-medium tracking-tight">Core Tech</p>
+            <p className="text-[10px] font-light uppercase tracking-[0.35em] text-muted-foreground">Solutions</p>
           </div>
-          <h1 className="mb-6 text-4xl font-semibold leading-[1.08] tracking-tight md:text-6xl lg:text-[4.25rem]">
-            {content.headline}{" "}
-            <span className="text-gradient-metallic">{content.headlineAccent}</span>
-          </h1>
-          <p className="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-xl lg:mx-0">
-            {content.description}
-          </p>
-          <div
-            className={`flex flex-col items-center gap-4 sm:flex-row ${isArabic ? "md:justify-start" : "md:justify-start"} justify-center`}
-          >
-            <a href="#contact" className="btn-brand gap-2 text-base">
-              {content.primaryCta}
-              <ArrowIcon size={18} />
-            </a>
-            <a href="#work" className="btn-brand-outline text-base">
-              {content.secondaryCta}
-            </a>
-          </div>
+        </motion.div>
+
+        <motion.h1
+          initial={reduceMotion ? false : { opacity: 0, y: 32 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.85, ease: premiumEase, delay: 0.08 }}
+          className={`editorial-title mb-8 max-w-5xl ${isArabic ? "text-center md:text-right" : "text-center md:text-left"}`}
+        >
+          {content.headline}
+        </motion.h1>
+
+        <motion.p
+          initial={reduceMotion ? false : { opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.75, ease: premiumEase, delay: 0.16 }}
+          className={`editorial-body mb-12 max-w-2xl ${isArabic ? "text-center md:text-right" : "text-center md:text-left"}`}
+        >
+          {content.description}
+        </motion.p>
+
+        <motion.div
+          initial={reduceMotion ? false : { opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: premiumEase, delay: 0.24 }}
+          className={`flex flex-col gap-3 sm:flex-row ${isArabic ? "md:justify-start" : "md:justify-start"} justify-center`}
+        >
+          <a href="#contact" className="btn-primary">
+            {content.primaryCta}
+          </a>
+          <a href="#work" className="btn-secondary">
+            {content.secondaryCta}
+          </a>
         </motion.div>
       </div>
     </section>

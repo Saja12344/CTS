@@ -3,13 +3,12 @@ import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import ServicesSection from "@/components/ServicesSection";
 import ProblemsSection from "@/components/ProblemsSection";
-import HowWeWorkSection from "@/components/HowWeWorkSection";
 import WorkSection from "@/components/WorkSection";
+import HowWeWorkSection from "@/components/HowWeWorkSection";
 import WhyUsSection from "@/components/WhyUsSection";
 import IndustriesSection from "@/components/IndustriesSection";
 import AboutSection from "@/components/AboutSection";
 import ContactSection from "@/components/ContactSection";
-import FinalCtaSection from "@/components/FinalCtaSection";
 import Footer from "@/components/Footer";
 import { Language, siteContent } from "@/content/site";
 
@@ -34,15 +33,14 @@ const Index = () => {
       <Navbar content={content.nav} language={language} onLanguageChange={setLanguage} />
       <main>
         <HeroSection content={content.hero} language={language} />
-        <ServicesSection content={content.services} language={language} />
+        <ServicesSection content={content.services} />
         <ProblemsSection content={content.problems} />
-        <HowWeWorkSection content={content.process} />
         <WorkSection content={content.work} />
+        <HowWeWorkSection content={content.process} />
         <WhyUsSection content={content.why} />
-        <IndustriesSection content={content.industries} />
         <AboutSection content={content.about} />
+        <IndustriesSection content={content.audience} />
         <ContactSection content={content.contact} />
-        <FinalCtaSection content={content.finalCta} />
       </main>
       <Footer content={content.footer} language={language} />
     </div>
