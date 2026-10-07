@@ -5,74 +5,185 @@ export const siteContent = {
     seo: {
       title: "Core Tech Solutions | حلول تقنية للشركات",
       description:
-        "Core Tech Solutions شركة حلول تقنية تبني مواقع احترافية، تطبيقات جوال، لوحات تحكم، تكاملات وأتمتة تساعد الشركات على النمو.",
+        "Core Tech Solutions شريك تقني B2B يبني مواقع، منتجات رقمية، لوحات تحكم، وتكاملات مصممة حول احتياج العمل — بوضوح، منهجية، وهندسة قابلة للتوسع.",
     },
     nav: {
       home: "الرئيسية",
-      services: "الحلول",
-      pricing: "الباقات",
-      whyUs: "لماذا نحن",
-      contact: "ابدأ مشروعك",
+      services: "الخدمات",
+      work: "الأعمال",
+      about: "من نحن",
+      contact: "تواصل",
+      startProject: "ابدأ مشروعاً",
       menuLabel: "فتح القائمة",
       language: "English",
     },
     hero: {
-      badge: "شريك تقني لنمو الشركات",
-      title: "نبني حلول تقنية",
-      titleAccent: "تخدم أهداف عملك",
+      brand: "Core Tech Solutions",
+      headline: "منتجات رقمية واضحة",
+      headlineAccent: "مبنية حول عملك",
       description:
-        "من واجهات الشركات إلى التطبيقات ولوحات التحكم والربط الآلي، نصمم ونطور منتجات رقمية واضحة، موثوقة، وقابلة للتوسع.",
-      proofPoints: ["تحليل احتياج قبل التنفيذ", "تجربة مستخدم مرتبطة بالتحويل", "تسليم قابل للتوسع والدعم"],
-      primaryCta: "احجز استشارة",
-      secondaryCta: "استعرض الحلول",
-      metrics: [
-        { value: "4+", label: "مسارات حلول" },
-        { value: "30 يوم", label: "إطلاق أول نسخة" },
-        { value: "24/7", label: "قنوات تواصل" },
-      ],
-      consoleLabel: "CTS Operating Console",
-      consoleTitle: "خارطة إطلاق الحل التقني",
-      phases: ["اكتشاف المتطلبات", "تصميم تجربة العميل", "بناء المنتج والربط"],
-      readiness: "مؤشر الجاهزية",
-      outputs: "المخرجات",
+        "نصمم ونطور مواقع، أنظمة، وتجارب رقمية تساعد الشركات على تشغيل أعمالها وتحسينها — من التحليل إلى الإطلاق.",
+      primaryCta: "ابدأ مشروعاً",
+      secondaryCta: "استعرض أعمالنا",
     },
     services: {
-      eyebrow: "حلول تقنية متكاملة",
-      title: "كل ما تحتاجه شركتك رقمياً",
-      description:
-        "نربط التصميم، التطوير، والتحسين في مسار واحد يبدأ من فهم الهدف التجاري وينتهي بإطلاق منتج قابل للنمو.",
+      eyebrow: "ماذا نقدم",
+      title: "حلول رقمية مبنية حول احتياج عملك",
+      description: "خدمات أساسية نركز عليها مع فرق الأعمال — بدون تعقيد غير ضروري.",
+      learnMore: "اعرف المزيد",
       items: [
         {
-          title: "مواقع ومنصات شركات",
-          description: "واجهات احترافية تعرّف بخدماتك، تقود العميل للقرار، وتعمل بسلاسة على كل الأجهزة.",
-          tags: ["Landing Pages", "Corporate Websites", "SEO Ready"],
+          title: "التحول الرقمي",
+          description: "تحويل العمليات التقليدية إلى حلول رقمية أكثر كفاءة وقابلية للتوسع.",
+          href: "#problems",
         },
         {
-          title: "تطبيقات جوال",
-          description: "تطبيقات iOS وتجارب موبايل مخصصة للعمليات، الطلبات، الحجوزات، وخدمة العملاء.",
-          tags: ["iOS", "UX Flow", "App Launch"],
+          title: "تطوير برمجيات مخصصة",
+          description: "بناء مواقع، تطبيقات، ولوحات تحكم مصممة حسب سياق عملك ومتطلباتك.",
+          href: "#work",
         },
         {
-          title: "أنظمة ولوحات تحكم",
-          description: "حلول داخلية تساعد فريقك على إدارة البيانات، العملاء، الطلبات، والتقارير من مكان واحد.",
-          tags: ["Dashboards", "CRM", "Admin Panels"],
+          title: "تدقيق وتحسين رقمي",
+          description: "مراجعة المنتجات والمواقع الحالية وتحديد فرص تحسين الأداء والتجربة.",
+          href: "#problems",
         },
         {
           title: "تكاملات وأتمتة",
-          description: "ربط واتساب، الدفع، النماذج، قواعد البيانات، وأدوات العمل لتقليل التكرار اليدوي.",
-          tags: ["APIs", "Automation", "Integrations"],
-        },
-        {
-          title: "تحسين الأداء والتحويل",
-          description: "تحسين سرعة الموقع، وضوح الرحلة، وقياس النتائج حتى تتحول الواجهة لأداة مبيعات.",
-          tags: ["Performance", "Conversion", "Analytics"],
-        },
-        {
-          title: "دعم وتشغيل",
-          description: "متابعة بعد الإطلاق، تحسينات دورية، ومعالجة المشاكل التقنية لضمان استمرارية الخدمة.",
-          tags: ["Care Plans", "Monitoring", "Updates"],
+          description: "ربط الأدوات، النماذج، قواعد البيانات، ومسارات العمل لتقليل العمل اليدوي.",
+          href: "#process",
         },
       ],
+    },
+    problems: {
+      eyebrow: "المشاكل التي نحلها",
+      title: "التقنية يجب أن تحل مشكلة عمل — لا أن تخلق مشكلة أخرى",
+      items: [
+        {
+          problem: "موقعك لم يعد يعكس شركتك",
+          solution: "إعادة تصميم الواجهة وتجربة الاستخدام الرقمية",
+        },
+        {
+          problem: "عملياتك ما زالت يدوية",
+          solution: "تحول رقمي وأتمتة مسارات العمل",
+        },
+        {
+          problem: "لديك فكرة منتج بدون فريق تقني",
+          solution: "تطوير منتج مخصص من الفكرة إلى الإطلاق",
+        },
+        {
+          problem: "منتجك الرقمي يحتاج تحسيناً",
+          solution: "تدقيق تقني وتحسين الأداء والبنية",
+        },
+      ],
+    },
+    process: {
+      eyebrow: "كيف نعمل",
+      title: "منهجية واضحة من البداية إلى الإطلاق",
+      steps: [
+        { number: "01", title: "Discover", subtitle: "فهم العمل، المستخدم، والمشكلة" },
+        { number: "02", title: "Define", subtitle: "تحويل المتطلبات إلى اتجاه منتج وتقني واضح" },
+        { number: "03", title: "Design", subtitle: "تصميم تجربة رقمية وهيكل منتج مركز" },
+        { number: "04", title: "Build", subtitle: "تطوير، ربط، اختبار، وتحسين الحل" },
+        { number: "05", title: "Launch", subtitle: "إطلاق المنتج ودعم مرحلته التالية" },
+      ],
+    },
+    work: {
+      eyebrow: "أعمال مختارة",
+      title: "مشاريع نفتخر بتقديمها",
+      description: "كل مشروع يُعرض بسياق المشكلة والحل — وليس كصورة فقط.",
+      emptyTitle: "قريباً: دراسات حالة مفصّلة",
+      emptyDescription:
+        "نُجهّز عرضاً لأعمال مختارة من مشاريع Core Tech. إذا لديك مشروع للعرض هنا، شاركنا التفاصيل.",
+      emptyCta: "شارك تفاصيل مشروع",
+      labels: {
+        problem: "المشكلة",
+        solution: "الحل",
+        services: "الخدمات",
+        result: "الأثر",
+      },
+      projects: [] as Array<{
+        name: string;
+        summary: string;
+        problem: string;
+        solution: string;
+        services: string[];
+        result?: string;
+      }>,
+    },
+    why: {
+      eyebrow: "لماذا Core Tech",
+      title: "شريك تقني يركز على العمل أولاً",
+      points: [
+        "تقنية مرتبطة بأهداف العمل",
+        "حلول رقمية مصممة حسب السياق",
+        "تفكير منتج + هندسة تنفيذ",
+        "بنية حديثة قابلة للتوسع",
+        "عملية وتواصل واضحان",
+      ],
+    },
+    industries: {
+      eyebrow: "قطاعات نخدمها",
+      title: "نركز حيث يكون للتقنية أثر تشغيلي حقيقي",
+      items: [
+        {
+          name: "الشركات الصغيرة والمتوسطة",
+          description: "حضور رقمي، منتجات مخصصة، وأنظمة تشغيل دون تعقيد زائد.",
+        },
+        {
+          name: "شركات الخدمات",
+          description: "مواقع ومسارات تواصل وتحويل تدعم المبيعات وخدمة العملاء.",
+        },
+        {
+          name: "فرق العمليات",
+          description: "لوحات تحكم، تكاملات، وأتمتة لإدارة البيانات والعمل اليومي.",
+        },
+      ],
+    },
+    about: {
+      eyebrow: "من نحن",
+      title: "Core Tech Solutions",
+      paragraphs: [
+        "Core Tech Solutions شريك تقني B2B يساعد الشركات على بناء وتحسين منتجاتها الرقمية — من المواقع والتطبيقات إلى الأنظمة الداخلية والتكاملات.",
+        "نبدأ بفهم المشكلة التجارية، ثم نحوّلها إلى حل واضح قابل للبناء والتوسع. هدفنا ليس عرض تقني معقد، بل منتج يخدم فريقك وعملاءك.",
+        "نعمل بمنهجية Discover → Define → Design → Build → Launch، مع تواصل مباشر ونطاق محدد في كل مرحلة.",
+      ],
+    },
+    contact: {
+      eyebrow: "تواصل",
+      title: "لنناقش مشروعك",
+      description: "صف ما تريد بناءه أو تحسينه، وسنرد بتصور أولي للمسار والخطوات.",
+      cardTitle: "ماذا يحدث بعد الإرسال؟",
+      cardDescription: "مراجعة سريعة، توضيح النطاق، ثم اقتراح خطوات عملية قبل البدء.",
+      steps: ["رد أولي", "تحديد النطاق", "عرض تنفيذ واضح"],
+      namePlaceholder: "اسمك أو اسم الشركة",
+      servicePlaceholder: "نوع الحل المطلوب",
+      messagePlaceholder: "ما الذي تحاول بناءه أو تحسينه؟",
+      options: [
+        "موقع أو منصة",
+        "تطبيق جوال",
+        "لوحة تحكم أو نظام داخلي",
+        "تكاملات وأتمتة",
+        "تدقيق وتحسين منتج حالي",
+        "استشارة تقنية",
+      ],
+      submit: "إرسال عبر واتساب",
+      whatsappIntro: "مرحباً Core Tech Solutions",
+      nameLabel: "الاسم",
+      serviceLabel: "الخدمة",
+      messageLabel: "التفاصيل",
+    },
+    finalCta: {
+      title: "هل لديك تحدٍ رقمي؟",
+      description: "أخبرنا بما تحاول بناءه أو تحسينه أو تحويله.",
+      cta: "ابدأ مشروعاً",
+    },
+    footer: {
+      tagline: "حلول تقنية B2B — واضحة، قابلة للتوسع، ومبنية حول عملك.",
+      services: "الخدمات",
+      work: "الأعمال",
+      about: "من نحن",
+      contact: "تواصل",
+      rights: "جميع الحقوق محفوظة",
     },
     pricing: {
       eyebrow: "باقات العمل",
@@ -90,7 +201,12 @@ export const siteContent = {
           subtitle: "لمن يحتاج واجهة شركة جاهزة للإطلاق",
           price: "يبدأ من 1,500 ريال",
           badge: "إطلاق سريع",
-          features: ["تحليل رسالة الشركة", "تصميم صفحة أو موقع تعريفي", "تهيئة أساسية لمحركات البحث", "ربط واتساب أو نموذج تواصل"],
+          features: [
+            "تحليل رسالة الشركة",
+            "تصميم صفحة أو موقع تعريفي",
+            "تهيئة أساسية لمحركات البحث",
+            "ربط واتساب أو نموذج تواصل",
+          ],
           popular: false,
         },
         {
@@ -98,7 +214,12 @@ export const siteContent = {
           subtitle: "للشركات التي تحتاج منصة أو تجربة متكاملة",
           price: "يبدأ من 4,500 ريال",
           badge: "الأكثر مناسبة للشركات",
-          features: ["تخطيط تجربة المستخدم", "واجهات مخصصة متعددة الصفحات", "تطوير React متجاوب", "تكاملات أساسية ولوحة إدارة"],
+          features: [
+            "تخطيط تجربة المستخدم",
+            "واجهات مخصصة متعددة الصفحات",
+            "تطوير React متجاوب",
+            "تكاملات أساسية ولوحة إدارة",
+          ],
           popular: true,
         },
         {
@@ -111,122 +232,190 @@ export const siteContent = {
         },
       ],
     },
-    why: {
-      eyebrow: "لماذا CTS؟",
-      title: "لأن المشروع التقني الناجح يبدأ بقرار تجاري صحيح",
-      description:
-        "نشتغل معك كشريك يفهم الهدف، يرتب الأولويات، ثم يحولها إلى منتج رقمي متين وواضح للمستخدم.",
-      standardTitle: "معيارنا في كل مشروع",
-      standardDescription: "وضوح، جودة، وقابلية تشغيل بعد الإطلاق.",
-      steps: ["اكتشاف", "تنفيذ", "تحسين"],
-      reasons: [
-        { title: "نطاق واضح", description: "نبدأ بتحويل الفكرة إلى متطلبات ومخرجات قابلة للقياس قبل التصميم أو البرمجة." },
-        { title: "تنفيذ قابل للتوسع", description: "نبني الواجهة والمنطق بطريقة تسمح بإضافة خدمات وخصائص لاحقاً بدون إعادة بناء كاملة." },
-        { title: "تركيز على النتائج", description: "كل صفحة أو ميزة ترتبط بهدف: طلب استشارة، تقليل وقت، تحسين تجربة، أو زيادة تحويل." },
-        { title: "دعم بعد الإطلاق", description: "نرافقك بعد التسليم لمعالجة الملاحظات، تحسين الأداء، وتطوير الإصدارات القادمة." },
-      ],
-      highlightTitle: "نحوّل التقنية إلى أصل تجاري",
-      highlightDescription:
-        "الهدف ليس إطلاق واجهة جميلة فقط، بل بناء قناة بيع، خدمة، أو تشغيل تساعد شركتك على النمو بثقة.",
-    },
-    contact: {
-      eyebrow: "ابدأ من هنا",
-      title: "خلنا نفهم مشروعك ونقترح المسار الأنسب",
-      description: "اكتب لنا الهدف والتحدي الحالي، ونرد عليك بتصور أولي للنطاق والخطوات القادمة.",
-      cardTitle: "ماذا يحدث بعد الإرسال؟",
-      cardDescription:
-        "نراجع احتياجك، نحدد أفضل مسار تقني، ثم نشاركك تصوراً مختصراً للتكلفة والمدة والمخرجات.",
-      steps: ["رد أولي عبر واتساب", "تحديد النطاق والأولويات", "عرض تنفيذ واضح قبل البدء"],
-      namePlaceholder: "اسمك أو اسم الشركة",
-      servicePlaceholder: "نوع الحل المطلوب",
-      messagePlaceholder: "صف هدف المشروع، الجمهور، وأي ميزة مهمة بالنسبة لك",
-      options: ["موقع شركة", "تطبيق جوال", "لوحة تحكم أو نظام داخلي", "تكاملات وأتمتة", "استشارة تقنية"],
-      submit: "إرسال عبر واتساب",
-      whatsappIntro: "مرحباً Core Tech Solutions",
-      nameLabel: "الاسم",
-      serviceLabel: "الخدمة المطلوبة",
-      messageLabel: "تفاصيل المشروع",
-    },
-    footer: {
-      tagline: "حلول تقنية مصممة لتخدم نمو الشركات وتشغيلها.",
-      services: "الحلول",
-      pricing: "الباقات",
-      contact: "تواصل معنا",
-      rights: "جميع الحقوق محفوظة",
-    },
   },
   en: {
     seo: {
       title: "Core Tech Solutions | Technology Solutions for Businesses",
       description:
-        "Core Tech Solutions builds professional websites, mobile apps, dashboards, integrations, and automation solutions that help businesses grow.",
+        "Core Tech Solutions is a B2B technology partner building websites, digital products, dashboards, and integrations shaped around business needs — with clarity, process, and scalable engineering.",
     },
     nav: {
       home: "Home",
-      services: "Solutions",
-      pricing: "Packages",
-      whyUs: "Why Us",
-      contact: "Start Your Project",
+      services: "Services",
+      work: "Work",
+      about: "About",
+      contact: "Contact",
+      startProject: "Start a Project",
       menuLabel: "Open menu",
       language: "العربية",
     },
     hero: {
-      badge: "Technology partner for business growth",
-      title: "We build technology solutions",
-      titleAccent: "that serve your business goals",
+      brand: "Core Tech Solutions",
+      headline: "Clear digital products",
+      headlineAccent: "built around your business",
       description:
-        "From corporate websites to apps, dashboards, and integrations, we design and develop clear, reliable, scalable digital products.",
-      proofPoints: ["Discovery before execution", "Conversion-focused user experience", "Scalable delivery and support"],
-      primaryCta: "Book a Consultation",
-      secondaryCta: "Explore Solutions",
-      metrics: [
-        { value: "4+", label: "Solution tracks" },
-        { value: "30 days", label: "First launch" },
-        { value: "24/7", label: "Contact channels" },
-      ],
-      consoleLabel: "CTS Operating Console",
-      consoleTitle: "Technology launch roadmap",
-      phases: ["Requirement discovery", "Customer experience design", "Product build and integrations"],
-      readiness: "Readiness score",
-      outputs: "Outputs",
+        "We design and develop websites, systems, and digital experiences that help companies run and improve their operations — from discovery to launch.",
+      primaryCta: "Start a Project",
+      secondaryCta: "Explore Our Work",
     },
     services: {
-      eyebrow: "Integrated technology solutions",
-      title: "Everything your business needs digitally",
-      description:
-        "We connect design, development, and optimization in one path that starts with business goals and ends with a scalable product.",
+      eyebrow: "What we do",
+      title: "Digital solutions built around your business",
+      description: "Core services we focus on with business teams — without unnecessary complexity.",
+      learnMore: "Learn More",
       items: [
         {
-          title: "Corporate Websites & Platforms",
-          description: "Professional interfaces that explain your services, guide customers to action, and work smoothly on every device.",
-          tags: ["Landing Pages", "Corporate Websites", "SEO Ready"],
+          title: "Digital Transformation",
+          description: "Turn traditional operations into more efficient, scalable digital workflows.",
+          href: "#problems",
         },
         {
-          title: "Mobile Applications",
-          description: "Custom iOS and mobile experiences for operations, orders, bookings, and customer service.",
-          tags: ["iOS", "UX Flow", "App Launch"],
+          title: "Custom Software Development",
+          description: "Websites, applications, and dashboards designed for your business context.",
+          href: "#work",
         },
         {
-          title: "Systems & Dashboards",
-          description: "Internal tools that help your team manage data, customers, orders, and reporting from one place.",
-          tags: ["Dashboards", "CRM", "Admin Panels"],
+          title: "Digital Audit & Optimization",
+          description: "Review existing products and websites to find performance and experience improvements.",
+          href: "#problems",
         },
         {
           title: "Integrations & Automation",
-          description: "WhatsApp, payments, forms, databases, and workflow tools connected to reduce manual work.",
-          tags: ["APIs", "Automation", "Integrations"],
-        },
-        {
-          title: "Performance & Conversion",
-          description: "Speed, journey clarity, and measurement improvements that turn your interface into a sales asset.",
-          tags: ["Performance", "Conversion", "Analytics"],
-        },
-        {
-          title: "Support & Operations",
-          description: "Post-launch support, recurring improvements, and technical fixes to keep your service reliable.",
-          tags: ["Care Plans", "Monitoring", "Updates"],
+          description: "Connect tools, forms, data, and workflows to reduce manual work.",
+          href: "#process",
         },
       ],
+    },
+    problems: {
+      eyebrow: "Problems we solve",
+      title: "Technology should solve a business problem — not create another one",
+      items: [
+        {
+          problem: "Your website no longer represents your business",
+          solution: "Website redesign and digital experience",
+        },
+        {
+          problem: "Your processes are still manual",
+          solution: "Digital transformation and workflow solutions",
+        },
+        {
+          problem: "You have a product idea but no technical team",
+          solution: "Custom product development",
+        },
+        {
+          problem: "Your existing digital product needs improvement",
+          solution: "Technical audit and optimization",
+        },
+      ],
+    },
+    process: {
+      eyebrow: "How we work",
+      title: "A clear path from discovery to launch",
+      steps: [
+        { number: "01", title: "Discover", subtitle: "Understand the business, users, and problem" },
+        { number: "02", title: "Define", subtitle: "Turn requirements into a clear product and technical direction" },
+        { number: "03", title: "Design", subtitle: "Create a focused digital experience and product structure" },
+        { number: "04", title: "Build", subtitle: "Develop, integrate, test, and refine the solution" },
+        { number: "05", title: "Launch", subtitle: "Deploy the product and support its next stage" },
+      ],
+    },
+    work: {
+      eyebrow: "Selected work",
+      title: "Projects we are proud to deliver",
+      description: "Each project is shown with problem and solution context — not just visuals.",
+      emptyTitle: "Case studies coming soon",
+      emptyDescription:
+        "We are preparing selected work from Core Tech projects. If you have a project to feature here, share the details with us.",
+      emptyCta: "Share project details",
+      labels: {
+        problem: "Problem",
+        solution: "Solution",
+        services: "Services",
+        result: "Impact",
+      },
+      projects: [] as Array<{
+        name: string;
+        summary: string;
+        problem: string;
+        solution: string;
+        services: string[];
+        result?: string;
+      }>,
+    },
+    why: {
+      eyebrow: "Why Core Tech",
+      title: "A technology partner with a business-first mindset",
+      points: [
+        "Business-first technology",
+        "Tailored digital solutions",
+        "Product thinking + engineering",
+        "Modern and scalable architecture",
+        "Clear process and communication",
+      ],
+    },
+    industries: {
+      eyebrow: "Industries",
+      title: "Where technology creates real operational impact",
+      items: [
+        {
+          name: "SMEs",
+          description: "Digital presence, custom products, and operating systems without excess complexity.",
+        },
+        {
+          name: "Service Businesses",
+          description: "Websites and conversion journeys that support sales and customer service.",
+        },
+        {
+          name: "Operations Teams",
+          description: "Dashboards, integrations, and automation for daily data and workflow management.",
+        },
+      ],
+    },
+    about: {
+      eyebrow: "About",
+      title: "Core Tech Solutions",
+      paragraphs: [
+        "Core Tech Solutions is a B2B technology partner helping companies build and improve their digital products — from websites and apps to internal systems and integrations.",
+        "We start with the business problem, then translate it into a clear solution that can be built and scaled. The goal is not technical complexity for its own sake, but a product that serves your team and customers.",
+        "We work through Discover → Define → Design → Build → Launch, with direct communication and defined scope at every stage.",
+      ],
+    },
+    contact: {
+      eyebrow: "Contact",
+      title: "Let's discuss your project",
+      description: "Tell us what you want to build or improve, and we will respond with an initial view of the path forward.",
+      cardTitle: "What happens after you reach out?",
+      cardDescription: "A quick review, scope clarification, then practical next steps before we start.",
+      steps: ["Initial reply", "Scope alignment", "Clear proposal"],
+      namePlaceholder: "Your name or company",
+      servicePlaceholder: "Type of solution",
+      messagePlaceholder: "What are you trying to build or improve?",
+      options: [
+        "Website or platform",
+        "Mobile application",
+        "Dashboard or internal system",
+        "Integrations and automation",
+        "Audit and optimization",
+        "Technical consultation",
+      ],
+      submit: "Send via WhatsApp",
+      whatsappIntro: "Hello Core Tech Solutions",
+      nameLabel: "Name",
+      serviceLabel: "Service",
+      messageLabel: "Details",
+    },
+    finalCta: {
+      title: "Have a digital challenge?",
+      description: "Tell us what you're trying to build, improve, or transform.",
+      cta: "Start a Project",
+    },
+    footer: {
+      tagline: "B2B technology solutions — clear, scalable, and built around your business.",
+      services: "Services",
+      work: "Work",
+      about: "About",
+      contact: "Contact",
+      rights: "All rights reserved",
     },
     pricing: {
       eyebrow: "Work packages",
@@ -236,7 +425,8 @@ export const siteContent = {
       popular: "Best for growth",
       cta: "Discuss Project",
       customTitle: "Need a different scope?",
-      customDescription: "We can prepare a custom proposal for mobile apps, internal systems, or integrations with your business tools.",
+      customDescription:
+        "We can prepare a custom proposal for mobile apps, internal systems, or integrations with your business tools.",
       customCta: "Request Custom Proposal",
       packages: [
         {
@@ -244,7 +434,12 @@ export const siteContent = {
           subtitle: "For businesses that need a polished launch-ready presence",
           price: "Starts from SAR 1,500",
           badge: "Fast launch",
-          features: ["Business messaging analysis", "Landing page or corporate website", "Basic search engine setup", "WhatsApp or contact form integration"],
+          features: [
+            "Business messaging analysis",
+            "Landing page or corporate website",
+            "Basic search engine setup",
+            "WhatsApp or contact form integration",
+          ],
           popular: false,
         },
         {
@@ -252,7 +447,12 @@ export const siteContent = {
           subtitle: "For companies that need a platform or complete experience",
           price: "Starts from SAR 4,500",
           badge: "Best fit for companies",
-          features: ["User experience planning", "Custom multi-page interfaces", "Responsive React development", "Basic integrations and admin panel"],
+          features: [
+            "User experience planning",
+            "Custom multi-page interfaces",
+            "Responsive React development",
+            "Basic integrations and admin panel",
+          ],
           popular: true,
         },
         {
@@ -260,53 +460,15 @@ export const siteContent = {
           subtitle: "For systems and integrations that serve internal operations",
           price: "Scoped after consultation",
           badge: "Consultation before pricing",
-          features: ["Business process analysis", "Dashboards and reports", "APIs and automation", "Launch support and improvements"],
+          features: [
+            "Business process analysis",
+            "Dashboards and reports",
+            "APIs and automation",
+            "Launch support and improvements",
+          ],
           popular: false,
         },
       ],
-    },
-    why: {
-      eyebrow: "Why CTS?",
-      title: "Successful technology projects start with the right business decision",
-      description:
-        "We work as a partner who understands the goal, prioritizes the work, then turns it into a solid and clear digital product.",
-      standardTitle: "Our standard in every project",
-      standardDescription: "Clarity, quality, and operational readiness after launch.",
-      steps: ["Discover", "Build", "Improve"],
-      reasons: [
-        { title: "Clear scope", description: "We turn the idea into measurable requirements and deliverables before design or development." },
-        { title: "Scalable execution", description: "We build interfaces and logic in a way that allows future features without rebuilding from scratch." },
-        { title: "Results focused", description: "Every page or feature supports a goal: consultation requests, time saving, better experience, or conversion." },
-        { title: "Post-launch support", description: "We stay with you after delivery to handle feedback, improve performance, and plan future releases." },
-      ],
-      highlightTitle: "We turn technology into a business asset",
-      highlightDescription:
-        "The goal is not only a beautiful interface, but a sales, service, or operations channel that helps your company grow confidently.",
-    },
-    contact: {
-      eyebrow: "Start here",
-      title: "Tell us about your project and we will suggest the right path",
-      description: "Share the goal and current challenge, and we will respond with an initial view of scope and next steps.",
-      cardTitle: "What happens after sending?",
-      cardDescription:
-        "We review your need, identify the best technical path, then share a short view of cost, timeline, and deliverables.",
-      steps: ["Initial WhatsApp reply", "Scope and priorities alignment", "Clear proposal before starting"],
-      namePlaceholder: "Your name or company name",
-      servicePlaceholder: "Required solution",
-      messagePlaceholder: "Describe the goal, audience, and any key feature",
-      options: ["Corporate website", "Mobile app", "Dashboard or internal system", "Integrations and automation", "Technical consultation"],
-      submit: "Send via WhatsApp",
-      whatsappIntro: "Hello Core Tech Solutions",
-      nameLabel: "Name",
-      serviceLabel: "Required service",
-      messageLabel: "Project details",
-    },
-    footer: {
-      tagline: "Technology solutions designed to support business growth and operations.",
-      services: "Solutions",
-      pricing: "Packages",
-      contact: "Contact",
-      rights: "All rights reserved",
     },
   },
 } as const;
