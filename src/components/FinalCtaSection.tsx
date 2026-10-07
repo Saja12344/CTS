@@ -7,7 +7,7 @@ type FinalCtaSectionProps = {
 
 const FinalCtaSection = ({ content }: FinalCtaSectionProps) => {
   return (
-    <section aria-labelledby="final-cta-heading" className="border-t border-border bg-card/30 py-16 md:py-20">
+    <section aria-labelledby="final-cta-heading" className="section-surface py-16 md:py-20">
       <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -21,7 +21,7 @@ const FinalCtaSection = ({ content }: FinalCtaSectionProps) => {
           <p className="mb-8 text-lg text-muted-foreground">{content.description}</p>
           <a
             href="#contact"
-            className="inline-flex rounded-full bg-primary px-8 py-4 text-base font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
+            className="btn-brand text-base"
           >
             {content.cta}
           </a>

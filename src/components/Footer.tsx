@@ -17,7 +17,8 @@ const Footer = ({ content, language }: FooterProps) => {
           }`}
         >
           <div>
-            <p className="text-lg font-bold">Core Tech Solutions</p>
+            <p className="brand-wordmark text-lg">Core Tech</p>
+            <p className="brand-solutions mt-1">Solutions</p>
             <p className="mt-2 max-w-md text-sm text-muted-foreground">{content.tagline}</p>
           </div>
           <nav

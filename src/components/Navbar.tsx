@@ -38,9 +38,12 @@ const Navbar = ({ content, language, onLanguageChange }: NavbarProps) => {
       }`}
     >
       <div className="container flex h-16 items-center justify-between md:h-20">
-        <a href="#hero" className="flex items-center gap-2">
-          <img src={logo} alt="Core Tech Solutions" className="h-6 w-auto md:h-7" />
-          <span className="hidden text-sm font-semibold tracking-wide text-foreground sm:inline">Core Tech Solutions</span>
+        <a href="#hero" className="flex items-center gap-3">
+          <img src={logo} alt="Core Tech Solutions" className="h-7 w-auto md:h-8" />
+          <span className="hidden sm:block">
+            <span className="brand-wordmark">Core Tech</span>
+            <span className="brand-solutions mt-0.5">Solutions</span>
+          </span>
         </a>
 
         <div className="hidden items-center gap-7 md:flex">
@@ -53,16 +56,13 @@ const Navbar = ({ content, language, onLanguageChange }: NavbarProps) => {
               {link.label}
             </a>
           ))}
-          <a
-            href="#contact"
-            className="rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
-          >
+          <a href="#contact" className="btn-brand px-5 py-2.5 text-sm">
             {content.startProject}
           </a>
           <button
             type="button"
             onClick={() => onLanguageChange(isArabic ? "en" : "ar")}
-            className="rounded-full border border-border px-4 py-2 text-sm font-semibold text-muted-foreground transition-colors hover:border-primary/40 hover:text-foreground"
+            className="rounded-full border border-border px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:border-[hsl(var(--brand-accent)/0.5)] hover:text-foreground"
           >
             {content.language}
           </button>
@@ -99,7 +99,7 @@ const Navbar = ({ content, language, onLanguageChange }: NavbarProps) => {
             <a
               href="#contact"
               onClick={() => setMobileOpen(false)}
-              className="mt-2 rounded-xl bg-primary px-5 py-3 text-center text-sm font-semibold text-primary-foreground"
+              className="btn-brand mt-2 justify-center py-3 text-sm"
             >
               {content.startProject}
             </a>

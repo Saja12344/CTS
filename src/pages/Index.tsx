@@ -30,7 +30,7 @@ const Index = () => {
   }, [content.seo.description, content.seo.title, dir, language]);
 
   return (
-    <div dir={dir} className="font-arabic">
+    <div dir={dir} className="font-sans">
       <Navbar content={content.nav} language={language} onLanguageChange={setLanguage} />
       <main>
         <HeroSection content={content.hero} language={language} />

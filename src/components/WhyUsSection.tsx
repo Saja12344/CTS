@@ -8,7 +8,7 @@ type WhyUsSectionProps = {
 
 const WhyUsSection = ({ content }: WhyUsSectionProps) => {
   return (
-    <section id="why" className="border-b border-border bg-background py-20 md:py-28">
+    <section id="why" className="section-surface-alt py-20 md:py-28">
       <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -30,7 +30,7 @@ const WhyUsSection = ({ content }: WhyUsSectionProps) => {
               transition={{ delay: i * 0.05 }}
               className="flex items-start gap-3 rounded-xl border border-border bg-card/40 px-5 py-4"
             >
-              <Check size={18} className="mt-0.5 shrink-0 text-primary" aria-hidden="true" />
+              <Check size={18} className="mt-0.5 shrink-0 text-[hsl(var(--brand-accent))]" aria-hidden="true" />
               <span className="text-sm font-medium leading-relaxed">{point}</span>
             </motion.li>
           ))}
