@@ -9,24 +9,15 @@ const Footer = ({ content, language }: FooterProps) => {
   const isArabic = language === "ar";
 
   return (
-    <footer className="border-t border-border bg-background py-10">
+    <footer className="bg-background py-12 md:py-14">
       <div className="container">
-        <div
-          className={`flex flex-col gap-6 text-center md:flex-row md:items-center md:justify-between ${
-            isArabic ? "md:text-right" : "md:text-left"
-          }`}
-        >
+        <div className={`flex flex-col gap-8 md:flex-row md:items-start md:justify-between ${isArabic ? "md:text-right" : "md:text-left"}`}>
           <div>
-            <p className="brand-wordmark text-lg">Core Tech</p>
-            <p className="brand-solutions mt-1">Solutions</p>
-            <p className="mt-2 max-w-md text-sm text-muted-foreground">{content.tagline}</p>
+            <p className="text-sm font-medium tracking-tight">Core Tech Solutions</p>
+            <p className="mt-3 max-w-sm text-sm text-muted-foreground">{content.tagline}</p>
           </div>
-          <nav
-            aria-label="Footer"
-            className={`flex flex-wrap justify-center gap-4 text-sm text-muted-foreground ${
-              isArabic ? "md:justify-end" : "md:justify-start"
-            }`}
-          >
+
+          <nav aria-label="Footer" className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground">
             <a href="#services" className="transition-colors hover:text-foreground">
               {content.services}
             </a>
@@ -39,9 +30,13 @@ const Footer = ({ content, language }: FooterProps) => {
             <a href="#contact" className="transition-colors hover:text-foreground">
               {content.contact}
             </a>
+            <a href={content.linkedinUrl} target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-foreground">
+              {content.linkedin}
+            </a>
           </nav>
         </div>
-        <div className="mt-8 border-t border-border pt-6 text-center text-sm text-muted-foreground">
+
+        <div className="mt-10 border-t border-border/80 pt-6 text-xs text-muted-foreground">
           © {new Date().getFullYear()} Core Tech Solutions. {content.rights}
         </div>
       </div>

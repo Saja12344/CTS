@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import SectionReveal from "@/components/SectionReveal";
 import { Language, siteContent } from "@/content/site";
 
 type AboutSectionProps = {
@@ -7,22 +7,20 @@ type AboutSectionProps = {
 
 const AboutSection = ({ content }: AboutSectionProps) => {
   return (
-    <section id="about" className="section-surface-light py-20 md:py-28">
+    <section id="about" className="section-shell bg-background py-20 md:py-28">
       <div className="container">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mx-auto max-w-3xl"
-        >
-          <p className="mb-3 text-sm font-medium uppercase tracking-wider opacity-60">{content.eyebrow}</p>
-          <h2 className="mb-8 text-3xl font-semibold tracking-tight md:text-5xl">{content.title}</h2>
-          <div className="space-y-5 text-lg leading-relaxed opacity-80">
-            {content.paragraphs.map((paragraph) => (
-              <p key={paragraph.slice(0, 24)}>{paragraph}</p>
+        <SectionReveal className="max-w-3xl">
+          <p className="micro-label mb-4">{content.eyebrow}</p>
+          <h2 className="editorial-title mb-6">{content.title}</h2>
+          <p className="editorial-body mb-8">{content.lead}</p>
+          <ul className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground">
+            {content.capabilities.map((item) => (
+              <li key={item} className="uppercase tracking-[0.14em]">
+                {item}
+              </li>
             ))}
-          </div>
-        </motion.div>
+          </ul>
+        </SectionReveal>
       </div>
     </section>
   );

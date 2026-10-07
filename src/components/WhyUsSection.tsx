@@ -1,5 +1,4 @@
-import { motion } from "framer-motion";
-import { Check } from "lucide-react";
+import SectionReveal from "@/components/SectionReveal";
 import { Language, siteContent } from "@/content/site";
 
 type WhyUsSectionProps = {
@@ -8,33 +7,21 @@ type WhyUsSectionProps = {
 
 const WhyUsSection = ({ content }: WhyUsSectionProps) => {
   return (
-    <section id="why" className="section-surface-alt py-20 md:py-28">
+    <section id="why" className="section-shell bg-secondary/20 py-20 md:py-28">
       <div className="container">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mx-auto mb-12 max-w-3xl text-center"
-        >
-          <p className="mb-3 text-sm font-medium uppercase tracking-wider text-muted-foreground">{content.eyebrow}</p>
-          <h2 className="text-3xl font-bold tracking-tight md:text-5xl">{content.title}</h2>
-        </motion.div>
+        <SectionReveal className="mb-14 max-w-3xl">
+          <p className="micro-label mb-4">{content.eyebrow}</p>
+          <h2 className="editorial-title">{content.title}</h2>
+        </SectionReveal>
 
-        <ul className="mx-auto grid max-w-4xl gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {content.points.map((point, i) => (
-            <motion.li
-              key={point}
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.05 }}
-              className="flex items-start gap-3 rounded-xl border border-border bg-card/40 px-5 py-4"
-            >
-              <Check size={18} className="mt-0.5 shrink-0 text-[hsl(var(--brand-accent))]" aria-hidden="true" />
-              <span className="text-sm font-medium leading-relaxed">{point}</span>
-            </motion.li>
+        <div className="divide-y divide-border/80 border-y border-border/80">
+          {content.principles.map((principle) => (
+            <SectionReveal key={principle.title} className="grid gap-3 py-8 md:grid-cols-[14rem_1fr] md:gap-10 md:py-10">
+              <h3 className="text-xs font-medium uppercase tracking-[0.22em] text-foreground">{principle.title}</h3>
+              <p className="editorial-body text-sm md:text-base">{principle.description}</p>
+            </SectionReveal>
           ))}
-        </ul>
+        </div>
       </div>
     </section>
   );
