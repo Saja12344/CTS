@@ -13,33 +13,33 @@
     --brand-light: 240 9% 96%; /* #F5F5F7 */
     --brand-accent: 27 26% 80%; /* #D9C9BD */
 
-    --background: var(--brand-deep);
-    --foreground: var(--brand-light);
+    --background: 240 4% 6%;
+    --foreground: 240 9% 96%;
 
-    --card: var(--brand-charcoal);
-    --card-foreground: var(--brand-light);
+    --card: 0 0% 16%;
+    --card-foreground: 240 9% 96%;
 
-    --popover: var(--brand-charcoal);
-    --popover-foreground: var(--brand-light);
+    --popover: 0 0% 16%;
+    --popover-foreground: 240 9% 96%;
 
-    --primary: var(--brand-light);
-    --primary-foreground: var(--brand-deep);
+    --primary: 240 9% 96%;
+    --primary-foreground: 240 4% 6%;
 
     --secondary: 0 0% 20%;
-    --secondary-foreground: var(--brand-light);
+    --secondary-foreground: 240 9% 96%;
 
     --muted: 0 0% 18%;
     --muted-foreground: 240 4% 68%;
 
-    --accent: var(--brand-accent);
-    --accent-foreground: var(--brand-deep);
+    --accent: 27 26% 80%;
+    --accent-foreground: 240 4% 6%;
 
     --destructive: 0 84% 60%;
-    --destructive-foreground: var(--brand-light);
+    --destructive-foreground: 240 9% 96%;
 
     --border: 0 0% 22%;
     --input: 0 0% 22%;
-    --ring: var(--brand-accent);
+    --ring: 27 26% 80%;
 
     --radius: 0.875rem;
 
