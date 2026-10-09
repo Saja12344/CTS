@@ -94,8 +94,20 @@
     content: "";
     position: absolute;
     inset: 0;
-    background: radial-gradient(ellipse 80% 60% at 70% 40%, hsl(72 100% 65% / 0.04), transparent 60%);
+    background: radial-gradient(ellipse 80% 60% at 70% 40%, hsl(0 0% 100% / 0.04), transparent 60%);
     pointer-events: none;
+  }
+
+  .editorial-grid::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.35;
+    background-image: linear-gradient(to right, hsl(var(--border) / 0.35) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(var(--border) / 0.2) 1px, transparent 1px);
+    background-size: calc(100% / 6) 100%, 100% 96px;
+    mask-image: linear-gradient(to bottom, black, transparent 85%);
   }
 }
 

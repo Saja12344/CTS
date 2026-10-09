@@ -25,15 +25,18 @@ const ContactSection = ({ content }: ContactSectionProps) => {
           <SectionReveal>
             <p className="section-index mb-6">{content.section}</p>
             <h2 className="display-statement mb-6">{content.title}</h2>
-            <p className="body-copy mb-10">{content.description}</p>
+            <p className="body-copy mb-8">{content.description}</p>
+            <a href="#contact-form" className="btn-solid mb-10 inline-flex">
+              {content.primaryCta}
+            </a>
           </SectionReveal>
           <SectionReveal delay={0.08} className="hidden md:block">
-            <MetallicVisual className="max-w-sm opacity-80" />
+            <MetallicVisual compact className="max-w-sm opacity-75" />
           </SectionReveal>
         </div>
 
         <SectionReveal delay={0.1}>
-          <form onSubmit={handleSubmit} className="border hairline bg-card/20 p-6 md:p-8">
+          <form id="contact-form" onSubmit={handleSubmit} className="border hairline bg-card/20 p-6 md:p-8">
             <div className="mb-4">
               <label htmlFor="contact-name" className="micro-label mb-2 block">
                 {content.nameLabel}
