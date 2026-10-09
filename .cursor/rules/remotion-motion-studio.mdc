@@ -1,22 +1,16 @@
 ---
-description: Auto-apply Remotion Motion Studio harness for any Remotion/motion video work
+description: Remotion/motion file work uses Motion Studio harness
 globs:
   - "**/remotion/**/*.{ts,tsx,js,jsx}"
   - "**/*remotion*"
   - "**/src/Root.{ts,tsx}"
   - "**/src/Composition*.{ts,tsx}"
+  - "**/docs/shotlist.md"
+  - "**/docs/style_guide.md"
+  - "**/beats.json"
 alwaysApply: false
 ---
 
-# Remotion videos
+Follow `.cursor/skills/remotion-motion-studio/SKILL.md` and `.cursor/skills/realistic-remotion-components/SKILL.md`.
 
-When the user asks for a Remotion video, motion graphics, launch promo, kinetic type, or UI animation:
-
-1. Read and follow `.cursor/skills/remotion-motion-studio/SKILL.md`
-2. Read and follow `.cursor/skills/realistic-remotion-components/SKILL.md`
-3. Use the strongest available model for the creative pass (not cheap/fast)
-4. Search MagicPath / ready components before inventing UI
-5. Remotion-only timing (`useCurrentFrame`, `spring`, `interpolate`, `Sequence`)
-6. Anti-AI look bans + critique loop to scores ≥ 8 before final render
-
-Also load MagicPath skills: `remotion-motion-studio` and `realistic-remotion-components`.
+Stack: Remotion default · HyperFrames for URL launches · Screen Studio/real UI · MagicPath for components/brand only · WhatShips · Fish Audio · beats.json · FFmpeg/Remotion render · critique ≥8.

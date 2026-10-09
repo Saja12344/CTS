@@ -1,11 +1,20 @@
 ---
-description: Trigger Remotion Motion Studio when user asks for Remotion/video motion work (AR/EN)
+description: Auto-load video harness on ANY video request (AR/EN)
 alwaysApply: true
 ---
 
-If the user request involves Remotion, فيديو ريموشن, motion graphics, launch video, kinetic typography, product promo video, or timed React video rendering:
+# Auto-trigger: any video request
 
-- Immediately read `.cursor/skills/remotion-motion-studio/SKILL.md` and `.cursor/skills/realistic-remotion-components/SKILL.md` (or MagiPath skills with the same slugs).
-- Prefer the best/strongest model for composition and critique.
-- Search ready MagicPath components first; build near-real UI if none fit.
-- Do not ship generic AI gradient + centered text + fade-only motion.
+If the user says anything like:
+
+- سوي فيديو / اعمل فيديو / صمم فيديو / فيديو / ريموشن
+- make a video / create a video / Remotion / motion graphics / launch video / SaaS promo / product demo / showreel / kinetic type
+
+Then **in the same turn**, before designing:
+
+1. Read and follow `.cursor/skills/remotion-motion-studio/SKILL.md`
+2. Read and follow `.cursor/skills/realistic-remotion-components/SKILL.md`
+3. If MagicPath is connected, also load skills `remotion-motion-studio` and `realistic-remotion-components`
+4. Use the approved stack: Remotion (default) · HyperFrames (URL launch) · Screen Studio/real screenshots · MagicPath for UI only · WhatShips refs · Fish Audio · beat grid · FFmpeg/Remotion render
+5. Strongest available model for creative + critique
+6. Never ship generic AI gradient + centered text + fade-only motion

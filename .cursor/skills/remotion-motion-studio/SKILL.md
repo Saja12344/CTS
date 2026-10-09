@@ -1,42 +1,59 @@
 ---
 name: remotion-motion-studio
 description: >-
-  Use for any Remotion video, motion graphics, launch video, kinetic typography,
-  UI animation, showreel, or product promo. Forces Remotion-only pipeline, best
-  model, real brand assets, MagicPath/ready components first, anti-AI look,
-  beat sync, and critique loop before final render.
+  AUTO-USE whenever the user asks to make a video in Arabic or English
+  (سوي فيديو، اعمل فيديو، فيديو، Remotion, motion graphics, launch video,
+  SaaS promo, product demo, showreel, kinetic type). Full harness: best model,
+  approved tool stack, Remotion-first, HyperFrames for URL launches, real
+  capture, MagicPath for UI only, anti-AI look, beat sync, critique loop.
 ---
 
 # Remotion Motion Studio (Harness)
 
-Apply this skill automatically whenever the user asks for a Remotion video, motion graphics, launch/promo clip, kinetic type, UI animation, showreel, or timed React video.
+**Trigger:** any request to make a video — including «سوي فيديو»، «اعمل فيديو»، «فيديو»، launch/promo/demo/motion/Remotion — even if they do not say “Remotion”.
 
-Also read **realistic-remotion-components** in the same turn for UI/visual sourcing.
+Also read **realistic-remotion-components** in the same turn.
 
-**Prompt is ~10% of quality. This harness is ~90%.** Never ship a one-shot centered-title-on-gradient video.
+**Prompt ≈ 10%. Harness ≈ 90%.** Never ship centered-title-on-gradient + fade-only.
+
+---
+
+## Approved tool stack (do not invent a weaker stack)
+
+| Role | Tool | Notes |
+|------|------|--------|
+| Brain | Strongest available model (Opus-class / max thinking) | Not cheap/fast for creative + critique |
+| Engine (default) | **Remotion** | React, templates, deterministic frames |
+| Engine (URL launch) | **HyperFrames** | Fast SaaS promo from product URL / HTML+GSAP |
+| Product capture | **Screen Studio** (+ real screenshots) | Real UI footage so it does not look AI |
+| UI / brand components | **MagicPath** (+ Figma/assets) | Components & brand match — **not** the video engine |
+| Style references | **WhatShips** (whatships.com) | Launch-video grammar only |
+| Voice | **Fish Audio** (MCP when available) | VO + clone; not flat default TTS |
+| Beat sync | librosa → `beats.json` + code SFX | Cuts on beats; ~-14 LUFS |
+| Encode | **FFmpeg** / Remotion render (Lambda if scale) | Deterministic MP4 |
+
+Optional only when needed: Screenify/ScreenKite, Arcade/Storylane (interactive), Creatomate (bulk templates), Three.js/Blender (heavy 3D).
+
+**MagicPath = UI/brand source on a large canvas. Remotion/HyperFrames = motion/video engine.**
 
 ---
 
 ## 0) Model selection (mandatory)
 
-- Prefer the strongest available coding/reasoning model for the full creative pass (Opus-class / highest effort / max thinking when the host allows).
-- Do NOT use cheap/fast/light models for first composition, style extraction, or critique.
-- Light models are OK only for tiny typo/timing fixes after scores are already 8+.
-- If spawning subagents for Remotion motion work, pick the highest-quality model the host allows for that task.
+- Strongest coding/reasoning model for composition, style extraction, critique.
+- Light models only for tiny fixes after scores ≥ 8.
+- Subagents for motion: highest-quality model the host allows.
 
 ---
 
-## 1) Stack lock: Remotion only
+## 1) Route the job
 
-Unless the user explicitly asks otherwise:
+1. **Default → Remotion** (`useCurrentFrame`, `spring`, `interpolate`, `Sequence`, `Series`, `AbsoluteFill`, `Audio`/`Video`/`Img`).
+2. **Product URL launch / site tour → HyperFrames** `/product-launch-video` when faster; still apply anti-AI + critique rules.
+3. Install Remotion skills if missing: `npx remotion skills add`.
+4. **Forbidden in Remotion render path:** CSS transitions, `setTimeout`, `requestAnimationFrame`, unseeded `Math.random()`, Framer Motion as the final renderer.
 
-1. Use Remotion (`@remotion/cli`, compositions, `useCurrentFrame`, `useVideoConfig`).
-2. Install Remotion Agent Skills when missing: `npx remotion skills add`.
-3. Animate only with Remotion primitives: `interpolate`, `spring`, `Sequence`, `Series`, `AbsoluteFill`, `Audio`, `Video`, `Img`.
-4. **Forbidden in render path:** CSS transitions/animations, `setTimeout`, `requestAnimationFrame`, `Math.random()` (use seeded noise), carousel timers, Framer Motion for the final Remotion render.
-5. Every frame must be a pure function of `frame` (and props). Deterministic re-renders.
-
-Bootstrap if needed:
+Bootstrap Remotion:
 
 ```bash
 npx create-video --yes --blank <name>
@@ -45,88 +62,54 @@ cd <name> && npm install && npx remotion skills add && npm run dev
 
 ---
 
-## 2) Component sourcing (ready-made first, then near-real)
+## 2) Asset & component pipeline
 
-Follow **realistic-remotion-components**. Summary:
+1. Gather real brand assets (logo, colors, fonts, screenshots).
+2. Prefer **Screen Studio** (or supplied) recordings of the real product.
+3. Search **MagicPath** for near-real UI components; adapt into timed Sequences.
+4. Follow **realistic-remotion-components** (no AI slop UI).
+5. Pull style grammar from **WhatShips** / reference film → `docs/style_guide.md`.
 
-1. Search MagicPath for product UI close to the brief; inspect previews.
-2. Adapt matches into Remotion Sequences; keep tokens.
-3. Else build near-real UI with authentic assets — not AI landing slop.
-4. Pull real brand assets when a URL/product is given.
+### Anti-AI bans
 
-### Anti-AI look (hard bans)
+Centered title on purple/cream gradient · fade-only · corner labels · glow spam · Inter/Roboto display · pill clusters · generic AI startup look · fake device chrome unless asked.
 
-- Centered title on purple/indigo or cream gradient
-- Everything only fading in
-- Corner labels, fake film borders, generic particle bursts, glow spam
-- Inter/Roboto/Arial/system as display faces for branded work
-- Rounded-full pill clusters, multi-layer soft shadows as decoration
-- Stock “AI startup” purple-on-white look
-- Device mockup chrome unless requested
+### Craft
 
-### Realistic craft rules
-
-- Hook in first 2 seconds
-- One display face + one UI face; one accent unless brand says otherwise
-- Every 2–4 seconds something new happens
-- Readable at phone size
-- Springs / overshoot — not linear fades only
-- Product-like UI motion: cursor, click, panel slide, list cascade, chart draw
+Hook in 2s · one display + one UI face · one accent · new beat every 2–4s · phone-readable · springs not linear fades · product UI motion (cursor, panels, cascades).
 
 ---
 
 ## 3) Brief → shotlist
 
-1. Duration, fps (30/60), size (1080p or 9:16)
-2. Genre (launch / UI demo / kinetic type / explainer / showreel)
-3. 6–8 shots for ~15s
-4. Asset list + beat intent
-5. Write `docs/shotlist.md` in project folders
+Duration, fps (30/60), aspect · genre · 6–8 shots per ~15s · assets · beat intent → `docs/shotlist.md`.
 
 ---
 
-## 4) Style & reference grammar
+## 4) Audio
 
-Extract timing/cut/type/camera grammar into `docs/style_guide.md`. Steal rhythm, not content.
-
----
-
-## 5) Audio & beat sync
-
-1. Measure BPM → `beats.json` when music exists
-2. Cuts/logo/UI hits on beats
-3. UI SFX on events; ~-14 LUFS when mixing
-4. Prefer real/cloned VO when available
-5. Remotion `Audio` frame-accurate; visual hits ±2 frames
+Fish Audio VO when possible · `beats.json` · SFX on UI events · Remotion `Audio` ±2 frames of visual hits.
 
 ---
 
-## 6) Animation vocabulary
+## 5) Animation vocabulary
 
-Kinetic type · UI state machines · camera push/pan/snap · morphs · staggered cascades · chart draw-ons · logo lockup · cursor demos
-
-Use `spring` + `interpolate` with clamp/easing. One technique per shot; variety across the piece.
+Kinetic type · UI state machines · camera push/pan/snap · morphs · staggered cascades · chart draw-ons · logo lockup · cursor demos.
 
 ---
 
-## 7) Critique loop (required)
+## 6) Critique loop (required)
 
-1. Contact sheet / key frames
-2. Look at images
-3. Score 1–10: hook, phone readability, motion, variety, brand, sound sync
-4. Fix worst 3 until all ≥ 8
-5. Then full render
-
-Reject centered text + gradient + fade.
+Contact sheet → look at frames → score hook / readability / motion / variety / brand / sync → fix worst 3 until all ≥ 8 → full render.
 
 ---
 
-## 8) Delivery checklist
+## 7) Delivery checklist
 
-- [ ] Remotion-only deterministic timeline
-- [ ] MagicPath/ready components searched first
+- [ ] Correct engine (Remotion default / HyperFrames for URL launch)
+- [ ] Real capture or screenshots used when product exists
+- [ ] MagicPath searched for UI (not used as sole motion engine)
 - [ ] Anti-AI bans respected
-- [ ] Shotlist/style notes for non-trivial jobs
-- [ ] Beats/SFX/VO aligned
-- [ ] Critique pass done (3 for launch videos)
-- [ ] Final render previewed
+- [ ] Beats / VO / SFX aligned
+- [ ] Critique ≥ 1 pass (3 for launch)
+- [ ] Final MP4 previewed
