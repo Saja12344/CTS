@@ -11,15 +11,19 @@ Previous “video” attempts that only opened `npm run dev` (Vite) were preview
 cd remotion
 npm run studio          # open Remotion Studio
 npm run compositions    # list composition IDs
+npm run render:brand    # CoreTechBrandFilm → renders/core-tech-solutions-brand-film.mp4
 npm run render          # export WorkflowTest → out/workflow-test.mp4
 npm run still           # export WorkflowStill → out/workflow-still.png
 ```
+
+Brand film composition ID: **`CoreTechBrandFilm`**  
+Studio: `http://localhost:3000/CoreTechBrandFilm`
 
 From the repo root:
 
 ```bash
 npm run remotion:studio
-npm run remotion:render
+npm run remotion:render:brand
 ```
 
 ## Structure

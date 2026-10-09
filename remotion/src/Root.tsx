@@ -1,4 +1,5 @@
 import {Composition, Folder, Still} from "remotion";
+import {BrandFilm} from "./brand-film/BrandFilm";
 import {TitleCard} from "./components/TitleCard";
 import {GeometricBadge} from "./components/GeometricBadge";
 import {WorkflowTest} from "./compositions/WorkflowTest";
@@ -9,6 +10,22 @@ import {OutroScene} from "./scenes/OutroScene";
 export const RemotionRoot: React.FC = () => {
   return (
     <>
+      <Folder name="Brand">
+        <Composition
+          id="CoreTechBrandFilm"
+          component={BrandFilm}
+          durationInFrames={540}
+          fps={30}
+          width={1080}
+          height={1920}
+        />
+        <Still
+          id="CoreTechBrandFilmStill"
+          component={BrandFilm}
+          width={1080}
+          height={1920}
+        />
+      </Folder>
       <Folder name="Workflow">
         <Composition
           id="WorkflowTest"

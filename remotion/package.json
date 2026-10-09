@@ -7,6 +7,7 @@
   "private": true,
   "dependencies": {
     "@remotion/cli": "4.0.534",
+    "@remotion/google-fonts": "4.0.534",
     "@remotion/media": "4.0.534",
     "react": "19.2.3",
     "react-dom": "19.2.3",
@@ -25,7 +26,9 @@
     "studio": "remotion studio",
     "compositions": "remotion compositions",
     "render": "remotion render WorkflowTest out/workflow-test.mp4",
+    "render:brand": "remotion render CoreTechBrandFilm renders/core-tech-solutions-brand-film.mp4",
     "still": "remotion still WorkflowStill out/workflow-still.png",
+    "still:brand": "remotion still CoreTechBrandFilmStill renders/brand-film-still.png",
     "build": "remotion bundle",
     "upgrade": "remotion upgrade",
     "lint": "eslint src && tsc"
