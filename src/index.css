@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,22 +6,20 @@
 
 @layer base {
   :root {
-    /* Core Tech — documented palette */
-    /* #0B0B0C graphite, #17181A charcoal, #E6E6E4 titanium, #F4F2EE warm white, #C8FF4D accent */
     --background: 240 5% 4%;
-    --foreground: 40 8% 95%;
-    --card: 220 6% 10%;
-    --card-foreground: 40 8% 95%;
-    --primary: 40 8% 95%;
+    --foreground: 40 10% 96%;
+    --card: 220 6% 9%;
+    --card-foreground: 40 10% 96%;
+    --primary: 40 10% 96%;
     --primary-foreground: 240 5% 4%;
-    --secondary: 220 5% 12%;
-    --secondary-foreground: 40 8% 95%;
-    --muted: 220 5% 12%;
-    --muted-foreground: 240 3% 58%;
+    --secondary: 220 5% 11%;
+    --secondary-foreground: 40 10% 96%;
+    --muted: 220 5% 11%;
+    --muted-foreground: 240 3% 62%;
     --accent: 72 100% 65%;
     --accent-foreground: 240 5% 4%;
-    --border: 225 6% 18%;
-    --input: 225 6% 18%;
+    --border: 225 6% 16%;
+    --input: 225 6% 16%;
     --ring: 72 100% 65%;
     --radius: 0px;
   }
@@ -43,71 +41,35 @@
 
 @layer components {
   .grid-shell {
-    @apply container;
-  }
-
-  .section-pad {
-    @apply py-20 md:py-32 lg:py-36;
+    @apply mx-auto w-full max-w-[1320px] px-5 md:px-8 lg:px-10;
   }
 
   .micro-label {
-    @apply text-[10px] font-medium uppercase tracking-[0.32em] text-muted-foreground;
+    @apply text-[10px] font-medium uppercase tracking-[0.34em] text-muted-foreground;
   }
 
-  .section-index {
-    @apply micro-label text-[hsl(var(--accent))];
+  .type-display {
+    @apply font-display font-medium tracking-[-0.04em] leading-[0.92];
   }
 
-  .display-headline {
-    @apply text-[clamp(2.25rem,6vw,4.75rem)] font-medium leading-[0.95] tracking-[-0.03em];
-  }
-
-  .display-statement {
-    @apply text-[clamp(1.75rem,4vw,3.25rem)] font-medium leading-[1.05] tracking-[-0.02em];
-  }
-
-  .body-copy {
-    @apply max-w-xl text-base leading-8 text-muted-foreground md:text-lg;
+  .type-manifesto {
+    @apply font-display font-medium tracking-[-0.035em] leading-[0.95];
   }
 
   .btn-solid {
-    @apply inline-flex items-center justify-center border border-foreground bg-foreground px-7 py-3.5 text-xs font-semibold uppercase tracking-[0.18em] text-background transition-[background-color,color,border-color] duration-500 hover:bg-transparent hover:text-foreground;
+    @apply inline-flex items-center justify-center bg-foreground px-8 py-4 text-[11px] font-semibold uppercase tracking-[0.2em] text-background transition-colors duration-500 hover:bg-[hsl(var(--accent))] hover:text-background;
   }
 
   .btn-ghost {
-    @apply inline-flex items-center justify-center border border-border px-7 py-3.5 text-xs font-semibold uppercase tracking-[0.18em] text-foreground transition-colors duration-500 hover:border-foreground/50;
+    @apply inline-flex items-center justify-center border border-border px-8 py-4 text-[11px] font-semibold uppercase tracking-[0.2em] text-foreground transition-colors duration-500 hover:border-foreground/50;
   }
 
   .surface-light {
     @apply bg-[#F4F2EE] text-[#0B0B0C];
   }
 
-  .surface-light .text-muted-foreground {
-    color: #5a5c63;
-  }
-
-  .hairline {
-    @apply border-border/80;
-  }
-
-  .hero-vignette::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse 80% 60% at 70% 40%, hsl(0 0% 100% / 0.04), transparent 60%);
-    pointer-events: none;
-  }
-
-  .editorial-grid::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    opacity: 0.35;
-    background-image: linear-gradient(to right, hsl(var(--border) / 0.35) 1px, transparent 1px),
-      linear-gradient(to bottom, hsl(var(--border) / 0.2) 1px, transparent 1px);
-    background-size: calc(100% / 6) 100%, 100% 96px;
-    mask-image: linear-gradient(to bottom, black, transparent 85%);
+  .rule {
+    @apply border-border/70;
   }
 }
 
@@ -115,4 +77,21 @@
   html {
     scroll-behavior: auto;
   }
+
+  .hero-orb {
+    animation: none !important;
+  }
+}
+
+@keyframes orb-drift {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  100% {
+    transform: translate3d(2%, -3%, 0) scale(1.05);
+  }
+}
+
+.hero-orb {
+  animation: orb-drift 16s ease-in-out infinite alternate;
 }

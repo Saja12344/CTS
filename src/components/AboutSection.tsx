@@ -8,17 +8,14 @@ type AboutSectionProps = {
 
 const AboutSection = ({ content }: AboutSectionProps) => {
   return (
-    <section id="about" className="section-pad border-b hairline surface-light">
-      <div className="grid-shell grid gap-12 lg:grid-cols-[1fr_280px] lg:items-start lg:gap-16">
+    <section id="about" className="border-b rule surface-light">
+      <div className="grid-shell grid gap-12 py-20 md:grid-cols-[1.2fr_0.8fr] md:items-end md:gap-16 md:py-28">
         <SectionReveal>
-          <p className="section-index mb-6 text-[#0B0B0C]/50">{content.section}</p>
-          <h2 className="display-statement mb-8 text-[#0B0B0C]">{content.title}</h2>
-          <p className="mb-8 max-w-2xl text-base leading-8 text-[#5a5c63] md:text-lg">{content.body}</p>
-          <p className="max-w-2xl border-s-2 border-[#C8FF4D] ps-6 text-sm leading-7 text-[#5a5c63] md:text-base">{content.philosophy}</p>
+          <h2 className="type-display mb-8 text-[clamp(2rem,4vw,3.5rem)] text-[#0B0B0C]">{content.title}</h2>
+          <p className="max-w-xl text-base leading-8 text-[#5a5c63] md:text-lg">{content.body}</p>
         </SectionReveal>
-
-        <SectionReveal delay={0.1} className="hidden lg:block">
-          <img src={logoDark} alt="Core Tech Solutions mark" className="w-full max-w-[220px] opacity-90" />
+        <SectionReveal delay={0.08} className="justify-self-start md:justify-self-end">
+          <img src={logoDark} alt="" className="w-28 opacity-90 md:w-36" aria-hidden="true" />
         </SectionReveal>
       </div>
     </section>
