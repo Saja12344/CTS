@@ -40,11 +40,11 @@ const Navbar = ({ content, language, onLanguageChange }: NavbarProps) => {
 
         <div className="hidden items-center gap-9 md:flex">
           {links.map((link) => (
-            <a key={link.href} href={link.href} className="micro-label transition-colors hover:text-foreground">
+            <a key={link.href} href={link.href} className="micro-label nav-link hover:text-foreground">
               {link.label}
             </a>
           ))}
-          <a href="#contact" className="btn-solid px-5 py-2.5 text-[10px]">
+          <a href="#contact" className="btn-solid btn-motion px-5 py-2.5 text-[10px]">
             {content.cta}
           </a>
           <button

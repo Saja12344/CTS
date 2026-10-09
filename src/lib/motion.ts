@@ -1,25 +1,20 @@
 export const premiumEase = [0.22, 1, 0.36, 1] as const;
+export const cinematicEase = [0.16, 1, 0.3, 1] as const;
+export const softEase = [0.33, 1, 0.68, 1] as const;
 
-export const fadeUp = {
-  hidden: { opacity: 0, y: 28 },
-  visible: {
+export const heroWord = {
+  hidden: { y: "110%", opacity: 0 },
+  visible: (i: number) => ({
+    y: "0%",
     opacity: 1,
-    y: 0,
-    transition: { duration: 0.75, ease: premiumEase },
-  },
+    transition: { duration: 0.9, ease: cinematicEase, delay: 0.55 + i * 0.08 },
+  }),
 };
 
-export const fadeIn = {
-  hidden: { opacity: 0 },
+export const lineReveal = {
+  hidden: { scaleX: 0 },
   visible: {
-    opacity: 1,
-    transition: { duration: 0.6, ease: premiumEase },
-  },
-};
-
-export const staggerContainer = {
-  hidden: {},
-  visible: {
-    transition: { staggerChildren: 0.12, delayChildren: 0.05 },
+    scaleX: 1,
+    transition: { duration: 1.1, ease: cinematicEase },
   },
 };

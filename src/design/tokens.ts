@@ -16,10 +16,10 @@ export const typography = {
 
 /** Visual asset map — one purpose per asset */
 export const visualMap = {
-  hero: "hero-metallic.jpg — signature sculptural mark only",
-  capabilities: "typography + hairline rows — no sculpture",
-  process: "numbered progression columns — layout as motion",
-  manifesto: "typography + negative space only",
-  about: "logo-dark mark only",
-  contact: "no image — form opens on demand",
+  hero: "logo-mark-ref — assemble ribbon + stem into Core Tech mark",
+  capabilities: "typography + hairline draw — no sculpture",
+  process: "scroll-scrubbed progress spine through methodology steps",
+  manifesto: "staggered typography clip reveal",
+  about: "logo-dark mark echo",
+  contact: "form focus lines + button motion",
 } as const;

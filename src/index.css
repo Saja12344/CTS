@@ -57,11 +57,42 @@
   }
 
   .btn-solid {
-    @apply inline-flex items-center justify-center bg-foreground px-8 py-4 text-[11px] font-semibold uppercase tracking-[0.2em] text-background transition-colors duration-500 hover:bg-[hsl(var(--accent))] hover:text-background;
+    @apply inline-flex items-center justify-center bg-foreground px-8 py-4 text-[11px] font-semibold uppercase tracking-[0.2em] text-background transition-[background-color,color,transform] duration-500 hover:bg-[hsl(var(--accent))] hover:text-background;
   }
 
   .btn-ghost {
     @apply inline-flex items-center justify-center border border-border px-8 py-4 text-[11px] font-semibold uppercase tracking-[0.2em] text-foreground transition-colors duration-500 hover:border-foreground/50;
+  }
+
+  .btn-motion {
+    @apply will-change-transform;
+  }
+
+  .btn-motion:hover {
+    transform: translateY(-1px);
+  }
+
+  .btn-motion:active {
+    transform: translateY(0);
+  }
+
+  .field-line {
+    @apply border-b border-border/70 transition-[border-color] duration-300 focus:border-[hsl(var(--accent))];
+  }
+
+  .nav-link {
+    @apply relative transition-colors duration-300;
+  }
+
+  .nav-link::after {
+    content: "";
+    @apply pointer-events-none absolute inset-x-0 -bottom-1 h-px origin-left scale-x-0 bg-foreground transition-transform duration-500;
+    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .nav-link:hover::after,
+  .nav-link:focus-visible::after {
+    @apply scale-x-100;
   }
 
   .surface-light {
@@ -78,20 +109,12 @@
     scroll-behavior: auto;
   }
 
-  .hero-orb {
-    animation: none !important;
+  .btn-motion:hover,
+  .btn-motion:active {
+    transform: none;
   }
-}
 
-@keyframes orb-drift {
-  0% {
-    transform: translate3d(0, 0, 0) scale(1);
+  .nav-link::after {
+    transition: none;
   }
-  100% {
-    transform: translate3d(2%, -3%, 0) scale(1.05);
-  }
-}
-
-.hero-orb {
-  animation: orb-drift 16s ease-in-out infinite alternate;
 }
