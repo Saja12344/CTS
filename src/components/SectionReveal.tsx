@@ -1,6 +1,6 @@
 import { motion, useReducedMotion } from "framer-motion";
 import type { ReactNode } from "react";
-import { fadeUp } from "@/lib/motion";
+import { cinematicEase } from "@/lib/motion";
 
 type SectionRevealProps = {
   children: ReactNode;
@@ -8,6 +8,7 @@ type SectionRevealProps = {
   delay?: number;
 };
 
+/** Lightweight reveal — reserved for sparse use, not every block. */
 const SectionReveal = ({ children, className, delay = 0 }: SectionRevealProps) => {
   const reduceMotion = useReducedMotion();
 
@@ -17,16 +18,10 @@ const SectionReveal = ({ children, className, delay = 0 }: SectionRevealProps) =
 
   return (
     <motion.div
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: "-80px" }}
-      variants={{
-        hidden: fadeUp.hidden,
-        visible: {
-          ...fadeUp.visible,
-          transition: { ...fadeUp.visible.transition, delay },
-        },
-      }}
+      initial={{ opacity: 0.01, y: 16 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-12%" }}
+      transition={{ duration: 0.7, ease: cinematicEase, delay }}
       className={className}
     >
       {children}
