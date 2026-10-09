@@ -29,11 +29,11 @@ const Navbar = ({ content, language, onLanguageChange }: NavbarProps) => {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-colors duration-500 ${
-        scrolled ? "border-b rule bg-background/95 backdrop-blur-sm" : "bg-transparent"
+      className={`fixed inset-x-0 top-0 z-[100] pointer-events-auto transition-colors duration-500 ${
+        scrolled ? "border-b rule bg-background/95 backdrop-blur-sm" : "bg-background/80 backdrop-blur-sm"
       }`}
     >
-      <nav className="grid-shell flex h-16 items-center justify-between md:h-[4.5rem]" aria-label="Primary">
+      <nav className="grid-shell relative z-[101] flex h-16 items-center justify-between md:h-[4.5rem]" aria-label="Primary">
         <a href="#hero" className="flex items-center">
           <img src={logoLight} alt="Core Tech Solutions" className="h-7 w-auto md:h-8" />
         </a>
