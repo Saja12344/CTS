@@ -49,8 +49,9 @@ const Navbar = ({ content, language, onLanguageChange }: NavbarProps) => {
           </a>
           <button
             type="button"
+            id="lang-toggle"
             onClick={() => onLanguageChange(isArabic ? "en" : "ar")}
-            className="micro-label transition-colors hover:text-foreground"
+            className="relative z-[60] cursor-pointer border border-border px-4 py-2 text-[10px] font-medium uppercase tracking-[0.22em] text-muted-foreground transition-colors hover:border-foreground/40 hover:text-foreground"
           >
             {content.language}
           </button>
