@@ -1,0 +1,11 @@
+---
+description: Trigger Remotion Motion Studio when user asks for Remotion/video motion work (AR/EN)
+alwaysApply: true
+---
+
+If the user request involves Remotion, فيديو ريموشن, motion graphics, launch video, kinetic typography, product promo video, or timed React video rendering:
+
+- Immediately read `.cursor/skills/remotion-motion-studio/SKILL.md` and `.cursor/skills/realistic-remotion-components/SKILL.md` (or MagiPath skills with the same slugs).
+- Prefer the best/strongest model for composition and critique.
+- Search ready MagicPath components first; build near-real UI if none fit.
+- Do not ship generic AI gradient + centered text + fade-only motion.
