@@ -19,7 +19,7 @@ export const siteContent = {
     hero: {
       label: "CORE TECH SOLUTIONS",
       headline: "نحوّل الأفكار إلى منتجات رقمية.",
-      description: "نحدد المشكلة الصحيحة، ثم نبني الحل الرقمي المناسب.",
+      description: "شركة تقنية واضحة — نحوّل الأفكار وتحديات التشغيل إلى منتجات وأنظمة رقمية عملية.",
       primaryCta: "ناقش مشروعك",
     },
     build: {
@@ -89,8 +89,8 @@ export const siteContent = {
     },
     hero: {
       label: "CORE TECH SOLUTIONS",
-      headline: "We Turn Ideas Into Digital Products.",
-      description: "We find the right problem to solve, then build the right digital solution.",
+      headline: "We turn ideas into digital products.",
+      description: "A clear technology partner — turning ideas and operational challenges into practical digital products and systems.",
       primaryCta: "Discuss Your Project",
     },
     build: {

@@ -10,16 +10,16 @@ export const colors = {
 } as const;
 
 export const typography = {
-  display: "Space Grotesk",
+  display: "Inter",
   arabic: "IBM Plex Sans Arabic",
 } as const;
 
 /** Visual asset map — one purpose per asset */
 export const visualMap = {
-  hero: "logo-mark-ref — assemble ribbon + stem into Core Tech mark",
-  capabilities: "typography + hairline draw — no sculpture",
-  process: "scroll-scrubbed progress spine through methodology steps",
-  manifesto: "staggered typography clip reveal",
-  about: "logo-dark mark echo",
-  contact: "form focus lines + button motion",
+  hero: "atmosphere + solid animated network — logo only in navbar",
+  capabilities: "dark tech panels",
+  process: "English methodology with solid progress spine",
+  manifesto: "typography + soft glow",
+  about: "copy panel — no repeated logo",
+  contact: "form panel + focus lines",
 } as const;

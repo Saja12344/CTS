@@ -20,16 +20,17 @@ const ContactSection = ({ content }: ContactSectionProps) => {
   };
 
   return (
-    <section id="contact" className="border-b rule bg-background">
-      <div className="grid-shell grid gap-14 py-24 md:grid-cols-[1fr_1fr] md:items-start md:gap-20 md:py-32">
+    <section id="contact" className="relative border-b rule bg-[#090A0C]">
+      <div className="glow-soft pointer-events-none absolute inset-0 opacity-50" />
+      <div className="grid-shell relative grid gap-12 py-24 md:grid-cols-[1fr_1fr] md:items-start md:gap-16 md:py-32">
         <motion.div
           initial={reduceMotion ? false : { opacity: 0, y: 14 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-12%" }}
           transition={{ duration: 0.7, ease: cinematicEase }}
         >
-          <h2 className="type-display mb-6 text-[clamp(2.5rem,6vw,5rem)]">{content.title}</h2>
-          <p className="max-w-md text-base text-muted-foreground">{content.description}</p>
+          <h2 className="type-display mb-5 text-[clamp(2.2rem,5vw,4rem)] text-white">{content.title}</h2>
+          <p className="max-w-md text-base text-white/55">{content.description}</p>
         </motion.div>
 
         <motion.form
@@ -38,7 +39,7 @@ const ContactSection = ({ content }: ContactSectionProps) => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-12%" }}
           transition={{ duration: 0.75, ease: cinematicEase, delay: 0.08 }}
-          className="space-y-5"
+          className="panel space-y-5 p-6 md:p-8"
         >
           <div>
             <label htmlFor="contact-name" className="micro-label mb-2 block">

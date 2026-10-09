@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,22 +6,22 @@
 
 @layer base {
   :root {
-    --background: 240 5% 4%;
-    --foreground: 40 10% 96%;
-    --card: 220 6% 9%;
-    --card-foreground: 40 10% 96%;
-    --primary: 40 10% 96%;
-    --primary-foreground: 240 5% 4%;
-    --secondary: 220 5% 11%;
-    --secondary-foreground: 40 10% 96%;
-    --muted: 220 5% 11%;
-    --muted-foreground: 240 3% 62%;
-    --accent: 72 100% 65%;
-    --accent-foreground: 240 5% 4%;
-    --border: 225 6% 16%;
-    --input: 225 6% 16%;
-    --ring: 72 100% 65%;
-    --radius: 0px;
+    --background: 240 6% 4%;
+    --foreground: 210 20% 96%;
+    --card: 220 10% 8%;
+    --card-foreground: 210 20% 96%;
+    --primary: 210 20% 96%;
+    --primary-foreground: 240 6% 4%;
+    --secondary: 220 8% 10%;
+    --secondary-foreground: 210 20% 96%;
+    --muted: 220 8% 10%;
+    --muted-foreground: 220 8% 62%;
+    --accent: 160 30% 72%;
+    --accent-foreground: 240 6% 4%;
+    --border: 220 10% 16%;
+    --input: 220 10% 16%;
+    --ring: 160 30% 72%;
+    --radius: 0.75rem;
   }
 }
 
@@ -37,35 +37,41 @@
   body {
     @apply bg-background text-foreground font-sans antialiased;
   }
+
+  :lang(ar),
+  [dir="rtl"] {
+    font-family: "IBM Plex Sans Arabic", Inter, system-ui, sans-serif;
+  }
+
+  :lang(en),
+  [dir="ltr"] {
+    font-family: Inter, "IBM Plex Sans Arabic", system-ui, sans-serif;
+  }
 }
 
 @layer components {
   .grid-shell {
-    @apply mx-auto w-full max-w-[1320px] px-5 md:px-8 lg:px-10;
+    @apply mx-auto w-full max-w-[1200px] px-5 md:px-8;
   }
 
   .micro-label {
-    @apply text-[10px] font-medium uppercase tracking-[0.34em] text-muted-foreground;
+    @apply text-[11px] font-medium uppercase tracking-[0.22em] text-muted-foreground;
   }
 
   .type-display {
-    @apply font-display font-medium tracking-[-0.04em] leading-[0.92];
+    @apply font-display font-semibold tracking-[-0.04em] leading-[1.05];
   }
 
   .type-manifesto {
-    @apply font-display font-medium tracking-[-0.035em] leading-[0.95];
+    @apply font-display font-semibold tracking-[-0.035em] leading-[1.08];
   }
 
   .btn-solid {
-    @apply inline-flex items-center justify-center bg-foreground px-8 py-4 text-[11px] font-semibold uppercase tracking-[0.2em] text-background transition-[background-color,color,transform] duration-500 hover:bg-[hsl(var(--accent))] hover:text-background;
+    @apply inline-flex items-center justify-center rounded-full bg-foreground px-7 py-3.5 text-[12px] font-semibold tracking-[-0.01em] text-background transition-[background-color,color,transform,box-shadow] duration-500 hover:bg-white hover:shadow-[0_0_28px_rgba(210,230,220,0.28)];
   }
 
   .btn-ghost {
-    @apply inline-flex items-center justify-center border border-border px-8 py-4 text-[11px] font-semibold uppercase tracking-[0.2em] text-foreground transition-colors duration-500 hover:border-foreground/50;
-  }
-
-  .btn-motion {
-    @apply will-change-transform;
+    @apply inline-flex items-center justify-center rounded-full border border-white/15 bg-white/[0.03] px-7 py-3.5 text-[12px] font-semibold tracking-[-0.01em] text-foreground transition-colors duration-500 hover:border-white/35 hover:bg-white/[0.06];
   }
 
   .btn-motion:hover {
@@ -86,7 +92,7 @@
 
   .nav-link::after {
     content: "";
-    @apply pointer-events-none absolute inset-x-0 -bottom-1 h-px origin-left scale-x-0 bg-foreground transition-transform duration-500;
+    @apply pointer-events-none absolute inset-x-0 -bottom-1 h-px origin-left scale-x-0 bg-foreground/80 transition-transform duration-500;
     transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
   }
 
@@ -95,12 +101,16 @@
     @apply scale-x-100;
   }
 
-  .surface-light {
-    @apply bg-[#F4F2EE] text-[#0B0B0C];
+  .panel {
+    @apply rounded-2xl border border-white/[0.08] bg-white/[0.03] backdrop-blur-sm;
   }
 
   .rule {
-    @apply border-border/70;
+    @apply border-border/60;
+  }
+
+  .glow-soft {
+    background: radial-gradient(ellipse at 70% 40%, rgba(196, 220, 210, 0.16), transparent 55%);
   }
 }
 
@@ -117,4 +127,23 @@
   .nav-link::after {
     transition: none;
   }
+
+  .flow-dot,
+  .network-breathe {
+    animation: none !important;
+  }
+}
+
+@keyframes network-breathe {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.network-breathe {
+  animation: network-breathe 5.5s ease-in-out infinite;
 }

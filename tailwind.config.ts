@@ -14,9 +14,9 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['"Space Grotesk"', '"IBM Plex Sans Arabic"', 'system-ui', 'sans-serif'],
-        display: ['"Space Grotesk"', '"IBM Plex Sans Arabic"', 'system-ui', 'sans-serif'],
-        arabic: ['"IBM Plex Sans Arabic"', '"Space Grotesk"', 'sans-serif'],
+        sans: ['Inter', '"IBM Plex Sans Arabic"', 'system-ui', 'sans-serif'],
+        display: ['Inter', '"IBM Plex Sans Arabic"', 'system-ui', 'sans-serif'],
+        arabic: ['"IBM Plex Sans Arabic"', 'Inter', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
