@@ -1,5 +1,6 @@
 import { FormEvent, useState } from "react";
 import SectionReveal from "@/components/SectionReveal";
+import MetallicVisual from "@/components/MetallicVisual";
 import { Language, siteContent } from "@/content/site";
 
 type ContactSectionProps = {
@@ -18,78 +19,77 @@ const ContactSection = ({ content }: ContactSectionProps) => {
   };
 
   return (
-    <section id="contact" className="section-shell bg-[hsl(var(--brand-light))] py-20 text-[hsl(var(--brand-deep))] md:py-28">
-      <div className="container">
-        <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
+    <section id="contact" className="section-pad border-b hairline bg-background">
+      <div className="grid-shell grid gap-16 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
+        <div>
           <SectionReveal>
-            <p className="micro-label mb-4 text-[hsl(var(--brand-deep)/0.55)]">{content.eyebrow}</p>
-            <h2 className="editorial-title mb-5 text-[hsl(var(--brand-deep))]">{content.title}</h2>
-            <p className="editorial-body mb-6 text-[hsl(var(--brand-deep)/0.72)]">{content.description}</p>
-            <a href="#contact-form" className="btn-primary">
-              {content.submit}
-            </a>
-            <p className="mt-6 text-sm text-[hsl(var(--brand-deep)/0.55)]">{content.whatsappNote}</p>
+            <p className="section-index mb-6">{content.section}</p>
+            <h2 className="display-statement mb-6">{content.title}</h2>
+            <p className="body-copy mb-10">{content.description}</p>
           </SectionReveal>
-
-          <SectionReveal delay={0.08}>
-            <form id="contact-form" onSubmit={handleSubmit} className="space-y-4 border border-[hsl(var(--brand-deep)/0.12)] bg-[hsl(var(--brand-light))] p-6 md:p-8">
-              <div>
-                <label htmlFor="contact-name" className="micro-label mb-2 block text-[hsl(var(--brand-deep)/0.55)]">
-                  {content.nameLabel}
-                </label>
-                <input
-                  id="contact-name"
-                  name="name"
-                  type="text"
-                  autoComplete="name"
-                  value={form.name}
-                  onChange={(e) => setForm({ ...form, name: e.target.value })}
-                  className="w-full border border-[hsl(var(--brand-deep)/0.15)] bg-transparent px-4 py-3 text-[hsl(var(--brand-deep))] outline-none focus:border-[hsl(var(--brand-deep)/0.45)]"
-                  required
-                />
-              </div>
-              <div>
-                <label htmlFor="contact-service" className="micro-label mb-2 block text-[hsl(var(--brand-deep)/0.55)]">
-                  {content.serviceLabel}
-                </label>
-                <select
-                  id="contact-service"
-                  name="service"
-                  value={form.service}
-                  onChange={(e) => setForm({ ...form, service: e.target.value })}
-                  className="w-full border border-[hsl(var(--brand-deep)/0.15)] bg-transparent px-4 py-3 text-[hsl(var(--brand-deep))] outline-none focus:border-[hsl(var(--brand-deep)/0.45)]"
-                  required
-                >
-                  <option value="" disabled>
-                    {content.servicePlaceholder}
-                  </option>
-                  {content.options.map((option) => (
-                    <option key={option} value={option}>
-                      {option}
-                    </option>
-                  ))}
-                </select>
-              </div>
-              <div>
-                <label htmlFor="contact-message" className="micro-label mb-2 block text-[hsl(var(--brand-deep)/0.55)]">
-                  {content.messageLabel}
-                </label>
-                <textarea
-                  id="contact-message"
-                  name="message"
-                  rows={5}
-                  value={form.message}
-                  onChange={(e) => setForm({ ...form, message: e.target.value })}
-                  className="w-full resize-none border border-[hsl(var(--brand-deep)/0.15)] bg-transparent px-4 py-3 text-[hsl(var(--brand-deep))] outline-none focus:border-[hsl(var(--brand-deep)/0.45)]"
-                  required
-                />
-              </div>
-              <button type="submit" className="btn-primary w-full justify-center border-[hsl(var(--brand-deep))] bg-[hsl(var(--brand-deep))] text-[hsl(var(--brand-light))] hover:bg-transparent hover:text-[hsl(var(--brand-deep))]">
-                {content.submit}
-              </button>
-            </form>
+          <SectionReveal delay={0.08} className="hidden md:block">
+            <MetallicVisual className="max-w-sm opacity-80" />
           </SectionReveal>
         </div>
+
+        <SectionReveal delay={0.1}>
+          <form onSubmit={handleSubmit} className="border hairline bg-card/20 p-6 md:p-8">
+            <div className="mb-4">
+              <label htmlFor="contact-name" className="micro-label mb-2 block">
+                {content.nameLabel}
+              </label>
+              <input
+                id="contact-name"
+                name="name"
+                type="text"
+                autoComplete="name"
+                required
+                value={form.name}
+                onChange={(e) => setForm({ ...form, name: e.target.value })}
+                className="w-full border hairline bg-transparent px-4 py-3 text-sm outline-none focus:border-[hsl(var(--accent))]"
+              />
+            </div>
+            <div className="mb-4">
+              <label htmlFor="contact-service" className="micro-label mb-2 block">
+                {content.serviceLabel}
+              </label>
+              <select
+                id="contact-service"
+                name="service"
+                required
+                value={form.service}
+                onChange={(e) => setForm({ ...form, service: e.target.value })}
+                className="w-full border hairline bg-transparent px-4 py-3 text-sm outline-none focus:border-[hsl(var(--accent))]"
+              >
+                <option value="" disabled>
+                  {content.servicePlaceholder}
+                </option>
+                {content.options.map((option) => (
+                  <option key={option} value={option}>
+                    {option}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div className="mb-6">
+              <label htmlFor="contact-message" className="micro-label mb-2 block">
+                {content.messageLabel}
+              </label>
+              <textarea
+                id="contact-message"
+                name="message"
+                rows={5}
+                required
+                value={form.message}
+                onChange={(e) => setForm({ ...form, message: e.target.value })}
+                className="w-full resize-none border hairline bg-transparent px-4 py-3 text-sm outline-none focus:border-[hsl(var(--accent))]"
+              />
+            </div>
+            <button type="submit" className="btn-solid w-full justify-center">
+              {content.submit}
+            </button>
+          </form>
+        </SectionReveal>
       </div>
     </section>
   );
