@@ -1,26 +1,27 @@
 import SectionReveal from "@/components/SectionReveal";
 import { Language, siteContent } from "@/content/site";
 
-type HowWeWorkSectionProps = {
-  content: (typeof siteContent)[Language]["process"];
+type ApproachSectionProps = {
+  content: (typeof siteContent)[Language]["approach"];
 };
 
-const HowWeWorkSection = ({ content }: HowWeWorkSectionProps) => {
+const HowWeWorkSection = ({ content }: ApproachSectionProps) => {
   return (
-    <section id="process" className="section-shell bg-background py-20 md:py-28">
-      <div className="container">
-        <SectionReveal className="mb-14 max-w-3xl">
-          <p className="micro-label mb-4">{content.eyebrow}</p>
-          <h2 className="editorial-title">{content.title}</h2>
+    <section id="approach" className="section-pad border-b hairline bg-background">
+      <div className="grid-shell">
+        <SectionReveal className="mb-10 grid gap-6 lg:grid-cols-[6rem_1fr_1fr] lg:items-end">
+          <p className="section-index">{content.section}</p>
+          <h2 className="display-statement">{content.title}</h2>
+          <p className="body-copy lg:justify-self-end lg:text-right">{content.intro}</p>
         </SectionReveal>
 
-        <div className="relative border-t border-border/80">
-          {content.steps.map((step) => (
-            <SectionReveal key={step.number}>
-              <div className="grid gap-4 border-b border-border/80 py-8 md:grid-cols-[5rem_10rem_1fr] md:items-baseline md:gap-8 md:py-10">
-                <p className="text-3xl font-light tracking-tight text-[hsl(var(--brand-accent))] md:text-4xl">{step.number}</p>
-                <h3 className="text-lg font-medium uppercase tracking-[0.12em]">{step.title}</h3>
-                <p className="editorial-body text-sm md:text-base">{step.subtitle}</p>
+        <div className="relative mt-8 border-t hairline">
+          {content.steps.map((step, index) => (
+            <SectionReveal key={step.number} delay={index * 0.05}>
+              <div className="grid gap-4 border-b hairline py-8 md:grid-cols-[5rem_11rem_1fr] md:items-baseline md:gap-10 md:py-10">
+                <span className="text-4xl font-light tabular-nums text-[hsl(var(--accent))] md:text-5xl">{step.number}</span>
+                <h3 className="text-sm font-semibold uppercase tracking-[0.2em]">{step.title}</h3>
+                <p className="body-copy max-w-2xl text-sm md:text-base">{step.subtitle}</p>
               </div>
             </SectionReveal>
           ))}
