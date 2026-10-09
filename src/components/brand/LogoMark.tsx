@@ -7,7 +7,7 @@ import {
   useTransform,
 } from "framer-motion";
 import { PointerEvent, useRef } from "react";
-import logoMark from "@/assets/logo-mark-ref.png";
+import logoMark from "@/assets/logo-mark-light.png";
 import { cinematicEase } from "@/lib/motion";
 
 type LogoMarkProps = {

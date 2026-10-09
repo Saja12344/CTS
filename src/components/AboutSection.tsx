@@ -1,5 +1,5 @@
 import { motion, useReducedMotion } from "framer-motion";
-import logoDark from "@/assets/logo-dark.png";
+import logoMark from "@/assets/logo-mark-dark-clean.png";
 import { cinematicEase } from "@/lib/motion";
 import { Language, siteContent } from "@/content/site";
 
@@ -40,7 +40,7 @@ const AboutSection = ({ content }: AboutSectionProps) => {
           transition={{ duration: 0.9, ease: cinematicEase }}
           className="justify-self-start md:justify-self-end"
         >
-          <img src={logoDark} alt="" className="w-28 opacity-90 md:w-36" aria-hidden="true" />
+          <img src={logoMark} alt="" className="w-24 md:w-32" aria-hidden="true" />
         </motion.div>
       </div>
     </section>
