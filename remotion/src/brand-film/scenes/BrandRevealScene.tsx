@@ -3,38 +3,38 @@ import {
   Easing,
   Img,
   interpolate,
+  spring,
   staticFile,
   useCurrentFrame,
   useVideoConfig,
 } from "remotion";
 import {BRAND} from "../brand";
 import {brandFontFamily} from "../fonts";
+import {PhoneDevice} from "../ui/PhoneDevice";
 
-/** 435–539 — authentic logo reveal; logo hidden until this scene */
+/** Scene 5 — finished product + authentic logo reveal */
 export const BrandRevealScene: React.FC = () => {
   const frame = useCurrentFrame();
-  const {fps, durationInFrames} = useVideoConfig();
+  const {fps} = useVideoConfig();
 
-  const logoIn = interpolate(frame, [8, 8 + 1.1 * fps], [0, 1], {
+  const phoneSettle = spring({
+    frame,
+    fps,
+    config: {damping: 200, stiffness: 90},
+  });
+
+  const logoIn = interpolate(frame, [28, 55], [0, 1], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
     easing: Easing.bezier(0.22, 1, 0.36, 1),
   });
 
-  const nameIn = interpolate(frame, [22, 22 + fps], [0, 1], {
+  const nameIn = interpolate(frame, [42, 68], [0, 1], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
-    easing: Easing.bezier(0.22, 1, 0.36, 1),
   });
 
-  const tagIn = interpolate(frame, [38, 38 + fps], [0, 1], {
-    extrapolateLeft: "clamp",
-    extrapolateRight: "clamp",
-    easing: Easing.bezier(0.22, 1, 0.36, 1),
-  });
-
-  // Hold readable through end — no fade-out on last frames
-  const hold = interpolate(frame, [durationInFrames - 6, durationInFrames], [1, 1], {
+  const tagIn = interpolate(frame, [55, 80], [0, 1], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
   });
@@ -43,11 +43,30 @@ export const BrandRevealScene: React.FC = () => {
     <AbsoluteFill style={{backgroundColor: BRAND.colors.graphite}}>
       <AbsoluteFill
         style={{
-          justifyContent: "center",
+          background:
+            "radial-gradient(circle at 50% 35%, rgba(200,255,77,0.08), transparent 50%)",
+        }}
+      />
+
+      <AbsoluteFill
+        style={{
           alignItems: "center",
-          paddingLeft: 64,
-          paddingRight: 64,
-          opacity: hold,
+          justifyContent: "flex-start",
+          paddingTop: 120,
+          opacity: 0.35 + phoneSettle * 0.65,
+          transform: `translateY(${(1 - phoneSettle) * 40}px) scale(${0.9 + phoneSettle * 0.08})`,
+        }}
+      >
+        <PhoneDevice width={340} />
+      </AbsoluteFill>
+
+      <AbsoluteFill
+        style={{
+          justifyContent: "flex-end",
+          alignItems: "center",
+          paddingBottom: 220,
+          paddingLeft: 56,
+          paddingRight: 56,
         }}
       >
         <div
@@ -55,7 +74,7 @@ export const BrandRevealScene: React.FC = () => {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            gap: 36,
+            gap: 22,
             width: "100%",
             maxWidth: 860,
           }}
@@ -63,46 +82,42 @@ export const BrandRevealScene: React.FC = () => {
           <Img
             src={staticFile("brand/logo-lockup.png")}
             style={{
-              width: "88%",
-              maxWidth: 820,
+              width: "82%",
+              maxWidth: 760,
               height: "auto",
               objectFit: "contain",
               opacity: logoIn,
-              transform: `translateY(${(1 - logoIn) * 16}px)`,
+              transform: `translateY(${(1 - logoIn) * 18}px)`,
             }}
           />
           <div
             style={{
               fontFamily: brandFontFamily,
-              fontSize: 28,
+              fontSize: 26,
               fontWeight: 600,
-              letterSpacing: "0.28em",
+              letterSpacing: "0.26em",
               color: BRAND.colors.warmWhite,
-              textAlign: "center",
               opacity: nameIn,
-              transform: `translateY(${(1 - nameIn) * 10}px)`,
             }}
           >
             {BRAND.name}
           </div>
           <div
             style={{
-              width: 64 * tagIn,
+              width: 56 * tagIn,
               height: 1,
-              backgroundColor: BRAND.colors.accent,
-              opacity: 0.85 * tagIn,
+              background: BRAND.colors.accent,
+              opacity: tagIn,
             }}
           />
           <div
             style={{
               fontFamily: brandFontFamily,
-              fontSize: 34,
+              fontSize: 32,
               fontWeight: 500,
               letterSpacing: "-0.02em",
-              lineHeight: 1.4,
               color: BRAND.colors.titanium,
               textAlign: "center",
-              maxWidth: 720,
               opacity: tagIn,
               transform: `translateY(${(1 - tagIn) * 12}px)`,
             }}

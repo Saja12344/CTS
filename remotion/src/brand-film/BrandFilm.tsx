@@ -9,17 +9,15 @@ import {
 } from "remotion";
 import {BRAND} from "./brand";
 import "./fonts";
-import {SparkScene} from "./scenes/SparkScene";
-import {StructureScene} from "./scenes/StructureScene";
-import {DigitalProductScene} from "./scenes/DigitalProductScene";
-import {ResolutionScene} from "./scenes/ResolutionScene";
+import {AssemblyScene} from "./scenes/AssemblyScene";
 import {BrandRevealScene} from "./scenes/BrandRevealScene";
-import {SceneFade} from "./components/SceneFade";
+import {HumanIdeaScene} from "./scenes/HumanIdeaScene";
+import {IdeaGrowsScene} from "./scenes/IdeaGrowsScene";
+import {WorldBecomesProductScene} from "./scenes/WorldBecomesProductScene";
 
 /**
- * Core Tech Solutions brand film
- * Concept: From Thought to Digital Reality
- * Format: 1080×1920 · 30fps · 540 frames (18s)
+ * Core Tech Solutions brand film — narrative rebuild
+ * Human idea → expanding possibility → product UIs → phone assembly → logo
  */
 export const BrandFilm: React.FC = () => {
   const frame = useCurrentFrame();
@@ -28,12 +26,9 @@ export const BrandFilm: React.FC = () => {
 
   const masterVolume = interpolate(
     frame,
-    [0, 0.6 * fps, durationInFrames - 1.2 * fps, durationInFrames],
-    [0, 0.72, 0.72, 0],
-    {
-      extrapolateLeft: "clamp",
-      extrapolateRight: "clamp",
-    },
+    [0, 0.5 * fps, durationInFrames - 1.1 * fps, durationInFrames],
+    [0, 0.78, 0.78, 0],
+    {extrapolateLeft: "clamp", extrapolateRight: "clamp"},
   );
 
   return (
@@ -45,69 +40,54 @@ export const BrandFilm: React.FC = () => {
       />
 
       <Sequence
-        name="Spark"
-        from={scenes.spark.from}
-        durationInFrames={scenes.spark.durationInFrames}
+        name="Human Idea"
+        from={scenes.human.from}
+        durationInFrames={scenes.human.durationInFrames}
         premountFor={fps}
         style={{
-          translate: "230px 0px"
+          translate: "105px 0px"
         }}
       >
-        <SceneFade>
-          <SparkScene />
-        </SceneFade>
+        <HumanIdeaScene />
       </Sequence>
 
       <Sequence
-        name="Structure"
-        from={scenes.structure.from}
-        durationInFrames={scenes.structure.durationInFrames}
+        name="Idea Grows"
+        from={scenes.grows.from}
+        durationInFrames={scenes.grows.durationInFrames}
         premountFor={fps}
+        style={{
+          translate: "388px 0px"
+        }}
       >
-        <SceneFade>
-          <StructureScene />
-        </SceneFade>
+        <IdeaGrowsScene />
       </Sequence>
 
       <Sequence
-        name="Digital Product"
-        from={scenes.digital.from}
-        durationInFrames={scenes.digital.durationInFrames}
+        name="World Becomes Product"
+        from={scenes.world.from}
+        durationInFrames={scenes.world.durationInFrames}
         premountFor={fps}
       >
-        <SceneFade>
-          <DigitalProductScene />
-        </SceneFade>
+        <WorldBecomesProductScene />
       </Sequence>
 
       <Sequence
-        name="Resolution"
-        from={scenes.resolution.from}
-        durationInFrames={scenes.resolution.durationInFrames}
+        name="Assembly"
+        from={scenes.assembly.from}
+        durationInFrames={scenes.assembly.durationInFrames}
         premountFor={fps}
       >
-        <SceneFade>
-          <ResolutionScene />
-        </SceneFade>
+        <AssemblyScene />
       </Sequence>
 
       <Sequence
         name="Brand Reveal"
-        from={scenes.reveal.from}
-        durationInFrames={scenes.reveal.durationInFrames}
+        from={scenes.brand.from}
+        durationInFrames={scenes.brand.durationInFrames}
         premountFor={fps}
       >
-        {/* Fade in only — hold last frame fully readable */}
-        <AbsoluteFill
-          style={{
-            opacity: interpolate(frame - scenes.reveal.from, [0, 10], [0, 1], {
-              extrapolateLeft: "clamp",
-              extrapolateRight: "clamp",
-            }),
-          }}
-        >
-          <BrandRevealScene />
-        </AbsoluteFill>
+        <BrandRevealScene />
       </Sequence>
     </AbsoluteFill>
   );

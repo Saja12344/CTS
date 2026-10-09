@@ -1,26 +1,27 @@
-import {
-  Easing,
-  interpolate,
-  useCurrentFrame,
-  useVideoConfig,
-} from "remotion";
+import {Easing, interpolate, useCurrentFrame, useVideoConfig} from "remotion";
 import {BRAND} from "../brand";
 import {brandFontFamily} from "../fonts";
 
 type Props = {
   readonly text: string;
-  /** Local-frame fade-in start (default 12). */
   readonly enterAt?: number;
+  readonly exitEarly?: boolean;
 };
 
-export const SceneCaption: React.FC<Props> = ({text, enterAt = 12}) => {
+export const Caption: React.FC<Props> = ({
+  text,
+  enterAt = 18,
+  exitEarly = true,
+}) => {
   const frame = useCurrentFrame();
   const {fps, durationInFrames} = useVideoConfig();
-  const exitStart = durationInFrames - Math.round(0.45 * fps);
+  const exitStart = exitEarly
+    ? durationInFrames - Math.round(0.5 * fps)
+    : durationInFrames + 10;
 
   const opacity = interpolate(
     frame,
-    [enterAt, enterAt + 18, exitStart, durationInFrames],
+    [enterAt, enterAt + 14, exitStart, durationInFrames],
     [0, 1, 1, 0],
     {
       extrapolateLeft: "clamp",
@@ -29,28 +30,22 @@ export const SceneCaption: React.FC<Props> = ({text, enterAt = 12}) => {
     },
   );
 
-  const translateY = interpolate(frame, [enterAt, enterAt + 18], [18, 0], {
-    extrapolateLeft: "clamp",
-    extrapolateRight: "clamp",
-    easing: Easing.bezier(0.22, 1, 0.36, 1),
-  });
-
   return (
     <div
       style={{
         position: "absolute",
-        left: 72,
-        right: 72,
-        bottom: 220,
+        left: 64,
+        right: 64,
+        bottom: 160,
         textAlign: "center",
         fontFamily: brandFontFamily,
-        fontSize: 38,
+        fontSize: 34,
         fontWeight: 500,
         letterSpacing: "-0.02em",
         lineHeight: 1.35,
-        color: BRAND.colors.titanium,
+        color: BRAND.colors.warmWhite,
+        textShadow: "0 8px 40px rgba(0,0,0,0.65)",
         opacity,
-        transform: `translateY(${translateY}px)`,
       }}
     >
       {text}
