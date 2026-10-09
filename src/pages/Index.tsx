@@ -35,7 +35,7 @@ const Index = () => {
       <main>
         <HeroSection content={content.hero} language={language} />
         <ServicesSection content={content.build} />
-        <HowWeWorkSection content={content.approach} />
+        <HowWeWorkSection />
         <WhyUsSection content={content.differentiators} />
         <AboutSection content={content.about} />
         <ContactSection content={content.contact} />

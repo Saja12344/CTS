@@ -30,12 +30,12 @@ const Navbar = ({ content, language, onLanguageChange }: NavbarProps) => {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-[100] pointer-events-auto transition-colors duration-500 ${
-        scrolled ? "border-b rule bg-background/95 backdrop-blur-sm" : "bg-background/80 backdrop-blur-sm"
+        scrolled ? "border-b border-white/10 bg-[#090A0C]/90 backdrop-blur-md" : "bg-transparent"
       }`}
     >
       <nav className="grid-shell relative z-[101] flex h-16 items-center justify-between md:h-[4.5rem]" aria-label="Primary">
-        <a href="#hero" className="flex items-center">
-          <img src={logoMark} alt="Core Tech Solutions" className="h-8 w-auto md:h-9" />
+        <a href="#hero" className="flex items-center" aria-label="Core Tech Solutions">
+          <img src={logoMark} alt="" className="h-8 w-auto md:h-9" />
         </a>
 
         <div className="hidden items-center gap-9 md:flex">
@@ -44,14 +44,14 @@ const Navbar = ({ content, language, onLanguageChange }: NavbarProps) => {
               {link.label}
             </a>
           ))}
-          <a href="#contact" className="btn-solid btn-motion px-5 py-2.5 text-[10px]">
+          <a href="#contact" className="btn-solid btn-motion px-5 py-2.5 text-[11px] tracking-normal">
             {content.cta}
           </a>
           <button
             type="button"
             id="lang-toggle"
             onClick={() => onLanguageChange(isArabic ? "en" : "ar")}
-            className="relative z-[60] cursor-pointer border border-border px-4 py-2 text-[10px] font-medium uppercase tracking-[0.22em] text-muted-foreground transition-colors hover:border-foreground/40 hover:text-foreground"
+            className="relative z-[60] cursor-pointer rounded-full border border-white/15 px-4 py-2 text-[11px] font-medium tracking-normal text-muted-foreground transition-colors hover:border-white/35 hover:text-foreground"
           >
             {content.language}
           </button>
