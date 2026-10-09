@@ -2,13 +2,12 @@ import React from "react";
 import { AbsoluteFill, Sequence, useVideoConfig } from "remotion";
 import type { BrandFilmProps } from "../../../types/constants";
 import { FilmThemeProvider, useColors } from "./FilmContext";
-import { Scene1Spark } from "./scenes/Scene1Spark";
-import { Scene2Expand } from "./scenes/Scene2Expand";
-import { Scene3Structure } from "./scenes/Scene3Structure";
-import { Scene4Code } from "./scenes/Scene4Code";
-import { Scene5Product } from "./scenes/Scene5Product";
-import { Scene6Brand } from "./scenes/Scene6Brand";
-import { SfxLayer } from "./sfx/SfxLayer";
+import { Scene1Human } from "./scenes/Scene1Human";
+import { Scene2Grow } from "./scenes/Scene2Grow";
+import { Scene3Product } from "./scenes/Scene3Product";
+import { Scene4Assemble } from "./scenes/Scene4Assemble";
+import { Scene5Brand } from "./scenes/Scene5Brand";
+import { AudioLayer } from "./sfx/AudioLayer";
 import { scenes } from "./timeline";
 import "./fonts";
 
@@ -17,70 +16,54 @@ const BrandFilmInner: React.FC = () => {
   const colors = useColors();
 
   return (
-    <AbsoluteFill style={{ backgroundColor: colors.canvas }}>
+    <AbsoluteFill style={{ backgroundColor: colors.graphite }}>
       <Sequence
-        name="1 · The spark"
-        from={scenes.spark.from}
-        durationInFrames={scenes.spark.duration}
+        name="1 · Human idea"
+        from={scenes.human.from}
+        durationInFrames={scenes.human.duration}
         premountFor={fps}
       >
-        <Scene1Spark />
+        <Scene1Human />
       </Sequence>
-
       <Sequence
-        name="2 · The idea expands"
-        from={scenes.expand.from}
-        durationInFrames={scenes.expand.duration}
+        name="2 · Idea grows"
+        from={scenes.grow.from}
+        durationInFrames={scenes.grow.duration}
         premountFor={fps}
       >
-        <Scene2Expand />
+        <Scene2Grow />
       </Sequence>
-
       <Sequence
-        name="3 · From content to structure"
-        from={scenes.structure.from}
-        durationInFrames={scenes.structure.duration}
-        premountFor={fps}
-      >
-        <Scene3Structure />
-      </Sequence>
-
-      <Sequence
-        name="4 · The code becomes the product"
-        from={scenes.code.from}
-        durationInFrames={scenes.code.duration}
-        premountFor={fps}
-      >
-        <Scene4Code />
-      </Sequence>
-
-      <Sequence
-        name="5 · The product reveal"
+        name="3 · World → product"
         from={scenes.product.from}
         durationInFrames={scenes.product.duration}
         premountFor={fps}
       >
-        <Scene5Product />
+        <Scene3Product />
       </Sequence>
-
       <Sequence
-        name="6 · Brand reveal"
+        name="4 · Assemble"
+        from={scenes.assemble.from}
+        durationInFrames={scenes.assemble.duration}
+        premountFor={fps}
+      >
+        <Scene4Assemble />
+      </Sequence>
+      <Sequence
+        name="5 · Brand"
         from={scenes.brand.from}
         durationInFrames={scenes.brand.duration}
         premountFor={fps}
       >
-        <Scene6Brand />
+        <Scene5Brand />
       </Sequence>
-
-      <SfxLayer />
+      <AudioLayer />
     </AbsoluteFill>
   );
 };
 
-export const BrandFilm: React.FC<BrandFilmProps> = (props) => {
-  return (
-    <FilmThemeProvider props={props}>
-      <BrandFilmInner />
-    </FilmThemeProvider>
-  );
-};
+export const BrandFilm: React.FC<BrandFilmProps> = (props) => (
+  <FilmThemeProvider props={props}>
+    <BrandFilmInner />
+  </FilmThemeProvider>
+);

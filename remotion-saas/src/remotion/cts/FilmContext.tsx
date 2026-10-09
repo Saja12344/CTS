@@ -23,25 +23,23 @@ const FilmContext = createContext<FilmTheme>({
   colors: defaultColors,
 });
 
-export const buildFilmTheme = (props: BrandFilmProps): FilmTheme => {
-  const charcoal = props.inkColor;
-  return {
-    brandName: props.brandName,
-    tagline: props.tagline,
-    scene1Text: props.scene1Text,
-    scene2Text: props.scene2Text,
-    scene3Text: props.scene3Text,
-    scene4Text: props.scene4Text,
-    colors: {
-      ...defaultColors,
-      canvas: props.canvasColor,
-      ink: props.inkColor,
-      charcoal,
-      orange: props.accentColor,
-      codeKeyword: props.accentColor,
-    },
-  };
-};
+export const buildFilmTheme = (props: BrandFilmProps): FilmTheme => ({
+  brandName: props.brandName,
+  tagline: props.tagline,
+  scene1Text: props.scene1Text,
+  scene2Text: props.scene2Text,
+  scene3Text: props.scene3Text,
+  scene4Text: props.scene4Text,
+  colors: {
+    ...defaultColors,
+    canvas: props.canvasColor,
+    warmWhite: props.canvasColor,
+    ink: props.inkColor,
+    graphite: props.inkColor,
+    orange: props.accentColor,
+    codeKeyword: props.accentColor,
+  },
+});
 
 export const FilmThemeProvider: React.FC<{
   props: BrandFilmProps;

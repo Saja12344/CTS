@@ -64,9 +64,8 @@ const Home: NextPage = () => {
             Brand Film Studio
           </h1>
           <p className="mt-2 text-sm text-unfocused-border-color leading-relaxed max-w-xl">
-            Preview and customize the 20s CTS brand film. Edit wordmark, tagline,
-            colors, and scene copy — then render via Remotion Lambda when AWS is
-            configured.
+            Preview the rebuilt 18s vertical brand film. Edit brand copy, colors,
+            and captions — then render via Remotion Lambda when AWS is configured.
           </p>
         </header>
 

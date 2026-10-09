@@ -17,19 +17,19 @@ export const CompositionProps = z.object({
 export type BrandFilmProps = z.infer<typeof CompositionProps>;
 
 export const defaultMyCompProps: BrandFilmProps = {
-  brandName: "Core Tech Solutions",
+  brandName: "CORE TECH SOLUTIONS",
   tagline: "We turn ideas into digital products.",
-  canvasColor: "#F6F3EE",
-  inkColor: "#1E1C1A",
+  canvasColor: "#F4F2EE",
+  inkColor: "#0B0B0C",
   accentColor: "#D96B2F",
-  scene1Text: "Every idea starts somewhere.",
-  scene2Text: "Shaped into possibilities.",
-  scene3Text: "Designed with purpose.",
-  scene4Text: "Built to work.",
+  scene1Text: "Every great product starts with an idea.",
+  scene2Text: "An idea becomes a possibility.",
+  scene3Text: "From concept to digital product.",
+  scene4Text: "Built with purpose.",
 };
 
-/** 20s brand film @ 30fps */
-export const DURATION_IN_FRAMES = 600;
-export const VIDEO_WIDTH = 1920;
-export const VIDEO_HEIGHT = 1080;
+/** 18s vertical brand film @ 30fps */
+export const DURATION_IN_FRAMES = 540;
+export const VIDEO_WIDTH = 1080;
+export const VIDEO_HEIGHT = 1920;
 export const VIDEO_FPS = 30;
