@@ -78,6 +78,16 @@ const Navbar = ({ content, language, onLanguageChange }: NavbarProps) => {
             <a href="#contact" onClick={() => setMobileOpen(false)} className="btn-solid mt-3 justify-center text-[10px]">
               {content.cta}
             </a>
+            <button
+              type="button"
+              onClick={() => {
+                onLanguageChange(isArabic ? "en" : "ar");
+                setMobileOpen(false);
+              }}
+              className="mt-3 py-3 text-center text-xs uppercase tracking-[0.2em] text-muted-foreground"
+            >
+              {content.language}
+            </button>
           </div>
         </div>
       ) : null}

@@ -18,16 +18,17 @@ const MetallicVisual = ({ className = "" }: MetallicVisualProps) => {
   const rotate = useTransform(scrollYProgress, [0, 1], reduceMotion ? [0, 0] : [-4, 5]);
 
   return (
-    <div ref={ref} className={`relative ${className}`} aria-hidden="true">
+    <div ref={ref} className={`relative isolate ${className}`} aria-hidden="true">
       <div className="hero-orb pointer-events-none absolute inset-[-10%] rounded-full bg-[radial-gradient(circle_at_center,rgba(230,230,228,0.14),transparent_62%)]" />
-      <motion.img
-        style={{ y, rotate }}
-        src={heroMetallic}
-        alt=""
-        className="relative z-10 mx-auto h-auto w-full max-w-xl object-contain"
-        loading="eager"
-        decoding="async"
-      />
+      <motion.div style={{ y, rotate }} className="relative z-10">
+        <img
+          src={heroMetallic}
+          alt=""
+          className="mx-auto h-auto w-full max-w-xl object-contain"
+          loading="eager"
+          decoding="async"
+        />
+      </motion.div>
     </div>
   );
 };

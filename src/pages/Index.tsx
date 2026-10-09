@@ -14,6 +14,10 @@ const Index = () => {
   const content = siteContent[language];
   const dir = language === "ar" ? "rtl" : "ltr";
 
+  const handleLanguageChange = (next: Language) => {
+    setLanguage(next);
+  };
+
   useEffect(() => {
     document.documentElement.lang = language;
     document.documentElement.dir = dir;
@@ -27,7 +31,7 @@ const Index = () => {
 
   return (
     <div dir={dir} className="font-sans">
-      <Navbar content={content.nav} language={language} onLanguageChange={setLanguage} />
+      <Navbar content={content.nav} language={language} onLanguageChange={handleLanguageChange} />
       <main>
         <HeroSection content={content.hero} language={language} />
         <ServicesSection content={content.build} />
