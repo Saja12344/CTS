@@ -14,7 +14,7 @@ const AboutSection = ({ content }: AboutSectionProps) => {
           <p className="section-index mb-6 text-[#0B0B0C]/50">{content.section}</p>
           <h2 className="display-statement mb-8 text-[#0B0B0C]">{content.title}</h2>
           <p className="mb-8 max-w-2xl text-base leading-8 text-[#5a5c63] md:text-lg">{content.body}</p>
-          <p className="max-w-2xl border-l-2 border-[#C8FF4D] ps-6 text-sm leading-7 text-[#5a5c63] md:text-base">{content.philosophy}</p>
+          <p className="max-w-2xl border-s-2 border-[#C8FF4D] ps-6 text-sm leading-7 text-[#5a5c63] md:text-base">{content.philosophy}</p>
         </SectionReveal>
 
         <SectionReveal delay={0.1} className="hidden lg:block">
