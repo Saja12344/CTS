@@ -5,11 +5,11 @@ export const siteContent = {
     seo: {
       title: "Core Tech Solutions | شركة تقنية",
       description:
-        "Core Tech Solutions شركة تقنية سعودية تحوّل الأفكار وتحديات التشغيل إلى منتجات وأنظمة رقمية عملية — بفهم للمشكلة قبل اختيار التقنية.",
+        "Core Tech Solutions شركة تقنية سعودية تحوّل الأفكار وتحديات التشغيل إلى منتجات وأنظمة رقمية عملية.",
     },
     nav: {
       build: "ماذا نبني",
-      approach: "منهجيتنا",
+      approach: "المنهجية",
       about: "من نحن",
       contact: "تواصل",
       cta: "ناقش مشروعك",
@@ -19,83 +19,37 @@ export const siteContent = {
     hero: {
       label: "CORE TECH SOLUTIONS",
       headline: "نحوّل الأفكار إلى منتجات رقمية.",
-      description:
-        "نفهم التحدي، نحدد المسار المناسب، ونبني تقنية تدفع عملك إلى الأمام.",
+      description: "نحدد المشكلة الصحيحة، ثم نبني الحل الرقمي المناسب.",
       primaryCta: "ناقش مشروعك",
-      secondaryCta: "استكشف منهجيتنا",
     },
     build: {
-      section: "01",
-      title: "ماذا نبني",
+      label: "ماذا نبني",
       items: [
-        {
-          title: "منتجات رقمية",
-          description: "مواقع وتطبيقات وتجارب رقمية مخصصة لحل مشاكل المستخدم والعمل.",
-        },
-        {
-          title: "أنظمة الأعمال",
-          description: "مسارات عمل رقمية وتكاملات وأنظمة داخلية لتحسين التشغيل.",
-        },
-        {
-          title: "خدمات تقنية",
-          description: "تقييم تقني، تحول رقمي، وتطوير منتجات حسب احتياج كل جهة.",
-        },
+        { index: "01", title: "منتجات رقمية", description: "مواقع وتطبيقات وتجارب تحل مشكلة حقيقية." },
+        { index: "02", title: "أنظمة الأعمال", description: "مسارات وتكاملات وأنظمة داخلية أوضح." },
+        { index: "03", title: "خدمات تقنية", description: "تقييم، تحول رقمي، وتطوير حسب السياق." },
       ],
     },
     approach: {
-      section: "02",
-      title: "منهجيتنا",
-      intro: "نفكر قبل أن نبني — الحكم التقني لا التنفيذ الأعمى.",
+      label: "المنهجية",
       steps: [
-        {
-          number: "01",
-          title: "Understand",
-          subtitle: "نحدد المشكلة الحقيقية، المتأثرين، والهدف.",
-        },
-        {
-          number: "02",
-          title: "Evaluate",
-          subtitle: "نقيّم الوضع الحالي، القيود، والحلول الممكنة.",
-        },
-        {
-          number: "03",
-          title: "Recommend",
-          subtitle: "نقترح الأنسب حسب الحاجة، الجدوى، والقيمة المتوقعة.",
-        },
-        {
-          number: "04",
-          title: "Build & Refine",
-          subtitle: "نطور، نختبر، ونحسّن مع التركيز على الاستخدام والموثوقية.",
-        },
+        { number: "01", title: "Understand" },
+        { number: "02", title: "Evaluate" },
+        { number: "03", title: "Recommend" },
+        { number: "04", title: "Build" },
       ],
     },
     differentiators: {
-      section: "03",
-      statement: "التقنية قيّمة فقط عندما تحل المشكلة الصحيحة.",
-      themes: [
-        "احتياج العمل قبل اختيار التقنية.",
-        "توصيات مبنية على السياق لا على الموضة.",
-        "كل حل له غرض واضح.",
-        "الاستخدام والصيانة والعملية بنفس أهمية التنفيذ.",
-        "نتحدى الافتراضات عندما يوجد مسار أفضل.",
-      ],
+      statement: "تقنية أفضل تبدأ بقرارات أفضل.",
+      support: "احتياج العمل أولاً. السياق قبل الاتجاه. غرض واضح لكل حل.",
     },
     about: {
-      section: "04",
       title: "Core Tech Solutions",
-      body: "Core Tech Solutions شركة تقنية تركز على تحويل تحديات وأفكار العمل إلى حلول رقمية ذات معنى. نجمع بين التنفيذ التقني وحل المشكلات بشكل مدروس لمساعدة المؤسسات على قرارات رقمية أفضل ومنتجات هادفة.",
-      philosophy:
-        "أفضل حل ليس بالضرورة الأكثر تعقيداً — بل الذي يلبي الحاجة الحقيقية، يعمل ضمن القيود المناسبة، ويخلق قيمة مستدامة.",
-    },
-    founder: {
-      section: "05",
-      quote:
-        "تأسست Core Tech على أن التقنية الجيدة تبدأ بأسئلة أفضل. قبل أن نختار كيف نبني شيئاً، نحتاج أن نفهم لماذا يجب أن يوجد وماذا يجب أن يحقق.",
+      body: "شركة تقنية تساعد المؤسسات على بناء وتحسين وربط عملياتها الرقمية — بوضوح وتنفيذ عملي.",
     },
     contact: {
-      section: "06",
       title: "لنبني ما يهم.",
-      description: "أخبرنا بما تحاول حله، أو ما تريد بناءه، أو أين يحتاج عملك نهجاً رقمياً أفضل.",
+      description: "صف ما تحاول حله أو بناءه.",
       primaryCta: "ابدأ محادثة",
       nameLabel: "الاسم",
       serviceLabel: "نوع الحل",
@@ -103,15 +57,14 @@ export const siteContent = {
       namePlaceholder: "الاسم",
       servicePlaceholder: "نوع الحل",
       messagePlaceholder: "التفاصيل",
-      options: ["منتج رقمي", "نظام أعمال", "خدمات تقنية", "تحسين قائم", "استشارة"],
-      submit: "متابعة عبر واتساب",
+      options: ["منتج رقمي", "نظام أعمال", "خدمات تقنية", "تحسين", "استشارة"],
+      submit: "إرسال عبر واتساب",
       whatsappIntro: "مرحباً Core Tech Solutions",
-      email: "",
     },
     footer: {
-      tagline: "حلول تقنية B2B — مبنية لما يلي.",
+      tagline: "Built for what's next.",
       build: "ماذا نبني",
-      approach: "منهجيتنا",
+      approach: "المنهجية",
       about: "من نحن",
       contact: "تواصل",
       linkedin: "LinkedIn",
@@ -137,84 +90,37 @@ export const siteContent = {
     hero: {
       label: "CORE TECH SOLUTIONS",
       headline: "We Turn Ideas Into Digital Products.",
-      description:
-        "We understand the challenge, identify the right approach, and build technology that moves your business forward.",
+      description: "We find the right problem to solve, then build the right digital solution.",
       primaryCta: "Discuss Your Project",
-      secondaryCta: "Explore Our Approach",
     },
     build: {
-      section: "01",
-      title: "What We Build",
+      label: "What We Build",
       items: [
-        {
-          title: "Digital Products",
-          description: "Websites, applications, and tailored digital experiences that solve real user and business problems.",
-        },
-        {
-          title: "Business Systems",
-          description: "Digital workflows, integrations, and internal systems that improve how organizations operate.",
-        },
-        {
-          title: "Technology Services",
-          description: "Technical assessment, digital transformation, and product development tailored to each organization.",
-        },
+        { index: "01", title: "Digital Products", description: "Sites, apps, and experiences that solve real problems." },
+        { index: "02", title: "Business Systems", description: "Workflows, integrations, and clearer internal systems." },
+        { index: "03", title: "Technology Services", description: "Assessment, transformation, and context-led development." },
       ],
     },
     approach: {
-      section: "02",
-      title: "Our Approach",
-      intro: "We think before we build — judgment over blind execution.",
+      label: "Our Approach",
       steps: [
-        {
-          number: "01",
-          title: "Understand",
-          subtitle: "We identify the real problem, the people affected, and the business objective.",
-        },
-        {
-          number: "02",
-          title: "Evaluate",
-          subtitle: "We assess the existing situation, constraints, and possible solutions.",
-        },
-        {
-          number: "03",
-          title: "Recommend",
-          subtitle: "We propose the most suitable approach based on needs, feasibility, and expected value.",
-        },
-        {
-          number: "04",
-          title: "Build & Refine",
-          subtitle: "We develop, test, and improve with a focus on usability, reliability, and long-term usefulness.",
-        },
+        { number: "01", title: "Understand" },
+        { number: "02", title: "Evaluate" },
+        { number: "03", title: "Recommend" },
+        { number: "04", title: "Build" },
       ],
     },
     differentiators: {
-      section: "03",
-      statement: "Technology is only valuable when it solves the right problem.",
-      themes: [
-        "Business needs come before technology choices.",
-        "Recommendations are based on context, not trends.",
-        "Every solution should have a clear purpose.",
-        "Usability, maintainability, and practicality matter as much as implementation.",
-        "We challenge assumptions when a better approach exists.",
-      ],
+      statement: "Better technology starts with better decisions.",
+      support: "Business need first. Context over trends. Purpose in every solution.",
     },
     about: {
-      section: "04",
       title: "Core Tech Solutions",
-      body: "Core Tech Solutions is a technology company focused on turning business challenges and ideas into meaningful digital solutions. We combine technical execution with thoughtful problem-solving to help organizations make better digital decisions and build products with purpose.",
-      philosophy:
-        "We believe the best solution is not necessarily the most complex one. It is the one that addresses the real need, works within the right constraints, and creates lasting value.",
-    },
-    founder: {
-      section: "05",
-      quote:
-        "Core Tech was founded on the belief that good technology starts with asking better questions. Before choosing how to build something, we need to understand why it should exist and what it needs to achieve.",
+      body: "A technology company helping organizations build, improve, and connect digital operations — with clarity and practical execution.",
     },
     contact: {
-      section: "06",
       title: "Let's Build What Matters.",
-      description:
-        "Tell us what you're trying to solve, what you want to build, or where your business needs a better digital approach.",
+      description: "Tell us what you're trying to solve or build.",
       primaryCta: "Start a Conversation",
       nameLabel: "Name",
       serviceLabel: "Type of solution",
@@ -223,12 +129,11 @@ export const siteContent = {
       servicePlaceholder: "Type of solution",
       messagePlaceholder: "Details",
       options: ["Digital product", "Business system", "Technology services", "Optimization", "Consultation"],
-      submit: "Continue via WhatsApp",
+      submit: "Send via WhatsApp",
       whatsappIntro: "Hello Core Tech Solutions",
-      email: "",
     },
     footer: {
-      tagline: "B2B technology solutions — built for what's next.",
+      tagline: "Built for what's next.",
       build: "What We Build",
       approach: "Approach",
       about: "About",

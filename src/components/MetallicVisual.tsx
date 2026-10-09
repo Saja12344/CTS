@@ -4,10 +4,9 @@ import heroMetallic from "@/assets/hero-metallic.jpg";
 
 type MetallicVisualProps = {
   className?: string;
-  compact?: boolean;
 };
 
-const MetallicVisual = ({ className = "", compact = false }: MetallicVisualProps) => {
+const MetallicVisual = ({ className = "" }: MetallicVisualProps) => {
   const ref = useRef<HTMLDivElement>(null);
   const reduceMotion = useReducedMotion();
   const { scrollYProgress } = useScroll({
@@ -15,25 +14,20 @@ const MetallicVisual = ({ className = "", compact = false }: MetallicVisualProps
     offset: ["start end", "end start"],
   });
 
-  const y = useTransform(scrollYProgress, [0, 1], reduceMotion ? [0, 0] : [32, -32]);
-  const rotate = useTransform(scrollYProgress, [0, 1], reduceMotion ? [0, 0] : [-3, 4]);
-  const scale = useTransform(scrollYProgress, [0, 0.5, 1], reduceMotion ? [1, 1, 1] : [0.96, 1, 0.98]);
+  const y = useTransform(scrollYProgress, [0, 1], reduceMotion ? [0, 0] : [40, -40]);
+  const rotate = useTransform(scrollYProgress, [0, 1], reduceMotion ? [0, 0] : [-4, 5]);
 
   return (
     <div ref={ref} className={`relative ${className}`} aria-hidden="true">
-      <motion.div
-        style={{ y, rotate, scale }}
-        className={`relative mx-auto ${compact ? "max-w-xs" : "aspect-[4/5] max-w-md md:max-w-xl"}`}
-      >
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_40%_30%,rgba(230,230,228,0.12),transparent_55%)]" />
-        <img
-          src={heroMetallic}
-          alt=""
-          className="h-full w-full object-contain object-center"
-          loading={compact ? "lazy" : "eager"}
-          decoding="async"
-        />
-      </motion.div>
+      <div className="hero-orb pointer-events-none absolute inset-[-10%] rounded-full bg-[radial-gradient(circle_at_center,rgba(230,230,228,0.14),transparent_62%)]" />
+      <motion.img
+        style={{ y, rotate }}
+        src={heroMetallic}
+        alt=""
+        className="relative z-10 mx-auto h-auto w-full max-w-xl object-contain"
+        loading="eager"
+        decoding="async"
+      />
     </div>
   );
 };

@@ -7,22 +7,15 @@ type DifferentiatorsProps = {
 
 const WhyUsSection = ({ content }: DifferentiatorsProps) => {
   return (
-    <section id="differentiators" className="section-pad border-b hairline bg-secondary/30">
-      <div className="grid-shell grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
+    <section id="differentiators" className="border-b rule bg-[#0B0B0C]">
+      <div className="grid-shell flex min-h-[70vh] flex-col justify-center py-24 md:py-32">
         <SectionReveal>
-          <p className="section-index mb-6">{content.section}</p>
-          <h2 className="display-statement max-w-3xl">{content.statement}</h2>
+          <h2 className="type-manifesto max-w-5xl text-[clamp(2.5rem,7vw,5.75rem)] text-[#F4F2EE]">
+            {content.statement}
+          </h2>
         </SectionReveal>
-
-        <SectionReveal delay={0.08}>
-          <ul className="space-y-5 border-t hairline pt-8">
-            {content.themes.map((theme) => (
-              <li key={theme} className="grid grid-cols-[1rem_1fr] gap-4 text-sm leading-7 text-muted-foreground md:text-base">
-                <span className="mt-2 h-px w-3 bg-[hsl(var(--accent))]" aria-hidden="true" />
-                <span>{theme}</span>
-              </li>
-            ))}
-          </ul>
+        <SectionReveal delay={0.1}>
+          <p className="mt-10 max-w-lg text-sm leading-7 text-muted-foreground md:text-base">{content.support}</p>
         </SectionReveal>
       </div>
     </section>

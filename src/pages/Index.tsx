@@ -5,7 +5,6 @@ import ServicesSection from "@/components/ServicesSection";
 import HowWeWorkSection from "@/components/HowWeWorkSection";
 import WhyUsSection from "@/components/WhyUsSection";
 import AboutSection from "@/components/AboutSection";
-import FounderSection from "@/components/FounderSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import { Language, siteContent } from "@/content/site";
@@ -35,7 +34,6 @@ const Index = () => {
         <HowWeWorkSection content={content.approach} />
         <WhyUsSection content={content.differentiators} />
         <AboutSection content={content.about} />
-        <FounderSection content={content.founder} />
         <ContactSection content={content.contact} />
       </main>
       <Footer content={content.footer} />
