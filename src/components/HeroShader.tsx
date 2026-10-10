@@ -6,19 +6,9 @@ type HeroShaderProps = {
   onActiveChange?: (active: boolean) => void;
 };
 
-const follow = (
-  smoothing: number,
-  extras: { momentum?: number; reach?: number; originX?: number; originY?: number } = {},
-) => ({
-  type: "mouse-position" as const,
-  smoothing,
-  momentum: extras.momentum ?? 0.1,
-  ...extras,
-});
-
 /**
- * Entlify-style soft shaded glow — whole bloom tracks the pointer,
- * black field stays visible around a diffused orange/cool light.
+ * Entlify hero match: soft orange/red shade centered mid-hero,
+ * cool teal accent lower-right, idle random drift — black stays around it.
  */
 const HeroShader = ({ onActiveChange }: HeroShaderProps) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -43,6 +33,14 @@ const HeroShader = ({ onActiveChange }: HeroShaderProps) => {
         const { createShader, isWebGPUSupported } = await import("shaders/js");
         if (cancelled || !isWebGPUSupported()) return;
 
+        const drift = (speed: number, min: number, max: number) => ({
+          type: "auto-animate" as const,
+          mode: "ping-pong" as const,
+          speed,
+          outputMin: min,
+          outputMax: max,
+        });
+
         const shader = await createShader(
           canvas,
           {
@@ -51,86 +49,92 @@ const HeroShader = ({ onActiveChange }: HeroShaderProps) => {
                 type: "SolidColor",
                 props: { color: "#050505" },
               },
-              // Soft mesh wash (idle drift) — muted so black still reads
+              // Soft mesh field — same palette as the reference (orange → red on black)
               {
                 type: "MeshGradient",
                 props: {
                   colorA: "#050505",
-                  colorB: "#ff5a1f",
+                  colorB: "#ff4d00",
                   stops: [
                     { color: "#050505", position: 0 },
-                    { color: "#1a0c08", position: 0.35 },
-                    { color: "#ea580c", position: 0.62 },
-                    { color: "#ff8a3d", position: 0.78 },
+                    { color: "#1a0a06", position: 0.28 },
+                    { color: "#b32400", position: 0.52 },
+                    { color: "#ff4d00", position: 0.7 },
+                    { color: "#ff8a3d", position: 0.82 },
                     { color: "#050505", position: 1 },
                   ],
                   colorSpace: "oklab",
-                  count: 5,
-                  smoothness: 3.6,
-                  variation: 0.25,
-                  swirl: 0.15,
-                  drift: 0.4,
-                  speed: 0.18,
-                  seed: 3,
-                  opacity: 0.35,
+                  count: 6,
+                  smoothness: 3.8,
+                  variation: 0.3,
+                  swirl: 0.18,
+                  drift: 0.55,
+                  wrapping: 0,
+                  speed: 0.22,
+                  seed: 11,
+                  opacity: 0.55,
                 },
               },
-              // Main warm shade — follows the cursor (the Entlify orange bloom)
+              // Main orange/red shade — sits mid/lower center like the screenshot
               {
                 type: "Blob",
                 props: {
-                  colorA: "#ff7a33",
-                  colorB: "#e11d2e",
-                  size: 0.52,
-                  softness: 0.97,
-                  deformation: 0.55,
-                  speed: 0.2,
-                  opacity: 0.72,
+                  colorA: "#ff4d00",
+                  colorB: "#b32400",
+                  size: 0.58,
+                  softness: 0.98,
+                  deformation: 0.62,
+                  speed: 0.16,
+                  opacity: 0.78,
                   blendMode: "screen",
                   colorSpace: "oklab",
-                  center: follow(0.1, { momentum: 0.12 }),
-                  highlightIntensity: 0.22,
-                  highlightColor: "#ffd2a8",
+                  center: {
+                    x: drift(0.12, 0.42, 0.58),
+                    y: drift(0.1, 0.52, 0.68),
+                  },
+                  highlightIntensity: 0.2,
+                  highlightColor: "#ffb070",
                 },
               },
-              // Inner hot core — tighter, same pointer
+              // Hotter inner core — slightly higher, still under the CTA zone
               {
                 type: "Blob",
                 props: {
-                  colorA: "#ffb070",
-                  colorB: "#ff5a1f",
-                  size: 0.28,
-                  softness: 0.96,
-                  deformation: 0.4,
-                  speed: 0.22,
+                  colorA: "#ff8a3d",
+                  colorB: "#ff4d00",
+                  size: 0.32,
+                  softness: 0.97,
+                  deformation: 0.5,
+                  speed: 0.2,
                   opacity: 0.55,
                   blendMode: "screen",
                   colorSpace: "oklab",
-                  center: follow(0.08, { momentum: 0.14 }),
-                  highlightIntensity: 0.15,
-                  highlightColor: "#ffe8d2",
+                  center: {
+                    x: drift(0.14, 0.45, 0.55),
+                    y: drift(0.11, 0.48, 0.62),
+                  },
+                  highlightIntensity: 0.18,
+                  highlightColor: "#ffd2a8",
                 },
               },
-              // Cool counter-shade — lags + sits slightly off the pointer
+              // Cool teal whisper — lower right, like the reference
               {
                 type: "Blob",
                 props: {
-                  colorA: "#c8d8e4",
-                  colorB: "#3a5a72",
-                  size: 0.36,
-                  softness: 0.98,
-                  deformation: 0.45,
-                  speed: 0.12,
-                  opacity: 0.28,
+                  colorA: "#1a3a3a",
+                  colorB: "#2a5558",
+                  size: 0.34,
+                  softness: 0.99,
+                  deformation: 0.4,
+                  speed: 0.1,
+                  opacity: 0.32,
                   blendMode: "screen",
                   colorSpace: "oklab",
-                  center: follow(0.2, {
-                    momentum: 0.06,
-                    reach: 0.75,
-                    originX: 0.22,
-                    originY: 0.4,
-                  }),
-                  highlightIntensity: 0.08,
+                  center: {
+                    x: drift(0.08, 0.62, 0.78),
+                    y: drift(0.09, 0.62, 0.78),
+                  },
+                  highlightIntensity: 0.05,
                 },
               },
             ],

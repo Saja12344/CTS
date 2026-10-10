@@ -30,8 +30,8 @@ const HeroSection = ({ content, language }: HeroSectionProps) => {
           <NetworkField />
         </>
       ) : (
-        // Soft vignette so type stays readable over the glow
-        <div className="pointer-events-none absolute inset-0 z-[2] bg-[radial-gradient(ellipse_at_center,transparent_10%,rgba(8,9,11,0.35)_55%,rgba(8,9,11,0.82)_100%)]" />
+        // Light edge falloff only — keep the mid orange shade visible like the reference
+        <div className="pointer-events-none absolute inset-0 z-[2] bg-[radial-gradient(ellipse_at_50%_55%,transparent_0%,transparent_35%,rgba(5,5,5,0.45)_70%,rgba(5,5,5,0.88)_100%)]" />
       )}
 
       <HeroShader onActiveChange={setShaderActive} />
