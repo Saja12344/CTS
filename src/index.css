@@ -1,4 +1,36 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+@font-face {
+  font-family: "Saudi";
+  src: url("./assets/fonts/saudi/Saudi-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Saudi";
+  src: url("./assets/fonts/saudi/Saudi-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Saudi";
+  src: url("./assets/fonts/saudi/Saudi-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Saudi";
+  src: url("./assets/fonts/saudi/Saudi-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
 
 @tailwind base;
 @tailwind components;
@@ -53,22 +85,22 @@
 
   body {
     @apply antialiased;
-    font-family: Inter, "IBM Plex Sans Arabic", system-ui, sans-serif;
+    font-family: Inter, Saudi, system-ui, sans-serif;
   }
 
   :lang(ar),
   [dir="rtl"] {
-    font-family: "IBM Plex Sans Arabic", Inter, system-ui, sans-serif;
+    font-family: Saudi, Inter, system-ui, sans-serif;
   }
 
   :lang(ar) .font-heading,
   [dir="rtl"] .font-heading {
-    font-family: "IBM Plex Sans Arabic", "Space Grotesk", sans-serif;
+    font-family: Saudi, "Space Grotesk", sans-serif;
   }
 
   :lang(en),
   [dir="ltr"] {
-    font-family: Inter, "IBM Plex Sans Arabic", system-ui, sans-serif;
+    font-family: Inter, Saudi, system-ui, sans-serif;
   }
 
   ::selection {
@@ -83,7 +115,7 @@
   }
 
   .font-heading {
-    font-family: "Space Grotesk", "IBM Plex Sans Arabic", sans-serif;
+    font-family: "Space Grotesk", Saudi, sans-serif;
   }
 
   .font-mono-label {

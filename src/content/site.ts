@@ -22,6 +22,8 @@ export const siteContent = {
       headlineAccent: "واقعًا.",
       description:
         "نحوّل التحديات المعقدة إلى منتجات رقمية مفيدة، وهياكل برمجية قابلة للتوسع، وأدوات تشغيل بديهية.",
+      primaryCta: "ابدأ مشروعًا",
+      secondaryCta: "كيف نعمل",
     },
     build: {
       label: "ماذا نبني",
@@ -70,9 +72,9 @@ export const siteContent = {
     },
     contact: {
       label: "استفسار",
-      title: "هل لديك تحدٍ يستحق الحل؟",
+      title: "حلول تبدأ من احتياج حقيقي.",
       description:
-        "أخبرنا بما تحاول تحقيقه. نراجع كل مشروع شخصيًا ونناقش المعمارية المحتملة دون تعقيد غير ضروري.",
+        "سواء كنت تطلق منتجًا أو تطوّر طريقة عملك، نساعدك على اتخاذ الخطوة التقنية الصحيحة.",
       email: "contact@coretech.solutions",
       nda: "استشارة معمارية مباشرة تحت اتفاقية سرية قياسية.",
       nameLabel: "الاسم الكامل",
@@ -133,6 +135,8 @@ export const siteContent = {
       headlineAccent: "reality.",
       description:
         "We turn complex challenges into useful digital products, scalable software architectures, and intuitive operating tools.",
+      primaryCta: "Start a project",
+      secondaryCta: "How we work",
     },
     build: {
       label: "What We Build",
@@ -184,9 +188,9 @@ export const siteContent = {
     },
     contact: {
       label: "Inquiry",
-      title: "Have a challenge worth solving?",
+      title: "Solutions that start from a real need.",
       description:
-        "Tell us what you're trying to achieve. We review every project personally and discuss potential architectures without speculative overhead.",
+        "Whether you're launching a product or evolving how you work, we help you take the right technical step.",
       email: "contact@coretech.solutions",
       nda: "Direct architectural consultation under standard NDA.",
       nameLabel: "Full Name",

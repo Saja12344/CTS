@@ -14,11 +14,11 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['Inter', '"IBM Plex Sans Arabic"', 'system-ui', 'sans-serif'],
-        heading: ['"Space Grotesk"', '"IBM Plex Sans Arabic"', 'sans-serif'],
-        display: ['"Space Grotesk"', '"IBM Plex Sans Arabic"', 'sans-serif'],
+        sans: ['Inter', 'Saudi', 'system-ui', 'sans-serif'],
+        heading: ['"Space Grotesk"', 'Saudi', 'sans-serif'],
+        display: ['"Space Grotesk"', 'Saudi', 'sans-serif'],
         mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
-        arabic: ['"IBM Plex Sans Arabic"', 'Inter', 'sans-serif'],
+        arabic: ['Saudi', 'Inter', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",

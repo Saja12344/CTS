@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ArrowRight, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import logoMark from "@/assets/logo-mark-light.png";
 import { Language, siteContent } from "@/content/site";
 
@@ -70,8 +70,7 @@ const Navbar = ({ content, language, onLanguageChange }: NavbarProps) => {
             {content.language}
           </button>
           <a href="#contact" className="btn-primary-sm">
-            <span>{content.cta}</span>
-            <ArrowRight className={`h-3.5 w-3.5 ${isArabic ? "rotate-180" : ""}`} />
+            {content.cta}
           </a>
         </div>
 

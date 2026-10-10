@@ -1,5 +1,4 @@
 import { FormEvent, useState } from "react";
-import { ArrowRight } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 import { cinematicEase } from "@/lib/motion";
 import { Language, siteContent } from "@/content/site";
@@ -9,11 +8,10 @@ type ContactSectionProps = {
   language: Language;
 };
 
-const ContactSection = ({ content, language }: ContactSectionProps) => {
+const ContactSection = ({ content }: ContactSectionProps) => {
   const [form, setForm] = useState({ name: "", email: "", reason: "", project: "" });
   const [submitted, setSubmitted] = useState(false);
   const reduceMotion = useReducedMotion();
-  const isArabic = language === "ar";
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -142,8 +140,7 @@ const ContactSection = ({ content, language }: ContactSectionProps) => {
               </div>
               <div className="pt-2">
                 <button className="btn-primary" type="submit">
-                  <span>{content.submit}</span>
-                  <ArrowRight className={`h-[18px] w-[18px] ${isArabic ? "rotate-180" : ""}`} />
+                  {content.submit}
                 </button>
                 {submitted ? (
                   <p className="mt-4 text-sm text-brand-muted" role="status">

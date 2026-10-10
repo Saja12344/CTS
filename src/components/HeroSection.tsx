@@ -56,6 +56,23 @@ const HeroSection = ({ content, language }: HeroSectionProps) => {
           >
             {content.description}
           </motion.p>
+
+          <motion.div
+            initial={reduceMotion ? false : { opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.65, ease: cinematicEase, delay: 0.18 }}
+            className="flex flex-wrap items-center gap-6 pt-4"
+          >
+            <a href="#contact" className="btn-primary shadow-lg shadow-brand-orange/20">
+              {content.primaryCta}
+            </a>
+            <a
+              href="#approach"
+              className="inline-flex items-center px-2 py-3 text-sm font-medium text-white/80 transition-colors hover:text-white"
+            >
+              {content.secondaryCta}
+            </a>
+          </motion.div>
         </div>
       </div>
     </section>
