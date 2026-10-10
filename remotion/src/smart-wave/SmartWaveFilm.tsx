@@ -1,12 +1,12 @@
 import {Audio} from "@remotion/media";
 import {
   AbsoluteFill,
-  Easing,
   interpolate,
   staticFile,
   useCurrentFrame,
   useVideoConfig,
 } from "remotion";
+import {fbm} from "./noise";
 import {WaveField} from "./WaveField";
 
 /**
@@ -16,6 +16,7 @@ import {WaveField} from "./WaveField";
 export const SmartWaveFilm: React.FC = () => {
   const frame = useCurrentFrame();
   const {fps, durationInFrames} = useVideoConfig();
+  const t = frame / fps;
 
   // Soft exit only — wave visible from frame 0
   const opacity = interpolate(
@@ -33,21 +34,15 @@ export const SmartWaveFilm: React.FC = () => {
   );
 
   /**
-   * Clear grow/shrink breath across ~2.5 cycles in 10s.
-   * Small → swell → settle → repeat (never stuck at max size).
+   * Irregular organic size — layered seeded fbm (stable per frame, not Math.random).
+   * Slow swells + uneven medium peaks + light flutter; no metronome loop.
    */
-  const cycle = durationInFrames / 2.5;
-  const phase = (frame % cycle) / cycle;
-  const intensity = interpolate(
-    phase,
-    [0, 0.18, 0.42, 0.62, 0.82, 1],
-    [0.32, 0.55, 1.12, 0.72, 0.38, 0.32],
-    {
-      easing: Easing.inOut(Easing.sin),
-      extrapolateLeft: "clamp",
-      extrapolateRight: "clamp",
-    },
-  );
+  const slow = fbm(t * 0.22, 0.4, 41, 4); // ~0–1, long uneven envelopes
+  const mid = fbm(t * 0.55, 1.7, 63, 3);
+  const flutter = fbm(t * 1.15, 3.1, 88, 2);
+  const mixed = slow * 0.58 + mid * 0.32 + flutter * 0.1;
+  // Bias so it often settles mid-low but irregularly surges
+  const intensity = 0.26 + Math.pow(mixed, 1.35) * 0.95;
 
   return (
     <AbsoluteFill style={{backgroundColor: "#000", opacity}}>

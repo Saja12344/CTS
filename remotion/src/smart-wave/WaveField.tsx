@@ -36,10 +36,9 @@ export const WaveField: React.FC<Props> = ({intensity = 1}) => {
     if (canvas.height !== h) canvas.height = h;
 
     const t = frame / fps;
-    // Secondary micro-breath on top of parent intensity pulse
-    const micro =
-      0.94 + 0.06 * Math.sin((frame / Math.max(1, fps)) * Math.PI * 2 * 0.35);
-    const size = Math.max(0.2, intensity) * micro;
+    // Tiny irregular wobble (seeded) — not a regular sine metronome
+    const micro = 0.93 + 0.07 * fbm(t * 0.9, 2.2, 101, 2);
+    const size = Math.max(0.18, intensity) * micro;
     const flow = t * 0.22;
 
     ctx.globalCompositeOperation = "source-over";
