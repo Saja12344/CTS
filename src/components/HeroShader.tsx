@@ -6,9 +6,19 @@ type HeroShaderProps = {
   onActiveChange?: (active: boolean) => void;
 };
 
+type DriftRange = {
+  minX: number;
+  maxX: number;
+  minY: number;
+  maxY: number;
+};
+
 /**
  * Ports the Entlify Hero Glow Figma fill into shaders/js:
  * dark base, warm orange/red blobs mid-hero, cool teal top-left, film grain, slow drift.
+ *
+ * Note: nested auto-animate on center.x / center.y fails at runtime;
+ * drive the whole center with dimensional outputMin/outputMax instead.
  */
 const HeroShader = ({ onActiveChange }: HeroShaderProps) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -33,12 +43,13 @@ const HeroShader = ({ onActiveChange }: HeroShaderProps) => {
         const { createShader, isWebGPUSupported } = await import("shaders/js");
         if (cancelled || !isWebGPUSupported()) return;
 
-        const drift = (speed: number, min: number, max: number) => ({
+        const driftCenter = (speed: number, range: DriftRange) => ({
           type: "auto-animate" as const,
           mode: "ping-pong" as const,
           speed,
-          outputMin: min,
-          outputMax: max,
+          easing: "sine" as const,
+          outputMin: { x: range.minX, y: range.minY },
+          outputMax: { x: range.maxX, y: range.maxY },
         });
 
         // Match Figma controls: warmCenter ~58%/42%, coolCenter ~18%/22%, drift ~0.7
@@ -77,6 +88,7 @@ const HeroShader = ({ onActiveChange }: HeroShaderProps) => {
               // Primary warm glow — Figma warmCenter (58%, 42%)
               {
                 type: "Blob",
+                id: "warm",
                 props: {
                   colorA: "#FF4D00",
                   colorB: "#CC0000",
@@ -87,10 +99,12 @@ const HeroShader = ({ onActiveChange }: HeroShaderProps) => {
                   opacity: 0.85,
                   blendMode: "screen",
                   colorSpace: "oklab",
-                  center: {
-                    x: drift(0.1, 0.52, 0.64),
-                    y: drift(0.09, 0.36, 0.48),
-                  },
+                  center: driftCenter(0.1, {
+                    minX: 0.52,
+                    maxX: 0.64,
+                    minY: 0.36,
+                    maxY: 0.48,
+                  }),
                   highlightIntensity: 0.22,
                   highlightColor: "#FFB070",
                 },
@@ -98,6 +112,7 @@ const HeroShader = ({ onActiveChange }: HeroShaderProps) => {
               // Ember core — slightly offset from warm center
               {
                 type: "Blob",
+                id: "ember",
                 props: {
                   colorA: "#FF8A3D",
                   colorB: "#FF4D00",
@@ -108,10 +123,12 @@ const HeroShader = ({ onActiveChange }: HeroShaderProps) => {
                   opacity: 0.58,
                   blendMode: "screen",
                   colorSpace: "oklab",
-                  center: {
-                    x: drift(0.12, 0.4, 0.52),
-                    y: drift(0.1, 0.42, 0.56),
-                  },
+                  center: driftCenter(0.12, {
+                    minX: 0.4,
+                    maxX: 0.52,
+                    minY: 0.42,
+                    maxY: 0.56,
+                  }),
                   highlightIntensity: 0.16,
                   highlightColor: "#FFD2A8",
                 },
@@ -119,6 +136,7 @@ const HeroShader = ({ onActiveChange }: HeroShaderProps) => {
               // Cool teal — Figma coolCenter top-left (18%, 22%)
               {
                 type: "Blob",
+                id: "cool",
                 props: {
                   colorA: "#008080",
                   colorB: "#1A3A3A",
@@ -129,10 +147,12 @@ const HeroShader = ({ onActiveChange }: HeroShaderProps) => {
                   opacity: 0.38,
                   blendMode: "screen",
                   colorSpace: "oklab",
-                  center: {
-                    x: drift(0.07, 0.12, 0.24),
-                    y: drift(0.08, 0.14, 0.28),
-                  },
+                  center: driftCenter(0.07, {
+                    minX: 0.12,
+                    maxX: 0.24,
+                    minY: 0.14,
+                    maxY: 0.28,
+                  }),
                   highlightIntensity: 0.06,
                   highlightColor: "#4AD4D4",
                 },
