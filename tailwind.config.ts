@@ -14,9 +14,9 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['Inter', '"NT Panorama Naskh"', 'system-ui', 'sans-serif'],
-        heading: ['"Space Grotesk"', '"NT Panorama Naskh"', 'sans-serif'],
-        display: ['"Space Grotesk"', '"NT Panorama Naskh"', 'sans-serif'],
+        sans: ['Canela', 'Inter', '"NT Panorama Naskh"', 'system-ui', 'sans-serif'],
+        heading: ['Canela', '"NT Panorama Naskh"', 'Inter', 'sans-serif'],
+        display: ['Canela', '"NT Panorama Naskh"', 'Inter', 'sans-serif'],
         mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
         arabic: ['"NT Panorama Naskh"', 'Inter', 'sans-serif'],
       },

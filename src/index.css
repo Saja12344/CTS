@@ -11,6 +11,14 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: "Canela";
+  src: url("./assets/fonts/canela/CanelaCondensed-Regular.otf") format("opentype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -64,7 +72,7 @@
 
   body {
     @apply antialiased;
-    font-family: Inter, "NT Panorama Naskh", system-ui, sans-serif;
+    font-family: Inter, Canela, "NT Panorama Naskh", system-ui, sans-serif;
   }
 
   :lang(ar),
@@ -74,12 +82,17 @@
 
   :lang(ar) .font-heading,
   [dir="rtl"] .font-heading {
-    font-family: "NT Panorama Naskh", "Space Grotesk", sans-serif;
+    font-family: "NT Panorama Naskh", Canela, sans-serif;
   }
 
   :lang(en),
   [dir="ltr"] {
-    font-family: Inter, "NT Panorama Naskh", system-ui, sans-serif;
+    font-family: Canela, Inter, system-ui, sans-serif;
+  }
+
+  :lang(en) .font-heading,
+  [dir="ltr"] .font-heading {
+    font-family: Canela, Inter, sans-serif;
   }
 
   ::selection {
@@ -94,7 +107,7 @@
   }
 
   .font-heading {
-    font-family: "Space Grotesk", "NT Panorama Naskh", sans-serif;
+    font-family: Canela, "NT Panorama Naskh", Inter, sans-serif;
   }
 
   .font-mono-label {
