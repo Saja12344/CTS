@@ -10,10 +10,27 @@ import {
   SmartWaveFilm,
   SmartWaveFilmVertical,
 } from "./smart-wave/SmartWaveFilm";
+import {HologramDriftFilm} from "./hologram-drift/HologramDriftFilm";
 
 export const RemotionRoot: React.FC = () => {
   return (
     <>
+      <Folder name="Hologram">
+        <Composition
+          id="HologramDriftFilm"
+          component={HologramDriftFilm}
+          durationInFrames={300}
+          fps={30}
+          width={1080}
+          height={1920}
+        />
+        <Still
+          id="HologramDriftStill"
+          component={HologramDriftFilm}
+          width={1080}
+          height={1920}
+        />
+      </Folder>
       <Folder name="Wave">
         <Composition
           id="SmartWaveFilm"

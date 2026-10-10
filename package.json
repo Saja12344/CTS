@@ -16,6 +16,7 @@
     "remotion:render": "npm run render --prefix remotion",
     "remotion:render:brand": "npm run render:brand --prefix remotion",
     "remotion:render:wave": "npm run render:wave --prefix remotion",
+    "remotion:render:hologram": "npm run render:hologram --prefix remotion",
     "remotion:still": "npm run still --prefix remotion"
   },
   "dependencies": {
