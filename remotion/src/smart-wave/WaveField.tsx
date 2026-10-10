@@ -36,8 +36,10 @@ export const WaveField: React.FC<Props> = ({intensity = 1}) => {
     if (canvas.height !== h) canvas.height = h;
 
     const t = frame / fps;
-    const breath =
-      0.88 + 0.12 * Math.sin((frame / Math.max(1, durationInFrames)) * Math.PI * 2);
+    // Secondary micro-breath on top of parent intensity pulse
+    const micro =
+      0.94 + 0.06 * Math.sin((frame / Math.max(1, fps)) * Math.PI * 2 * 0.35);
+    const size = Math.max(0.2, intensity) * micro;
     const flow = t * 0.22;
 
     ctx.globalCompositeOperation = "source-over";
@@ -46,8 +48,9 @@ export const WaveField: React.FC<Props> = ({intensity = 1}) => {
     ctx.fillRect(0, 0, w, h);
 
     const samples = Math.max(180, Math.floor(w / 5));
-    const baseY = h * 0.74;
-    const amp = h * 0.24 * intensity * breath;
+    // Base sits lower when small; rises as it swells
+    const baseY = h * (0.82 - 0.12 * size);
+    const amp = h * 0.28 * size;
 
     type Pt = {x: number; y: number; peak: number};
     const pts: Pt[] = [];
@@ -73,10 +76,10 @@ export const WaveField: React.FC<Props> = ({intensity = 1}) => {
 
     for (let i = 0; i < pts.length; i += 2) {
       const p = pts[i];
-      const r = h * (0.3 + p.peak * 0.2);
+      const r = h * (0.22 + p.peak * 0.18) * (0.55 + 0.55 * size);
       const g = ctx.createRadialGradient(p.x, h, 0, p.x, h * 0.9, r);
-      g.addColorStop(0, "rgba(18, 55, 150, 0.6)");
-      g.addColorStop(0.45, "rgba(8, 35, 110, 0.24)");
+      g.addColorStop(0, `rgba(18, 55, 150,${0.35 + 0.35 * size})`);
+      g.addColorStop(0.45, `rgba(8, 35, 110,${0.12 + 0.16 * size})`);
       g.addColorStop(1, "rgba(0,0,0,0)");
       ctx.fillStyle = g;
       ctx.beginPath();
@@ -86,7 +89,7 @@ export const WaveField: React.FC<Props> = ({intensity = 1}) => {
 
     for (let i = 0; i < pts.length; i++) {
       const p = pts[i];
-      const r = h * (0.15 + p.peak * 0.13) * breath;
+      const r = h * (0.1 + p.peak * 0.12) * size;
       const g = ctx.createRadialGradient(
         p.x,
         p.y + h * 0.09,
@@ -95,8 +98,8 @@ export const WaveField: React.FC<Props> = ({intensity = 1}) => {
         p.y + h * 0.05,
         r,
       );
-      g.addColorStop(0, "rgba(65, 155, 255, 0.48)");
-      g.addColorStop(0.4, "rgba(35, 115, 235, 0.22)");
+      g.addColorStop(0, `rgba(65, 155, 255,${0.28 + 0.28 * size})`);
+      g.addColorStop(0.4, `rgba(35, 115, 235,${0.12 + 0.14 * size})`);
       g.addColorStop(1, "rgba(0,0,0,0)");
       ctx.fillStyle = g;
       ctx.beginPath();
@@ -106,7 +109,7 @@ export const WaveField: React.FC<Props> = ({intensity = 1}) => {
 
     for (let i = 0; i < pts.length; i++) {
       const p = pts[i];
-      const r = h * (0.075 + p.peak * 0.09);
+      const r = h * (0.05 + p.peak * 0.08) * size;
       const g = ctx.createRadialGradient(
         p.x,
         p.y + h * 0.045,
@@ -115,8 +118,8 @@ export const WaveField: React.FC<Props> = ({intensity = 1}) => {
         p.y + h * 0.02,
         r,
       );
-      g.addColorStop(0, "rgba(150, 215, 255, 0.55)");
-      g.addColorStop(0.4, "rgba(85, 175, 255, 0.22)");
+      g.addColorStop(0, `rgba(150, 215, 255,${0.3 + 0.35 * size})`);
+      g.addColorStop(0.4, `rgba(85, 175, 255,${0.12 + 0.14 * size})`);
       g.addColorStop(1, "rgba(0,0,0,0)");
       ctx.fillStyle = g;
       ctx.beginPath();
@@ -127,12 +130,12 @@ export const WaveField: React.FC<Props> = ({intensity = 1}) => {
     for (let i = 0; i < pts.length; i++) {
       const p = pts[i];
       const coreBoost = Math.pow(Math.max(0, p.peak), 1.15);
-      const r = h * (0.038 + coreBoost * 0.08) * breath;
+      const r = h * (0.028 + coreBoost * 0.07) * size;
       const cy = h - 1;
       const g = ctx.createRadialGradient(p.x, cy, 0, p.x, cy, r);
-      g.addColorStop(0, `rgba(255,255,255,${0.62 + coreBoost * 0.35})`);
-      g.addColorStop(0.22, `rgba(225,242,255,${0.32 + coreBoost * 0.22})`);
-      g.addColorStop(0.55, "rgba(120,190,255,0.14)");
+      g.addColorStop(0, `rgba(255,255,255,${(0.4 + coreBoost * 0.4) * size})`);
+      g.addColorStop(0.22, `rgba(225,242,255,${(0.22 + coreBoost * 0.2) * size})`);
+      g.addColorStop(0.55, `rgba(120,190,255,${0.1 * size})`);
       g.addColorStop(1, "rgba(0,0,0,0)");
       ctx.fillStyle = g;
       ctx.beginPath();
@@ -142,9 +145,9 @@ export const WaveField: React.FC<Props> = ({intensity = 1}) => {
 
     const sheet = ctx.createLinearGradient(0, h * 0.52, 0, h);
     sheet.addColorStop(0, "rgba(0,0,0,0)");
-    sheet.addColorStop(0.42, "rgba(35,100,210,0.09)");
-    sheet.addColorStop(0.72, "rgba(95,175,255,0.16)");
-    sheet.addColorStop(1, "rgba(255,255,255,0.12)");
+    sheet.addColorStop(0.42, `rgba(35,100,210,${0.05 * size})`);
+    sheet.addColorStop(0.72, `rgba(95,175,255,${0.1 * size})`);
+    sheet.addColorStop(1, `rgba(255,255,255,${0.08 * size})`);
     ctx.fillStyle = sheet;
     ctx.fillRect(0, h * 0.52, w, h * 0.48);
 
