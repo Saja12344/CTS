@@ -1,4 +1,3 @@
-import { ArrowRight } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 import atmosphere from "@/assets/hero-atmosphere.jpg";
 import { cinematicEase } from "@/lib/motion";
@@ -57,32 +56,6 @@ const HeroSection = ({ content, language }: HeroSectionProps) => {
           >
             {content.description}
           </motion.p>
-
-          <motion.div
-            initial={reduceMotion ? false : { opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.65, ease: cinematicEase, delay: 0.18 }}
-            className="flex flex-wrap items-center gap-6 pt-4"
-          >
-            <a
-              href="#contact"
-              className="btn-primary shadow-lg shadow-brand-orange/20"
-            >
-              <span>{content.primaryCta}</span>
-              <ArrowRight className={`h-[18px] w-[18px] ${isArabic ? "rotate-180" : ""}`} />
-            </a>
-            <a
-              href="#approach"
-              className="group inline-flex items-center gap-2 px-2 py-3 text-sm font-medium text-white/80 transition-colors hover:text-white"
-            >
-              <span>{content.secondaryCta}</span>
-              <ArrowRight
-                className={`h-[18px] w-[18px] text-brand-orange transition-transform group-hover:translate-x-0.5 ${
-                  isArabic ? "rotate-180 group-hover:-translate-x-0.5 group-hover:translate-x-0" : ""
-                }`}
-              />
-            </a>
-          </motion.div>
         </div>
       </div>
     </section>

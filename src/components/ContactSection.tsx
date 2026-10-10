@@ -10,7 +10,7 @@ type ContactSectionProps = {
 };
 
 const ContactSection = ({ content, language }: ContactSectionProps) => {
-  const [form, setForm] = useState({ name: "", email: "", project: "" });
+  const [form, setForm] = useState({ name: "", email: "", reason: "", project: "" });
   const [submitted, setSubmitted] = useState(false);
   const reduceMotion = useReducedMotion();
   const isArabic = language === "ar";
@@ -18,7 +18,7 @@ const ContactSection = ({ content, language }: ContactSectionProps) => {
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     const text = encodeURIComponent(
-      `${content.whatsappIntro}\n\n${content.nameLabel}: ${form.name}\n${content.emailLabel}: ${form.email}\n${content.projectLabel}: ${form.project}`,
+      `${content.whatsappIntro}\n\n${content.nameLabel}: ${form.name}\n${content.emailLabel}: ${form.email}\n${content.reasonLabel}: ${form.reason}\n${content.projectLabel}: ${form.project}`,
     );
     window.open(`https://wa.me/966503807517?text=${text}`, "_blank", "noopener,noreferrer");
     setSubmitted(true);
@@ -98,6 +98,30 @@ const ContactSection = ({ content, language }: ContactSectionProps) => {
                   value={form.email}
                   onChange={(e) => setForm({ ...form, email: e.target.value })}
                 />
+              </div>
+              <div>
+                <label
+                  className="font-mono-label mb-2 block text-[11px] uppercase tracking-wider text-white/70"
+                  htmlFor="reason"
+                >
+                  {content.reasonLabel}
+                </label>
+                <select
+                  className="field-input"
+                  id="reason"
+                  required
+                  value={form.reason}
+                  onChange={(e) => setForm({ ...form, reason: e.target.value })}
+                >
+                  <option value="" disabled>
+                    {content.reasonPlaceholder}
+                  </option>
+                  {content.reasonOptions.map((option) => (
+                    <option key={option} value={option}>
+                      {option}
+                    </option>
+                  ))}
+                </select>
               </div>
               <div>
                 <label

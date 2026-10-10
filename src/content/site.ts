@@ -18,13 +18,10 @@ export const siteContent = {
       language: "English",
     },
     hero: {
-      label: "استوديو منتجات رقمية",
       headlineBefore: "الأفكار تستحق أن تصبح",
       headlineAccent: "واقعًا.",
       description:
         "نحوّل التحديات المعقدة إلى منتجات رقمية مفيدة، وهياكل برمجية قابلة للتوسع، وأدوات تشغيل بديهية.",
-      primaryCta: "ابدأ مشروعًا",
-      secondaryCta: "كيف نعمل",
     },
     build: {
       label: "ماذا نبني",
@@ -82,6 +79,15 @@ export const siteContent = {
       namePlaceholder: "اسمك",
       emailLabel: "البريد المهني",
       emailPlaceholder: "name@company.com",
+      reasonLabel: "سبب التواصل",
+      reasonPlaceholder: "اختر سبب التواصل",
+      reasonOptions: [
+        "مشروع جديد",
+        "استشارة تقنية",
+        "تحسين منتج قائم",
+        "شراكة",
+        "أخرى",
+      ],
       projectLabel: "نظرة عامة على المشروع",
       projectPlaceholder: "صف باختصار المنتج أو النظام أو عنق الزجاجة التشغيلي...",
       submit: "لنتحدث",
@@ -123,13 +129,10 @@ export const siteContent = {
       language: "العربية",
     },
     hero: {
-      label: "Digital Product Studio",
       headlineBefore: "Ideas deserve to become",
       headlineAccent: "reality.",
       description:
         "We turn complex challenges into useful digital products, scalable software architectures, and intuitive operating tools.",
-      primaryCta: "Start a project",
-      secondaryCta: "How we work",
     },
     build: {
       label: "What We Build",
@@ -190,6 +193,15 @@ export const siteContent = {
       namePlaceholder: "Your name",
       emailLabel: "Work Email",
       emailPlaceholder: "name@company.com",
+      reasonLabel: "Reason for contact",
+      reasonPlaceholder: "Select a reason",
+      reasonOptions: [
+        "New project",
+        "Technical consultation",
+        "Improve an existing product",
+        "Partnership",
+        "Other",
+      ],
       projectLabel: "Project Overview",
       projectPlaceholder: "Briefly describe the product, system, or operational bottleneck...",
       submit: "Let's talk",
