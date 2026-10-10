@@ -32,22 +32,22 @@ export const siteContent = {
         "تصمّم Core Tech Solutions وتطوّر منتجات رقمية وأنظمة أعمال وبرمجيات ذكية مبنية حول احتياجات تشغيل حقيقية وأسس معمارية متينة.",
       items: [
         {
-          index: "01",
+          index: "٠١",
           title: "منتجات رقمية",
           description: "استراتيجية المنتج، تصميم تجربة وواجهة المستخدم، وتطوير المنتج الرقمي من البداية للنهاية.",
         },
         {
-          index: "02",
+          index: "٠٢",
           title: "أنظمة الأعمال",
           description: "أدوات تشغيل مخصصة، أتمتة سير العمل، وربط عمليات الأعمال.",
         },
         {
-          index: "03",
+          index: "٠٣",
           title: "ويب وموبايل",
           description: "تطبيقات ويب متجاوبة وتجارب جوال مصممة حول مستخدمين حقيقيين وحالات استخدام فعلية.",
         },
         {
-          index: "04",
+          index: "٠٤",
           title: "حلول مدعومة بالذكاء الاصطناعي",
           description: "قدرات ذكاء اصطناعي عملية مدمجة في المنتجات وسير العمل حيث تخلق قيمة حقيقية.",
         },
@@ -57,10 +57,10 @@ export const siteContent = {
       label: "منهجيتنا",
       title: "الحل الصحيح يبدأ بالسؤال الصحيح.",
       steps: [
-        { number: "01", title: "افهم", detail: "نحدد المشكلة الحقيقية في العمل." },
-        { number: "02", title: "حدّد", detail: "نثبت نطاق المنتج والاتجاه التقني المناسب." },
-        { number: "03", title: "ابنِ", detail: "نصمّم، ونطوّر، ونتحقق من الحل." },
-        { number: "04", title: "حسّن", detail: "نختبر، ونحسّن، وننشر، وندعم تطور المنتج المستمر." },
+        { number: "٠١", title: "افهم", detail: "نحدد المشكلة الحقيقية في العمل." },
+        { number: "٠٢", title: "حدّد", detail: "نثبت نطاق المنتج والاتجاه التقني المناسب." },
+        { number: "٠٣", title: "ابنِ", detail: "نصمّم، ونطوّر، ونتحقق من الحل." },
+        { number: "٠٤", title: "حسّن", detail: "نختبر، ونحسّن، وننشر، وندعم تطور المنتج المستمر." },
       ],
     },
     thinking: {
@@ -76,7 +76,7 @@ export const siteContent = {
       description:
         "سواء كنت تطلق منتجًا أو تطوّر طريقة عملك، نساعدك على اتخاذ الخطوة التقنية الصحيحة.",
       email: "contact@coretech.solutions",
-      nda: "استشارة معمارية مباشرة تحت اتفاقية سرية قياسية.",
+      nda: "مناقشة تقنية مباشرة، مع الحفاظ على سرية مشروعك.",
       nameLabel: "الاسم الكامل",
       namePlaceholder: "اسمك",
       emailLabel: "البريد المهني",
@@ -192,7 +192,7 @@ export const siteContent = {
       description:
         "Whether you're launching a product or evolving how you work, we help you take the right technical step.",
       email: "contact@coretech.solutions",
-      nda: "Direct architectural consultation under standard NDA.",
+      nda: "Direct technical discussion, with your project's confidentiality protected.",
       nameLabel: "Full Name",
       namePlaceholder: "Your name",
       emailLabel: "Work Email",
