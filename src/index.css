@@ -1,33 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
 @font-face {
-  font-family: "Saudi";
-  src: url("./assets/fonts/saudi/Saudi-Regular.ttf") format("truetype");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Saudi";
-  src: url("./assets/fonts/saudi/Saudi-Medium.ttf") format("truetype");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Saudi";
-  src: url("./assets/fonts/saudi/Saudi-SemiBold.ttf") format("truetype");
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Saudi";
-  src: url("./assets/fonts/saudi/Saudi-Bold.ttf") format("truetype");
-  font-weight: 700;
+  font-family: "NT Panorama Naskh";
+  src:
+    url("./assets/fonts/nt-panorama-naskh/NTPanoramaNaskh-Regular.woff2") format("woff2"),
+    url("./assets/fonts/nt-panorama-naskh/NTPanoramaNaskh-Regular.woff") format("woff"),
+    url("./assets/fonts/nt-panorama-naskh/NTPanoramaNaskh-Regular.ttf") format("truetype");
+  font-weight: 100 900;
   font-style: normal;
   font-display: swap;
 }
@@ -85,22 +64,22 @@
 
   body {
     @apply antialiased;
-    font-family: Inter, Saudi, system-ui, sans-serif;
+    font-family: Inter, "NT Panorama Naskh", system-ui, sans-serif;
   }
 
   :lang(ar),
   [dir="rtl"] {
-    font-family: Saudi, Inter, system-ui, sans-serif;
+    font-family: "NT Panorama Naskh", Inter, system-ui, sans-serif;
   }
 
   :lang(ar) .font-heading,
   [dir="rtl"] .font-heading {
-    font-family: Saudi, "Space Grotesk", sans-serif;
+    font-family: "NT Panorama Naskh", "Space Grotesk", sans-serif;
   }
 
   :lang(en),
   [dir="ltr"] {
-    font-family: Inter, Saudi, system-ui, sans-serif;
+    font-family: Inter, "NT Panorama Naskh", system-ui, sans-serif;
   }
 
   ::selection {
@@ -115,7 +94,7 @@
   }
 
   .font-heading {
-    font-family: "Space Grotesk", Saudi, sans-serif;
+    font-family: "Space Grotesk", "NT Panorama Naskh", sans-serif;
   }
 
   .font-mono-label {

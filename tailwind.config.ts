@@ -14,11 +14,11 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['Inter', 'Saudi', 'system-ui', 'sans-serif'],
-        heading: ['"Space Grotesk"', 'Saudi', 'sans-serif'],
-        display: ['"Space Grotesk"', 'Saudi', 'sans-serif'],
+        sans: ['Inter', '"NT Panorama Naskh"', 'system-ui', 'sans-serif'],
+        heading: ['"Space Grotesk"', '"NT Panorama Naskh"', 'sans-serif'],
+        display: ['"Space Grotesk"', '"NT Panorama Naskh"', 'sans-serif'],
         mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
-        arabic: ['Saudi', 'Inter', 'sans-serif'],
+        arabic: ['"NT Panorama Naskh"', 'Inter', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
