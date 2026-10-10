@@ -16,17 +16,13 @@ export const SmartWaveFilm: React.FC = () => {
   const frame = useCurrentFrame();
   const {fps, durationInFrames} = useVideoConfig();
 
-  const fadeIn = interpolate(frame, [0, 18], [0, 1], {
-    extrapolateLeft: "clamp",
-    extrapolateRight: "clamp",
-  });
-  const fadeOut = interpolate(
+  // Keep wave visible from frame 0 (Studio scrub at 00:00); soft exit only
+  const opacity = interpolate(
     frame,
-    [durationInFrames - 24, durationInFrames],
+    [durationInFrames - 20, durationInFrames],
     [1, 0],
     {extrapolateLeft: "clamp", extrapolateRight: "clamp"},
   );
-  const opacity = fadeIn * fadeOut;
 
   const volume = interpolate(
     frame,
