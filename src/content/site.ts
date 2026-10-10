@@ -97,6 +97,13 @@ export const siteContent = {
       thinking: "تفكير المنتج",
       email: "contact@coretech.solutions",
       rights: "جميع الحقوق محفوظة",
+      socialLabel: "تواصل معنا",
+      social: [
+        { name: "LinkedIn", href: "https://www.linkedin.com/company/coretech26" },
+        { name: "X", href: "https://x.com/coretech26" },
+        { name: "TikTok", href: "https://www.tiktok.com/@coretech26" },
+        { name: "Instagram", href: "https://www.instagram.com/coretech26" },
+      ],
     },
   },
   en: {
@@ -198,6 +205,13 @@ export const siteContent = {
       thinking: "Product Thinking",
       email: "contact@coretech.solutions",
       rights: "All rights reserved",
+      socialLabel: "Follow us",
+      social: [
+        { name: "LinkedIn", href: "https://www.linkedin.com/company/coretech26" },
+        { name: "X", href: "https://x.com/coretech26" },
+        { name: "TikTok", href: "https://www.tiktok.com/@coretech26" },
+        { name: "Instagram", href: "https://www.instagram.com/coretech26" },
+      ],
     },
   },
 } as const;

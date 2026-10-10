@@ -39,22 +39,10 @@ const HeroSection = ({ content, language }: HeroSectionProps) => {
 
       <div className="grid-shell relative z-10 w-full py-12 md:py-20">
         <div className="flex max-w-4xl flex-col items-start gap-8">
-          <motion.div
-            initial={reduceMotion ? false : { opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: cinematicEase }}
-            className="inline-flex items-center gap-2.5 rounded-full border border-white/[0.08] bg-white/[0.04] px-3 py-1 backdrop-blur-sm"
-          >
-            <span className="h-1.5 w-1.5 rounded-full bg-brand-orange" />
-            <span className="font-mono-label text-[11px] uppercase tracking-widest text-white/80">
-              {content.label}
-            </span>
-          </motion.div>
-
           <motion.h1
             initial={reduceMotion ? false : { opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: cinematicEase, delay: 0.06 }}
+            transition={{ duration: 0.8, ease: cinematicEase }}
             className="font-heading text-5xl font-bold leading-[1.03] tracking-tight text-white sm:text-7xl lg:text-[84px]"
           >
             {content.headlineBefore}{" "}
@@ -64,7 +52,7 @@ const HeroSection = ({ content, language }: HeroSectionProps) => {
           <motion.p
             initial={reduceMotion ? false : { opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: cinematicEase, delay: 0.14 }}
+            transition={{ duration: 0.7, ease: cinematicEase, delay: 0.1 }}
             className="max-w-2xl font-light text-xl leading-relaxed text-[#C0C0B8] sm:text-2xl"
           >
             {content.description}
@@ -73,7 +61,7 @@ const HeroSection = ({ content, language }: HeroSectionProps) => {
           <motion.div
             initial={reduceMotion ? false : { opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.65, ease: cinematicEase, delay: 0.22 }}
+            transition={{ duration: 0.65, ease: cinematicEase, delay: 0.18 }}
             className="flex flex-wrap items-center gap-6 pt-4"
           >
             <a
