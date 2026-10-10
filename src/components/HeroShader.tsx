@@ -7,8 +7,8 @@ type HeroShaderProps = {
 };
 
 /**
- * Calm ambient hero field — soft drifting mesh glow that idles on its own
- * and gently follows the pointer (Entlify-style landing atmosphere).
+ * Calm ambient hero glow — drifts on its own, soft blob follows the pointer.
+ * No cursor trail / arrow residue.
  */
 const HeroShader = ({ onActiveChange }: HeroShaderProps) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -35,79 +35,76 @@ const HeroShader = ({ onActiveChange }: HeroShaderProps) => {
 
         const follow = {
           type: "mouse-position" as const,
-          smoothing: 0.08,
-          momentum: 0.12,
+          smoothing: 0.1,
+          momentum: 0.08,
         };
 
         const shader = await createShader(
           canvas,
           {
             components: [
-              // Slow self-moving color field
+              {
+                type: "SolidColor",
+                props: { color: "#0B0B0C" },
+              },
+              // Rich multi-stop field — calm drift, soft seams (Entlify-like depth)
               {
                 type: "MeshGradient",
                 props: {
                   colorA: "#0B0B0C",
-                  colorB: "#2a4a3f",
+                  colorB: "#c4783a",
+                  stops: [
+                    { color: "#0B0B0C", position: 0 },
+                    { color: "#1a2428", position: 0.22 },
+                    { color: "#2f5c52", position: 0.42 },
+                    { color: "#c4783a", position: 0.68 },
+                    { color: "#e8c39a", position: 0.88 },
+                    { color: "#0B0B0C", position: 1 },
+                  ],
                   colorSpace: "oklab",
-                  speed: 0.28,
+                  count: 6,
+                  smoothness: 3.2,
+                  variation: 0.22,
+                  swirl: 0.12,
+                  drift: 0.35,
+                  wrapping: 0,
+                  speed: 0.22,
+                  seed: 7,
                 },
               },
-              // Secondary cool wash
-              {
-                type: "Aurora",
-                props: {
-                  colorA: "#143028",
-                  colorB: "#9dcfb8",
-                  colorC: "#C8FF4D",
-                  colorSpace: "oklab",
-                  speed: 0.4,
-                  intensity: 55,
-                  waviness: 40,
-                  height: 100,
-                  opacity: 0.4,
-                  blendMode: "screen",
-                  center: { x: 0.5, y: 0.15 },
-                },
-              },
-              // Soft luminous blob: breathes via speed, tracks pointer
+              // Soft pointer glow — follows mouse/finger, no trail streak
               {
                 type: "Blob",
                 props: {
-                  colorA: "#E6E6E4",
-                  colorB: "#C8FF4D",
-                  size: 0.72,
-                  softness: 0.9,
-                  deformation: 0.45,
-                  speed: 0.25,
-                  opacity: 0.5,
+                  colorA: "#f0d2b0",
+                  colorB: "#d4894a",
+                  size: 0.85,
+                  softness: 0.95,
+                  deformation: 0.28,
+                  speed: 0.18,
+                  opacity: 0.42,
                   blendMode: "screen",
                   colorSpace: "oklab",
                   center: follow,
-                  highlightIntensity: 0.35,
-                  highlightColor: "#F4F2EE",
+                  highlightIntensity: 0.18,
+                  highlightColor: "#fff6ea",
                 },
               },
-              // Quiet grain
+              // Cool counter-light for depth (fixed, slow breathing)
               {
-                type: "SimplexNoise",
+                type: "Blob",
                 props: {
-                  scale: 3.2,
-                  speed: 0.2,
-                  opacity: 0.1,
-                  blendMode: "softLight",
-                },
-              },
-              // Light cursor whisper
-              {
-                type: "CursorTrail",
-                props: {
-                  colorA: "#F4F2EE",
-                  colorB: "#9dcfb8",
-                  radius: 0.42,
-                  length: 0.35,
-                  opacity: 0.25,
+                  colorA: "#6fa896",
+                  colorB: "#1e3d36",
+                  size: 0.55,
+                  softness: 0.96,
+                  deformation: 0.35,
+                  speed: 0.14,
+                  opacity: 0.28,
                   blendMode: "screen",
+                  colorSpace: "oklab",
+                  center: { x: 0.22, y: 0.62 },
+                  highlightIntensity: 0.1,
                 },
               },
             ],
