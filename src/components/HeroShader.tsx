@@ -6,9 +6,15 @@ type HeroShaderProps = {
   onActiveChange?: (active: boolean) => void;
 };
 
+const follow = (smoothing: number, momentum = 0.1) => ({
+  type: "mouse-position" as const,
+  smoothing,
+  momentum,
+});
+
 /**
- * Calm ambient hero glow — drifts on its own, soft blob follows the pointer.
- * No cursor trail / arrow residue.
+ * Soft gradient cloud that tracks the pointer as one field —
+ * no cursor-trail streak, black canvas stays visible around it.
  */
 const HeroShader = ({ onActiveChange }: HeroShaderProps) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -33,12 +39,6 @@ const HeroShader = ({ onActiveChange }: HeroShaderProps) => {
         const { createShader, isWebGPUSupported } = await import("shaders/js");
         if (cancelled || !isWebGPUSupported()) return;
 
-        const follow = {
-          type: "mouse-position" as const,
-          smoothing: 0.1,
-          momentum: 0.08,
-        };
-
         const shader = await createShader(
           canvas,
           {
@@ -47,64 +47,41 @@ const HeroShader = ({ onActiveChange }: HeroShaderProps) => {
                 type: "SolidColor",
                 props: { color: "#0B0B0C" },
               },
-              // Rich multi-stop field — calm drift, soft seams (Entlify-like depth)
+              // Whole palette follows the cursor (points lag slightly → soft cloud)
               {
-                type: "MeshGradient",
+                type: "MultiPointGradient",
                 props: {
-                  colorA: "#0B0B0C",
+                  colorA: "#1e3d36",
+                  positionA: follow(0.2, 0.06),
                   colorB: "#c4783a",
-                  stops: [
-                    { color: "#0B0B0C", position: 0 },
-                    { color: "#121616", position: 0.35 },
-                    { color: "#2f5c52", position: 0.55 },
-                    { color: "#c4783a", position: 0.72 },
-                    { color: "#0B0B0C", position: 1 },
-                  ],
+                  positionB: follow(0.1, 0.1),
+                  colorC: "#e8c39a",
+                  positionC: follow(0.14, 0.08),
+                  colorD: "#2f5c52",
+                  positionD: follow(0.24, 0.05),
+                  colorE: "#d4894a",
+                  positionE: follow(0.08, 0.12),
                   colorSpace: "oklab",
-                  count: 5,
-                  smoothness: 3.4,
-                  variation: 0.18,
-                  swirl: 0.08,
-                  drift: 0.28,
-                  wrapping: 0,
-                  speed: 0.2,
-                  seed: 7,
-                  opacity: 0.45,
+                  smoothness: 2.6,
+                  opacity: 0.55,
                 },
               },
-              // Soft pointer glow — smaller so black field reads clearly
+              // Soft core tied to the same pointer — keeps the bloom compact
               {
-                type: "Blob",
+                type: "RadialGradient",
                 props: {
                   colorA: "#f0d2b0",
-                  colorB: "#d4894a",
-                  size: 0.38,
-                  softness: 0.92,
-                  deformation: 0.22,
-                  speed: 0.18,
-                  opacity: 0.32,
-                  blendMode: "screen",
+                  colorB: "#0B0B0C",
+                  stops: [
+                    { color: "#f0d2b0", position: 0 },
+                    { color: "#c4783a", position: 0.28 },
+                    { color: "#0B0B0C", position: 1 },
+                  ],
+                  center: follow(0.09, 0.1),
+                  radius: 0.42,
                   colorSpace: "oklab",
-                  center: follow,
-                  highlightIntensity: 0.12,
-                  highlightColor: "#fff6ea",
-                },
-              },
-              // Cool counter-light — compact accent only
-              {
-                type: "Blob",
-                props: {
-                  colorA: "#6fa896",
-                  colorB: "#1e3d36",
-                  size: 0.28,
-                  softness: 0.94,
-                  deformation: 0.3,
-                  speed: 0.14,
-                  opacity: 0.18,
+                  opacity: 0.4,
                   blendMode: "screen",
-                  colorSpace: "oklab",
-                  center: { x: 0.22, y: 0.62 },
-                  highlightIntensity: 0.08,
                 },
               },
             ],
