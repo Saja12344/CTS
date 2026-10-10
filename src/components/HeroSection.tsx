@@ -30,8 +30,8 @@ const HeroSection = ({ content, language }: HeroSectionProps) => {
           <NetworkField />
         </>
       ) : (
-        // Light edge falloff only — keep the mid orange shade visible like the reference
-        <div className="pointer-events-none absolute inset-0 z-[2] bg-[radial-gradient(ellipse_at_50%_55%,transparent_0%,transparent_35%,rgba(5,5,5,0.45)_70%,rgba(5,5,5,0.88)_100%)]" />
+        // Soft edge falloff only — leave mid orange/teal glow unmasked like Entlify
+        <div className="pointer-events-none absolute inset-0 z-[2] bg-[radial-gradient(ellipse_at_55%_42%,transparent_0%,transparent_42%,rgba(10,10,10,0.28)_72%,rgba(10,10,10,0.78)_100%)]" />
       )}
 
       <HeroShader onActiveChange={setShaderActive} />
