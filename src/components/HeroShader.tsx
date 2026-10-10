@@ -2,14 +2,22 @@ import { useEffect, useRef, useState } from "react";
 import { useReducedMotion } from "framer-motion";
 import type { ShaderInstance } from "shaders/js";
 
+type HeroShaderProps = {
+  onActiveChange?: (active: boolean) => void;
+};
+
 /**
  * Full-bleed WebGPU hero background via shaders/js `createShader`.
  * Falls back silently when WebGPU is unavailable or the user prefers reduced motion.
  */
-const HeroShader = () => {
+const HeroShader = ({ onActiveChange }: HeroShaderProps) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const reduceMotion = useReducedMotion();
   const [active, setActive] = useState(false);
+
+  useEffect(() => {
+    onActiveChange?.(active);
+  }, [active, onActiveChange]);
 
   useEffect(() => {
     if (reduceMotion) return;
@@ -33,7 +41,7 @@ const HeroShader = () => {
                 type: "LinearGradient",
                 props: {
                   colorA: "#0B0B0C",
-                  colorB: "#1a2e28",
+                  colorB: "#2a4a3f",
                   angle: 128,
                   colorSpace: "oklch",
                 },
@@ -43,18 +51,18 @@ const HeroShader = () => {
                 props: {
                   scale: 2.4,
                   speed: 0.35,
-                  opacity: 0.14,
+                  opacity: 0.22,
                   blendMode: "softLight",
                 },
               },
               {
                 type: "CursorTrail",
                 props: {
-                  colorA: "#E6E6E4",
-                  colorB: "#9dcfb8",
-                  radius: 0.28,
-                  length: 0.42,
-                  opacity: 0.45,
+                  colorA: "#F4F2EE",
+                  colorB: "#C8FF4D",
+                  radius: 0.36,
+                  length: 0.55,
+                  opacity: 0.7,
                   blendMode: "screen",
                 },
               },

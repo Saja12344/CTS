@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import HeroShader from "@/components/HeroShader";
 import NetworkField from "@/components/NetworkField";
@@ -13,19 +14,26 @@ type HeroSectionProps = {
 const HeroSection = ({ content, language }: HeroSectionProps) => {
   const reduceMotion = useReducedMotion();
   const isArabic = language === "ar";
+  const [shaderActive, setShaderActive] = useState(false);
 
   return (
     <section id="hero" className="relative min-h-[100svh] overflow-hidden">
       <img
         src={atmosphere}
         alt=""
-        className="absolute inset-0 h-full w-full object-cover opacity-90"
+        className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ${
+          shaderActive ? "opacity-25" : "opacity-90"
+        }`}
         aria-hidden="true"
       />
-      <HeroShader />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(8,9,11,0.55)_55%,rgba(8,9,11,0.92)_100%)]" />
+      <HeroShader onActiveChange={setShaderActive} />
+      <div
+        className={`absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(8,9,11,0.45)_55%,rgba(8,9,11,0.88)_100%)] transition-opacity duration-700 ${
+          shaderActive ? "opacity-70" : "opacity-100"
+        }`}
+      />
       <div className="glow-soft absolute inset-0" />
-      <NetworkField />
+      {!shaderActive ? <NetworkField /> : null}
 
       <div className="grid-shell relative z-10 flex min-h-[100svh] flex-col items-center justify-center pb-20 pt-28 text-center">
         <motion.p
