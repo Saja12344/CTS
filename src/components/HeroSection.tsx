@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import HeroShader from "@/components/HeroShader";
 import NetworkField from "@/components/NetworkField";
@@ -16,51 +16,66 @@ const HeroSection = ({ content, language }: HeroSectionProps) => {
   const isArabic = language === "ar";
   const [shaderActive, setShaderActive] = useState(false);
 
-  return (
-    <section id="hero" className="relative min-h-[100svh] overflow-hidden">
-      <img
-        src={atmosphere}
-        alt=""
-        className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ${
-          shaderActive ? "opacity-25" : "opacity-90"
-        }`}
-        aria-hidden="true"
-      />
-      <HeroShader onActiveChange={setShaderActive} />
-      <div
-        className={`absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(8,9,11,0.45)_55%,rgba(8,9,11,0.88)_100%)] transition-opacity duration-700 ${
-          shaderActive ? "opacity-70" : "opacity-100"
-        }`}
-      />
-      <div className="glow-soft absolute inset-0" />
-      {!shaderActive ? <NetworkField /> : null}
+  // Drawn inside the WebGPU canvas so the glass orb can refract it.
+  const shaderLines = useMemo<[string, string, string]>(
+    () =>
+      language === "ar"
+        ? ["نحوّل", "الأفكار", "لمنتجات"]
+        : ["CORE", "TECH", "SOLUTIONS"],
+    [language],
+  );
 
-      <div className="grid-shell relative z-10 flex min-h-[100svh] flex-col items-center justify-center pb-20 pt-28 text-center">
+  return (
+    <section id="hero" className="relative min-h-[100svh] overflow-hidden bg-[#050506]">
+      {!shaderActive ? (
+        <>
+          <img
+            src={atmosphere}
+            alt=""
+            className="absolute inset-0 h-full w-full object-cover opacity-90"
+            aria-hidden="true"
+          />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(8,9,11,0.55)_55%,rgba(8,9,11,0.92)_100%)]" />
+          <NetworkField />
+        </>
+      ) : null}
+
+      <HeroShader
+        onActiveChange={setShaderActive}
+        lines={shaderLines}
+        language={language}
+      />
+
+      <div className="grid-shell relative z-10 flex min-h-[100svh] flex-col items-center justify-end pb-16 pt-28 text-center md:pb-20">
         <motion.p
           initial={reduceMotion ? false : { opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: cinematicEase }}
-          className="micro-label mb-7"
+          className={`micro-label mb-5 ${shaderActive ? "sr-only" : ""}`}
         >
           {content.label}
         </motion.p>
 
-        <motion.h1
-          initial={reduceMotion ? false : { opacity: 0, y: 22 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, ease: cinematicEase, delay: 0.08 }}
-          className={`type-display mb-6 max-w-4xl text-[clamp(2.4rem,6.5vw,4.75rem)] text-white ${
-            isArabic ? "font-arabic" : ""
-          }`}
-        >
-          {content.headline}
-        </motion.h1>
+        {!shaderActive ? (
+          <motion.h1
+            initial={reduceMotion ? false : { opacity: 0, y: 22 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, ease: cinematicEase, delay: 0.08 }}
+            className={`type-display mb-6 max-w-4xl text-[clamp(2.4rem,6.5vw,4.75rem)] text-white ${
+              isArabic ? "font-arabic" : ""
+            }`}
+          >
+            {content.headline}
+          </motion.h1>
+        ) : (
+          <h1 className="sr-only">{content.headline}</h1>
+        )}
 
         <motion.p
           initial={reduceMotion ? false : { opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.75, ease: cinematicEase, delay: 0.18 }}
-          className="mb-10 max-w-xl text-base leading-7 text-white/65 md:text-lg"
+          className="mb-10 max-w-md text-sm leading-6 text-white/55 md:max-w-xl md:text-base md:leading-7"
         >
           {content.description}
         </motion.p>

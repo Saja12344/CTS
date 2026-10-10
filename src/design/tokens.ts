@@ -16,7 +16,7 @@ export const typography = {
 
 /** Visual asset map — one purpose per asset */
 export const visualMap = {
-  hero: "atmosphere + WebGPU LinearGradient/CursorTrail (shaders/js) + network — logo only in navbar",
+  hero: "liquid-crystal WebGPU Glass orb refracting type (shaders/js) — atmosphere/network fallback",
   capabilities: "dark tech panels",
   process: "English methodology with solid progress spine",
   manifesto: "typography + soft glow",
