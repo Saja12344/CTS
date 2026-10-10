@@ -258,18 +258,6 @@
   }
 }
 
-@keyframes hero-drift {
-  0%,
-  100% {
-    transform: translate3d(0, 0, 0) scale(1);
-    opacity: 0.55;
-  }
-  50% {
-    transform: translate3d(2%, -1.5%, 0) scale(1.05);
-    opacity: 0.75;
-  }
-}
-
 @keyframes fade-up {
   from {
     opacity: 0;
@@ -279,10 +267,6 @@
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-.hero-atmosphere {
-  animation: hero-drift 14s ease-in-out infinite;
 }
 
 .animate-fade-up {

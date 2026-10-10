@@ -1,5 +1,9 @@
+import { useEffect, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
-import atmosphere from "@/assets/hero-atmosphere.jpg";
+import frame0 from "@/assets/hero-frames/frame-0.png";
+import frame1 from "@/assets/hero-frames/frame-1.png";
+import frame2 from "@/assets/hero-frames/frame-2.png";
+import frame3 from "@/assets/hero-frames/frame-3.png";
 import { cinematicEase } from "@/lib/motion";
 import { Language, siteContent } from "@/content/site";
 
@@ -8,9 +12,20 @@ type HeroSectionProps = {
   language: Language;
 };
 
+const FRAMES = [frame0, frame1, frame2, frame3];
+
 const HeroSection = ({ content, language }: HeroSectionProps) => {
   const reduceMotion = useReducedMotion();
   const isArabic = language === "ar";
+  const [activeFrame, setActiveFrame] = useState(0);
+
+  useEffect(() => {
+    if (reduceMotion) return;
+    const id = window.setInterval(() => {
+      setActiveFrame((current) => (current + 1) % FRAMES.length);
+    }, 2200);
+    return () => window.clearInterval(id);
+  }, [reduceMotion]);
 
   return (
     <section
@@ -18,22 +33,24 @@ const HeroSection = ({ content, language }: HeroSectionProps) => {
       className="relative flex min-h-[92vh] items-center overflow-hidden bg-brand-charcoal pb-20 pt-28"
     >
       <div className="pointer-events-none absolute inset-0 z-0 select-none overflow-hidden">
-        <img
-          src={atmosphere}
-          alt=""
-          aria-hidden="true"
-          className={`absolute inset-0 h-full w-full object-cover opacity-40 ${
-            reduceMotion ? "" : "hero-atmosphere"
-          }`}
-        />
+        {FRAMES.map((frame, index) => (
+          <img
+            key={frame}
+            src={frame}
+            alt=""
+            aria-hidden="true"
+            className="absolute inset-0 h-full w-full object-cover transition-opacity duration-[1400ms] ease-in-out"
+            style={{ opacity: activeFrame === index ? 0.9 : 0 }}
+          />
+        ))}
         <div
           className={`absolute inset-0 ${
             isArabic
-              ? "bg-gradient-to-l from-[#171717]/95 via-[#171717]/60 to-transparent"
-              : "bg-gradient-to-r from-[#171717]/95 via-[#171717]/60 to-transparent"
+              ? "bg-gradient-to-l from-[#171717]/85 via-[#171717]/45 to-transparent"
+              : "bg-gradient-to-r from-[#171717]/85 via-[#171717]/45 to-transparent"
           }`}
         />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,transparent_30%,#171717_90%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_35%,#171717_92%)]" />
       </div>
 
       <div className="grid-shell relative z-10 w-full py-12 md:py-20">
