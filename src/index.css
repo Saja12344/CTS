@@ -13,8 +13,72 @@
 
 @font-face {
   font-family: "Canela";
+  src: url("./assets/fonts/canela/CanelaDeck-Thin.otf") format("opentype");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Canela";
+  src: url("./assets/fonts/canela/CanelaDeck-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Canela";
+  src: url("./assets/fonts/canela/CanelaDeck-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Canela";
+  src: url("./assets/fonts/canela/CanelaDeck-Medium.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Canela";
+  src: url("./assets/fonts/canela/CanelaDeck-Medium.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Canela";
+  src: url("./assets/fonts/canela/CanelaDeck-LightItalic.otf") format("opentype");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Canela";
+  src: url("./assets/fonts/canela/CanelaDeck-RegularItalic.otf") format("opentype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Canela";
+  src: url("./assets/fonts/canela/CanelaDeck-MediumItalic.otf") format("opentype");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Canela Condensed";
   src: url("./assets/fonts/canela/CanelaCondensed-Regular.otf") format("opentype");
-  font-weight: 100 900;
+  font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
@@ -92,7 +156,7 @@
 
   :lang(en) .font-heading,
   [dir="ltr"] .font-heading {
-    font-family: Canela, Inter, sans-serif;
+    font-family: "Canela Condensed", Canela, Inter, sans-serif;
   }
 
   ::selection {
