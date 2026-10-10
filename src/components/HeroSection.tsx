@@ -1,5 +1,5 @@
+import { ArrowRight } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
-import NetworkField from "@/components/NetworkField";
 import atmosphere from "@/assets/hero-atmosphere.jpg";
 import { cinematicEase } from "@/lib/motion";
 import { Language, siteContent } from "@/content/site";
@@ -14,60 +14,88 @@ const HeroSection = ({ content, language }: HeroSectionProps) => {
   const isArabic = language === "ar";
 
   return (
-    <section id="hero" className="relative min-h-[100svh] overflow-hidden">
-      <img
-        src={atmosphere}
-        alt=""
-        className="absolute inset-0 h-full w-full object-cover opacity-90"
-        aria-hidden="true"
-      />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(8,9,11,0.55)_55%,rgba(8,9,11,0.92)_100%)]" />
-      <div className="glow-soft absolute inset-0" />
-      <NetworkField />
-
-      <div className="grid-shell relative z-10 flex min-h-[100svh] flex-col items-center justify-center pb-20 pt-28 text-center">
-        <motion.p
-          initial={reduceMotion ? false : { opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: cinematicEase }}
-          className="micro-label mb-7"
-        >
-          {content.label}
-        </motion.p>
-
-        <motion.h1
-          initial={reduceMotion ? false : { opacity: 0, y: 22 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, ease: cinematicEase, delay: 0.08 }}
-          className={`type-display mb-6 max-w-4xl text-[clamp(2.4rem,6.5vw,4.75rem)] text-white ${
-            isArabic ? "font-arabic" : ""
+    <section
+      id="hero"
+      className="relative flex min-h-[92vh] items-center overflow-hidden bg-brand-charcoal pb-20 pt-28"
+    >
+      <div className="pointer-events-none absolute inset-0 z-0 select-none overflow-hidden">
+        <img
+          src={atmosphere}
+          alt=""
+          aria-hidden="true"
+          className={`absolute inset-0 h-full w-full object-cover opacity-40 ${
+            reduceMotion ? "" : "hero-atmosphere"
           }`}
-        >
-          {content.headline}
-        </motion.h1>
+        />
+        <div
+          className={`absolute inset-0 ${
+            isArabic
+              ? "bg-gradient-to-l from-[#171717]/95 via-[#171717]/60 to-transparent"
+              : "bg-gradient-to-r from-[#171717]/95 via-[#171717]/60 to-transparent"
+          }`}
+        />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,transparent_30%,#171717_90%)]" />
+      </div>
 
-        <motion.p
-          initial={reduceMotion ? false : { opacity: 0, y: 14 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.75, ease: cinematicEase, delay: 0.18 }}
-          className="mb-10 max-w-xl text-base leading-7 text-white/65 md:text-lg"
-        >
-          {content.description}
-        </motion.p>
+      <div className="grid-shell relative z-10 w-full py-12 md:py-20">
+        <div className="flex max-w-4xl flex-col items-start gap-8">
+          <motion.div
+            initial={reduceMotion ? false : { opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: cinematicEase }}
+            className="inline-flex items-center gap-2.5 rounded-full border border-white/[0.08] bg-white/[0.04] px-3 py-1 backdrop-blur-sm"
+          >
+            <span className="h-1.5 w-1.5 rounded-full bg-brand-orange" />
+            <span className="font-mono-label text-[11px] uppercase tracking-widest text-white/80">
+              {content.label}
+            </span>
+          </motion.div>
 
-        <motion.div
-          initial={reduceMotion ? false : { opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: cinematicEase, delay: 0.28 }}
-          className="flex flex-wrap items-center justify-center gap-3"
-        >
-          <a href="#contact" className="btn-solid btn-motion">
-            {content.primaryCta}
-          </a>
-          <a href="#approach" className="btn-ghost btn-motion">
-            {isArabic ? "المنهجية" : "Our Approach"}
-          </a>
-        </motion.div>
+          <motion.h1
+            initial={reduceMotion ? false : { opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: cinematicEase, delay: 0.06 }}
+            className="font-heading text-5xl font-bold leading-[1.03] tracking-tight text-white sm:text-7xl lg:text-[84px]"
+          >
+            {content.headlineBefore}{" "}
+            <span className="text-brand-orange">{content.headlineAccent}</span>
+          </motion.h1>
+
+          <motion.p
+            initial={reduceMotion ? false : { opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: cinematicEase, delay: 0.14 }}
+            className="max-w-2xl font-light text-xl leading-relaxed text-[#C0C0B8] sm:text-2xl"
+          >
+            {content.description}
+          </motion.p>
+
+          <motion.div
+            initial={reduceMotion ? false : { opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.65, ease: cinematicEase, delay: 0.22 }}
+            className="flex flex-wrap items-center gap-6 pt-4"
+          >
+            <a
+              href="#contact"
+              className="btn-primary shadow-lg shadow-brand-orange/20"
+            >
+              <span>{content.primaryCta}</span>
+              <ArrowRight className={`h-[18px] w-[18px] ${isArabic ? "rotate-180" : ""}`} />
+            </a>
+            <a
+              href="#approach"
+              className="group inline-flex items-center gap-2 px-2 py-3 text-sm font-medium text-white/80 transition-colors hover:text-white"
+            >
+              <span>{content.secondaryCta}</span>
+              <ArrowRight
+                className={`h-[18px] w-[18px] text-brand-orange transition-transform group-hover:translate-x-0.5 ${
+                  isArabic ? "rotate-180 group-hover:-translate-x-0.5 group-hover:translate-x-0" : ""
+                }`}
+              />
+            </a>
+          </motion.div>
+        </div>
       </div>
     </section>
   );

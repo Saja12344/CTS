@@ -1,103 +1,49 @@
-import { useEffect, useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { motion, useReducedMotion } from "framer-motion";
+import { cinematicEase } from "@/lib/motion";
+import { Language, siteContent } from "@/content/site";
 
-gsap.registerPlugin(ScrollTrigger);
+type HowWeWorkSectionProps = {
+  content: (typeof siteContent)[Language]["approach"];
+};
 
-/** Methodology always in English, as requested. */
-const approach = {
-  label: "Methodology",
-  steps: [
-    { number: "01", title: "Understand", detail: "Map the real problem and constraints." },
-    { number: "02", title: "Evaluate", detail: "Pressure-test options against business context." },
-    { number: "03", title: "Recommend", detail: "Choose the clearest path to ship value." },
-    { number: "04", title: "Build", detail: "Deliver a practical digital product or system." },
-  ],
-} as const;
-
-const HowWeWorkSection = () => {
-  const sectionRef = useRef<HTMLElement>(null);
-  const progressRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const section = sectionRef.current;
-    const progress = progressRef.current;
-    if (!section || !progress) return;
-
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const steps = Array.from(section.querySelectorAll<HTMLElement>("[data-step]"));
-
-    if (reduce) {
-      progress.style.transform = "scaleX(1)";
-      steps.forEach((step) => {
-        step.dataset.active = "true";
-        step.style.opacity = "1";
-      });
-      return;
-    }
-
-    const ctx = gsap.context(() => {
-      gsap.set(progress, { scaleX: 0, transformOrigin: "left center" });
-      gsap.set(steps, { opacity: 0.35 });
-
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: section,
-          start: "top 60%",
-          end: "bottom 50%",
-          scrub: 0.6,
-        },
-      });
-
-      tl.to(progress, { scaleX: 1, ease: "none", duration: 1 }, 0);
-
-      steps.forEach((step, index) => {
-        const at = index / Math.max(steps.length - 1, 1);
-        tl.to(
-          step,
-          {
-            opacity: 1,
-            duration: 0.2,
-            ease: "power2.out",
-            onStart: () => {
-              step.dataset.active = "true";
-            },
-          },
-          at * 0.85,
-        );
-      });
-    }, section);
-
-    return () => ctx.revert();
-  }, []);
+const HowWeWorkSection = ({ content }: HowWeWorkSectionProps) => {
+  const reduceMotion = useReducedMotion();
 
   return (
-    <section id="approach" ref={sectionRef} className="border-b rule bg-background">
-      <div className="grid-shell py-20 md:py-28">
-        <div className="mb-12">
-          <p className="micro-label mb-5">{approach.label}</p>
-          <div className="relative h-px w-full overflow-hidden bg-white/10">
-            <div ref={progressRef} className="absolute inset-y-0 left-0 w-full bg-[hsl(var(--accent))]" />
-          </div>
-        </div>
+    <section id="approach" className="w-full border-t border-white/[0.06] bg-[#121212] py-32 text-white">
+      <div className="grid-shell">
+        <motion.div
+          initial={reduceMotion ? false : { opacity: 0, y: 14 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-12%" }}
+          transition={{ duration: 0.65, ease: cinematicEase }}
+          className="mb-24 max-w-3xl"
+        >
+          <span className="section-label mb-3 block">{content.label}</span>
+          <h2 className="font-heading text-3xl font-bold leading-[1.1] tracking-tight text-white sm:text-5xl">
+            {content.title}
+          </h2>
+        </motion.div>
 
-        <div className="grid gap-4 md:grid-cols-4">
-          {approach.steps.map((step) => (
-            <div
+        <div className="relative grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4 lg:gap-8">
+          {content.steps.map((step, index) => (
+            <motion.div
               key={step.number}
-              data-step
-              data-active="false"
-              className="group panel relative flex min-h-[220px] flex-col justify-between p-6 transition-opacity duration-500 data-[active=true]:border-[hsl(var(--accent))]/25"
+              initial={reduceMotion ? false : { opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-10%" }}
+              transition={{ duration: 0.55, ease: cinematicEase, delay: index * 0.06 }}
+              className="group flex flex-col"
             >
-              <span className="font-display text-4xl font-semibold tracking-tight text-white/25 transition-colors duration-500 group-data-[active=true]:text-[hsl(var(--accent))] md:text-5xl">
-                {step.number}
-              </span>
-              <div>
-                <div className="mb-4 h-px w-0 bg-[hsl(var(--accent))] transition-[width] duration-500 group-data-[active=true]:w-8" />
-                <h3 className="mb-2 text-sm font-semibold uppercase tracking-[0.18em] text-white">{step.title}</h3>
-                <p className="text-sm leading-6 text-white/50">{step.detail}</p>
+              <div className="mb-8 flex items-center gap-4">
+                <span className="font-mono-label text-3xl font-light text-white/30 transition-colors group-hover:text-brand-orange sm:text-4xl">
+                  {step.number}
+                </span>
+                <div className="h-px flex-1 bg-white/10 transition-colors group-hover:bg-brand-orange/40" />
               </div>
-            </div>
+              <h3 className="font-heading mb-3 text-2xl font-semibold text-white">{step.title}</h3>
+              <p className="text-sm leading-relaxed text-brand-muted sm:text-base">{step.detail}</p>
+            </motion.div>
           ))}
         </div>
       </div>

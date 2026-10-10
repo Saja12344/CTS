@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,22 +6,30 @@
 
 @layer base {
   :root {
-    --background: 240 6% 4%;
-    --foreground: 210 20% 96%;
-    --card: 220 10% 8%;
-    --card-foreground: 210 20% 96%;
-    --primary: 210 20% 96%;
-    --primary-foreground: 240 6% 4%;
-    --secondary: 220 8% 10%;
-    --secondary-foreground: 210 20% 96%;
-    --muted: 220 8% 10%;
-    --muted-foreground: 220 8% 62%;
-    --accent: 160 30% 72%;
-    --accent-foreground: 240 6% 4%;
-    --border: 220 10% 16%;
-    --input: 220 10% 16%;
-    --ring: 160 30% 72%;
-    --radius: 0.75rem;
+    --background: 0 0% 9%;
+    --foreground: 60 11% 96%;
+    --card: 0 0% 12%;
+    --card-foreground: 60 11% 96%;
+    --primary: 16 87% 55%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 60 11% 96%;
+    --muted: 0 0% 12%;
+    --muted-foreground: 60 3% 55%;
+    --accent: 16 87% 55%;
+    --accent-foreground: 0 0% 100%;
+    --border: 0 0% 16%;
+    --input: 0 0% 16%;
+    --ring: 16 87% 55%;
+    --radius: 0.25rem;
+    --brand-charcoal: #171717;
+    --brand-dark: #111111;
+    --brand-card: #1f1f1f;
+    --brand-offwhite: #f7f7f5;
+    --brand-muted: #8e8e8a;
+    --brand-border: #e5e5e1;
+    --brand-orange: #f15a29;
+    --brand-orange-hover: #d94c1d;
   }
 }
 
@@ -34,8 +42,18 @@
     scroll-behavior: smooth;
   }
 
+  html,
   body {
-    @apply bg-background text-foreground font-sans antialiased;
+    margin: 0;
+    padding: 0;
+    background-color: var(--brand-charcoal);
+    color: var(--brand-offwhite);
+    overscroll-behavior: none;
+  }
+
+  body {
+    @apply antialiased;
+    font-family: Inter, "IBM Plex Sans Arabic", system-ui, sans-serif;
   }
 
   :lang(ar),
@@ -43,74 +61,49 @@
     font-family: "IBM Plex Sans Arabic", Inter, system-ui, sans-serif;
   }
 
+  :lang(ar) .font-heading,
+  [dir="rtl"] .font-heading {
+    font-family: "IBM Plex Sans Arabic", "Space Grotesk", sans-serif;
+  }
+
   :lang(en),
   [dir="ltr"] {
     font-family: Inter, "IBM Plex Sans Arabic", system-ui, sans-serif;
+  }
+
+  ::selection {
+    background-color: var(--brand-orange);
+    color: white;
   }
 }
 
 @layer components {
   .grid-shell {
-    @apply mx-auto w-full max-w-[1200px] px-5 md:px-8;
+    @apply mx-auto w-full max-w-[1360px] px-6 lg:px-12;
   }
 
-  .micro-label {
-    @apply text-[11px] font-medium uppercase tracking-[0.22em] text-muted-foreground;
+  .font-heading {
+    font-family: "Space Grotesk", "IBM Plex Sans Arabic", sans-serif;
   }
 
-  .type-display {
-    @apply font-display font-semibold tracking-[-0.04em] leading-[1.05];
+  .font-mono-label {
+    font-family: "JetBrains Mono", ui-monospace, monospace;
   }
 
-  .type-manifesto {
-    @apply font-display font-semibold tracking-[-0.035em] leading-[1.08];
+  .section-label {
+    @apply font-mono-label text-xs font-semibold uppercase tracking-widest text-[var(--brand-orange)];
   }
 
-  .btn-solid {
-    @apply inline-flex items-center justify-center rounded-full bg-foreground px-7 py-3.5 text-[12px] font-semibold tracking-[-0.01em] text-background transition-[background-color,color,transform,box-shadow] duration-500 hover:bg-white hover:shadow-[0_0_28px_rgba(210,230,220,0.28)];
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded bg-[var(--brand-orange)] px-7 py-3.5 text-sm font-medium text-white shadow-md transition-all hover:bg-[var(--brand-orange-hover)];
   }
 
-  .btn-ghost {
-    @apply inline-flex items-center justify-center rounded-full border border-white/15 bg-white/[0.03] px-7 py-3.5 text-[12px] font-semibold tracking-[-0.01em] text-foreground transition-colors duration-500 hover:border-white/35 hover:bg-white/[0.06];
+  .btn-primary-sm {
+    @apply inline-flex items-center gap-2 rounded bg-[var(--brand-orange)] px-4 py-2.5 text-xs font-semibold uppercase tracking-wider text-white shadow-sm transition-all hover:bg-[var(--brand-orange-hover)];
   }
 
-  .btn-motion:hover {
-    transform: translateY(-1px);
-  }
-
-  .btn-motion:active {
-    transform: translateY(0);
-  }
-
-  .field-line {
-    @apply border-b border-border/70 transition-[border-color] duration-300 focus:border-[hsl(var(--accent))];
-  }
-
-  .nav-link {
-    @apply relative transition-colors duration-300;
-  }
-
-  .nav-link::after {
-    content: "";
-    @apply pointer-events-none absolute inset-x-0 -bottom-1 h-px origin-left scale-x-0 bg-foreground/80 transition-transform duration-500;
-    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  .nav-link:hover::after,
-  .nav-link:focus-visible::after {
-    @apply scale-x-100;
-  }
-
-  .panel {
-    @apply rounded-2xl border border-white/[0.08] bg-white/[0.03] backdrop-blur-sm;
-  }
-
-  .rule {
-    @apply border-border/60;
-  }
-
-  .glow-soft {
-    background: radial-gradient(ellipse at 70% 40%, rgba(196, 220, 210, 0.16), transparent 55%);
+  .field-input {
+    @apply w-full rounded border border-white/10 bg-white/[0.03] px-4 py-3.5 text-sm text-white placeholder-white/20 transition-colors focus:border-[var(--brand-orange)] focus:outline-none focus:ring-1 focus:ring-[var(--brand-orange)];
   }
 }
 
@@ -119,31 +112,42 @@
     scroll-behavior: auto;
   }
 
-  .btn-motion:hover,
-  .btn-motion:active {
-    transform: none;
-  }
-
-  .nav-link::after {
-    transition: none;
-  }
-
-  .flow-dot,
-  .network-breathe {
-    animation: none !important;
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
 
-@keyframes network-breathe {
+@keyframes hero-drift {
   0%,
   100% {
-    opacity: 0.35;
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.55;
   }
   50% {
-    opacity: 0.7;
+    transform: translate3d(2%, -1.5%, 0) scale(1.05);
+    opacity: 0.75;
   }
 }
 
-.network-breathe {
-  animation: network-breathe 5.5s ease-in-out infinite;
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-atmosphere {
+  animation: hero-drift 14s ease-in-out infinite;
+}
+
+.animate-fade-up {
+  animation: fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
 }

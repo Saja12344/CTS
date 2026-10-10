@@ -15,7 +15,9 @@ export default {
     extend: {
       fontFamily: {
         sans: ['Inter', '"IBM Plex Sans Arabic"', 'system-ui', 'sans-serif'],
-        display: ['Inter', '"IBM Plex Sans Arabic"', 'system-ui', 'sans-serif'],
+        heading: ['"Space Grotesk"', '"IBM Plex Sans Arabic"', 'sans-serif'],
+        display: ['"Space Grotesk"', '"IBM Plex Sans Arabic"', 'sans-serif'],
+        mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
         arabic: ['"IBM Plex Sans Arabic"', 'Inter', 'sans-serif'],
       },
       colors: {
@@ -52,14 +54,17 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        navy: {
-          deep: "hsl(var(--navy-deep))",
-          DEFAULT: "hsl(var(--navy))",
-          light: "hsl(var(--navy-light))",
-        },
-        electric: {
-          DEFAULT: "hsl(var(--electric))",
-          glow: "hsl(var(--electric-glow))",
+        brand: {
+          charcoal: "#171717",
+          dark: "#111111",
+          card: "#1F1F1F",
+          offwhite: "#F7F7F5",
+          muted: "#8E8E8A",
+          border: "#E5E5E1",
+          borderDark: "#2A2A2A",
+          orange: "#F15A29",
+          orangeHover: "#d94c1d",
+          orangeSubtle: "#FFF1EB",
         },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",

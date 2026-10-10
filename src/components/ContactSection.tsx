@@ -1,101 +1,135 @@
 import { FormEvent, useState } from "react";
+import { ArrowRight } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 import { cinematicEase } from "@/lib/motion";
 import { Language, siteContent } from "@/content/site";
 
 type ContactSectionProps = {
   content: (typeof siteContent)[Language]["contact"];
+  language: Language;
 };
 
-const ContactSection = ({ content }: ContactSectionProps) => {
-  const [form, setForm] = useState({ name: "", service: "", message: "" });
+const ContactSection = ({ content, language }: ContactSectionProps) => {
+  const [form, setForm] = useState({ name: "", email: "", project: "" });
+  const [submitted, setSubmitted] = useState(false);
   const reduceMotion = useReducedMotion();
+  const isArabic = language === "ar";
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     const text = encodeURIComponent(
-      `${content.whatsappIntro}\n\n${content.nameLabel}: ${form.name}\n${content.serviceLabel}: ${form.service}\n${content.messageLabel}: ${form.message}`,
+      `${content.whatsappIntro}\n\n${content.nameLabel}: ${form.name}\n${content.emailLabel}: ${form.email}\n${content.projectLabel}: ${form.project}`,
     );
     window.open(`https://wa.me/966503807517?text=${text}`, "_blank", "noopener,noreferrer");
+    setSubmitted(true);
   };
 
   return (
-    <section id="contact" className="relative border-b rule bg-[#090A0C]">
-      <div className="glow-soft pointer-events-none absolute inset-0 opacity-50" />
-      <div className="grid-shell relative grid gap-12 py-24 md:grid-cols-[1fr_1fr] md:items-start md:gap-16 md:py-32">
-        <motion.div
-          initial={reduceMotion ? false : { opacity: 0, y: 14 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-12%" }}
-          transition={{ duration: 0.7, ease: cinematicEase }}
-        >
-          <h2 className="type-display mb-5 text-[clamp(2.2rem,5vw,4rem)] text-white">{content.title}</h2>
-          <p className="max-w-md text-base text-white/55">{content.description}</p>
-        </motion.div>
+    <section id="contact" className="relative w-full overflow-hidden bg-brand-charcoal py-32 text-white">
+      <div className="grid-shell relative z-10">
+        <div className="grid grid-cols-1 gap-16 lg:grid-cols-12 lg:gap-20">
+          <motion.div
+            initial={reduceMotion ? false : { opacity: 0, y: 14 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-12%" }}
+            transition={{ duration: 0.65, ease: cinematicEase }}
+            className="flex flex-col justify-between lg:col-span-5"
+          >
+            <div>
+              <span className="section-label mb-3 block">{content.label}</span>
+              <h2 className="font-heading mb-6 text-3xl font-bold leading-tight tracking-tight text-white sm:text-5xl">
+                {content.title}
+              </h2>
+              <p className="max-w-md text-base leading-relaxed text-brand-muted sm:text-lg">
+                {content.description}
+              </p>
+            </div>
+            <div className="mt-12 space-y-2 border-t border-white/[0.08] pt-12 lg:mt-0">
+              <a
+                href={`mailto:${content.email}`}
+                className="font-mono-label block text-base text-white transition-colors hover:text-brand-orange"
+              >
+                {content.email}
+              </a>
+              <p className="text-xs text-brand-muted">{content.nda}</p>
+            </div>
+          </motion.div>
 
-        <motion.form
-          onSubmit={handleSubmit}
-          initial={reduceMotion ? false : { opacity: 0, y: 18 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-12%" }}
-          transition={{ duration: 0.75, ease: cinematicEase, delay: 0.08 }}
-          className="panel space-y-5 p-6 md:p-8"
-        >
-          <div>
-            <label htmlFor="contact-name" className="micro-label mb-2 block">
-              {content.nameLabel}
-            </label>
-            <input
-              id="contact-name"
-              name="name"
-              type="text"
-              autoComplete="name"
-              required
-              value={form.name}
-              onChange={(e) => setForm({ ...form, name: e.target.value })}
-              className="field-line w-full bg-transparent py-3 text-sm outline-none"
-            />
-          </div>
-          <div>
-            <label htmlFor="contact-service" className="micro-label mb-2 block">
-              {content.serviceLabel}
-            </label>
-            <select
-              id="contact-service"
-              name="service"
-              required
-              value={form.service}
-              onChange={(e) => setForm({ ...form, service: e.target.value })}
-              className="field-line w-full bg-transparent py-3 text-sm outline-none"
-            >
-              <option value="" disabled>
-                {content.servicePlaceholder}
-              </option>
-              {content.options.map((option) => (
-                <option key={option} value={option}>
-                  {option}
-                </option>
-              ))}
-            </select>
-          </div>
-          <div>
-            <label htmlFor="contact-message" className="micro-label mb-2 block">
-              {content.messageLabel}
-            </label>
-            <textarea
-              id="contact-message"
-              name="message"
-              rows={4}
-              required
-              value={form.message}
-              onChange={(e) => setForm({ ...form, message: e.target.value })}
-              className="field-line w-full resize-none bg-transparent py-3 text-sm outline-none"
-            />
-          </div>
-          <button type="submit" className="btn-solid btn-motion">
-            {content.primaryCta}
-          </button>
-        </motion.form>
+          <motion.div
+            initial={reduceMotion ? false : { opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-12%" }}
+            transition={{ duration: 0.7, ease: cinematicEase, delay: 0.08 }}
+            className="lg:col-span-7"
+          >
+            <form className="space-y-6" onSubmit={handleSubmit}>
+              <div>
+                <label
+                  className="font-mono-label mb-2 block text-[11px] uppercase tracking-wider text-white/70"
+                  htmlFor="name"
+                >
+                  {content.nameLabel}
+                </label>
+                <input
+                  className="field-input"
+                  id="name"
+                  placeholder={content.namePlaceholder}
+                  required
+                  type="text"
+                  autoComplete="name"
+                  value={form.name}
+                  onChange={(e) => setForm({ ...form, name: e.target.value })}
+                />
+              </div>
+              <div>
+                <label
+                  className="font-mono-label mb-2 block text-[11px] uppercase tracking-wider text-white/70"
+                  htmlFor="email"
+                >
+                  {content.emailLabel}
+                </label>
+                <input
+                  className="field-input"
+                  id="email"
+                  placeholder={content.emailPlaceholder}
+                  required
+                  type="email"
+                  autoComplete="email"
+                  value={form.email}
+                  onChange={(e) => setForm({ ...form, email: e.target.value })}
+                />
+              </div>
+              <div>
+                <label
+                  className="font-mono-label mb-2 block text-[11px] uppercase tracking-wider text-white/70"
+                  htmlFor="project"
+                >
+                  {content.projectLabel}
+                </label>
+                <textarea
+                  className="field-input resize-none"
+                  id="project"
+                  placeholder={content.projectPlaceholder}
+                  required
+                  rows={4}
+                  value={form.project}
+                  onChange={(e) => setForm({ ...form, project: e.target.value })}
+                />
+              </div>
+              <div className="pt-2">
+                <button className="btn-primary" type="submit">
+                  <span>{content.submit}</span>
+                  <ArrowRight className={`h-[18px] w-[18px] ${isArabic ? "rotate-180" : ""}`} />
+                </button>
+                {submitted ? (
+                  <p className="mt-4 text-sm text-brand-muted" role="status">
+                    {content.success}
+                  </p>
+                ) : null}
+              </div>
+            </form>
+          </motion.div>
+        </div>
       </div>
     </section>
   );
