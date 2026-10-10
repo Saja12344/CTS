@@ -1,0 +1,16 @@
+---
+description: Remotion/motion file work uses Motion Studio harness
+globs:
+  - "**/remotion/**/*.{ts,tsx,js,jsx}"
+  - "**/*remotion*"
+  - "**/src/Root.{ts,tsx}"
+  - "**/src/Composition*.{ts,tsx}"
+  - "**/docs/shotlist.md"
+  - "**/docs/style_guide.md"
+  - "**/beats.json"
+alwaysApply: false
+---
+
+Follow `.cursor/skills/remotion-motion-studio/SKILL.md` and `.cursor/skills/realistic-remotion-components/SKILL.md`.
+
+Stack: Remotion default · HyperFrames for URL launches · Screen Studio/real UI · MagicPath for components/brand only · WhatShips · Fish Audio · beats.json · FFmpeg/Remotion render · critique ≥8.
