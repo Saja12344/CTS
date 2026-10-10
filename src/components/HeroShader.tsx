@@ -4,19 +4,16 @@ import type { ShaderInstance } from "shaders/js";
 
 type HeroShaderProps = {
   onActiveChange?: (active: boolean) => void;
-  lines: [string, string, string];
-  language: "ar" | "en";
 };
 
 /**
- * Liquid-crystal style hero: big type behind a refractive glass orb
- * with chromatic aberration + iridescent rim (shaders/js).
+ * Calm ambient hero field — soft drifting mesh glow that idles on its own
+ * and gently follows the pointer (Entlify-style landing atmosphere).
  */
-const HeroShader = ({ onActiveChange, lines, language }: HeroShaderProps) => {
+const HeroShader = ({ onActiveChange }: HeroShaderProps) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const reduceMotion = useReducedMotion();
   const [active, setActive] = useState(false);
-  const lineKey = lines.join("|");
 
   useEffect(() => {
     onActiveChange?.(active);
@@ -30,8 +27,6 @@ const HeroShader = ({ onActiveChange, lines, language }: HeroShaderProps) => {
 
     let cancelled = false;
     let instance: ShaderInstance | null = null;
-    const fontFamily = language === "ar" ? "IBM Plex Sans Arabic" : "Inter";
-    const [lineA, lineB, lineC] = lineKey.split("|");
 
     void (async () => {
       try {
@@ -40,83 +35,78 @@ const HeroShader = ({ onActiveChange, lines, language }: HeroShaderProps) => {
 
         const follow = {
           type: "mouse-position" as const,
-          smoothing: 0.14,
-          momentum: 0.2,
+          smoothing: 0.08,
+          momentum: 0.12,
         };
 
         const shader = await createShader(
           canvas,
           {
             components: [
-              { type: "SolidColor", props: { color: "#050506" } },
+              // Slow self-moving color field
               {
-                type: "Text",
+                type: "MeshGradient",
                 props: {
-                  text: lineA,
-                  fontFamily,
-                  fontWeight: 700,
-                  fontSize: 0.14,
-                  letterSpacing: -0.04,
-                  color: "#ffffff",
-                  textAlign: "center",
-                  center: { x: 0.5, y: 0.36 },
+                  colorA: "#0B0B0C",
+                  colorB: "#2a4a3f",
+                  colorSpace: "oklab",
+                  speed: 0.28,
                 },
               },
+              // Secondary cool wash
               {
-                type: "Text",
+                type: "Aurora",
                 props: {
-                  text: lineB,
-                  fontFamily,
-                  fontWeight: 700,
-                  fontSize: 0.14,
-                  letterSpacing: -0.04,
-                  color: "#ffffff",
-                  textAlign: "center",
-                  center: { x: 0.5, y: 0.5 },
+                  colorA: "#143028",
+                  colorB: "#9dcfb8",
+                  colorC: "#C8FF4D",
+                  colorSpace: "oklab",
+                  speed: 0.4,
+                  intensity: 55,
+                  waviness: 40,
+                  height: 100,
+                  opacity: 0.4,
+                  blendMode: "screen",
+                  center: { x: 0.5, y: 0.15 },
                 },
               },
+              // Soft luminous blob: breathes via speed, tracks pointer
               {
-                type: "Text",
+                type: "Blob",
                 props: {
-                  text: lineC,
-                  fontFamily,
-                  fontWeight: 700,
-                  fontSize: 0.14,
-                  letterSpacing: -0.04,
-                  color: "#ffffff",
-                  textAlign: "center",
-                  center: { x: 0.5, y: 0.64 },
-                },
-              },
-              // Flat stack: Glass refracts every layer drawn before it.
-              {
-                type: "Glass",
-                props: {
-                  shape: JSON.stringify({ type: "sphere3D", radius: 0.4 }),
-                  shapeType: "sphere3D",
+                  colorA: "#E6E6E4",
+                  colorB: "#C8FF4D",
+                  size: 0.72,
+                  softness: 0.9,
+                  deformation: 0.45,
+                  speed: 0.25,
+                  opacity: 0.5,
+                  blendMode: "screen",
+                  colorSpace: "oklab",
                   center: follow,
-                  refraction: 1,
-                  thickness: 0.9,
-                  aberration: 0.95,
-                  edgeSoftness: 0.05,
-                  innerZoom: 1.25,
-                  highlight: 0.55,
-                  highlightColor: "#f5fff8",
-                  fresnel: 0.8,
-                  fresnelSoftness: 0.35,
-                  fresnelColor: "#b8ffe8",
-                  tintColor: "#07110e",
-                  tintIntensity: 0.25,
+                  highlightIntensity: 0.35,
+                  highlightColor: "#F4F2EE",
                 },
               },
+              // Quiet grain
               {
-                type: "ThinFilm",
+                type: "SimplexNoise",
                 props: {
-                  shape: JSON.stringify({ type: "sphere3D", radius: 0.4 }),
-                  shapeType: "sphere3D",
-                  center: follow,
-                  intensity: 1.35,
-                  opacity: 0.95,
+                  scale: 3.2,
+                  speed: 0.2,
+                  opacity: 0.1,
+                  blendMode: "softLight",
+                },
+              },
+              // Light cursor whisper
+              {
+                type: "CursorTrail",
+                props: {
+                  colorA: "#F4F2EE",
+                  colorB: "#9dcfb8",
+                  radius: 0.42,
+                  length: 0.35,
+                  opacity: 0.25,
                   blendMode: "screen",
                 },
               },
@@ -151,7 +141,7 @@ const HeroShader = ({ onActiveChange, lines, language }: HeroShaderProps) => {
       instance = null;
       setActive(false);
     };
-  }, [reduceMotion, language, lineKey]);
+  }, [reduceMotion]);
 
   return (
     <canvas

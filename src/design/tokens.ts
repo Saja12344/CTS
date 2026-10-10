@@ -16,7 +16,7 @@ export const typography = {
 
 /** Visual asset map — one purpose per asset */
 export const visualMap = {
-  hero: "liquid-crystal WebGPU Glass orb refracting type (shaders/js) — atmosphere/network fallback",
+  hero: "calm MeshGradient + Aurora + pointer Blob glow (shaders/js) — atmosphere/network fallback",
   capabilities: "dark tech panels",
   process: "English methodology with solid progress spine",
   manifesto: "typography + soft glow",
