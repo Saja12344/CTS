@@ -30,10 +30,12 @@
     "render:brand": "remotion render CoreTechBrandFilm renders/core-tech-solutions-brand-film.mp4",
     "render:wave": "remotion render SmartWaveFilm renders/smart-wave-film.mp4",
     "render:hologram": "remotion render HologramDriftFilm renders/hologram-drift-film.mp4",
+    "render:lightleak": "remotion render LightLeakDriftFilm renders/light-leak-drift-film.mp4",
     "still": "remotion still WorkflowStill out/workflow-still.png",
     "still:brand": "remotion still CoreTechBrandFilmStill renders/brand-film-still.png",
     "still:wave": "remotion still SmartWaveStill renders/smart-wave-still.png",
     "still:hologram": "remotion still HologramDriftStill renders/hologram-drift-still.png",
+    "still:lightleak": "remotion still LightLeakDriftStill renders/light-leak-drift-still.png",
     "build": "remotion bundle",
     "upgrade": "remotion upgrade",
     "lint": "eslint src && tsc"

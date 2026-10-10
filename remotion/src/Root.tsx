@@ -11,10 +11,27 @@ import {
   SmartWaveFilmVertical,
 } from "./smart-wave/SmartWaveFilm";
 import {HologramDriftFilm} from "./hologram-drift/HologramDriftFilm";
+import {LightLeakDriftFilm} from "./light-leak-drift/LightLeakDriftFilm";
 
 export const RemotionRoot: React.FC = () => {
   return (
     <>
+      <Folder name="LightLeak">
+        <Composition
+          id="LightLeakDriftFilm"
+          component={LightLeakDriftFilm}
+          durationInFrames={300}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Still
+          id="LightLeakDriftStill"
+          component={LightLeakDriftFilm}
+          width={1920}
+          height={1080}
+        />
+      </Folder>
       <Folder name="Hologram">
         <Composition
           id="HologramDriftFilm"
