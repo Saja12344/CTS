@@ -6,15 +6,19 @@ type HeroShaderProps = {
   onActiveChange?: (active: boolean) => void;
 };
 
-const follow = (smoothing: number, momentum = 0.1) => ({
+const follow = (
+  smoothing: number,
+  extras: { momentum?: number; reach?: number; originX?: number; originY?: number } = {},
+) => ({
   type: "mouse-position" as const,
   smoothing,
-  momentum,
+  momentum: extras.momentum ?? 0.1,
+  ...extras,
 });
 
 /**
- * Soft gradient cloud that tracks the pointer as one field —
- * no cursor-trail streak, black canvas stays visible around it.
+ * Entlify-style soft shaded glow — whole bloom tracks the pointer,
+ * black field stays visible around a diffused orange/cool light.
  */
 const HeroShader = ({ onActiveChange }: HeroShaderProps) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -45,43 +49,88 @@ const HeroShader = ({ onActiveChange }: HeroShaderProps) => {
             components: [
               {
                 type: "SolidColor",
-                props: { color: "#0B0B0C" },
+                props: { color: "#050505" },
               },
-              // Whole palette follows the cursor (points lag slightly → soft cloud)
+              // Soft mesh wash (idle drift) — muted so black still reads
               {
-                type: "MultiPointGradient",
+                type: "MeshGradient",
                 props: {
-                  colorA: "#1e3d36",
-                  positionA: follow(0.2, 0.06),
-                  colorB: "#c4783a",
-                  positionB: follow(0.1, 0.1),
-                  colorC: "#e8c39a",
-                  positionC: follow(0.14, 0.08),
-                  colorD: "#2f5c52",
-                  positionD: follow(0.24, 0.05),
-                  colorE: "#d4894a",
-                  positionE: follow(0.08, 0.12),
+                  colorA: "#050505",
+                  colorB: "#ff5a1f",
+                  stops: [
+                    { color: "#050505", position: 0 },
+                    { color: "#1a0c08", position: 0.35 },
+                    { color: "#ea580c", position: 0.62 },
+                    { color: "#ff8a3d", position: 0.78 },
+                    { color: "#050505", position: 1 },
+                  ],
                   colorSpace: "oklab",
-                  smoothness: 2.6,
-                  opacity: 0.55,
+                  count: 5,
+                  smoothness: 3.6,
+                  variation: 0.25,
+                  swirl: 0.15,
+                  drift: 0.4,
+                  speed: 0.18,
+                  seed: 3,
+                  opacity: 0.35,
                 },
               },
-              // Soft core tied to the same pointer — keeps the bloom compact
+              // Main warm shade — follows the cursor (the Entlify orange bloom)
               {
-                type: "RadialGradient",
+                type: "Blob",
                 props: {
-                  colorA: "#f0d2b0",
-                  colorB: "#0B0B0C",
-                  stops: [
-                    { color: "#f0d2b0", position: 0 },
-                    { color: "#c4783a", position: 0.28 },
-                    { color: "#0B0B0C", position: 1 },
-                  ],
-                  center: follow(0.09, 0.1),
-                  radius: 0.42,
-                  colorSpace: "oklab",
-                  opacity: 0.4,
+                  colorA: "#ff7a33",
+                  colorB: "#e11d2e",
+                  size: 0.52,
+                  softness: 0.97,
+                  deformation: 0.55,
+                  speed: 0.2,
+                  opacity: 0.72,
                   blendMode: "screen",
+                  colorSpace: "oklab",
+                  center: follow(0.1, { momentum: 0.12 }),
+                  highlightIntensity: 0.22,
+                  highlightColor: "#ffd2a8",
+                },
+              },
+              // Inner hot core — tighter, same pointer
+              {
+                type: "Blob",
+                props: {
+                  colorA: "#ffb070",
+                  colorB: "#ff5a1f",
+                  size: 0.28,
+                  softness: 0.96,
+                  deformation: 0.4,
+                  speed: 0.22,
+                  opacity: 0.55,
+                  blendMode: "screen",
+                  colorSpace: "oklab",
+                  center: follow(0.08, { momentum: 0.14 }),
+                  highlightIntensity: 0.15,
+                  highlightColor: "#ffe8d2",
+                },
+              },
+              // Cool counter-shade — lags + sits slightly off the pointer
+              {
+                type: "Blob",
+                props: {
+                  colorA: "#c8d8e4",
+                  colorB: "#3a5a72",
+                  size: 0.36,
+                  softness: 0.98,
+                  deformation: 0.45,
+                  speed: 0.12,
+                  opacity: 0.28,
+                  blendMode: "screen",
+                  colorSpace: "oklab",
+                  center: follow(0.2, {
+                    momentum: 0.06,
+                    reach: 0.75,
+                    originX: 0.22,
+                    originY: 0.4,
+                  }),
+                  highlightIntensity: 0.08,
                 },
               },
             ],
