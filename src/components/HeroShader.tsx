@@ -7,8 +7,8 @@ type HeroShaderProps = {
 };
 
 /**
- * Entlify hero match: soft orange/red shade centered mid-hero,
- * cool teal accent lower-right, idle random drift — black stays around it.
+ * Ports the Entlify Hero Glow Figma fill into shaders/js:
+ * dark base, warm orange/red blobs mid-hero, cool teal top-left, film grain, slow drift.
  */
 const HeroShader = ({ onActiveChange }: HeroShaderProps) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -41,100 +41,116 @@ const HeroShader = ({ onActiveChange }: HeroShaderProps) => {
           outputMax: max,
         });
 
+        // Match Figma controls: warmCenter ~58%/42%, coolCenter ~18%/22%, drift ~0.7
         const shader = await createShader(
           canvas,
           {
             components: [
               {
                 type: "SolidColor",
-                props: { color: "#050505" },
+                props: { color: "#0A0A0A" },
               },
-              // Soft mesh field — same palette as the reference (orange → red on black)
               {
                 type: "MeshGradient",
                 props: {
-                  colorA: "#050505",
-                  colorB: "#ff4d00",
+                  colorA: "#0A0A0A",
+                  colorB: "#FF4D00",
                   stops: [
-                    { color: "#050505", position: 0 },
-                    { color: "#1a0a06", position: 0.28 },
-                    { color: "#b32400", position: 0.52 },
-                    { color: "#ff4d00", position: 0.7 },
-                    { color: "#ff8a3d", position: 0.82 },
-                    { color: "#050505", position: 1 },
+                    { color: "#0A0A0A", position: 0 },
+                    { color: "#1a0804", position: 0.3 },
+                    { color: "#CC2200", position: 0.52 },
+                    { color: "#FF4D00", position: 0.72 },
+                    { color: "#0A0A0A", position: 1 },
                   ],
                   colorSpace: "oklab",
-                  count: 6,
-                  smoothness: 3.8,
-                  variation: 0.3,
-                  swirl: 0.18,
-                  drift: 0.55,
+                  count: 5,
+                  smoothness: 3.6,
+                  variation: 0.28,
+                  swirl: 0.12,
+                  drift: 0.7,
                   wrapping: 0,
-                  speed: 0.22,
+                  speed: 0.18,
                   seed: 11,
-                  opacity: 0.55,
+                  opacity: 0.42,
                 },
               },
-              // Main orange/red shade — sits mid/lower center like the screenshot
+              // Primary warm glow — Figma warmCenter (58%, 42%)
               {
                 type: "Blob",
                 props: {
-                  colorA: "#ff4d00",
-                  colorB: "#b32400",
-                  size: 0.58,
+                  colorA: "#FF4D00",
+                  colorB: "#CC0000",
+                  size: 0.55,
                   softness: 0.98,
-                  deformation: 0.62,
-                  speed: 0.16,
-                  opacity: 0.78,
+                  deformation: 0.55,
+                  speed: 0.14,
+                  opacity: 0.85,
                   blendMode: "screen",
                   colorSpace: "oklab",
                   center: {
-                    x: drift(0.12, 0.42, 0.58),
-                    y: drift(0.1, 0.52, 0.68),
+                    x: drift(0.1, 0.52, 0.64),
+                    y: drift(0.09, 0.36, 0.48),
                   },
-                  highlightIntensity: 0.2,
-                  highlightColor: "#ffb070",
+                  highlightIntensity: 0.22,
+                  highlightColor: "#FFB070",
                 },
               },
-              // Hotter inner core — slightly higher, still under the CTA zone
+              // Ember core — slightly offset from warm center
               {
                 type: "Blob",
                 props: {
-                  colorA: "#ff8a3d",
-                  colorB: "#ff4d00",
-                  size: 0.32,
+                  colorA: "#FF8A3D",
+                  colorB: "#FF4D00",
+                  size: 0.3,
                   softness: 0.97,
-                  deformation: 0.5,
-                  speed: 0.2,
-                  opacity: 0.55,
+                  deformation: 0.45,
+                  speed: 0.18,
+                  opacity: 0.58,
                   blendMode: "screen",
                   colorSpace: "oklab",
                   center: {
-                    x: drift(0.14, 0.45, 0.55),
-                    y: drift(0.11, 0.48, 0.62),
+                    x: drift(0.12, 0.4, 0.52),
+                    y: drift(0.1, 0.42, 0.56),
                   },
-                  highlightIntensity: 0.18,
-                  highlightColor: "#ffd2a8",
+                  highlightIntensity: 0.16,
+                  highlightColor: "#FFD2A8",
                 },
               },
-              // Cool teal whisper — lower right, like the reference
+              // Cool teal — Figma coolCenter top-left (18%, 22%)
               {
                 type: "Blob",
                 props: {
-                  colorA: "#1a3a3a",
-                  colorB: "#2a5558",
-                  size: 0.34,
+                  colorA: "#008080",
+                  colorB: "#1A3A3A",
+                  size: 0.4,
                   softness: 0.99,
-                  deformation: 0.4,
-                  speed: 0.1,
-                  opacity: 0.32,
+                  deformation: 0.35,
+                  speed: 0.09,
+                  opacity: 0.38,
                   blendMode: "screen",
                   colorSpace: "oklab",
                   center: {
-                    x: drift(0.08, 0.62, 0.78),
-                    y: drift(0.09, 0.62, 0.78),
+                    x: drift(0.07, 0.12, 0.24),
+                    y: drift(0.08, 0.14, 0.28),
                   },
-                  highlightIntensity: 0.05,
+                  highlightIntensity: 0.06,
+                  highlightColor: "#4AD4D4",
+                },
+              },
+              // Film grain — Figma noise ~0.45
+              {
+                type: "SimplexNoise",
+                props: {
+                  colorA: "#0A0A0A",
+                  colorB: "#FFFFFF",
+                  colorSpace: "linear",
+                  scale: 3.2,
+                  balance: 0,
+                  contrast: 0.35,
+                  seed: 7,
+                  speed: 0.08,
+                  opacity: 0.12,
+                  blendMode: "overlay",
                 },
               },
             ],
