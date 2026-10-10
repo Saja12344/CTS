@@ -1,4 +1,5 @@
 import { motion, useReducedMotion } from "framer-motion";
+import HeroShader from "@/components/HeroShader";
 import NetworkField from "@/components/NetworkField";
 import atmosphere from "@/assets/hero-atmosphere.jpg";
 import { cinematicEase } from "@/lib/motion";
@@ -21,6 +22,7 @@ const HeroSection = ({ content, language }: HeroSectionProps) => {
         className="absolute inset-0 h-full w-full object-cover opacity-90"
         aria-hidden="true"
       />
+      <HeroShader />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(8,9,11,0.55)_55%,rgba(8,9,11,0.92)_100%)]" />
       <div className="glow-soft absolute inset-0" />
       <NetworkField />
