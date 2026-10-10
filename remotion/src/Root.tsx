@@ -6,10 +6,38 @@ import {WorkflowTest} from "./compositions/WorkflowTest";
 import {IntroScene} from "./scenes/IntroScene";
 import {LayersDemoScene} from "./scenes/LayersDemoScene";
 import {OutroScene} from "./scenes/OutroScene";
+import {
+  SmartWaveFilm,
+  SmartWaveFilmVertical,
+} from "./smart-wave/SmartWaveFilm";
 
 export const RemotionRoot: React.FC = () => {
   return (
     <>
+      <Folder name="Wave">
+        <Composition
+          id="SmartWaveFilm"
+          component={SmartWaveFilm}
+          durationInFrames={300}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="SmartWaveFilmVertical"
+          component={SmartWaveFilmVertical}
+          durationInFrames={300}
+          fps={30}
+          width={1080}
+          height={1920}
+        />
+        <Still
+          id="SmartWaveStill"
+          component={SmartWaveFilm}
+          width={1920}
+          height={1080}
+        />
+      </Folder>
       <Folder name="Brand">
         <Composition
           id="CoreTechBrandFilm"

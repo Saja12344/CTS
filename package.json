@@ -15,6 +15,7 @@
     "remotion:compositions": "npm run compositions --prefix remotion",
     "remotion:render": "npm run render --prefix remotion",
     "remotion:render:brand": "npm run render:brand --prefix remotion",
+    "remotion:render:wave": "npm run render:wave --prefix remotion",
     "remotion:still": "npm run still --prefix remotion"
   },
   "dependencies": {
