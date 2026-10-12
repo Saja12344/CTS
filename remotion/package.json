@@ -32,6 +32,8 @@
     "render:premium": "remotion render CTSPremiumBrandFilm renders/cts-premium-brand-film.mp4",
     "render:product": "remotion render CTSProductBrandFilm renders/cts-product-brand-film.mp4",
     "still:product": "remotion still CTSProductBrandFilmStill renders/cts-product-brand-still.png",
+    "render:signature": "remotion render CTSSignatureFilm renders/cts-signature-film.mp4",
+    "still:signature": "remotion still CTSSignatureFilmStill renders/cts-signature-still.png",
     "render:wave": "remotion render SmartWaveFilm renders/smart-wave-film.mp4",
     "render:hologram": "remotion render HologramDriftFilm renders/hologram-drift-film.mp4",
     "render:lightleak": "remotion render LightLeakDriftFilm renders/light-leak-drift-film.mp4",

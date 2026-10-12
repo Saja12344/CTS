@@ -21,10 +21,73 @@ import {HeroSiteScene} from "./cts-product-film/scenes/HeroSiteScene";
 import {BuildScene} from "./cts-product-film/scenes/BuildScene";
 import {ApproachScene} from "./cts-product-film/scenes/ApproachScene";
 import {BrandCloseScene} from "./cts-product-film/scenes/BrandCloseScene";
+import {CTSSignatureFilm} from "./cts-signature-film/CTSSignatureFilm";
+import {SIG} from "./cts-signature-film/config";
+import {IdeaScene} from "./cts-signature-film/scenes/IdeaScene";
+import {BridgeScene} from "./cts-signature-film/scenes/BridgeScene";
+import {ShowcaseScene} from "./cts-signature-film/scenes/ShowcaseScene";
+import {ResolveScene} from "./cts-signature-film/scenes/ResolveScene";
+import {BrandRevealScene} from "./cts-signature-film/scenes/BrandRevealScene";
 
 export const RemotionRoot: React.FC = () => {
   return (
     <>
+      <Folder name="CTS-Signature">
+        <Composition
+          id={SIG.id}
+          component={CTSSignatureFilm}
+          durationInFrames={SIG.durationInFrames}
+          fps={SIG.fps}
+          width={SIG.width}
+          height={SIG.height}
+        />
+        <Still
+          id="CTSSignatureFilmStill"
+          component={CTSSignatureFilm}
+          width={SIG.width}
+          height={SIG.height}
+        />
+        <Composition
+          id="sig-Idea"
+          component={IdeaScene}
+          durationInFrames={SIG.scenes.idea}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="sig-Bridge"
+          component={BridgeScene}
+          durationInFrames={SIG.scenes.bridge}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="sig-Showcase"
+          component={ShowcaseScene}
+          durationInFrames={SIG.scenes.showcase}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="sig-Resolve"
+          component={ResolveScene}
+          durationInFrames={SIG.scenes.resolve}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="sig-Brand"
+          component={BrandRevealScene}
+          durationInFrames={SIG.scenes.brand}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+      </Folder>
       <Folder name="CTS-Product">
         <Composition
           id={PRODUCT_FILM.id}
