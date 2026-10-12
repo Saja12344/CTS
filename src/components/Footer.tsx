@@ -1,4 +1,4 @@
-import { Instagram, Linkedin, Twitter } from "lucide-react";
+import { Linkedin, Twitter } from "lucide-react";
 import logoMark from "@/assets/logo-mark-light.png";
 import { Language, siteContent } from "@/content/site";
 
@@ -21,8 +21,6 @@ const socialIcon = (name: string) => {
       return <Twitter className={className} />;
     case "TikTok":
       return <TikTokIcon className={className} />;
-    case "Instagram":
-      return <Instagram className={className} />;
     default:
       return null;
   }
@@ -34,7 +32,7 @@ const Footer = ({ content }: FooterProps) => {
       <div className="grid-shell">
         <div className="flex flex-col items-start justify-between gap-8 border-b border-white/[0.06] pb-12 md:flex-row md:items-center">
           <div className="flex items-center gap-3">
-            <img src={logoMark} alt="" className="h-6 w-6 object-contain opacity-80" />
+            <img src={logoMark} alt="" className="h-8 w-8 rounded-lg object-contain" />
             <div className="flex flex-col">
               <span className="font-heading text-base font-bold leading-none tracking-tight">
                 {content.brand}
