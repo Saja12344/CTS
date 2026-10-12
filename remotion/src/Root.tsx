@@ -12,10 +12,28 @@ import {
 } from "./smart-wave/SmartWaveFilm";
 import {HologramDriftFilm} from "./hologram-drift/HologramDriftFilm";
 import {LightLeakDriftFilm} from "./light-leak-drift/LightLeakDriftFilm";
+import {PremiumBrandFilm} from "./premium-brand-film/PremiumBrandFilm";
+import {FILM as PREMIUM_FILM} from "./premium-brand-film/config";
 
 export const RemotionRoot: React.FC = () => {
   return (
     <>
+      <Folder name="BrandPremium">
+        <Composition
+          id={PREMIUM_FILM.id}
+          component={PremiumBrandFilm}
+          durationInFrames={PREMIUM_FILM.durationInFrames}
+          fps={PREMIUM_FILM.fps}
+          width={PREMIUM_FILM.width}
+          height={PREMIUM_FILM.height}
+        />
+        <Still
+          id="CTSPremiumBrandFilmStill"
+          component={PremiumBrandFilm}
+          width={PREMIUM_FILM.width}
+          height={PREMIUM_FILM.height}
+        />
+      </Folder>
       <Folder name="LightLeak">
         <Composition
           id="LightLeakDriftFilm"
