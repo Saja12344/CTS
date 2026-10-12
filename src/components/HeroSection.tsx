@@ -22,11 +22,11 @@ const HeroSection = ({ content, language }: HeroSectionProps) => {
         <div
           className={`absolute inset-0 ${
             isArabic
-              ? "bg-gradient-to-l from-[#0a0e27]/70 via-[#0a0e27]/25 to-transparent"
-              : "bg-gradient-to-r from-[#0a0e27]/70 via-[#0a0e27]/25 to-transparent"
+              ? "bg-gradient-to-l from-[#050812]/78 via-[#050812]/32 to-transparent"
+              : "bg-gradient-to-r from-[#050812]/78 via-[#050812]/32 to-transparent"
           }`}
         />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_45%,#0a0e27_96%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_38%,#050812_98%)]" />
       </div>
 
       <div className="grid-shell relative z-10 w-full py-12 md:py-20">
