@@ -40,7 +40,7 @@ const Navbar = ({ content, language, onLanguageChange }: NavbarProps) => {
           <img
             src={logoMark}
             alt=""
-            className="h-7 w-7 object-contain opacity-90 transition-opacity group-hover:opacity-100"
+            className="h-8 w-8 rounded-lg object-contain transition-opacity group-hover:opacity-100"
           />
           <div className="flex flex-col">
             <span className="font-heading text-lg font-bold leading-none tracking-tight text-white">
