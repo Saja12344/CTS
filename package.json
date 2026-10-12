@@ -16,6 +16,7 @@
     "remotion:render": "npm run render --prefix remotion",
     "remotion:render:brand": "npm run render:brand --prefix remotion",
     "remotion:render:premium": "npm run render:premium --prefix remotion",
+    "remotion:render:product": "npm run render:product --prefix remotion",
     "remotion:render:wave": "npm run render:wave --prefix remotion",
     "remotion:render:hologram": "npm run render:hologram --prefix remotion",
     "remotion:render:lightleak": "npm run render:lightleak --prefix remotion",

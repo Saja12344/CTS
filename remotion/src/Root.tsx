@@ -14,10 +14,73 @@ import {HologramDriftFilm} from "./hologram-drift/HologramDriftFilm";
 import {LightLeakDriftFilm} from "./light-leak-drift/LightLeakDriftFilm";
 import {PremiumBrandFilm} from "./premium-brand-film/PremiumBrandFilm";
 import {FILM as PREMIUM_FILM} from "./premium-brand-film/config";
+import {CTSProductBrandFilm} from "./cts-product-film/CTSProductBrandFilm";
+import {PRODUCT_FILM} from "./cts-product-film/config";
+import {SparkScene} from "./cts-product-film/scenes/SparkScene";
+import {HeroSiteScene} from "./cts-product-film/scenes/HeroSiteScene";
+import {BuildScene} from "./cts-product-film/scenes/BuildScene";
+import {ApproachScene} from "./cts-product-film/scenes/ApproachScene";
+import {BrandCloseScene} from "./cts-product-film/scenes/BrandCloseScene";
 
 export const RemotionRoot: React.FC = () => {
   return (
     <>
+      <Folder name="CTS-Product">
+        <Composition
+          id={PRODUCT_FILM.id}
+          component={CTSProductBrandFilm}
+          durationInFrames={PRODUCT_FILM.durationInFrames}
+          fps={PRODUCT_FILM.fps}
+          width={PRODUCT_FILM.width}
+          height={PRODUCT_FILM.height}
+        />
+        <Still
+          id="CTSProductBrandFilmStill"
+          component={CTSProductBrandFilm}
+          width={PRODUCT_FILM.width}
+          height={PRODUCT_FILM.height}
+        />
+        <Composition
+          id="cts-Scene-Spark"
+          component={SparkScene}
+          durationInFrames={PRODUCT_FILM.scenes.spark.durationInFrames}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="cts-Scene-Hero"
+          component={HeroSiteScene}
+          durationInFrames={PRODUCT_FILM.scenes.hero.durationInFrames}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="cts-Scene-Build"
+          component={BuildScene}
+          durationInFrames={PRODUCT_FILM.scenes.build.durationInFrames}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="cts-Scene-Approach"
+          component={ApproachScene}
+          durationInFrames={PRODUCT_FILM.scenes.approach.durationInFrames}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="cts-Scene-Brand"
+          component={BrandCloseScene}
+          durationInFrames={PRODUCT_FILM.scenes.brand.durationInFrames}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+      </Folder>
       <Folder name="BrandPremium">
         <Composition
           id={PREMIUM_FILM.id}
