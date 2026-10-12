@@ -275,8 +275,8 @@
 
 .liquid-gradient-fallback {
   background:
-    radial-gradient(ellipse 55% 45% at 22% 35%, rgba(241, 90, 41, 0.35), transparent 70%),
-    radial-gradient(ellipse 50% 40% at 78% 60%, rgba(16, 72, 88, 0.4), transparent 72%),
-    radial-gradient(ellipse 40% 35% at 55% 25%, rgba(10, 14, 39, 0.85), transparent 68%),
-    #0a0e27;
+    radial-gradient(ellipse 55% 45% at 22% 35%, rgba(32, 72, 88, 0.28), transparent 72%),
+    radial-gradient(ellipse 50% 40% at 78% 60%, rgba(48, 40, 72, 0.22), transparent 74%),
+    radial-gradient(ellipse 40% 35% at 55% 25%, rgba(5, 8, 18, 0.9), transparent 68%),
+    #050812;
 }

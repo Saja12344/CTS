@@ -6,7 +6,7 @@ type LiquidGradientBackgroundProps = {
 
 /**
  * Hero-only WebGL liquid gradient — TouchTexture + GLSL from the
- * Interactive Liquid Gradient Three.js demo, CTS orange/navy palette.
+ * Interactive Liquid Gradient Three.js demo, restrained navy / petrol / violet palette.
  */
 const LiquidGradientBackground = ({ className = "" }: LiquidGradientBackgroundProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -54,10 +54,10 @@ const LiquidGradientBackground = ({ className = "" }: LiquidGradientBackgroundPr
       }
 
       const scene = new THREE.Scene();
-      scene.background = new THREE.Color(0x0a0e27);
+      scene.background = new THREE.Color(0x050812);
       const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
 
-      renderer.setClearColor(0x0a0e27, 1);
+      renderer.setClearColor(0x050812, 1);
       renderer.domElement.style.width = "100%";
       renderer.domElement.style.height = "100%";
       renderer.domElement.style.display = "block";
@@ -68,32 +68,36 @@ const LiquidGradientBackground = ({ className = "" }: LiquidGradientBackgroundPr
       touchTexture = new TouchTexture();
       clock = new THREE.Clock();
 
-      // CTS brand: #f15a29 orange + navy — demo scheme-1 motion settings
-      const orange = new THREE.Vector3(0.945, 0.353, 0.161);
-      const navy = new THREE.Vector3(0.039, 0.055, 0.153);
-      const petrol = new THREE.Vector3(0.1, 0.28, 0.34);
+      // Restrained hero palette: deep navy, petrol, dusty violet, subtle warm accent
+      const deepNavy = new THREE.Vector3(0.02, 0.04, 0.09);
+      const petrol = new THREE.Vector3(0.08, 0.19, 0.24);
+      const dustyViolet = new THREE.Vector3(0.14, 0.12, 0.22);
+      const warmAccent = new THREE.Vector3(0.24, 0.14, 0.11);
 
       material = new THREE.ShaderMaterial({
         uniforms: {
           uTime: { value: 0 },
           uResolution: { value: new THREE.Vector2(1, 1) },
-          uColor1: { value: orange.clone() },
-          uColor2: { value: navy.clone() },
-          uColor3: { value: orange.clone() },
+          uColor1: { value: petrol.clone() },
+          uColor2: { value: deepNavy.clone() },
+          uColor3: { value: dustyViolet.clone() },
           uColor4: { value: petrol.clone() },
-          uColor5: { value: orange.clone() },
-          uColor6: { value: navy.clone() },
-          uSpeed: { value: reduceMotion ? 0.35 : 1.5 },
-          uIntensity: { value: 1.8 },
+          uColor5: { value: warmAccent.clone() },
+          uColor6: { value: deepNavy.clone() },
+          uSpeed: { value: reduceMotion ? 0.22 : 0.72 },
+          uIntensity: { value: 0.95 },
           uTouchTexture: { value: touchTexture.texture },
-          uGrainIntensity: { value: 0.08 },
+          uGrainIntensity: { value: 0.032 },
           uZoom: { value: 1.0 },
-          uDarkNavy: { value: navy.clone() },
-          uGradientSize: { value: 0.45 },
-          uGradientCount: { value: 12.0 },
-          uColor1Weight: { value: 0.5 },
-          uColor2Weight: { value: 1.8 },
-          uDistortion: { value: reduceMotion ? 0.15 : 0.8 },
+          uDarkNavy: { value: deepNavy.clone() },
+          uGradientSize: { value: 0.62 },
+          uGradientCount: { value: 8.0 },
+          uColor1Weight: { value: 0.38 },
+          uColor2Weight: { value: 1.15 },
+          uDistortion: { value: reduceMotion ? 0.08 : 0.34 },
+          uRippleStrength: { value: 0.32 },
+          uSaturation: { value: 0.72 },
+          uVignette: { value: 0.62 },
         },
         vertexShader: /* glsl */ `
           varying vec2 vUv;
@@ -124,6 +128,9 @@ const LiquidGradientBackground = ({ className = "" }: LiquidGradientBackgroundPr
           uniform float uColor1Weight;
           uniform float uColor2Weight;
           uniform float uDistortion;
+          uniform float uRippleStrength;
+          uniform float uSaturation;
+          uniform float uVignette;
 
           varying vec2 vUv;
 
@@ -200,18 +207,19 @@ const LiquidGradientBackground = ({ className = "" }: LiquidGradientBackgroundPr
             float dist11 = length(uv - center11);
             float dist12 = length(uv - center12);
 
-            float influence1 = 1.0 - smoothstep(0.0, gradientRadius, dist1);
-            float influence2 = 1.0 - smoothstep(0.0, gradientRadius, dist2);
-            float influence3 = 1.0 - smoothstep(0.0, gradientRadius, dist3);
-            float influence4 = 1.0 - smoothstep(0.0, gradientRadius, dist4);
-            float influence5 = 1.0 - smoothstep(0.0, gradientRadius, dist5);
-            float influence6 = 1.0 - smoothstep(0.0, gradientRadius, dist6);
-            float influence7 = 1.0 - smoothstep(0.0, gradientRadius, dist7);
-            float influence8 = 1.0 - smoothstep(0.0, gradientRadius, dist8);
-            float influence9 = 1.0 - smoothstep(0.0, gradientRadius, dist9);
-            float influence10 = 1.0 - smoothstep(0.0, gradientRadius, dist10);
-            float influence11 = 1.0 - smoothstep(0.0, gradientRadius, dist11);
-            float influence12 = 1.0 - smoothstep(0.0, gradientRadius, dist12);
+            float softRadius = gradientRadius * 1.35;
+            float influence1 = 1.0 - smoothstep(0.0, softRadius, dist1);
+            float influence2 = 1.0 - smoothstep(0.0, softRadius, dist2);
+            float influence3 = 1.0 - smoothstep(0.0, softRadius, dist3);
+            float influence4 = 1.0 - smoothstep(0.0, softRadius, dist4);
+            float influence5 = 1.0 - smoothstep(0.0, softRadius, dist5);
+            float influence6 = 1.0 - smoothstep(0.0, softRadius, dist6);
+            float influence7 = 1.0 - smoothstep(0.0, softRadius, dist7);
+            float influence8 = 1.0 - smoothstep(0.0, softRadius, dist8);
+            float influence9 = 1.0 - smoothstep(0.0, softRadius, dist9);
+            float influence10 = 1.0 - smoothstep(0.0, softRadius, dist10);
+            float influence11 = 1.0 - smoothstep(0.0, softRadius, dist11);
+            float influence12 = 1.0 - smoothstep(0.0, softRadius, dist12);
 
             vec2 rotatedUv1 = uv - 0.5;
             float angle1 = time * uSpeed * 0.15;
@@ -231,39 +239,39 @@ const LiquidGradientBackground = ({ className = "" }: LiquidGradientBackgroundPr
 
             float radialGradient1 = length(rotatedUv1 - 0.5);
             float radialGradient2 = length(rotatedUv2 - 0.5);
-            float radialInfluence1 = 1.0 - smoothstep(0.0, 0.8, radialGradient1);
-            float radialInfluence2 = 1.0 - smoothstep(0.0, 0.8, radialGradient2);
+            float radialInfluence1 = 1.0 - smoothstep(0.0, 0.95, radialGradient1);
+            float radialInfluence2 = 1.0 - smoothstep(0.0, 0.95, radialGradient2);
 
             vec3 color = vec3(0.0);
-            color += uColor1 * influence1 * (0.55 + 0.45 * sin(time * uSpeed)) * uColor1Weight;
-            color += uColor2 * influence2 * (0.55 + 0.45 * cos(time * uSpeed * 1.2)) * uColor2Weight;
-            color += uColor3 * influence3 * (0.55 + 0.45 * sin(time * uSpeed * 0.8)) * uColor1Weight;
-            color += uColor4 * influence4 * (0.55 + 0.45 * cos(time * uSpeed * 1.3)) * uColor2Weight;
-            color += uColor5 * influence5 * (0.55 + 0.45 * sin(time * uSpeed * 1.1)) * uColor1Weight;
-            color += uColor6 * influence6 * (0.55 + 0.45 * cos(time * uSpeed * 0.9)) * uColor2Weight;
+            color += uColor1 * influence1 * (0.78 + 0.14 * sin(time * uSpeed)) * uColor1Weight;
+            color += uColor2 * influence2 * (0.78 + 0.14 * cos(time * uSpeed * 1.2)) * uColor2Weight;
+            color += uColor3 * influence3 * (0.78 + 0.14 * sin(time * uSpeed * 0.8)) * uColor1Weight;
+            color += uColor4 * influence4 * (0.78 + 0.14 * cos(time * uSpeed * 1.3)) * uColor2Weight;
+            color += uColor5 * influence5 * (0.78 + 0.14 * sin(time * uSpeed * 1.1)) * uColor1Weight;
+            color += uColor6 * influence6 * (0.78 + 0.14 * cos(time * uSpeed * 0.9)) * uColor2Weight;
 
             if (uGradientCount > 6.0) {
-              color += uColor1 * influence7 * (0.55 + 0.45 * sin(time * uSpeed * 1.4)) * uColor1Weight;
-              color += uColor2 * influence8 * (0.55 + 0.45 * cos(time * uSpeed * 1.5)) * uColor2Weight;
-              color += uColor3 * influence9 * (0.55 + 0.45 * sin(time * uSpeed * 1.6)) * uColor1Weight;
-              color += uColor4 * influence10 * (0.55 + 0.45 * cos(time * uSpeed * 1.7)) * uColor2Weight;
+              color += uColor1 * influence7 * (0.78 + 0.14 * sin(time * uSpeed * 1.4)) * uColor1Weight;
+              color += uColor2 * influence8 * (0.78 + 0.14 * cos(time * uSpeed * 1.5)) * uColor2Weight;
+              color += uColor3 * influence9 * (0.78 + 0.14 * sin(time * uSpeed * 1.6)) * uColor1Weight;
+              color += uColor4 * influence10 * (0.78 + 0.14 * cos(time * uSpeed * 1.7)) * uColor2Weight;
             }
             if (uGradientCount > 10.0) {
-              color += uColor5 * influence11 * (0.55 + 0.45 * sin(time * uSpeed * 1.8)) * uColor1Weight;
-              color += uColor6 * influence12 * (0.55 + 0.45 * cos(time * uSpeed * 1.9)) * uColor2Weight;
+              color += uColor5 * influence11 * (0.78 + 0.14 * sin(time * uSpeed * 1.8)) * uColor1Weight;
+              color += uColor6 * influence12 * (0.78 + 0.14 * cos(time * uSpeed * 1.9)) * uColor2Weight;
             }
 
-            color += mix(uColor1, uColor3, radialInfluence1) * 0.45 * uColor1Weight;
-            color += mix(uColor2, uColor4, radialInfluence2) * 0.4 * uColor2Weight;
+            color += mix(uColor1, uColor3, radialInfluence1) * 0.2 * uColor1Weight;
+            color += mix(uColor2, uColor4, radialInfluence2) * 0.18 * uColor2Weight;
 
             color = clamp(color, vec3(0.0), vec3(1.0)) * uIntensity;
 
             float luminance = dot(color, vec3(0.299, 0.587, 0.114));
-            color = mix(vec3(luminance), color, 1.35);
-            color = pow(color, vec3(0.92));
+            color = mix(vec3(luminance), color, uSaturation);
+            color = pow(color, vec3(0.98));
 
             float brightness1 = length(color);
-            float mixFactor1 = max(brightness1 * 1.2, 0.15);
+            float mixFactor1 = max(brightness1 * 0.95, 0.22);
             color = mix(uDarkNavy, color, mixFactor1);
 
             float maxBrightness = 1.0;
@@ -287,8 +295,8 @@ const LiquidGradientBackground = ({ className = "" }: LiquidGradientBackgroundPr
 
             vec2 center = vec2(0.5);
             float dist = length(uv - center);
-            float ripple = sin(dist * 20.0 - uTime * 3.0) * 0.04 * intensity;
-            float wave = sin(dist * 15.0 - uTime * 2.0) * 0.03 * intensity;
+            float ripple = sin(dist * 16.0 - uTime * 1.6) * 0.012 * intensity * uRippleStrength;
+            float wave = sin(dist * 12.0 - uTime * 1.2) * 0.008 * intensity * uRippleStrength;
             uv += vec2(ripple + wave);
 
             vec3 color = getGradientColor(uv, uTime);
@@ -296,14 +304,15 @@ const LiquidGradientBackground = ({ className = "" }: LiquidGradientBackgroundPr
             float grainValue = grain(uv, uTime);
             color += grainValue * uGrainIntensity;
 
-            float timeShift = uTime * 0.5;
-            color.r += sin(timeShift) * 0.02;
-            color.g += cos(timeShift * 1.4) * 0.02;
-            color.b += sin(timeShift * 1.2) * 0.02;
-
             float brightness2 = length(color);
-            float mixFactor2 = max(brightness2 * 1.2, 0.15);
+            float mixFactor2 = max(brightness2 * 0.95, 0.22);
             color = mix(uDarkNavy, color, mixFactor2);
+
+            vec2 vigUv = vUv - 0.5;
+            float vigDist = length(vigUv * vec2(1.04, 1.14));
+            float vignette = smoothstep(0.88, 0.22, vigDist);
+            vec3 vignetted = mix(uDarkNavy * 0.48, color, vignette);
+            color = mix(color, vignetted, uVignette);
 
             color = clamp(color, vec3(0.0), vec3(1.0));
 

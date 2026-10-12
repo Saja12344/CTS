@@ -61,7 +61,7 @@ export class TouchTexture {
       const d = Math.sqrt(dd);
       vx = dx / d;
       vy = dy / d;
-      force = Math.min(dd * 20000, 2.0);
+      force = Math.min(dd * 12000, 1.25);
     }
 
     this.last = { x: point.x, y: point.y };
