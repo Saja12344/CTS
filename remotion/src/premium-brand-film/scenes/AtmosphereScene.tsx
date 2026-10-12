@@ -47,23 +47,24 @@ export const AtmosphereScene: React.FC = () => {
       >
         <div
           style={{
-            width: 140 * sparkPulse,
-            height: 140 * sparkPulse,
+            width: 220 * sparkPulse,
+            height: 220 * sparkPulse,
             borderRadius: "50%",
-            background: `radial-gradient(circle, ${FILM.colors.accent} 0%, rgba(200,255,77,0.25) 35%, transparent 70%)`,
+            background: `radial-gradient(circle, ${FILM.colors.accent} 0%, rgba(200,255,77,0.22) 32%, transparent 70%)`,
             filter: "blur(2px)",
             transform: `translate(${Math.sin(frame / fps) * 8}px, ${Math.cos(frame / fps) * 6}px)`,
           }}
         />
+        {/* Authentic CTS sculptural mark — no badge/box treatment */}
         <Img
-          src={staticFile("brand/logo-mark.png")}
+          src={staticFile("brand/hero-metallic.jpg")}
           style={{
             position: "absolute",
-            width: 96,
-            height: 96,
+            width: 280,
+            height: 280,
             objectFit: "contain",
-            opacity: 0.35 + spark * 0.45,
-            filter: "drop-shadow(0 0 28px rgba(200,255,77,0.35))",
+            opacity: 0.7 + spark * 0.25,
+            filter: "drop-shadow(0 0 40px rgba(200,255,77,0.35))",
           }}
         />
       </AbsoluteFill>
