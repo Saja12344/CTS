@@ -95,7 +95,7 @@ export const BrandRevealScene: React.FC = () => {
             textAlign: "center",
           }}
         >
-          <TypedText text={SIG.tagline} startFrame={70} perWord={10} />
+          <TypedText text={SIG.tagline} startFrame={52} perWord={9} />
         </div>
       </AbsoluteFill>
     </AbsoluteFill>

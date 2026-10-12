@@ -30,9 +30,9 @@ export const ShowcaseScene: React.FC = () => {
   return (
     <AbsoluteFill style={{backgroundColor: SIG.colors.graphite}}>
       {/* Beat A - hero product */}
-      <Sequence from={0} durationInFrames={110} premountFor={fps}>
+      <Sequence from={0} durationInFrames={88} premountFor={fps}>
         <AbsoluteFill style={{padding: 48, justifyContent: "center", alignItems: "center"}}>
-          <ZoomPunch start={20} peak={40} end={70} peakScale={1.04} style={{width: "100%", height: "100%"}}>
+          <ZoomPunch start={16} peak={34} end={60} peakScale={1.04} style={{width: "100%", height: "100%"}}>
             <BrowserFrame url="coretechsolutions.com" width="100%" height="100%">
               <CameraPlate
                 src="cts-hq/hero.png"
@@ -48,7 +48,7 @@ export const ShowcaseScene: React.FC = () => {
       </Sequence>
 
       {/* Beat B - build detail match-cut */}
-      <Sequence from={95} durationInFrames={120} premountFor={fps}>
+      <Sequence from={72} durationInFrames={130} premountFor={fps}>
         <AbsoluteFill style={{padding: 64}}>
           <MaskReveal startFrame={0} duration={18} direction="top-to-bottom" style={{width: "100%", height: "100%"}}>
             <BrowserFrame url="coretechsolutions.com/#build" width="100%" height="100%">
@@ -67,7 +67,7 @@ export const ShowcaseScene: React.FC = () => {
       </Sequence>
 
       {/* Beat C - approach process close-up */}
-      <Sequence from={200} durationInFrames={112} premountFor={fps}>
+      <Sequence from={185} durationInFrames={127} premountFor={fps}>
         <AbsoluteFill style={{padding: 72}}>
           <MaskReveal startFrame={0} duration={16} direction="left-to-right" style={{width: "100%", height: "100%"}}>
             <div
@@ -78,7 +78,7 @@ export const ShowcaseScene: React.FC = () => {
                 overflow: "hidden",
                 border: "1px solid rgba(230,230,228,0.16)",
                 boxShadow: "0 36px 100px rgba(0,0,0,0.5)",
-                transform: `scale(${interpolate(frame, [200, 300], [1.02, 1.08], {
+                transform: `scale(${interpolate(frame, [185, 300], [1.02, 1.08], {
                   extrapolateLeft: "clamp",
                   extrapolateRight: "clamp",
                   easing: easings.soft,
