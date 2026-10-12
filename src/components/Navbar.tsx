@@ -52,9 +52,13 @@ const Navbar = ({ content, language, onLanguageChange }: NavbarProps) => {
           </div>
         </a>
 
-        <nav className="hidden items-center gap-10 text-sm font-medium text-white/70 md:flex" aria-label="Primary">
+        <nav className="hidden items-center gap-10 text-sm font-medium leading-relaxed text-white/70 md:flex" aria-label="Primary">
           {links.map((link) => (
-            <a key={link.href} href={link.href} className="transition-colors hover:text-white">
+            <a
+              key={link.href}
+              href={link.href}
+              className="inline-block py-1 transition-colors hover:text-white"
+            >
               {link.label}
             </a>
           ))}

@@ -3,9 +3,9 @@ export type Language = "ar" | "en";
 export const siteContent = {
   ar: {
     seo: {
-      title: "Core Tech Solutions (CTS) — شركة كور تيك",
+      title: "شركة كور تيك | Core Tech Solutions (CTS)",
       description:
-        "نحوّل التحديات المعقدة إلى منتجات رقمية مفيدة، وهياكل برمجية قابلة للتوسع، وأدوات تشغيل بديهية.",
+        "نحوّل التحديات المعقدة إلى منتجات رقمية مفيدة، وهياكل برمجية قابلة للتوسع، وأدوات تشغيل سهلة الاستخدام.",
     },
     nav: {
       brand: "CTS",
@@ -21,7 +21,7 @@ export const siteContent = {
       headlineBefore: "الأفكار تستحق أن تصبح",
       headlineAccent: "واقعًا.",
       description:
-        "نحوّل التحديات المعقدة إلى منتجات رقمية مفيدة، وهياكل برمجية قابلة للتوسع، وأدوات تشغيل بديهية.",
+        "نحوّل التحديات المعقدة إلى منتجات رقمية مفيدة، وهياكل برمجية قابلة للتوسع، وأدوات تشغيل سهلة الاستخدام.",
       primaryCta: "ابدأ مشروعًا",
       secondaryCta: "كيف نعمل",
     },
@@ -29,7 +29,7 @@ export const siteContent = {
       label: "ماذا نبني",
       title: "من المشكلات المعقدة إلى منتجات هادفة.",
       description:
-        "تصمّم Core Tech Solutions وتطوّر منتجات رقمية وأنظمة أعمال وبرمجيات ذكية مبنية حول احتياجات تشغيل حقيقية وأسس معمارية متينة.",
+        "تصمّم كور تيك وتطوّر منتجات رقمية وأنظمة أعمال وبرمجيات ذكية مبنية حول احتياجات تشغيل حقيقية وأسس معمارية متينة.",
       items: [
         {
           index: "٠١",
@@ -115,7 +115,7 @@ export const siteContent = {
   },
   en: {
     seo: {
-      title: "Core Tech Solutions (CTS) — Core Tech Company",
+      title: "Core Tech Company | Core Tech Solutions (CTS)",
       description:
         "We turn complex challenges into useful digital products, scalable software architectures, and intuitive operating tools.",
     },
@@ -133,7 +133,7 @@ export const siteContent = {
       headlineBefore: "Ideas deserve to become",
       headlineAccent: "reality.",
       description:
-        "We turn complex challenges into useful digital products, scalable software architectures, and intuitive operating tools.",
+        "We turn complex challenges into useful digital products, scalable software architectures, and easy-to-use operating tools.",
       primaryCta: "Start a project",
       secondaryCta: "How we work",
     },
@@ -141,7 +141,7 @@ export const siteContent = {
       label: "What We Build",
       title: "From complex problems to purposeful products.",
       description:
-        "Core Tech Solutions designs and develops digital products, business systems, and intelligent software structured around real operational needs and durable architectural foundations.",
+        "Core Tech designs and develops digital products, business systems, and intelligent software structured around real operational needs and durable architectural foundations.",
       items: [
         {
           index: "01",

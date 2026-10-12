@@ -179,6 +179,25 @@
   :lang(ar) .font-heading,
   [dir="rtl"] .font-heading {
     font-family: "NT Panorama Naskh", Canela, sans-serif;
+    letter-spacing: 0;
+    line-height: 1.35;
+  }
+
+  :lang(ar) .section-label,
+  [dir="rtl"] .section-label {
+    font-family: "NT Panorama Naskh", system-ui, sans-serif;
+    text-transform: none;
+    letter-spacing: 0.02em;
+    font-weight: 600;
+    line-height: 1.7;
+    overflow: visible;
+  }
+
+  :lang(ar) nav a,
+  [dir="rtl"] nav a {
+    font-family: "NT Panorama Naskh", system-ui, sans-serif;
+    line-height: 1.7;
+    overflow: visible;
   }
 
   :lang(en),
