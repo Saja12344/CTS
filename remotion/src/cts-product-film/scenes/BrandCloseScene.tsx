@@ -78,8 +78,8 @@ export const BrandCloseScene: React.FC = () => {
       </AbsoluteFill>
       <SelectiveCaption
         text={PRODUCT_FILM.tagline}
-        appear={[95, 125]}
-        holdUntil={210}
+        appear={[72, 100]}
+        holdUntil={205}
       />
     </AbsoluteFill>
   );
