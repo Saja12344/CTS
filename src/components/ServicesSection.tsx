@@ -15,8 +15,8 @@ const ServicesSection = ({ content }: WhatWeBuildProps) => {
       <div className="grid-shell">
         <div className="grid grid-cols-1 items-start gap-16 lg:grid-cols-12 lg:gap-20">
           <div className="lg:sticky lg:top-32 lg:col-span-5">
-            <span className="section-label mb-3 block">{content.label}</span>
-            <h2 className="font-heading mb-6 text-3xl font-bold leading-[1.1] tracking-tight text-brand-charcoal sm:text-5xl">
+            <span className="section-label mb-4 block">{content.label}</span>
+            <h2 className="font-heading mb-6 text-3xl font-bold leading-snug tracking-normal text-brand-charcoal sm:text-5xl sm:leading-[1.25]">
               {content.title}
             </h2>
             <p className="text-base leading-relaxed text-brand-muted sm:text-lg">{content.description}</p>

@@ -13,7 +13,7 @@ const ProductThinkingSection = ({ content }: ProductThinkingSectionProps) => {
     <section id="thinking" className="w-full border-b border-brand-border bg-white py-32 text-brand-charcoal">
       <div className="grid-shell">
         <div className="mb-12">
-          <span className="section-label mb-3 block">{content.label}</span>
+          <span className="section-label mb-4 block">{content.label}</span>
         </div>
 
         <div className="grid grid-cols-1 items-start gap-16 lg:grid-cols-12 lg:gap-20">
@@ -24,7 +24,7 @@ const ProductThinkingSection = ({ content }: ProductThinkingSectionProps) => {
             transition={{ duration: 0.7, ease: cinematicEase }}
             className="lg:col-span-7"
           >
-            <h2 className="font-heading text-3xl font-bold leading-[1.12] tracking-tight text-brand-charcoal sm:text-5xl lg:text-[54px]">
+            <h2 className="font-heading text-3xl font-bold leading-snug tracking-normal text-brand-charcoal sm:text-5xl sm:leading-[1.3] lg:text-[54px]">
               {content.titleBefore}{" "}
               <span className="text-brand-orange">{content.titleAccent}</span>
             </h2>

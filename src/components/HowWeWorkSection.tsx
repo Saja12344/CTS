@@ -19,8 +19,8 @@ const HowWeWorkSection = ({ content }: HowWeWorkSectionProps) => {
           transition={{ duration: 0.65, ease: cinematicEase }}
           className="mb-24 max-w-3xl"
         >
-          <span className="section-label mb-3 block">{content.label}</span>
-          <h2 className="font-heading text-3xl font-bold leading-[1.1] tracking-tight text-white sm:text-5xl">
+          <span className="section-label mb-4 block">{content.label}</span>
+          <h2 className="font-heading text-3xl font-bold leading-snug tracking-normal text-white sm:text-5xl sm:leading-[1.25]">
             {content.title}
           </h2>
         </motion.div>
