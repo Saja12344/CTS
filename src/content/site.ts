@@ -3,7 +3,7 @@ export type Language = "ar" | "en";
 export const siteContent = {
   ar: {
     seo: {
-      title: "Core Tech Solutions (CTS) — استوديو منتجات رقمية",
+      title: "Core Tech Solutions (CTS) — شركة كور تيك",
       description:
         "نحوّل التحديات المعقدة إلى منتجات رقمية مفيدة، وهياكل برمجية قابلة للتوسع، وأدوات تشغيل بديهية.",
     },
@@ -115,7 +115,7 @@ export const siteContent = {
   },
   en: {
     seo: {
-      title: "Core Tech Solutions (CTS) — Digital Product Studio",
+      title: "Core Tech Solutions (CTS) — Core Tech Company",
       description:
         "We turn complex challenges into useful digital products, scalable software architectures, and intuitive operating tools.",
     },

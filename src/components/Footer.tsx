@@ -1,5 +1,5 @@
 import { Linkedin, Twitter } from "lucide-react";
-import logoMark from "@/assets/logo-mark-light.png";
+import logoMark from "@/assets/logo-mark-white.png";
 import { Language, siteContent } from "@/content/site";
 
 type FooterProps = {
@@ -32,7 +32,7 @@ const Footer = ({ content }: FooterProps) => {
       <div className="grid-shell">
         <div className="flex flex-col items-start justify-between gap-8 border-b border-white/[0.06] pb-12 md:flex-row md:items-center">
           <div className="flex items-center gap-3">
-            <img src={logoMark} alt="" className="h-8 w-8 rounded-lg object-contain" />
+            <img src={logoMark} alt="" className="h-7 w-7 object-contain opacity-90" />
             <div className="flex flex-col">
               <span className="font-heading text-base font-bold leading-none tracking-tight">
                 {content.brand}

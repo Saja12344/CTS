@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
-import logoMark from "@/assets/logo-mark-light.png";
+import logoMark from "@/assets/logo-mark-white.png";
 import { Language, siteContent } from "@/content/site";
 
 type NavbarProps = {
@@ -40,7 +40,7 @@ const Navbar = ({ content, language, onLanguageChange }: NavbarProps) => {
           <img
             src={logoMark}
             alt=""
-            className="h-8 w-8 rounded-lg object-contain transition-opacity group-hover:opacity-100"
+            className="h-7 w-7 object-contain transition-opacity group-hover:opacity-100"
           />
           <div className="flex flex-col">
             <span className="font-heading text-lg font-bold leading-none tracking-tight text-white">
