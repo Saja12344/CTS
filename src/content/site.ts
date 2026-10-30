@@ -75,7 +75,7 @@ export const siteContent = {
       title: "حلول تبدأ من احتياج حقيقي.",
       description:
         "سواء كنت تطلق منتجًا أو تطوّر طريقة عملك، نساعدك على اتخاذ الخطوة التقنية الصحيحة.",
-      email: "contact@coretech.solutions",
+      email: "cts@sajadev.com",
       nda: "مناقشة تقنية مباشرة، مع الحفاظ على سرية مشروعك.",
       nameLabel: "الاسم الكامل",
       namePlaceholder: "اسمك",
@@ -103,7 +103,7 @@ export const siteContent = {
       build: "ماذا نبني",
       approach: "منهجيتنا",
       thinking: "تفكير المنتج",
-      email: "contact@coretech.solutions",
+      email: "cts@sajadev.com",
       rights: "جميع الحقوق محفوظة",
       socialLabel: "تواصل معنا",
       social: [
@@ -190,7 +190,7 @@ export const siteContent = {
       title: "Solutions that start from a real need.",
       description:
         "Whether you're launching a product or evolving how you work, we help you take the right technical step.",
-      email: "contact@coretech.solutions",
+      email: "cts@sajadev.com",
       nda: "Direct technical discussion, with your project's confidentiality protected.",
       nameLabel: "Full Name",
       namePlaceholder: "Your name",
@@ -218,7 +218,7 @@ export const siteContent = {
       build: "What We Build",
       approach: "Our Approach",
       thinking: "Product Thinking",
-      email: "contact@coretech.solutions",
+      email: "cts@sajadev.com",
       rights: "All rights reserved",
       socialLabel: "Follow us",
       social: [
