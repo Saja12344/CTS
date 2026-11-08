@@ -1,0 +1,714 @@
+{
+  "week": {
+    "id": "2026-11-08",
+    "timezone": "Asia/Riyadh",
+    "insights": {
+      "status": "empty",
+      "reason": "no_source"
+    },
+    "strategy_ar": "الأسبوع مبني على صوت العلامة، لا على أداء. لا ملف أرقام ولا حساب منصة. الجمهور من يدير عملًا في السعودية. الوعد الوحيد هو جملة الموقع: نحوّل التحديات المعقدة إلى منتجات رقمية مفيدة، وهياكل برمجية قابلة للتوسع، وأدوات تشغيل سهلة الاستخدام. خمسة أفلام، كل واحد بزاوية واحدة: أنظمة الأعمال، المنتجات الرقمية، المنهجية، الويب والجوال، ثم الذكاء العملي. لا سعر، ولا عميل، ولا مقارنة. النشر ليس خطوة في هذا الإعداد.",
+    "promise_ar": "نحوّل التحديات المعقدة إلى منتجات رقمية مفيدة، وهياكل برمجية قابلة للتوسع، وأدوات تشغيل سهلة الاستخدام."
+  },
+  "items": [
+    {
+      "id": "01-operations",
+      "number": "01",
+      "title_ar": "العمل يمشي. النظام لا.",
+      "objective": "أن يرى صاحب المنشأة أن ما تبنيه كور تيك هنا هو أدوات تشغيل مخصصة وربط لعمليات الأعمال، لا برنامجًا عامًا يُعرض في دقائق.",
+      "audience_segment": "صاحب منشأة صغيرة أو متوسطة في السعودية. الطلب في محادثة، والرقم في جدول، والاعتماد في رأس شخص.",
+      "pillar": "أنظمة الأعمال",
+      "pillar_id": "business_systems",
+      "concept": "ثلاثة انقطاعات على ورقة، ثم جملة الموقع عن أدوات التشغيل وربط العمليات، ثم السؤال الذي تبدأ به المنهجية.",
+      "idea_en": "A Saudi operator's day still moves while the system does not: one request, one number, and one approval live apart. CTS builds custom operating tools, workflow automation, and connected business processes, and starts by naming the real problem.",
+      "hook": "العمل يمشي.\nالنظام لا.",
+      "script_ar": "العمل يمشي. النظام لا.\nالطلب في محادثة، والرقم في جدول، والاعتماد في رأس شخص.\nأدوات تشغيل مخصصة، أتمتة سير العمل، وربط عمليات الأعمال.\nنحدد المشكلة الحقيقية في العمل.\nابدأ مشروعًا.",
+      "voiceover": "العمل يمشي. النظام لا.\nالطلب في محادثة، والرقم في جدول، والاعتماد في رأس شخص.\nأدوات تشغيل مخصصة، أتمتة سير العمل، وربط عمليات الأعمال.\nنحدد المشكلة الحقيقية في العمل.\nابدأ مشروعًا.",
+      "on_screen_text": [
+        {
+          "t0": 0,
+          "t1": 2.5,
+          "lines": [
+            "العمل يمشي.",
+            "النظام لا."
+          ]
+        },
+        {
+          "t0": 2.5,
+          "t1": 9,
+          "lines": [
+            "طلب في محادثة"
+          ]
+        },
+        {
+          "t0": 4.5,
+          "t1": 9,
+          "lines": [
+            "رقم في جدول"
+          ]
+        },
+        {
+          "t0": 6.5,
+          "t1": 9,
+          "lines": [
+            "اعتماد في رأس شخص"
+          ]
+        },
+        {
+          "t0": 9,
+          "t1": 16.5,
+          "lines": [
+            "أدوات تشغيل مخصصة",
+            "أتمتة سير العمل"
+          ]
+        },
+        {
+          "t0": 12.5,
+          "t1": 16.5,
+          "lines": [
+            "ربط عمليات الأعمال"
+          ]
+        },
+        {
+          "t0": 16.5,
+          "t1": 22.5,
+          "lines": [
+            "نحدد المشكلة الحقيقية في العمل."
+          ]
+        },
+        {
+          "t0": 22.5,
+          "t1": 28,
+          "lines": [
+            "CTS",
+            "ابدأ مشروعًا",
+            "+966 50 380 7517"
+          ]
+        }
+      ],
+      "storyboard": [
+        {
+          "scene": 1,
+          "t0": 0,
+          "t1": 2.5,
+          "shot_ar": "حقل فحمي. سطران إلى اليمين. السطر الثاني برتقالي.",
+          "hears": "العمل يمشي. النظام لا.",
+          "visual_prompt": "Locked camera. Matte wall #171717, even light, no falloff. Right-aligned IBM Plex Sans Arabic. First line in #FFFFFF: العمل يمشي. Second line in flat #F15A29: النظام لا. Wide empty field to the left. No object in the room."
+        },
+        {
+          "scene": 2,
+          "t0": 2.5,
+          "t1": 9,
+          "shot_ar": "ورقة عاجية. ثلاثة أسطر تتراكم كفهرس، وإلى يمينها ٠٢.",
+          "hears": "الطلب في محادثة، والرقم في جدول، والاعتماد في رأس شخص.",
+          "visual_prompt": "Cut to a flat field #F7F7F5. Hairline rules #E5E5E1 between three accumulating Arabic lines, right-aligned, color #171717: طلب في محادثة then رقم في جدول then اعتماد في رأس شخص. Margin index ٠٢ in #F15A29, JetBrains Mono. No icons and no app marks. Lines appear on the locked times, same x-position."
+        },
+        {
+          "scene": 3,
+          "t0": 9,
+          "t1": 16.5,
+          "shot_ar": "عودة إلى الفحمي. جملتان عن الأداة والربط، وخط أبيض رفيع كهامش سويسري.",
+          "hears": "أدوات تشغيل مخصصة، أتمتة سير العمل، وربط عمليات الأعمال.",
+          "visual_prompt": "Cut to #171717. A hairline vertical rule in #FFFFFF near the right margin. White Arabic, right-aligned, with ربط عمليات الأعمال in #F15A29: أدوات تشغيل مخصصة / أتمتة سير العمل / ربط عمليات الأعمال. Nothing else."
+        },
+        {
+          "scene": 4,
+          "t0": 16.5,
+          "t1": 22.5,
+          "shot_ar": "حقل أبيض. جملة المنهجية الأولى وحدها، كسطر في فهرس.",
+          "hears": "نحدد المشكلة الحقيقية في العمل.",
+          "visual_prompt": "Cut to #FFFFFF. One Arabic line, right-aligned, #171717: نحدد المشكلة الحقيقية في العمل. A short orange rule #F15A29 above it, 48 pixels wide, 1 pixel tall. No illustration."
+        },
+        {
+          "scene": 5,
+          "t0": 22.5,
+          "t1": 28,
+          "shot_ar": "بطاقة النهاية. CTS، الزر، الرقم.",
+          "hears": "ابدأ مشروعًا.",
+          "visual_prompt": "Locked camera. Flat wall #171717, no texture and no vignette. A small white CTS in a plain grotesque, tracked wide. Under it a flat rectangle filled #F15A29, corner radius at most 2 pixels, no shadow, containing the white Arabic ابدأ مشروعًا. Under the rectangle, the digits +966 50 380 7517 in #F7F7F5, small enough to sit in one line and large enough to read. Empty around the block. No icon, no arrow, no QR code."
+        }
+      ],
+      "visual_prompts": [
+        "Locked camera. Matte wall #171717, even light, no falloff. Right-aligned IBM Plex Sans Arabic. First line in #FFFFFF: العمل يمشي. Second line in flat #F15A29: النظام لا. Wide empty field to the left. No object in the room.",
+        "Cut to a flat field #F7F7F5. Hairline rules #E5E5E1 between three accumulating Arabic lines, right-aligned, color #171717: طلب في محادثة then رقم في جدول then اعتماد في رأس شخص. Margin index ٠٢ in #F15A29, JetBrains Mono. No icons and no app marks. Lines appear on the locked times, same x-position.",
+        "Cut to #171717. A hairline vertical rule in #FFFFFF near the right margin. White Arabic, right-aligned, with ربط عمليات الأعمال in #F15A29: أدوات تشغيل مخصصة / أتمتة سير العمل / ربط عمليات الأعمال. Nothing else.",
+        "Cut to #FFFFFF. One Arabic line, right-aligned, #171717: نحدد المشكلة الحقيقية في العمل. A short orange rule #F15A29 above it, 48 pixels wide, 1 pixel tall. No illustration.",
+        "Locked camera. Flat wall #171717, no texture and no vignette. A small white CTS in a plain grotesque, tracked wide. Under it a flat rectangle filled #F15A29, corner radius at most 2 pixels, no shadow, containing the white Arabic ابدأ مشروعًا. Under the rectangle, the digits +966 50 380 7517 in #F7F7F5, small enough to sit in one line and large enough to read. Empty around the block. No icon, no arrow, no QR code."
+      ],
+      "edit_notes": [
+        "الأسطر الثلاثة في المشهد الثاني تدخل واحدًا بعد الآخر في الموضع نفسه. العين لا تقفز.",
+        "البرتقالي في هذا الفيلم: كلمة «لا»، والرقم ٠٢، وزر النهاية فقط.",
+        "٠٢ هو ترتيب أنظمة الأعمال على الموقع، لا رقم حلقة."
+      ],
+      "caption": "العمل يمشي. النظام لا.\nأدوات تشغيل مخصصة، أتمتة سير العمل، وربط عمليات الأعمال.\nنحدد المشكلة الحقيقية في العمل.\nابدأ مشروعًا\n+966 50 380 7517",
+      "cta": "ابدأ مشروعًا",
+      "hashtags": [
+        "#كور_تيك",
+        "#أنظمة_الأعمال",
+        "#أتمتة_الأعمال",
+        "#تشغيل",
+        "#المنشآت_الصغيرة",
+        "#السعودية"
+      ],
+      "duration_seconds": 28,
+      "suggested_post_time": "2026-11-08T21:00:00+03:00",
+      "suggested_post_label": "الأحد 8 نوفمبر 2026، 21:00 بتوقيت الرياض",
+      "post_time_note": "اقتراح تحريري بعد نهاية دوام الأحد. لا يستند إلى قياس.",
+      "claims_used": [
+        "أدوات تشغيل مخصصة، أتمتة سير العمل، وربط عمليات الأعمال.",
+        "نحدد المشكلة الحقيقية في العمل.",
+        "ابدأ مشروعًا"
+      ],
+      "frame": "1080x1920",
+      "aspect_ratio": "9:16"
+    },
+    {
+      "id": "02-product",
+      "number": "02",
+      "title_ar": "عندك فكرة. ليس عندك منتج.",
+      "objective": "فصل الفكرة عن المنتج، وربط كور تيك باستراتيجية المنتج وتجربة المستخدم والتطوير من البداية للنهاية.",
+      "audience_segment": "مؤسس شركة ناشئة في السعودية عنده فكرة ولم يثبت بعد المستخدم ولا النطاق ولا النسخة الأولى.",
+      "pillar": "منتجات رقمية",
+      "pillar_id": "digital_products",
+      "concept": "صفحة فارغة، ثم ثلاثة ملصقات من جملة الموقع عن المنتج، ثم جملة تفكير المنتج كما تُقرأ على الموقع.",
+      "idea_en": "A founder has an idea and does not yet have a product. CTS does product strategy, UX and UI, and end-to-end digital product development, and looks for what actually needs to be built rather than only what was requested.",
+      "hook": "عندك فكرة.\nليس عندك منتج.",
+      "script_ar": "عندك فكرة. ليس عندك منتج.\nاستراتيجية المنتج، تصميم تجربة وواجهة المستخدم، وتطوير المنتج الرقمي من البداية للنهاية.\nلا نبني فقط ما يُطلب منا. نكتشف ما يحتاج فعلاً إلى البناء.\nابدأ مشروعًا.",
+      "voiceover": "عندك فكرة. ليس عندك منتج.\nاستراتيجية المنتج، تصميم تجربة وواجهة المستخدم، وتطوير المنتج الرقمي من البداية للنهاية.\nلا نبني فقط ما يُطلب منا. نكتشف ما يحتاج فعلاً إلى البناء.\nابدأ مشروعًا.",
+      "on_screen_text": [
+        {
+          "t0": 0,
+          "t1": 3,
+          "lines": [
+            "عندك فكرة.",
+            "ليس عندك منتج."
+          ]
+        },
+        {
+          "t0": 3,
+          "t1": 12,
+          "lines": [
+            "٠١",
+            "استراتيجية المنتج"
+          ]
+        },
+        {
+          "t0": 6,
+          "t1": 12,
+          "lines": [
+            "تصميم تجربة وواجهة المستخدم"
+          ]
+        },
+        {
+          "t0": 9,
+          "t1": 12,
+          "lines": [
+            "من البداية للنهاية"
+          ]
+        },
+        {
+          "t0": 12,
+          "t1": 20.5,
+          "lines": [
+            "لا نبني فقط ما يُطلب منا."
+          ]
+        },
+        {
+          "t0": 16,
+          "t1": 20.5,
+          "lines": [
+            "يحتاج فعلاً إلى البناء."
+          ]
+        },
+        {
+          "t0": 20.5,
+          "t1": 26,
+          "lines": [
+            "CTS",
+            "ابدأ مشروعًا",
+            "+966 50 380 7517"
+          ]
+        }
+      ],
+      "storyboard": [
+        {
+          "scene": 1,
+          "t0": 0,
+          "t1": 3,
+          "shot_ar": "ورقة بيضاء. سطران فقط. لا رسم لفكرة.",
+          "hears": "عندك فكرة. ليس عندك منتج.",
+          "visual_prompt": "Locked camera. Flat #FFFFFF sheet, no paper grain, no pen, no light bulb. Right-aligned Arabic in #171717: عندك فكرة. Then ليس عندك منتج. in #F15A29. Large type, two lines, deep margin."
+        },
+        {
+          "scene": 2,
+          "t0": 3,
+          "t1": 12,
+          "shot_ar": "الفحمي. هامش برتقالي عمودي وثلاثة أسطر من عرض المنتجات الرقمية، مع ٠١.",
+          "hears": "استراتيجية المنتج، تصميم تجربة وواجهة المستخدم، وتطوير المنتج الرقمي من البداية للنهاية.",
+          "visual_prompt": "Cut to #171717. One vertical bar, 6 pixels wide, #F15A29, full height of the type block only. Index ٠١ in JetBrains Mono, #F15A29. Three white Arabic lines accumulate, right-aligned: استراتيجية المنتج / تصميم تجربة وواجهة المستخدم / من البداية للنهاية. No device."
+        },
+        {
+          "scene": 3,
+          "t0": 12,
+          "t1": 20.5,
+          "shot_ar": "عاجي. سطران من تفكير المنتج. السطر الثاني برتقالي.",
+          "hears": "لا نبني فقط ما يُطلب منا. نكتشف ما يحتاج فعلاً إلى البناء.",
+          "visual_prompt": "Cut to #F7F7F5. Two right-aligned lines. First in #171717: لا نبني فقط ما يُطلب منا. Second in #F15A29: يحتاج فعلاً إلى البناء. Wide empty left side. No quotation marks and no portrait."
+        },
+        {
+          "scene": 4,
+          "t0": 20.5,
+          "t1": 26,
+          "shot_ar": "بطاقة النهاية.",
+          "hears": "ابدأ مشروعًا.",
+          "visual_prompt": "Locked camera. Flat wall #171717, no texture and no vignette. A small white CTS in a plain grotesque, tracked wide. Under it a flat rectangle filled #F15A29, corner radius at most 2 pixels, no shadow, containing the white Arabic ابدأ مشروعًا. Under the rectangle, the digits +966 50 380 7517 in #F7F7F5, small enough to sit in one line and large enough to read. Empty around the block. No icon, no arrow, no QR code."
+        }
+      ],
+      "visual_prompts": [
+        "Locked camera. Flat #FFFFFF sheet, no paper grain, no pen, no light bulb. Right-aligned Arabic in #171717: عندك فكرة. Then ليس عندك منتج. in #F15A29. Large type, two lines, deep margin.",
+        "Cut to #171717. One vertical bar, 6 pixels wide, #F15A29, full height of the type block only. Index ٠١ in JetBrains Mono, #F15A29. Three white Arabic lines accumulate, right-aligned: استراتيجية المنتج / تصميم تجربة وواجهة المستخدم / من البداية للنهاية. No device.",
+        "Cut to #F7F7F5. Two right-aligned lines. First in #171717: لا نبني فقط ما يُطلب منا. Second in #F15A29: يحتاج فعلاً إلى البناء. Wide empty left side. No quotation marks and no portrait.",
+        "Locked camera. Flat wall #171717, no texture and no vignette. A small white CTS in a plain grotesque, tracked wide. Under it a flat rectangle filled #F15A29, corner radius at most 2 pixels, no shadow, containing the white Arabic ابدأ مشروعًا. Under the rectangle, the digits +966 50 380 7517 in #F7F7F5, small enough to sit in one line and large enough to read. Empty around the block. No icon, no arrow, no QR code."
+      ],
+      "edit_notes": [
+        "لا تظهر واجهة تطبيق متخيلة. المنتج هنا كلمات على ورقة، لا شاشة مسروقة من أداة تصميم.",
+        "٠١ ترتيب المنتجات الرقمية على الموقع.",
+        "جملة «يحتاج فعلاً إلى البناء» تبقى برتقالية كما يقع التأكيد على الموقع، بلا ظل."
+      ],
+      "caption": "عندك فكرة. ليس عندك منتج.\nاستراتيجية المنتج، تصميم تجربة وواجهة المستخدم، وتطوير المنتج الرقمي من البداية للنهاية.\nلا نبني فقط ما يُطلب منا. نكتشف ما يحتاج فعلاً إلى البناء.\nابدأ مشروعًا\n+966 50 380 7517",
+      "cta": "ابدأ مشروعًا",
+      "hashtags": [
+        "#كور_تيك",
+        "#منتجات_رقمية",
+        "#شركات_ناشئة",
+        "#تجربة_المستخدم",
+        "#بناء_المنتج",
+        "#السعودية"
+      ],
+      "duration_seconds": 26,
+      "suggested_post_time": "2026-11-09T12:45:00+03:00",
+      "suggested_post_label": "الاثنين 9 نوفمبر 2026، 12:45 بتوقيت الرياض",
+      "post_time_note": "اقتراح تحريري قبيل منتصف نهار الاثنين. لا يستند إلى قياس.",
+      "claims_used": [
+        "استراتيجية المنتج، تصميم تجربة وواجهة المستخدم، وتطوير المنتج الرقمي من البداية للنهاية.",
+        "لا نبني فقط ما يُطلب منا. نكتشف ما",
+        "يحتاج فعلاً إلى البناء.",
+        "ابدأ مشروعًا"
+      ],
+      "frame": "1080x1920",
+      "aspect_ratio": "9:16"
+    },
+    {
+      "id": "03-question",
+      "number": "03",
+      "title_ar": "الحل الصحيح يبدأ بالسؤال الصحيح.",
+      "objective": "تثبيت جملة المنهجية والخطوات الأربع كما هي على الموقع، لجمهور يوشك أن يطلب بناءً قبل تسمية المشكلة.",
+      "audience_segment": "مسؤول في منشأة أو جهة في السعودية طُلب منه تحوّل رقمي، والخطوة التالية على الطاولة أداة لا سؤال.",
+      "pillar": "المنهجية",
+      "pillar_id": "method",
+      "concept": "فهرس من أربع خطوات، خطوة في كل مرة، بالنص الحرفي: افهم، حدّد، ابنِ، حسّن.",
+      "idea_en": "The right solution starts with the right question. Four steps already on the site: understand the real business problem, fix scope and technical direction, design and validate, then test, improve, deploy, and keep supporting the product.",
+      "hook": "الحل الصحيح يبدأ بالسؤال الصحيح.",
+      "script_ar": "الحل الصحيح يبدأ بالسؤال الصحيح.\nافهم. نحدد المشكلة الحقيقية في العمل.\nحدّد. نثبت نطاق المنتج والاتجاه التقني المناسب.\nابنِ. نصمّم، ونطوّر، ونتحقق من الحل.\nحسّن. نختبر، ونحسّن، وننشر، وندعم تطور المنتج المستمر.\nابدأ مشروعًا.",
+      "voiceover": "الحل الصحيح يبدأ بالسؤال الصحيح.\nافهم. نحدد المشكلة الحقيقية في العمل.\nحدّد. نثبت نطاق المنتج والاتجاه التقني المناسب.\nابنِ. نصمّم، ونطوّر، ونتحقق من الحل.\nحسّن. نختبر، ونحسّن، وننشر، وندعم تطور المنتج المستمر.\nابدأ مشروعًا.",
+      "on_screen_text": [
+        {
+          "t0": 0,
+          "t1": 3,
+          "lines": [
+            "الحل الصحيح يبدأ بالسؤال الصحيح."
+          ]
+        },
+        {
+          "t0": 3,
+          "t1": 8.5,
+          "lines": [
+            "٠١",
+            "افهم",
+            "نحدد المشكلة الحقيقية في العمل."
+          ]
+        },
+        {
+          "t0": 8.5,
+          "t1": 14,
+          "lines": [
+            "٠٢",
+            "حدّد",
+            "نثبت نطاق المنتج والاتجاه التقني المناسب."
+          ]
+        },
+        {
+          "t0": 14,
+          "t1": 19.5,
+          "lines": [
+            "٠٣",
+            "ابنِ",
+            "نصمّم، ونطوّر، ونتحقق من الحل."
+          ]
+        },
+        {
+          "t0": 19.5,
+          "t1": 26,
+          "lines": [
+            "٠٤",
+            "حسّن",
+            "نختبر، ونحسّن، وننشر، وندعم تطور المنتج المستمر."
+          ]
+        },
+        {
+          "t0": 26,
+          "t1": 32,
+          "lines": [
+            "CTS",
+            "ابدأ مشروعًا",
+            "+966 50 380 7517"
+          ]
+        }
+      ],
+      "storyboard": [
+        {
+          "scene": 1,
+          "t0": 0,
+          "t1": 3,
+          "shot_ar": "ورق عاجي. سؤال الموقع سطرًا واحدًا، وتحته مسطرة شعرية.",
+          "hears": "الحل الصحيح يبدأ بالسؤال الصحيح.",
+          "visual_prompt": "Locked camera. Flat #F7F7F5. One right-aligned Arabic line in #171717: الحل الصحيح يبدأ بالسؤال الصحيح. A 1 pixel rule under it in #171717, only as wide as the line. No landscape and no centered poster layout."
+        },
+        {
+          "scene": 2,
+          "t0": 3,
+          "t1": 8.5,
+          "shot_ar": "الخطوة ٠١ افهم على حقل أبيض.",
+          "hears": "افهم. نحدد المشكلة الحقيقية في العمل.",
+          "visual_prompt": "Cut to #FFFFFF. Right margin: ٠١ in #F15A29, JetBrains Mono. Under it the word افهم in #171717, then the smaller line نحدد المشكلة الحقيقية في العمل. Left two-thirds of the frame stay empty."
+        },
+        {
+          "scene": 3,
+          "t0": 8.5,
+          "t1": 14,
+          "shot_ar": "الخطوة ٠٢ حدّد. الحقل فحمي حتى ينكسر التتابع البصري.",
+          "hears": "حدّد. نثبت نطاق المنتج والاتجاه التقني المناسب.",
+          "visual_prompt": "Cut to #171717. Same grid as the previous step. ٠٢ in #F15A29. The word حدّد in #FFFFFF. The line نثبت نطاق المنتج والاتجاه التقني المناسب. in #F7F7F5. No diagram."
+        },
+        {
+          "scene": 4,
+          "t0": 14,
+          "t1": 19.5,
+          "shot_ar": "الخطوة ٠٣ ابنِ على الأبيض من جديد.",
+          "hears": "ابنِ. نصمّم، ونطوّر، ونتحقق من الحل.",
+          "visual_prompt": "Cut to #FFFFFF. ٠٣ in #F15A29. ابنِ in #171717. Then نصمّم، ونطوّر، ونتحقق من الحل. Same right edge as ٠١. No construction metaphor and no crane."
+        },
+        {
+          "scene": 5,
+          "t0": 19.5,
+          "t1": 26,
+          "shot_ar": "الخطوة ٠٤ حسّن على العاجي.",
+          "hears": "حسّن. نختبر، ونحسّن، وننشر، وندعم تطور المنتج المستمر.",
+          "visual_prompt": "Cut to #F7F7F5. ٠٤ in #F15A29. حسّن in #171717. Then نختبر، ونحسّن، وننشر، وندعم تطور المنتج المستمر. The line may wrap to two lines. It stays right-aligned. No upward arrow and no growth chart."
+        },
+        {
+          "scene": 6,
+          "t0": 26,
+          "t1": 32,
+          "shot_ar": "بطاقة النهاية.",
+          "hears": "ابدأ مشروعًا.",
+          "visual_prompt": "Locked camera. Flat wall #171717, no texture and no vignette. A small white CTS in a plain grotesque, tracked wide. Under it a flat rectangle filled #F15A29, corner radius at most 2 pixels, no shadow, containing the white Arabic ابدأ مشروعًا. Under the rectangle, the digits +966 50 380 7517 in #F7F7F5, small enough to sit in one line and large enough to read. Empty around the block. No icon, no arrow, no QR code."
+        }
+      ],
+      "visual_prompts": [
+        "Locked camera. Flat #F7F7F5. One right-aligned Arabic line in #171717: الحل الصحيح يبدأ بالسؤال الصحيح. A 1 pixel rule under it in #171717, only as wide as the line. No landscape and no centered poster layout.",
+        "Cut to #FFFFFF. Right margin: ٠١ in #F15A29, JetBrains Mono. Under it the word افهم in #171717, then the smaller line نحدد المشكلة الحقيقية في العمل. Left two-thirds of the frame stay empty.",
+        "Cut to #171717. Same grid as the previous step. ٠٢ in #F15A29. The word حدّد in #FFFFFF. The line نثبت نطاق المنتج والاتجاه التقني المناسب. in #F7F7F5. No diagram.",
+        "Cut to #FFFFFF. ٠٣ in #F15A29. ابنِ in #171717. Then نصمّم، ونطوّر، ونتحقق من الحل. Same right edge as ٠١. No construction metaphor and no crane.",
+        "Cut to #F7F7F5. ٠٤ in #F15A29. حسّن in #171717. Then نختبر، ونحسّن، وننشر، وندعم تطور المنتج المستمر. The line may wrap to two lines. It stays right-aligned. No upward arrow and no growth chart.",
+        "Locked camera. Flat wall #171717, no texture and no vignette. A small white CTS in a plain grotesque, tracked wide. Under it a flat rectangle filled #F15A29, corner radius at most 2 pixels, no shadow, containing the white Arabic ابدأ مشروعًا. Under the rectangle, the digits +966 50 380 7517 in #F7F7F5, small enough to sit in one line and large enough to read. Empty around the block. No icon, no arrow, no QR code."
+      ],
+      "edit_notes": [
+        "الأرقام ٠١ إلى ٠٤ هنا خطوات المنهجية، لا خدمات الصفحة.",
+        "كلمة «وننشر» في خطوة حسّن تعني إطلاق المنتج كما على الموقع، لا نشر هذا الفيلم.",
+        "لا تُوضع الجملة الافتتاحية فوق مشهد أو أفق. هي سطر فهرس على ورق.",
+        "بين كل خطوة وأخرى سكتة قصيرة حتى يُقرأ السطر قبل الصوت التالي."
+      ],
+      "caption": "الحل الصحيح يبدأ بالسؤال الصحيح.\nافهم: نحدد المشكلة الحقيقية في العمل.\nحدّد: نثبت نطاق المنتج والاتجاه التقني المناسب.\nابنِ: نصمّم، ونطوّر، ونتحقق من الحل.\nحسّن: نختبر، ونحسّن، وننشر، وندعم تطور المنتج المستمر.\nابدأ مشروعًا\n+966 50 380 7517",
+      "cta": "ابدأ مشروعًا",
+      "hashtags": [
+        "#كور_تيك",
+        "#تحول_رقمي",
+        "#تفكير_المنتج",
+        "#المنهجية",
+        "#أصحاب_الأعمال",
+        "#السعودية"
+      ],
+      "duration_seconds": 32,
+      "suggested_post_time": "2026-11-10T21:10:00+03:00",
+      "suggested_post_label": "الثلاثاء 10 نوفمبر 2026، 21:10 بتوقيت الرياض",
+      "post_time_note": "اقتراح تحريري مساء الثلاثاء. لا يستند إلى قياس.",
+      "claims_used": [
+        "الحل الصحيح يبدأ بالسؤال الصحيح.",
+        "نحدد المشكلة الحقيقية في العمل.",
+        "نثبت نطاق المنتج والاتجاه التقني المناسب.",
+        "نصمّم، ونطوّر، ونتحقق من الحل.",
+        "نختبر، ونحسّن، وننشر، وندعم تطور المنتج المستمر.",
+        "ابدأ مشروعًا"
+      ],
+      "frame": "1080x1920",
+      "aspect_ratio": "9:16"
+    },
+    {
+      "id": "04-screens",
+      "number": "04",
+      "title_ar": "شاشة لا يُنجَز عليها عمل",
+      "objective": "توضيح أن الويب والجوال عند كور تيك يُبنيان حول مستخدمين حقيقيين وحالات استخدام فعلية، لا حول شاشة تعريف.",
+      "audience_segment": "شركة في السعودية تملك شاشة تعرض الاسم، وتحتاج تطبيق ويب أو تجربة جوال تُنجز عملًا لمستخدم حقيقي.",
+      "pillar": "ويب وموبايل",
+      "pillar_id": "web_mobile",
+      "concept": "مستطيل فارغ من حواف المتصفح، ثم جملة الموقع عن تطبيقات الويب وتجارب الجوال، ثم جملة الخطوة التقنية الصحيحة.",
+      "idea_en": "A screen that does not help anyone finish work is not a product. CTS builds responsive web applications and mobile experiences around real users and real use cases, and helps a company take the right technical step whether it is launching a product or changing how it works.",
+      "hook": "شاشة لا يُنجَز عليها عمل\nليست منتجًا.",
+      "script_ar": "شاشة لا يُنجَز عليها عمل، ليست منتجًا.\nتطبيقات ويب متجاوبة وتجارب جوال مصممة حول مستخدمين حقيقيين وحالات استخدام فعلية.\nسواء كنت تطلق منتجًا أو تطوّر طريقة عملك، نساعدك على اتخاذ الخطوة التقنية الصحيحة.\nابدأ مشروعًا.",
+      "voiceover": "شاشة لا يُنجَز عليها عمل، ليست منتجًا.\nتطبيقات ويب متجاوبة وتجارب جوال مصممة حول مستخدمين حقيقيين وحالات استخدام فعلية.\nسواء كنت تطلق منتجًا أو تطوّر طريقة عملك، نساعدك على اتخاذ الخطوة التقنية الصحيحة.\nابدأ مشروعًا.",
+      "on_screen_text": [
+        {
+          "t0": 0,
+          "t1": 3,
+          "lines": [
+            "شاشة لا يُنجَز عليها عمل",
+            "ليست منتجًا."
+          ]
+        },
+        {
+          "t0": 3,
+          "t1": 12,
+          "lines": [
+            "٠٣",
+            "تطبيقات ويب متجاوبة"
+          ]
+        },
+        {
+          "t0": 7,
+          "t1": 12,
+          "lines": [
+            "تجارب جوال"
+          ]
+        },
+        {
+          "t0": 12,
+          "t1": 20,
+          "lines": [
+            "مستخدمين حقيقيين",
+            "حالات استخدام فعلية"
+          ]
+        },
+        {
+          "t0": 16,
+          "t1": 20,
+          "lines": [
+            "الخطوة التقنية الصحيحة"
+          ]
+        },
+        {
+          "t0": 20,
+          "t1": 26,
+          "lines": [
+            "CTS",
+            "ابدأ مشروعًا",
+            "+966 50 380 7517"
+          ]
+        }
+      ],
+      "storyboard": [
+        {
+          "scene": 1,
+          "t0": 0,
+          "t1": 3,
+          "shot_ar": "أبيض. مستطيل بخط شعري، وداخله سطران. بلا هيكل هاتف.",
+          "hears": "شاشة لا يُنجَز عليها عمل، ليست منتجًا.",
+          "visual_prompt": "Locked camera. Field #FFFFFF. One rectangle stroked 1 pixel #171717, sharp corners, centered, about half the frame width, tall enough for two Arabic lines and no taller. Inside, right-aligned: شاشة لا يُنجَز عليها عمل in #171717 and ليست منتجًا. in #F15A29. No status bar, no browser chrome, no bezel, no hand holding a device."
+        },
+        {
+          "scene": 2,
+          "t0": 3,
+          "t1": 12,
+          "shot_ar": "الفحمي. ٠٣ ثم سطران من جملة الويب والجوال.",
+          "hears": "تطبيقات ويب متجاوبة وتجارب جوال مصممة حول مستخدمين حقيقيين وحالات استخدام فعلية.",
+          "visual_prompt": "Cut to #171717. Index ٠٣ in #F15A29, JetBrains Mono, on the right. White Arabic accumulates: تطبيقات ويب متجاوبة then تجارب جوال. The rectangle from the first scene is gone. No mock interface."
+        },
+        {
+          "scene": 3,
+          "t0": 12,
+          "t1": 20,
+          "shot_ar": "عاجي. سطران عن المستخدم والحالة، ثم سطر الخطوة الصحيحة.",
+          "hears": "سواء كنت تطلق منتجًا أو تطوّر طريقة عملك، نساعدك على اتخاذ الخطوة التقنية الصحيحة.",
+          "visual_prompt": "Cut to #F7F7F5. Right-aligned lines: مستخدمين حقيقيين and حالات استخدام فعلية in #171717, then الخطوة التقنية الصحيحة in #F15A29. No photo of a user and no persona card."
+        },
+        {
+          "scene": 4,
+          "t0": 20,
+          "t1": 26,
+          "shot_ar": "بطاقة النهاية.",
+          "hears": "ابدأ مشروعًا.",
+          "visual_prompt": "Locked camera. Flat wall #171717, no texture and no vignette. A small white CTS in a plain grotesque, tracked wide. Under it a flat rectangle filled #F15A29, corner radius at most 2 pixels, no shadow, containing the white Arabic ابدأ مشروعًا. Under the rectangle, the digits +966 50 380 7517 in #F7F7F5, small enough to sit in one line and large enough to read. Empty around the block. No icon, no arrow, no QR code."
+        }
+      ],
+      "visual_prompts": [
+        "Locked camera. Field #FFFFFF. One rectangle stroked 1 pixel #171717, sharp corners, centered, about half the frame width, tall enough for two Arabic lines and no taller. Inside, right-aligned: شاشة لا يُنجَز عليها عمل in #171717 and ليست منتجًا. in #F15A29. No status bar, no browser chrome, no bezel, no hand holding a device.",
+        "Cut to #171717. Index ٠٣ in #F15A29, JetBrains Mono, on the right. White Arabic accumulates: تطبيقات ويب متجاوبة then تجارب جوال. The rectangle from the first scene is gone. No mock interface.",
+        "Cut to #F7F7F5. Right-aligned lines: مستخدمين حقيقيين and حالات استخدام فعلية in #171717, then الخطوة التقنية الصحيحة in #F15A29. No photo of a user and no persona card.",
+        "Locked camera. Flat wall #171717, no texture and no vignette. A small white CTS in a plain grotesque, tracked wide. Under it a flat rectangle filled #F15A29, corner radius at most 2 pixels, no shadow, containing the white Arabic ابدأ مشروعًا. Under the rectangle, the digits +966 50 380 7517 in #F7F7F5, small enough to sit in one line and large enough to read. Empty around the block. No icon, no arrow, no QR code."
+      ],
+      "edit_notes": [
+        "المستطيل ليس هاتفًا ولا متصفحًا. بلا شريط حالة وبلا زر إغلاق.",
+        "٠٣ ترتيب ويب وموبايل على الموقع.",
+        "لا تُملأ الشاشة بأزرار أو قوائم متخيلة. النص المقفل هو المحتوى الوحيد داخل الإطار."
+      ],
+      "caption": "شاشة لا يُنجَز عليها عمل، ليست منتجًا.\nتطبيقات ويب متجاوبة وتجارب جوال مصممة حول مستخدمين حقيقيين وحالات استخدام فعلية.\nسواء كنت تطلق منتجًا أو تطوّر طريقة عملك، نساعدك على اتخاذ الخطوة التقنية الصحيحة.\nابدأ مشروعًا\n+966 50 380 7517",
+      "cta": "ابدأ مشروعًا",
+      "hashtags": [
+        "#كور_تيك",
+        "#تطبيقات_الويب",
+        "#تطبيقات_الجوال",
+        "#منتج_رقمي",
+        "#حالات_الاستخدام",
+        "#السعودية"
+      ],
+      "duration_seconds": 26,
+      "suggested_post_time": "2026-11-11T13:00:00+03:00",
+      "suggested_post_label": "الأربعاء 11 نوفمبر 2026، 13:00 بتوقيت الرياض",
+      "post_time_note": "اقتراح تحريري بعد منتصف نهار الأربعاء. لا يستند إلى قياس.",
+      "claims_used": [
+        "تطبيقات ويب متجاوبة وتجارب جوال مصممة حول مستخدمين حقيقيين وحالات استخدام فعلية.",
+        "سواء كنت تطلق منتجًا أو تطوّر طريقة عملك، نساعدك على اتخاذ الخطوة التقنية الصحيحة.",
+        "ابدأ مشروعًا"
+      ],
+      "frame": "1080x1920",
+      "aspect_ratio": "9:16"
+    },
+    {
+      "id": "05-practical-ai",
+      "number": "05",
+      "title_ar": "ليس سطرًا في العرض",
+      "objective": "حصر الوعد في قدرة ذكاء اصطناعي عملية داخل المنتج أو سير العمل، ثم فتح الحديث السري كما على صفحة التواصل.",
+      "audience_segment": "قيادة في السعودية طُلب منها إضافة ذكاء اصطناعي إلى العرض، ولم يُسمَّ بعد أين تتغير خطوة العمل.",
+      "pillar": "حلول مدعومة بالذكاء الاصطناعي",
+      "pillar_id": "practical_ai",
+      "concept": "سطر يرفض الشعار، ثم جملة الموقع عن القدرات العملية، ثم جملة السرية، ثم الدعوة.",
+      "idea_en": "AI is not a line in a deck. CTS integrates practical AI into products and workflows where it creates real value. The conversation offered on the site is a direct technical discussion, with the project's confidentiality protected.",
+      "hook": "ليس سطرًا في العرض.",
+      "script_ar": "الذكاء الاصطناعي ليس سطرًا في العرض.\nقدرات ذكاء اصطناعي عملية مدمجة في المنتجات وسير العمل حيث تخلق قيمة حقيقية.\nمناقشة تقنية مباشرة، مع الحفاظ على سرية مشروعك.\nابدأ مشروعًا.",
+      "voiceover": "الذكاء الاصطناعي ليس سطرًا في العرض.\nقدرات ذكاء اصطناعي عملية مدمجة في المنتجات وسير العمل حيث تخلق قيمة حقيقية.\nمناقشة تقنية مباشرة، مع الحفاظ على سرية مشروعك.\nابدأ مشروعًا.",
+      "on_screen_text": [
+        {
+          "t0": 0,
+          "t1": 3,
+          "lines": [
+            "ليس سطرًا في العرض."
+          ]
+        },
+        {
+          "t0": 3,
+          "t1": 13,
+          "lines": [
+            "٠٤",
+            "قدرات ذكاء اصطناعي عملية"
+          ]
+        },
+        {
+          "t0": 7,
+          "t1": 13,
+          "lines": [
+            "مدمجة في المنتجات وسير العمل"
+          ]
+        },
+        {
+          "t0": 10,
+          "t1": 13,
+          "lines": [
+            "حيث تخلق قيمة حقيقية"
+          ]
+        },
+        {
+          "t0": 13,
+          "t1": 22,
+          "lines": [
+            "مناقشة تقنية مباشرة،",
+            "مع الحفاظ على سرية مشروعك."
+          ]
+        },
+        {
+          "t0": 22,
+          "t1": 28,
+          "lines": [
+            "CTS",
+            "ابدأ مشروعًا",
+            "+966 50 380 7517"
+          ]
+        }
+      ],
+      "storyboard": [
+        {
+          "scene": 1,
+          "t0": 0,
+          "t1": 3,
+          "shot_ar": "فحمي. جملة واحدة قصيرة. لا رسم لآلة.",
+          "hears": "الذكاء الاصطناعي ليس سطرًا في العرض.",
+          "visual_prompt": "Locked camera. Matte #171717. One right-aligned line in #FFFFFF, large: ليس سطرًا في العرض. A 1 pixel #F15A29 rule, 64 pixels wide, above the line. No object, no particle, no lattice."
+        },
+        {
+          "scene": 2,
+          "t0": 3,
+          "t1": 13,
+          "shot_ar": "أبيض. ٠٤ وثلاثة أسطر هي مقطع حرفي من جملة الذكاء على الموقع.",
+          "hears": "قدرات ذكاء اصطناعي عملية مدمجة في المنتجات وسير العمل حيث تخلق قيمة حقيقية.",
+          "visual_prompt": "Cut to #FFFFFF. Index ٠٤ in #F15A29, JetBrains Mono. Three #171717 Arabic lines accumulate, right-aligned, even leading: قدرات ذكاء اصطناعي عملية / مدمجة في المنتجات وسير العمل / حيث تخلق قيمة حقيقية. The third line is #F15A29. No chart and no sparkle."
+        },
+        {
+          "scene": 3,
+          "t0": 13,
+          "t1": 22,
+          "shot_ar": "عاجي. سطر السرية كحاشية، لا كشعار أمان.",
+          "hears": "مناقشة تقنية مباشرة، مع الحفاظ على سرية مشروعك.",
+          "visual_prompt": "Cut to #F7F7F5. Small right-aligned type, #171717, two lines: مناقشة تقنية مباشرة، then مع الحفاظ على سرية مشروعك. Lots of empty paper above the lines, like a colophon. No lock icon, no shield, no stamp."
+        },
+        {
+          "scene": 4,
+          "t0": 22,
+          "t1": 28,
+          "shot_ar": "بطاقة النهاية.",
+          "hears": "ابدأ مشروعًا.",
+          "visual_prompt": "Locked camera. Flat wall #171717, no texture and no vignette. A small white CTS in a plain grotesque, tracked wide. Under it a flat rectangle filled #F15A29, corner radius at most 2 pixels, no shadow, containing the white Arabic ابدأ مشروعًا. Under the rectangle, the digits +966 50 380 7517 in #F7F7F5, small enough to sit in one line and large enough to read. Empty around the block. No icon, no arrow, no QR code."
+        }
+      ],
+      "visual_prompts": [
+        "Locked camera. Matte #171717. One right-aligned line in #FFFFFF, large: ليس سطرًا في العرض. A 1 pixel #F15A29 rule, 64 pixels wide, above the line. No object, no particle, no lattice.",
+        "Cut to #FFFFFF. Index ٠٤ in #F15A29, JetBrains Mono. Three #171717 Arabic lines accumulate, right-aligned, even leading: قدرات ذكاء اصطناعي عملية / مدمجة في المنتجات وسير العمل / حيث تخلق قيمة حقيقية. The third line is #F15A29. No chart and no sparkle.",
+        "Cut to #F7F7F5. Small right-aligned type, #171717, two lines: مناقشة تقنية مباشرة، then مع الحفاظ على سرية مشروعك. Lots of empty paper above the lines, like a colophon. No lock icon, no shield, no stamp.",
+        "Locked camera. Flat wall #171717, no texture and no vignette. A small white CTS in a plain grotesque, tracked wide. Under it a flat rectangle filled #F15A29, corner radius at most 2 pixels, no shadow, containing the white Arabic ابدأ مشروعًا. Under the rectangle, the digits +966 50 380 7517 in #F7F7F5, small enough to sit in one line and large enough to read. Empty around the block. No icon, no arrow, no QR code."
+      ],
+      "edit_notes": [
+        "ممنوع دماغ، وشبكة، وروبوت، ولوحة مجسمة. ٠٤ رقم الخدمة على الموقع لا أكثر.",
+        "سطر السرية يُعامل كخاتمة كتاب: صغير، على ورق، بلا قفل ذهبي وبلا ختم.",
+        "لا يُقال إن الصوت مُولَّد. لا ملف صوت في هذا الإعداد."
+      ],
+      "caption": "الذكاء الاصطناعي ليس سطرًا في العرض.\nقدرات ذكاء اصطناعي عملية مدمجة في المنتجات وسير العمل حيث تخلق قيمة حقيقية.\nمناقشة تقنية مباشرة، مع الحفاظ على سرية مشروعك.\nابدأ مشروعًا\n+966 50 380 7517",
+      "cta": "ابدأ مشروعًا",
+      "hashtags": [
+        "#كور_تيك",
+        "#ذكاء_اصطناعي",
+        "#حلول_عملية",
+        "#سير_العمل",
+        "#المنتجات_الرقمية",
+        "#السعودية"
+      ],
+      "duration_seconds": 28,
+      "suggested_post_time": "2026-11-12T20:30:00+03:00",
+      "suggested_post_label": "الخميس 12 نوفمبر 2026، 20:30 بتوقيت الرياض",
+      "post_time_note": "اقتراح تحريري مساء الخميس، آخر يوم عمل. لا يستند إلى قياس.",
+      "claims_used": [
+        "قدرات ذكاء اصطناعي عملية مدمجة في المنتجات وسير العمل حيث تخلق قيمة حقيقية.",
+        "مناقشة تقنية مباشرة، مع الحفاظ على سرية مشروعك.",
+        "ابدأ مشروعًا"
+      ],
+      "frame": "1080x1920",
+      "aspect_ratio": "9:16"
+    }
+  ]
+}

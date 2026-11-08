@@ -1,0 +1,84 @@
+{
+  "source": {
+    "file": "src/content/site.ts",
+    "commit": "8c50e30",
+    "live": "https://cts-red.vercel.app/",
+    "note": "Arabic strings are the master. A film may use a claim only if that exact string is listed here and appears in src/content/site.ts."
+  },
+  "identity": {
+    "name_ar": "شركة كور تيك",
+    "name_en": "Core Tech Solutions",
+    "mark": "CTS",
+    "market": "Saudi Arabia",
+    "language": "ar",
+    "direction": "rtl",
+    "tone": "premium, modern, Arabic-first, Swiss editorial",
+    "colors": {
+      "charcoal": "#171717",
+      "paper": "#F7F7F5",
+      "signal": "#F15A29",
+      "white": "#FFFFFF",
+      "muted": "#8E8E8A"
+    },
+    "typefaces_allowed": ["IBM Plex Sans Arabic", "JetBrains Mono"],
+    "typefaces_forbidden": ["Canela", "NT Panorama Naskh"],
+    "cta_ar": "ابدأ مشروعًا",
+    "whatsapp_display": "+966 50 380 7517",
+    "whatsapp_url": "https://wa.me/966503807517",
+    "email": "cts@sajadev.com"
+  },
+  "claims_ar": [
+    "نحوّل التحديات المعقدة إلى منتجات رقمية مفيدة، وهياكل برمجية قابلة للتوسع، وأدوات تشغيل سهلة الاستخدام.",
+    "نحوّل التحديات المعقدة إلى منتجات رقمية هادفة.",
+    "استراتيجية المنتج، تصميم تجربة وواجهة المستخدم، وتطوير المنتج الرقمي من البداية للنهاية.",
+    "أدوات تشغيل مخصصة، أتمتة سير العمل، وربط عمليات الأعمال.",
+    "تطبيقات ويب متجاوبة وتجارب جوال مصممة حول مستخدمين حقيقيين وحالات استخدام فعلية.",
+    "قدرات ذكاء اصطناعي عملية مدمجة في المنتجات وسير العمل حيث تخلق قيمة حقيقية.",
+    "الحل الصحيح يبدأ بالسؤال الصحيح.",
+    "نحدد المشكلة الحقيقية في العمل.",
+    "نثبت نطاق المنتج والاتجاه التقني المناسب.",
+    "نصمّم، ونطوّر، ونتحقق من الحل.",
+    "نختبر، ونحسّن، وننشر، وندعم تطور المنتج المستمر.",
+    "لا نبني فقط ما يُطلب منا. نكتشف ما",
+    "يحتاج فعلاً إلى البناء.",
+    "حلول تبدأ من احتياج حقيقي.",
+    "سواء كنت تطلق منتجًا أو تطوّر طريقة عملك، نساعدك على اتخاذ الخطوة التقنية الصحيحة.",
+    "مناقشة تقنية مباشرة، مع الحفاظ على سرية مشروعك.",
+    "ابدأ مشروعًا"
+  ],
+  "labels_ar": [
+    "افهم",
+    "حدّد",
+    "ابنِ",
+    "حسّن",
+    "منتجات رقمية",
+    "أنظمة الأعمال",
+    "ويب وموبايل",
+    "حلول مدعومة بالذكاء الاصطناعي"
+  ],
+  "channels_on_site": ["WhatsApp", "LinkedIn", "X", "TikTok"],
+  "channels_absent": ["Instagram", "YouTube"],
+  "publishing": "off",
+  "must_not_appear": [
+    "Any hue other than charcoal #171717, paper #F7F7F5, signal orange #F15A29, white #FFFFFF, and muted gray #8E8E8A",
+    "Blue, cyan, purple, green, gold, gradients, glassmorphism, neon, glow, bokeh, lens flare, particles, or a metallic sheen",
+    "Motivational quotes, English slogans, and the words unlock, empower, synergy, and 10x",
+    "Stock scenes: handshake, high-five, laughing team, person pointing at a laptop, glass-office startup, desert aerial, camel, luxury car, skyline hero, flying banknotes",
+    "Robots, brains, neural-network graphics, holographic dashboards, fake charts, fake percentages, fake client logos, prices, testimonials, or star ratings",
+    "Canela, NT Panorama Naskh, Thuluth, Diwani, or ornamental Arabic calligraphy",
+    "People, faces, hands, and body parts",
+    "Watermarks, letterboxing, a 16:9 frame, a phone bezel, browser chrome, or an Instagram, YouTube, or TikTok interface",
+    "Latin sentences. The only Latin letters allowed on screen are CTS",
+    "Any Arabic word that is not in the locked on-screen list for that timecode",
+    "A crown, a circuit-board pattern, a generic app icon, a QR code, or a redraw of an unrelated logo"
+  ],
+  "edit_rules_ar": [
+    "قطع مباشر. بلا موسيقى وبلا مؤثر عبور.",
+    "البرتقالي مسطّح #F15A29 فقط. بلا توهج وبلا تدرّج.",
+    "النص العربي بخط IBM Plex Sans Arabic، والأرقام بخط JetBrains Mono. ممنوع Canela وممنوع NT Panorama Naskh.",
+    "منطقة آمنة: النص داخل ٨٠٪ من منتصف الإطار حتى لا تغطيه واجهة المنصة.",
+    "بطاقة النهاية لا تقل عن ٥ ثوانٍ، ورقم الواتساب يُقرأ بلا تقريب.",
+    "إذا انكسر حرف عربي تُستبدل اللقطة ببطاقة لون مسطّح ويُعاد السطر المقفل كما هو. لا يُستبدل بمرادف.",
+    "هذا الإعداد لا ينشر. لا يُضاف وسم تعليق صوتي مُولَّد قبل أن يوجد ملف صوت."
+  ]
+}

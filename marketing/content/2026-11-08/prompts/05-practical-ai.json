@@ -1,0 +1,116 @@
+{
+  "provider": "openai",
+  "kind": "video.generate",
+  "swappable": true,
+  "submit": false,
+  "item_id": "05-practical-ai",
+  "request": {
+    "method": "POST",
+    "url": "https://api.openai.com/v1/videos",
+    "headers": {
+      "Authorization": "Bearer ${OPENAI_API_KEY}",
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "model": "${OPENAI_VIDEO_MODEL}",
+      "prompt": "Generate one vertical film for Core Tech Solutions (CTS), a Saudi product studio.\nAspect ratio 9:16. Frame size 1080x1920. Duration 28 seconds. 30 frames per second.\nHard cuts only. Locked camera. Flat color fields. No music in the picture.\n\nIDENTITY LOCK\nName on the end card: CTS. Spoken brand: شركة كور تيك.\nTone: premium, modern, Arabic-first, Swiss editorial. Wide empty field, hairline rules, one accent.\nPalette, and no other hues: charcoal #171717, paper #F7F7F5, signal #F15A29, white #FFFFFF, muted #8E8E8A.\nArabic type: IBM Plex Sans Arabic, grotesque, even stroke, right-aligned, no shadow.\nIndex numerals: JetBrains Mono. If a named family cannot be drawn, use a plain grotesque with the same color and alignment.\n\nIDEA\nAI is not a line in a deck. CTS integrates practical AI into products and workflows where it creates real value. The conversation offered on the site is a direct technical discussion, with the project's confidentiality protected.\n\nARABIC ON-SCREEN TEXT\nRender these strings exactly, right-aligned, in this order, and only while their times are active.\nCopy the Arabic code points. Do not add tashkeel, do not translate, do not paraphrase, do not mirror glyphs.\nDo not put the voiceover paragraph on screen.\n- 0s to 3s: ليس سطرًا في العرض.\n- 3s to 13s: ٠٤ / قدرات ذكاء اصطناعي عملية\n- 7s to 13s: مدمجة في المنتجات وسير العمل\n- 10s to 13s: حيث تخلق قيمة حقيقية\n- 13s to 22s: مناقشة تقنية مباشرة، / مع الحفاظ على سرية مشروعك.\n- 22s to 28s: CTS / ابدأ مشروعًا / +966 50 380 7517\n\nVOICE\nNo person in frame. No lip-sync. No talking head. The spoken stem is added later and is not typeset.\nالذكاء الاصطناعي ليس سطرًا في العرض.\nقدرات ذكاء اصطناعي عملية مدمجة في المنتجات وسير العمل حيث تخلق قيمة حقيقية.\nمناقشة تقنية مباشرة، مع الحفاظ على سرية مشروعك.\nابدأ مشروعًا.\n\nSCENES\nScene 1 (0s–3s). Locked camera. Matte #171717. One right-aligned line in #FFFFFF, large: ليس سطرًا في العرض. A 1 pixel #F15A29 rule, 64 pixels wide, above the line. No object, no particle, no lattice.\nScene 2 (3s–13s). Cut to #FFFFFF. Index ٠٤ in #F15A29, JetBrains Mono. Three #171717 Arabic lines accumulate, right-aligned, even leading: قدرات ذكاء اصطناعي عملية / مدمجة في المنتجات وسير العمل / حيث تخلق قيمة حقيقية. The third line is #F15A29. No chart and no sparkle.\nScene 3 (13s–22s). Cut to #F7F7F5. Small right-aligned type, #171717, two lines: مناقشة تقنية مباشرة، then مع الحفاظ على سرية مشروعك. Lots of empty paper above the lines, like a colophon. No lock icon, no shield, no stamp.\nScene 4 (22s–28s). Locked camera. Flat wall #171717, no texture and no vignette. A small white CTS in a plain grotesque, tracked wide. Under it a flat rectangle filled #F15A29, corner radius at most 2 pixels, no shadow, containing the white Arabic ابدأ مشروعًا. Under the rectangle, the digits +966 50 380 7517 in #F7F7F5, small enough to sit in one line and large enough to read. Empty around the block. No icon, no arrow, no QR code.\n\nMUST NOT APPEAR\n- Any hue other than charcoal #171717, paper #F7F7F5, signal orange #F15A29, white #FFFFFF, and muted gray #8E8E8A\n- Blue, cyan, purple, green, gold, gradients, glassmorphism, neon, glow, bokeh, lens flare, particles, or a metallic sheen\n- Motivational quotes, English slogans, and the words unlock, empower, synergy, and 10x\n- Stock scenes: handshake, high-five, laughing team, person pointing at a laptop, glass-office startup, desert aerial, camel, luxury car, skyline hero, flying banknotes\n- Robots, brains, neural-network graphics, holographic dashboards, fake charts, fake percentages, fake client logos, prices, testimonials, or star ratings\n- Canela, NT Panorama Naskh, Thuluth, Diwani, or ornamental Arabic calligraphy\n- People, faces, hands, and body parts\n- Watermarks, letterboxing, a 16:9 frame, a phone bezel, browser chrome, or an Instagram, YouTube, or TikTok interface\n- Latin sentences. The only Latin letters allowed on screen are CTS\n- Any Arabic word that is not in the locked on-screen list for that timecode\n- A crown, a circuit-board pattern, a generic app icon, a QR code, or a redraw of an unrelated logo\n",
+      "size": "1080x1920",
+      "seconds": "28"
+    }
+  },
+  "locks": {
+    "aspect_ratio": "9:16",
+    "size": "1080x1920",
+    "duration_seconds": 28,
+    "identity": {
+      "name_ar": "شركة كور تيك",
+      "name_en": "Core Tech Solutions",
+      "mark": "CTS",
+      "market": "Saudi Arabia",
+      "language": "ar",
+      "direction": "rtl",
+      "tone": "premium, modern, Arabic-first, Swiss editorial",
+      "colors": {
+        "charcoal": "#171717",
+        "paper": "#F7F7F5",
+        "signal": "#F15A29",
+        "white": "#FFFFFF",
+        "muted": "#8E8E8A"
+      },
+      "typefaces_allowed": [
+        "IBM Plex Sans Arabic",
+        "JetBrains Mono"
+      ],
+      "typefaces_forbidden": [
+        "Canela",
+        "NT Panorama Naskh"
+      ],
+      "cta_ar": "ابدأ مشروعًا",
+      "whatsapp_display": "+966 50 380 7517",
+      "whatsapp_url": "https://wa.me/966503807517",
+      "email": "cts@sajadev.com"
+    },
+    "idea": "AI is not a line in a deck. CTS integrates practical AI into products and workflows where it creates real value. The conversation offered on the site is a direct technical discussion, with the project's confidentiality protected.",
+    "on_screen_text": [
+      {
+        "t0": 0,
+        "t1": 3,
+        "lines": [
+          "ليس سطرًا في العرض."
+        ]
+      },
+      {
+        "t0": 3,
+        "t1": 13,
+        "lines": [
+          "٠٤",
+          "قدرات ذكاء اصطناعي عملية"
+        ]
+      },
+      {
+        "t0": 7,
+        "t1": 13,
+        "lines": [
+          "مدمجة في المنتجات وسير العمل"
+        ]
+      },
+      {
+        "t0": 10,
+        "t1": 13,
+        "lines": [
+          "حيث تخلق قيمة حقيقية"
+        ]
+      },
+      {
+        "t0": 13,
+        "t1": 22,
+        "lines": [
+          "مناقشة تقنية مباشرة،",
+          "مع الحفاظ على سرية مشروعك."
+        ]
+      },
+      {
+        "t0": 22,
+        "t1": 28,
+        "lines": [
+          "CTS",
+          "ابدأ مشروعًا",
+          "+966 50 380 7517"
+        ]
+      }
+    ],
+    "must_not_appear": [
+      "Any hue other than charcoal #171717, paper #F7F7F5, signal orange #F15A29, white #FFFFFF, and muted gray #8E8E8A",
+      "Blue, cyan, purple, green, gold, gradients, glassmorphism, neon, glow, bokeh, lens flare, particles, or a metallic sheen",
+      "Motivational quotes, English slogans, and the words unlock, empower, synergy, and 10x",
+      "Stock scenes: handshake, high-five, laughing team, person pointing at a laptop, glass-office startup, desert aerial, camel, luxury car, skyline hero, flying banknotes",
+      "Robots, brains, neural-network graphics, holographic dashboards, fake charts, fake percentages, fake client logos, prices, testimonials, or star ratings",
+      "Canela, NT Panorama Naskh, Thuluth, Diwani, or ornamental Arabic calligraphy",
+      "People, faces, hands, and body parts",
+      "Watermarks, letterboxing, a 16:9 frame, a phone bezel, browser chrome, or an Instagram, YouTube, or TikTok interface",
+      "Latin sentences. The only Latin letters allowed on screen are CTS",
+      "Any Arabic word that is not in the locked on-screen list for that timecode",
+      "A crown, a circuit-board pattern, a generic app icon, a QR code, or a redraw of an unrelated logo"
+    ]
+  }
+}
