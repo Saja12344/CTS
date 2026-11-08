@@ -1,0 +1,51 @@
+Generate one vertical film for Core Tech Solutions (CTS), a Saudi product studio.
+Aspect ratio 9:16. Frame size 1080x1920. Duration 26 seconds. 30 frames per second.
+Hard cuts only. Locked camera. Flat color fields. No music in the picture.
+
+IDENTITY LOCK
+Name on the end card: CTS. Spoken brand: شركة كور تيك.
+Tone: premium, modern, Arabic-first, Swiss editorial. Wide empty field, hairline rules, one accent.
+Palette, and no other hues: charcoal #171717, paper #F7F7F5, signal #F15A29, white #FFFFFF, muted #8E8E8A.
+Arabic type: IBM Plex Sans Arabic, grotesque, even stroke, right-aligned, no shadow.
+Index numerals: JetBrains Mono. If a named family cannot be drawn, use a plain grotesque with the same color and alignment.
+
+IDEA
+A founder has an idea and does not yet have a product. CTS does product strategy, UX and UI, and end-to-end digital product development, and looks for what actually needs to be built rather than only what was requested.
+
+ARABIC ON-SCREEN TEXT
+Render these strings exactly, right-aligned, in this order, and only while their times are active.
+Copy the Arabic code points. Do not add tashkeel, do not translate, do not paraphrase, do not mirror glyphs.
+Do not put the voiceover paragraph on screen.
+- 0s to 3s: عندك فكرة. / ليس عندك منتج.
+- 3s to 12s: ٠١ / استراتيجية المنتج
+- 6s to 12s: تصميم تجربة وواجهة المستخدم
+- 9s to 12s: من البداية للنهاية
+- 12s to 20.5s: لا نبني فقط ما يُطلب منا.
+- 16s to 20.5s: يحتاج فعلاً إلى البناء.
+- 20.5s to 26s: CTS / ابدأ مشروعًا / +966 50 380 7517
+
+VOICE
+No person in frame. No lip-sync. No talking head. The spoken stem is added later and is not typeset.
+عندك فكرة. ليس عندك منتج.
+استراتيجية المنتج، تصميم تجربة وواجهة المستخدم، وتطوير المنتج الرقمي من البداية للنهاية.
+لا نبني فقط ما يُطلب منا. نكتشف ما يحتاج فعلاً إلى البناء.
+ابدأ مشروعًا.
+
+SCENES
+Scene 1 (0s–3s). Locked camera. Flat #FFFFFF sheet, no paper grain, no pen, no light bulb. Right-aligned Arabic in #171717: عندك فكرة. Then ليس عندك منتج. in #F15A29. Large type, two lines, deep margin.
+Scene 2 (3s–12s). Cut to #171717. One vertical bar, 6 pixels wide, #F15A29, full height of the type block only. Index ٠١ in JetBrains Mono, #F15A29. Three white Arabic lines accumulate, right-aligned: استراتيجية المنتج / تصميم تجربة وواجهة المستخدم / من البداية للنهاية. No device.
+Scene 3 (12s–20.5s). Cut to #F7F7F5. Two right-aligned lines. First in #171717: لا نبني فقط ما يُطلب منا. Second in #F15A29: يحتاج فعلاً إلى البناء. Wide empty left side. No quotation marks and no portrait.
+Scene 4 (20.5s–26s). Locked camera. Flat wall #171717, no texture and no vignette. A small white CTS in a plain grotesque, tracked wide. Under it a flat rectangle filled #F15A29, corner radius at most 2 pixels, no shadow, containing the white Arabic ابدأ مشروعًا. Under the rectangle, the digits +966 50 380 7517 in #F7F7F5, small enough to sit in one line and large enough to read. Empty around the block. No icon, no arrow, no QR code.
+
+MUST NOT APPEAR
+- Any hue other than charcoal #171717, paper #F7F7F5, signal orange #F15A29, white #FFFFFF, and muted gray #8E8E8A
+- Blue, cyan, purple, green, gold, gradients, glassmorphism, neon, glow, bokeh, lens flare, particles, or a metallic sheen
+- Motivational quotes, English slogans, and the words unlock, empower, synergy, and 10x
+- Stock scenes: handshake, high-five, laughing team, person pointing at a laptop, glass-office startup, desert aerial, camel, luxury car, skyline hero, flying banknotes
+- Robots, brains, neural-network graphics, holographic dashboards, fake charts, fake percentages, fake client logos, prices, testimonials, or star ratings
+- Canela, NT Panorama Naskh, Thuluth, Diwani, or ornamental Arabic calligraphy
+- People, faces, hands, and body parts
+- Watermarks, letterboxing, a 16:9 frame, a phone bezel, browser chrome, or an Instagram, YouTube, or TikTok interface
+- Latin sentences. The only Latin letters allowed on screen are CTS
+- Any Arabic word that is not in the locked on-screen list for that timecode
+- A crown, a circuit-board pattern, a generic app icon, a QR code, or a redraw of an unrelated logo

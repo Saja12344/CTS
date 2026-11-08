@@ -1,0 +1,54 @@
+Generate one vertical film for Core Tech Solutions (CTS), a Saudi product studio.
+Aspect ratio 9:16. Frame size 1080x1920. Duration 28 seconds. 30 frames per second.
+Hard cuts only. Locked camera. Flat color fields. No music in the picture.
+
+IDENTITY LOCK
+Name on the end card: CTS. Spoken brand: شركة كور تيك.
+Tone: premium, modern, Arabic-first, Swiss editorial. Wide empty field, hairline rules, one accent.
+Palette, and no other hues: charcoal #171717, paper #F7F7F5, signal #F15A29, white #FFFFFF, muted #8E8E8A.
+Arabic type: IBM Plex Sans Arabic, grotesque, even stroke, right-aligned, no shadow.
+Index numerals: JetBrains Mono. If a named family cannot be drawn, use a plain grotesque with the same color and alignment.
+
+IDEA
+A Saudi operator's day still moves while the system does not: one request, one number, and one approval live apart. CTS builds custom operating tools, workflow automation, and connected business processes, and starts by naming the real problem.
+
+ARABIC ON-SCREEN TEXT
+Render these strings exactly, right-aligned, in this order, and only while their times are active.
+Copy the Arabic code points. Do not add tashkeel, do not translate, do not paraphrase, do not mirror glyphs.
+Do not put the voiceover paragraph on screen.
+- 0s to 2.5s: العمل يمشي. / النظام لا.
+- 2.5s to 9s: طلب في محادثة
+- 4.5s to 9s: رقم في جدول
+- 6.5s to 9s: اعتماد في رأس شخص
+- 9s to 16.5s: أدوات تشغيل مخصصة / أتمتة سير العمل
+- 12.5s to 16.5s: ربط عمليات الأعمال
+- 16.5s to 22.5s: نحدد المشكلة الحقيقية في العمل.
+- 22.5s to 28s: CTS / ابدأ مشروعًا / +966 50 380 7517
+
+VOICE
+No person in frame. No lip-sync. No talking head. The spoken stem is added later and is not typeset.
+العمل يمشي. النظام لا.
+الطلب في محادثة، والرقم في جدول، والاعتماد في رأس شخص.
+أدوات تشغيل مخصصة، أتمتة سير العمل، وربط عمليات الأعمال.
+نحدد المشكلة الحقيقية في العمل.
+ابدأ مشروعًا.
+
+SCENES
+Scene 1 (0s–2.5s). Locked camera. Matte wall #171717, even light, no falloff. Right-aligned IBM Plex Sans Arabic. First line in #FFFFFF: العمل يمشي. Second line in flat #F15A29: النظام لا. Wide empty field to the left. No object in the room.
+Scene 2 (2.5s–9s). Cut to a flat field #F7F7F5. Hairline rules #E5E5E1 between three accumulating Arabic lines, right-aligned, color #171717: طلب في محادثة then رقم في جدول then اعتماد في رأس شخص. Margin index ٠٢ in #F15A29, JetBrains Mono. No icons and no app marks. Lines appear on the locked times, same x-position.
+Scene 3 (9s–16.5s). Cut to #171717. A hairline vertical rule in #FFFFFF near the right margin. White Arabic, right-aligned, with ربط عمليات الأعمال in #F15A29: أدوات تشغيل مخصصة / أتمتة سير العمل / ربط عمليات الأعمال. Nothing else.
+Scene 4 (16.5s–22.5s). Cut to #FFFFFF. One Arabic line, right-aligned, #171717: نحدد المشكلة الحقيقية في العمل. A short orange rule #F15A29 above it, 48 pixels wide, 1 pixel tall. No illustration.
+Scene 5 (22.5s–28s). Locked camera. Flat wall #171717, no texture and no vignette. A small white CTS in a plain grotesque, tracked wide. Under it a flat rectangle filled #F15A29, corner radius at most 2 pixels, no shadow, containing the white Arabic ابدأ مشروعًا. Under the rectangle, the digits +966 50 380 7517 in #F7F7F5, small enough to sit in one line and large enough to read. Empty around the block. No icon, no arrow, no QR code.
+
+MUST NOT APPEAR
+- Any hue other than charcoal #171717, paper #F7F7F5, signal orange #F15A29, white #FFFFFF, and muted gray #8E8E8A
+- Blue, cyan, purple, green, gold, gradients, glassmorphism, neon, glow, bokeh, lens flare, particles, or a metallic sheen
+- Motivational quotes, English slogans, and the words unlock, empower, synergy, and 10x
+- Stock scenes: handshake, high-five, laughing team, person pointing at a laptop, glass-office startup, desert aerial, camel, luxury car, skyline hero, flying banknotes
+- Robots, brains, neural-network graphics, holographic dashboards, fake charts, fake percentages, fake client logos, prices, testimonials, or star ratings
+- Canela, NT Panorama Naskh, Thuluth, Diwani, or ornamental Arabic calligraphy
+- People, faces, hands, and body parts
+- Watermarks, letterboxing, a 16:9 frame, a phone bezel, browser chrome, or an Instagram, YouTube, or TikTok interface
+- Latin sentences. The only Latin letters allowed on screen are CTS
+- Any Arabic word that is not in the locked on-screen list for that timecode
+- A crown, a circuit-board pattern, a generic app icon, a QR code, or a redraw of an unrelated logo
