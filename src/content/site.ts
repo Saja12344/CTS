@@ -96,6 +96,11 @@ export const siteContent = {
       success: "شكرًا لك. سنتواصل معك قريبًا.",
       whatsappIntro: "مرحباً Core Tech Solutions",
     },
+    notFound: {
+      code: "404",
+      title: "الصفحة غير موجودة",
+      action: "العودة للرئيسية",
+    },
     footer: {
       brand: "CTS",
       brandSub: "Core Tech Solutions",
@@ -211,6 +216,11 @@ export const siteContent = {
       submit: "Let's talk",
       success: "Thank you. We will be in touch shortly.",
       whatsappIntro: "Hello Core Tech Solutions",
+    },
+    notFound: {
+      code: "404",
+      title: "This page does not exist",
+      action: "Back to home",
     },
     footer: {
       brand: "CTS",

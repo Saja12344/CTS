@@ -1,10 +1,9 @@
 import { Instagram, Linkedin, Twitter } from "lucide-react";
+import { NavLink } from "react-router-dom";
 import logoMark from "@/assets/logo-mark-light.png";
-import { Language, siteContent } from "@/content/site";
-
-type FooterProps = {
-  content: (typeof siteContent)[Language]["footer"];
-};
+import { useSiteLanguage } from "@/context/LanguageContext";
+import { siteRoutes } from "@/lib/routes";
+import { cn } from "@/lib/utils";
 
 const TikTokIcon = ({ className }: { className?: string }) => (
   <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
@@ -28,7 +27,15 @@ const socialIcon = (name: string) => {
   }
 };
 
-const Footer = ({ content }: FooterProps) => {
+const Footer = () => {
+  const { content } = useSiteLanguage();
+  const footer = content.footer;
+  const links = [
+    { to: siteRoutes.build, label: footer.build },
+    { to: siteRoutes.approach, label: footer.approach },
+    { to: siteRoutes.thinking, label: footer.thinking },
+  ];
+
   return (
     <footer className="w-full border-t border-white/[0.06] bg-[#111111] py-16 text-white">
       <div className="grid-shell">
@@ -37,36 +44,36 @@ const Footer = ({ content }: FooterProps) => {
             <img src={logoMark} alt="" className="h-6 w-6 object-contain opacity-80" />
             <div className="flex flex-col">
               <span className="font-heading text-base font-bold leading-none tracking-tight">
-                {content.brand}
+                {footer.brand}
               </span>
               <span className="font-mono-label text-[9px] uppercase tracking-wider text-brand-muted">
-                {content.brandSub}
+                {footer.brandSub}
               </span>
             </div>
           </div>
 
-          <p className="max-w-md text-sm text-brand-muted">{content.tagline}</p>
+          <p className="max-w-md text-sm text-brand-muted">{footer.tagline}</p>
 
-          <nav aria-label="Footer" className="flex items-center gap-8 text-sm text-brand-muted">
-            <a href="#capabilities" className="transition-colors hover:text-white">
-              {content.build}
-            </a>
-            <a href="#approach" className="transition-colors hover:text-white">
-              {content.approach}
-            </a>
-            <a href="#thinking" className="transition-colors hover:text-white">
-              {content.thinking}
-            </a>
+          <nav aria-label="Footer" className="flex flex-wrap items-center gap-8 text-sm text-brand-muted">
+            {links.map((link) => (
+              <NavLink
+                key={link.to}
+                to={link.to}
+                className={({ isActive }) => cn("transition-colors hover:text-white", isActive && "text-white")}
+              >
+                {link.label}
+              </NavLink>
+            ))}
           </nav>
         </div>
 
         <div className="flex flex-col gap-6 pt-8 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex flex-col gap-3">
             <span className="font-mono-label text-[11px] uppercase tracking-wider text-white/50">
-              {content.socialLabel}
+              {footer.socialLabel}
             </span>
             <div className="flex flex-wrap items-center gap-3">
-              {content.social.map((item) => (
+              {footer.social.map((item) => (
                 <a
                   key={item.name}
                   href={item.href}
@@ -83,13 +90,13 @@ const Footer = ({ content }: FooterProps) => {
 
           <div className="flex flex-col items-start gap-2 text-xs text-brand-muted sm:items-end">
             <span>
-              © {new Date().getFullYear()} Core Tech Solutions. {content.rights}
+              © {new Date().getFullYear()} Core Tech Solutions. {footer.rights}
             </span>
             <a
-              href={`mailto:${content.email}`}
+              href={`mailto:${footer.email}`}
               className="font-mono-label text-brand-muted transition-colors hover:text-white"
             >
-              {content.email}
+              {footer.email}
             </a>
           </div>
         </div>
