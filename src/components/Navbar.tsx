@@ -1,23 +1,30 @@
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import logoMark from "@/assets/logo-mark-light.png";
-import { Language, siteContent } from "@/content/site";
+import { useSiteLanguage } from "@/context/LanguageContext";
+import { siteRoutes } from "@/lib/routes";
+import { cn } from "@/lib/utils";
 
-type NavbarProps = {
-  content: (typeof siteContent)[Language]["nav"];
-  language: Language;
-  onLanguageChange: (language: Language) => void;
-};
+const linkClass = (isActive: boolean) =>
+  cn(
+    "relative text-sm font-medium transition-colors after:absolute after:-bottom-2 after:inset-x-0 after:h-px after:origin-center after:bg-brand-orange after:transition-transform after:duration-300 after:content-['']",
+    isActive
+      ? "text-white after:scale-x-100"
+      : "text-white/70 after:scale-x-0 hover:text-white hover:after:scale-x-100",
+  );
 
-const Navbar = ({ content, language, onLanguageChange }: NavbarProps) => {
+const Navbar = () => {
+  const { content, language, setLanguage } = useSiteLanguage();
+  const location = useLocation();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const isArabic = language === "ar";
 
   const links = [
-    { href: "#capabilities", label: content.build },
-    { href: "#approach", label: content.approach },
-    { href: "#thinking", label: content.thinking },
+    { to: siteRoutes.build, label: content.nav.build },
+    { to: siteRoutes.approach, label: content.nav.approach },
+    { to: siteRoutes.thinking, label: content.nav.thinking },
   ];
 
   useEffect(() => {
@@ -26,6 +33,10 @@ const Navbar = ({ content, language, onLanguageChange }: NavbarProps) => {
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  useEffect(() => {
+    setMobileOpen(false);
+  }, [location.pathname]);
 
   return (
     <header
@@ -36,7 +47,7 @@ const Navbar = ({ content, language, onLanguageChange }: NavbarProps) => {
       }`}
     >
       <div className="grid-shell flex h-20 items-center justify-between">
-        <a href="#hero" className="group flex items-center gap-3.5" aria-label="Core Tech Solutions">
+        <Link to={siteRoutes.home} className="group flex items-center gap-3.5" aria-label="Core Tech Solutions">
           <img
             src={logoMark}
             alt=""
@@ -44,19 +55,19 @@ const Navbar = ({ content, language, onLanguageChange }: NavbarProps) => {
           />
           <div className="flex flex-col">
             <span className="font-heading text-lg font-bold leading-none tracking-tight text-white">
-              {content.brand}
+              {content.nav.brand}
             </span>
             <span className="font-mono-label mt-0.5 text-[9px] uppercase tracking-widest text-brand-muted">
-              {content.brandSub}
+              {content.nav.brandSub}
             </span>
           </div>
-        </a>
+        </Link>
 
-        <nav className="hidden items-center gap-10 text-sm font-medium text-white/70 md:flex" aria-label="Primary">
+        <nav className="hidden items-center gap-10 md:flex" aria-label="Primary">
           {links.map((link) => (
-            <a key={link.href} href={link.href} className="transition-colors hover:text-white">
+            <NavLink key={link.to} to={link.to} className={({ isActive }) => linkClass(isActive)}>
               {link.label}
-            </a>
+            </NavLink>
           ))}
         </nav>
 
@@ -64,22 +75,23 @@ const Navbar = ({ content, language, onLanguageChange }: NavbarProps) => {
           <button
             type="button"
             id="lang-toggle"
-            onClick={() => onLanguageChange(isArabic ? "en" : "ar")}
+            onClick={() => setLanguage(isArabic ? "en" : "ar")}
             className="rounded border border-white/10 px-3 py-2 text-xs font-medium text-white/70 transition-colors hover:border-white/25 hover:text-white"
           >
-            {content.language}
+            {content.nav.language}
           </button>
-          <a href="#contact" className="btn-primary-sm">
-            {content.cta}
-          </a>
+          <NavLink to={siteRoutes.contact} className="btn-primary-sm">
+            {content.nav.cta}
+          </NavLink>
         </div>
 
         <button
           type="button"
+          id="menu-toggle"
           className="text-white md:hidden"
-          aria-label={content.menuLabel}
+          aria-label={content.nav.menuLabel}
           aria-expanded={mobileOpen}
-          onClick={() => setMobileOpen((v) => !v)}
+          onClick={() => setMobileOpen((open) => !open)}
         >
           {mobileOpen ? <X size={22} /> : <Menu size={22} />}
         </button>
@@ -87,33 +99,27 @@ const Navbar = ({ content, language, onLanguageChange }: NavbarProps) => {
 
       {mobileOpen ? (
         <div className="border-t border-white/[0.06] bg-brand-charcoal md:hidden">
-          <div className="grid-shell flex flex-col py-4">
+          <div className="grid-shell flex min-h-[calc(100dvh-5rem)] flex-col py-6">
             {links.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={() => setMobileOpen(false)}
-                className="py-3 text-sm text-white/70 transition-colors hover:text-white"
+              <NavLink
+                key={link.to}
+                to={link.to}
+                className={({ isActive }) =>
+                  cn("py-3 text-sm transition-colors", isActive ? "text-white" : "text-white/70 hover:text-white")
+                }
               >
                 {link.label}
-              </a>
+              </NavLink>
             ))}
-            <a
-              href="#contact"
-              onClick={() => setMobileOpen(false)}
-              className="btn-primary-sm mt-3 justify-center"
-            >
-              {content.cta}
-            </a>
+            <NavLink to={siteRoutes.contact} className="btn-primary-sm mt-3 justify-center">
+              {content.nav.cta}
+            </NavLink>
             <button
               type="button"
-              onClick={() => {
-                onLanguageChange(isArabic ? "en" : "ar");
-                setMobileOpen(false);
-              }}
+              onClick={() => setLanguage(isArabic ? "en" : "ar")}
               className="mt-3 py-3 text-center text-xs uppercase tracking-[0.2em] text-white/60"
             >
-              {content.language}
+              {content.nav.language}
             </button>
           </div>
         </div>

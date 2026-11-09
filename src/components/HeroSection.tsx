@@ -1,6 +1,8 @@
 import { motion, useReducedMotion } from "framer-motion";
+import { Link } from "react-router-dom";
 import atmosphere from "@/assets/hero-atmosphere.jpg";
 import { cinematicEase } from "@/lib/motion";
+import { siteRoutes } from "@/lib/routes";
 import { Language, siteContent } from "@/content/site";
 
 type HeroSectionProps = {
@@ -15,7 +17,7 @@ const HeroSection = ({ content, language }: HeroSectionProps) => {
   return (
     <section
       id="hero"
-      className="relative flex min-h-[92vh] items-center overflow-hidden bg-brand-charcoal pb-20 pt-28"
+      className="relative flex min-h-screen items-center overflow-hidden bg-brand-charcoal pb-20 pt-28"
     >
       <div className="pointer-events-none absolute inset-0 z-0 select-none overflow-hidden">
         <img
@@ -63,15 +65,15 @@ const HeroSection = ({ content, language }: HeroSectionProps) => {
             transition={{ duration: 0.65, ease: cinematicEase, delay: 0.18 }}
             className="flex flex-wrap items-center gap-6 pt-4"
           >
-            <a href="#contact" className="btn-primary shadow-lg shadow-brand-orange/20">
+            <Link to={siteRoutes.contact} className="btn-primary shadow-lg shadow-brand-orange/20">
               {content.primaryCta}
-            </a>
-            <a
-              href="#approach"
+            </Link>
+            <Link
+              to={siteRoutes.approach}
               className="inline-flex items-center px-2 py-3 text-sm font-medium text-white/80 transition-colors hover:text-white"
             >
               {content.secondaryCta}
-            </a>
+            </Link>
           </motion.div>
         </div>
       </div>
