@@ -10,7 +10,11 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "remotion": "npm run dev --prefix remotion",
+    "remotion:dev": "npm run dev --prefix remotion",
+    "remotion:build": "npm run build --prefix remotion",
+    "remotion:lint": "npm run lint --prefix remotion"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
