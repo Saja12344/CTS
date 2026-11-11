@@ -10,7 +10,11 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "saas": "npm run dev --prefix remotion-saas",
+    "saas:studio": "npm run remotion --prefix remotion-saas",
+    "saas:build": "npm run build --prefix remotion-saas",
+    "saas:lint": "npm run lint --prefix remotion-saas"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
