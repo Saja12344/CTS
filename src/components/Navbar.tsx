@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Link, NavLink, useLocation } from "react-router-dom";
-import logoMark from "@/assets/logo-mark-light.png";
+import logoLockup from "@/assets/logo-lockup-light.png";
 import { useSiteLanguage } from "@/context/LanguageContext";
 import { homeSection, siteRoutes } from "@/lib/routes";
 import { cn } from "@/lib/utils";
@@ -49,20 +49,12 @@ const Navbar = () => {
       }`}
     >
       <div className="grid-shell flex h-20 items-center justify-between">
-        <Link to={siteRoutes.home} className="group flex items-center gap-3.5" aria-label={content.company.legalName}>
+        <Link to={siteRoutes.home} className="group flex items-center" aria-label={content.company.legalName}>
           <img
-            src={logoMark}
+            src={logoLockup}
             alt={content.company.legalName}
-            className="h-7 w-7 object-contain opacity-90 transition-opacity group-hover:opacity-100"
+            className="h-11 w-auto max-w-[200px] object-contain opacity-95 transition-opacity group-hover:opacity-100 sm:h-14 sm:max-w-[250px]"
           />
-          <div className="flex flex-col">
-            <span className="font-heading text-lg font-bold leading-none tracking-tight text-white">
-              {content.nav.brand}
-            </span>
-            <span className="font-mono-label mt-0.5 text-[9px] uppercase tracking-widest text-brand-muted">
-              {content.nav.brandSub}
-            </span>
-          </div>
         </Link>
 
         <nav className="hidden items-center gap-6 xl:flex" aria-label="Primary">
