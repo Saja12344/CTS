@@ -195,21 +195,11 @@
   animation: hero-drift 14s ease-in-out infinite;
 }
 
-@keyframes network-breathe {
-  0%,
-  100% {
-    transform: scale(1) translate3d(0, 0, 0);
-    opacity: 0.55;
-  }
-  50% {
-    transform: scale(1.05) translate3d(-1.5%, 1%, 0);
-    opacity: 0.9;
-  }
-}
-
-.network-breathe {
-  transform-origin: center;
-  animation: network-breathe 9s ease-in-out infinite;
+.liquid-gradient-fallback {
+  background:
+    radial-gradient(ellipse 55% 45% at 22% 35%, rgba(32, 72, 88, 0.55), transparent 72%),
+    radial-gradient(ellipse 50% 40% at 78% 60%, rgba(48, 40, 92, 0.42), transparent 74%),
+    #050812;
 }
 
 .animate-fade-up {

@@ -1,7 +1,6 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { Link } from "react-router-dom";
-import NetworkField from "@/components/NetworkField";
-import atmosphere from "@/assets/hero-atmosphere.jpg";
+import LiquidGradientBackground from "@/components/LiquidGradientBackground";
 import { cinematicEase } from "@/lib/motion";
 import { homeSection } from "@/lib/routes";
 import { Language, siteContent } from "@/content/site";
@@ -32,23 +31,15 @@ const HeroSection = ({ content, language }: HeroSectionProps) => {
       className="relative flex min-h-screen items-center overflow-hidden bg-brand-charcoal pb-20 pt-28"
     >
       <div className="pointer-events-none absolute inset-0 z-0 select-none overflow-hidden">
-        <img
-          src={atmosphere}
-          alt=""
-          aria-hidden="true"
-          className={`absolute inset-0 h-full w-full object-cover opacity-80 ${
-            reduceMotion ? "" : "hero-atmosphere"
-          }`}
-        />
+        <LiquidGradientBackground />
         <div
           className={`absolute inset-0 ${
             isArabic
-              ? "bg-gradient-to-l from-[#171717]/80 via-[#171717]/45 to-[#171717]/25"
-              : "bg-gradient-to-r from-[#171717]/80 via-[#171717]/45 to-[#171717]/25"
+              ? "bg-gradient-to-l from-[#050812]/78 via-[#050812]/32 to-transparent"
+              : "bg-gradient-to-r from-[#050812]/78 via-[#050812]/32 to-transparent"
           }`}
         />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_20%,#171717_88%)]" />
-        <NetworkField />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_38%,#050812_98%)]" />
       </div>
 
       <div className="grid-shell relative z-10 w-full py-12 md:py-16">
