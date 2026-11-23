@@ -10,8 +10,8 @@ export const colors = {
 } as const;
 
 export const typography = {
-  display: "Inter",
-  arabic: "IBM Plex Sans Arabic",
+  display: "Manrope",
+  arabic: "NT Panorama Naskh",
 } as const;
 
 /** Visual asset map — one purpose per asset */

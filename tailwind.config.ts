@@ -14,11 +14,11 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['Canela', 'Inter', '"NT Panorama Naskh"', 'system-ui', 'sans-serif'],
-        heading: ['Canela', '"NT Panorama Naskh"', 'Inter', 'sans-serif'],
-        display: ['Canela', '"NT Panorama Naskh"', 'Inter', 'sans-serif'],
-        mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
-        arabic: ['"NT Panorama Naskh"', 'Inter', 'sans-serif'],
+        sans: ['Manrope', '"NT Panorama Naskh"', 'system-ui', 'sans-serif'],
+        heading: ['Manrope', '"NT Panorama Naskh"', 'sans-serif'],
+        display: ['Manrope', '"NT Panorama Naskh"', 'sans-serif'],
+        mono: ['Manrope', 'ui-monospace', 'sans-serif'],
+        arabic: ['"NT Panorama Naskh"', 'Manrope', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -60,6 +60,7 @@ export default {
           card: "#1F1F1F",
           offwhite: "#F7F7F5",
           muted: "#8E8E8A",
+          ink: "#3A3A36",
           border: "#E5E5E1",
           borderDark: "#2A2A2A",
           orange: "#F15A29",

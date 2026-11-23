@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap");
 
 @font-face {
   font-family: "NT Panorama Naskh";
@@ -9,110 +9,14 @@
   font-weight: 100 900;
   font-style: normal;
   font-display: swap;
-}
-
-@font-face {
-  font-family: "Canela";
-  src: url("./assets/fonts/canela/CanelaDeck-Thin.otf") format("opentype");
-  font-weight: 100;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Canela";
-  src: url("./assets/fonts/canela/CanelaDeck-ThinItalic.otf") format("opentype");
-  font-weight: 100;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Canela";
-  src: url("./assets/fonts/canela/CanelaDeck-Light.otf") format("opentype");
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Canela";
-  src: url("./assets/fonts/canela/CanelaDeck-LightItalic.otf") format("opentype");
-  font-weight: 300;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Canela";
-  src: url("./assets/fonts/canela/CanelaDeck-Regular.otf") format("opentype");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Canela";
-  src: url("./assets/fonts/canela/CanelaDeck-RegularItalic.otf") format("opentype");
-  font-weight: 400;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Canela";
-  src: url("./assets/fonts/canela/CanelaDeck-Medium.otf") format("opentype");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Canela";
-  src: url("./assets/fonts/canela/CanelaDeck-MediumItalic.otf") format("opentype");
-  font-weight: 500;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Canela";
-  src: url("./assets/fonts/canela/CanelaDeck-Bold.otf") format("opentype");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Canela";
-  src: url("./assets/fonts/canela/CanelaDeck-BoldItalic.otf") format("opentype");
-  font-weight: 700;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Canela";
-  src: url("./assets/fonts/canela/CanelaDeck-Black.otf") format("opentype");
-  font-weight: 900;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Canela";
-  src: url("./assets/fonts/canela/CanelaDeck-BlackItalic.otf") format("opentype");
-  font-weight: 900;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Canela Condensed";
-  src: url("./assets/fonts/canela/CanelaCondensed-Regular.otf") format("opentype");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
+  unicode-range:
+    U+0600-065F,
+    U+066B-06FF,
+    U+0750-077F,
+    U+08A0-08FF,
+    U+FB50-FDFF,
+    U+FE70-FEFF,
+    U+200C-200F;
 }
 
 @tailwind base;
@@ -142,6 +46,7 @@
     --brand-card: #1f1f1f;
     --brand-offwhite: #f7f7f5;
     --brand-muted: #8e8e8a;
+    --brand-ink: #3a3a36;
     --brand-border: #e5e5e1;
     --brand-orange: #f15a29;
     --brand-orange-hover: #d94c1d;
@@ -168,46 +73,22 @@
 
   body {
     @apply antialiased;
-    font-family: Inter, Canela, "NT Panorama Naskh", system-ui, sans-serif;
+    font-family: Manrope, "NT Panorama Naskh", system-ui, sans-serif;
   }
 
   :lang(ar),
   [dir="rtl"] {
-    font-family: "NT Panorama Naskh", Inter, system-ui, sans-serif;
+    font-family: "NT Panorama Naskh", Manrope, system-ui, sans-serif;
   }
 
   :lang(ar) .font-heading,
   [dir="rtl"] .font-heading {
-    font-family: "NT Panorama Naskh", Canela, sans-serif;
-    letter-spacing: 0;
-    line-height: 1.35;
-  }
-
-  :lang(ar) .section-label,
-  [dir="rtl"] .section-label {
-    font-family: "NT Panorama Naskh", system-ui, sans-serif;
-    text-transform: none;
-    letter-spacing: 0.02em;
-    font-weight: 600;
-    line-height: 1.7;
-    overflow: visible;
-  }
-
-  :lang(ar) nav a,
-  [dir="rtl"] nav a {
-    font-family: "NT Panorama Naskh", system-ui, sans-serif;
-    line-height: 1.7;
-    overflow: visible;
+    font-family: "NT Panorama Naskh", Manrope, sans-serif;
   }
 
   :lang(en),
   [dir="ltr"] {
-    font-family: Canela, Inter, system-ui, sans-serif;
-  }
-
-  :lang(en) .font-heading,
-  [dir="ltr"] .font-heading {
-    font-family: "Canela Condensed", Canela, Inter, sans-serif;
+    font-family: Manrope, "NT Panorama Naskh", system-ui, sans-serif;
   }
 
   ::selection {
@@ -222,11 +103,12 @@
   }
 
   .font-heading {
-    font-family: Canela, "NT Panorama Naskh", Inter, sans-serif;
+    font-family: Manrope, "NT Panorama Naskh", sans-serif;
   }
 
   .font-mono-label {
-    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-family: Manrope, "NT Panorama Naskh", sans-serif;
+    letter-spacing: 0.08em;
   }
 
   .section-label {
@@ -277,6 +159,18 @@
   }
 }
 
+@keyframes hero-drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.55;
+  }
+  50% {
+    transform: translate3d(2%, -1.5%, 0) scale(1.05);
+    opacity: 0.75;
+  }
+}
+
 @keyframes fade-up {
   from {
     opacity: 0;
@@ -288,14 +182,26 @@
   }
 }
 
-.animate-fade-up {
-  animation: fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+#capabilities,
+#approach,
+#about,
+#thinking,
+#faq,
+#contact {
+  scroll-margin-top: 5.5rem;
+}
+
+.hero-atmosphere {
+  animation: hero-drift 14s ease-in-out infinite;
 }
 
 .liquid-gradient-fallback {
   background:
-    radial-gradient(ellipse 55% 45% at 22% 35%, rgba(32, 72, 88, 0.28), transparent 72%),
-    radial-gradient(ellipse 50% 40% at 78% 60%, rgba(48, 40, 72, 0.22), transparent 74%),
-    radial-gradient(ellipse 40% 35% at 55% 25%, rgba(5, 8, 18, 0.9), transparent 68%),
+    radial-gradient(ellipse 55% 45% at 22% 35%, rgba(32, 72, 88, 0.55), transparent 72%),
+    radial-gradient(ellipse 50% 40% at 78% 60%, rgba(48, 40, 92, 0.42), transparent 74%),
     #050812;
+}
+
+.animate-fade-up {
+  animation: fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
