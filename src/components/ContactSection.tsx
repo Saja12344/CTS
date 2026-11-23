@@ -1,25 +1,26 @@
 import { FormEvent, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
+import { useSiteLanguage } from "@/context/LanguageContext";
 import { cinematicEase } from "@/lib/motion";
-import { Language, siteContent } from "@/content/site";
+import { openWhatsApp } from "@/lib/whatsapp";
 
-type ContactSectionProps = {
-  content: (typeof siteContent)[Language]["contact"];
-  language: Language;
-};
-
-const ContactSection = ({ content }: ContactSectionProps) => {
+const ContactSection = () => {
+  const { content } = useSiteLanguage();
+  const contact = content.contact;
   const [form, setForm] = useState({ name: "", email: "", reason: "", project: "" });
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
   const reduceMotion = useReducedMotion();
 
-  const handleSubmit = (e: FormEvent) => {
-    e.preventDefault();
-    const text = encodeURIComponent(
-      `${content.whatsappIntro}\n\n${content.nameLabel}: ${form.name}\n${content.emailLabel}: ${form.email}\n${content.reasonLabel}: ${form.reason}\n${content.projectLabel}: ${form.project}`,
-    );
-    window.open(`https://wa.me/966503807517?text=${text}`, "_blank", "noopener,noreferrer");
-    setSubmitted(true);
+  const handleSubmit = (event: FormEvent) => {
+    event.preventDefault();
+    const message = [
+      contact.whatsappIntro,
+      `${contact.nameLabel}: ${form.name}`,
+      `${contact.emailLabel}: ${form.email}`,
+      `${contact.reasonLabel}: ${form.reason}`,
+      `${contact.projectLabel}: ${form.project}`,
+    ].join("\n");
+    setStatus(openWhatsApp(message) ? "success" : "error");
   };
 
   return (
@@ -34,22 +35,29 @@ const ContactSection = ({ content }: ContactSectionProps) => {
             className="flex flex-col justify-between lg:col-span-5"
           >
             <div>
-              <span className="section-label mb-3 block">{content.label}</span>
+              <span className="section-label mb-3 block">{contact.label}</span>
               <h2 className="font-heading mb-6 text-3xl font-bold leading-tight tracking-tight text-white sm:text-5xl">
-                {content.title}
+                {contact.title}
               </h2>
-              <p className="max-w-md text-base leading-relaxed text-brand-muted sm:text-lg">
-                {content.description}
-              </p>
+              <p className="max-w-md text-base leading-relaxed text-[#C0C0B8] sm:text-lg">{contact.description}</p>
+              <h3 className="font-heading mt-10 text-lg font-semibold">{contact.nextTitle}</h3>
+              <ol className="mt-4 space-y-3">
+                {contact.nextSteps.map((step, index) => (
+                  <li key={step} className="flex gap-3 text-sm leading-relaxed text-[#C0C0B8]">
+                    <span className="font-heading text-brand-orange">{index + 1}</span>
+                    <span>{step}</span>
+                  </li>
+                ))}
+              </ol>
             </div>
             <div className="mt-12 space-y-2 border-t border-white/[0.08] pt-12 lg:mt-0">
               <a
-                href={`mailto:${content.email}`}
+                href={`mailto:${contact.email}`}
                 className="font-mono-label block text-base text-white transition-colors hover:text-brand-orange"
               >
-                {content.email}
+                {contact.email}
               </a>
-              <p className="text-xs text-brand-muted">{content.nda}</p>
+              <p className="text-xs text-[#C0C0B8]">{contact.nda}</p>
             </div>
           </motion.div>
 
@@ -66,12 +74,12 @@ const ContactSection = ({ content }: ContactSectionProps) => {
                   className="font-mono-label mb-2 block text-[11px] uppercase tracking-wider text-white/70"
                   htmlFor="name"
                 >
-                  {content.nameLabel}
+                  {contact.nameLabel}
                 </label>
                 <input
                   className="field-input"
                   id="name"
-                  placeholder={content.namePlaceholder}
+                  placeholder={contact.namePlaceholder}
                   required
                   type="text"
                   autoComplete="name"
@@ -84,12 +92,12 @@ const ContactSection = ({ content }: ContactSectionProps) => {
                   className="font-mono-label mb-2 block text-[11px] uppercase tracking-wider text-white/70"
                   htmlFor="email"
                 >
-                  {content.emailLabel}
+                  {contact.emailLabel}
                 </label>
                 <input
                   className="field-input"
                   id="email"
-                  placeholder={content.emailPlaceholder}
+                  placeholder={contact.emailPlaceholder}
                   required
                   type="email"
                   autoComplete="email"
@@ -102,7 +110,7 @@ const ContactSection = ({ content }: ContactSectionProps) => {
                   className="font-mono-label mb-2 block text-[11px] uppercase tracking-wider text-white/70"
                   htmlFor="reason"
                 >
-                  {content.reasonLabel}
+                  {contact.reasonLabel}
                 </label>
                 <select
                   className="field-input"
@@ -112,9 +120,9 @@ const ContactSection = ({ content }: ContactSectionProps) => {
                   onChange={(e) => setForm({ ...form, reason: e.target.value })}
                 >
                   <option value="" disabled>
-                    {content.reasonPlaceholder}
+                    {contact.reasonPlaceholder}
                   </option>
-                  {content.reasonOptions.map((option) => (
+                  {contact.reasonOptions.map((option) => (
                     <option key={option} value={option}>
                       {option}
                     </option>
@@ -126,12 +134,12 @@ const ContactSection = ({ content }: ContactSectionProps) => {
                   className="font-mono-label mb-2 block text-[11px] uppercase tracking-wider text-white/70"
                   htmlFor="project"
                 >
-                  {content.projectLabel}
+                  {contact.projectLabel}
                 </label>
                 <textarea
                   className="field-input resize-none"
                   id="project"
-                  placeholder={content.projectPlaceholder}
+                  placeholder={contact.projectPlaceholder}
                   required
                   rows={4}
                   value={form.project}
@@ -140,11 +148,11 @@ const ContactSection = ({ content }: ContactSectionProps) => {
               </div>
               <div className="pt-2">
                 <button className="btn-primary" type="submit">
-                  {content.submit}
+                  {contact.submit}
                 </button>
-                {submitted ? (
-                  <p className="mt-4 text-sm text-brand-muted" role="status">
-                    {content.success}
+                {status !== "idle" ? (
+                  <p className="mt-4 text-sm text-[#C0C0B8]" role="status">
+                    {status === "success" ? contact.success : contact.error}
                   </p>
                 ) : null}
               </div>

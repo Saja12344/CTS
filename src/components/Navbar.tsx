@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Link, NavLink, useLocation } from "react-router-dom";
-import logoMark from "@/assets/logo-mark-light.png";
+import logoLockup from "@/assets/logo-lockup-light.png";
 import { useSiteLanguage } from "@/context/LanguageContext";
-import { siteRoutes } from "@/lib/routes";
+import { homeSection, siteRoutes } from "@/lib/routes";
 import { cn } from "@/lib/utils";
 
 const linkClass = (isActive: boolean) =>
@@ -22,10 +22,12 @@ const Navbar = () => {
   const isArabic = language === "ar";
 
   const links = [
-    { to: siteRoutes.build, label: content.nav.build },
-    { to: siteRoutes.approach, label: content.nav.approach },
-    { to: siteRoutes.thinking, label: content.nav.thinking },
+    { hash: "capabilities", label: content.nav.build },
+    { hash: "approach", label: content.nav.approach },
+    { hash: "about", label: content.nav.about },
+    { hash: "thinking", label: content.nav.thinking },
   ];
+  const onHome = location.pathname === siteRoutes.home;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -36,7 +38,7 @@ const Navbar = () => {
 
   useEffect(() => {
     setMobileOpen(false);
-  }, [location.pathname]);
+  }, [location.pathname, location.hash]);
 
   return (
     <header
@@ -47,31 +49,32 @@ const Navbar = () => {
       }`}
     >
       <div className="grid-shell flex h-20 items-center justify-between">
-        <Link to={siteRoutes.home} className="group flex items-center gap-3.5" aria-label="Core Tech Solutions">
+        <Link to={siteRoutes.home} className="group flex items-center" aria-label={content.company.legalName}>
           <img
-            src={logoMark}
-            alt=""
-            className="h-7 w-7 object-contain opacity-90 transition-opacity group-hover:opacity-100"
+            src={logoLockup}
+            alt={content.company.legalName}
+            className="h-11 w-auto max-w-[200px] object-contain opacity-95 transition-opacity group-hover:opacity-100 sm:h-14 sm:max-w-[250px]"
           />
-          <div className="flex flex-col">
-            <span className="font-heading text-lg font-bold leading-none tracking-tight text-white">
-              {content.nav.brand}
-            </span>
-            <span className="font-mono-label mt-0.5 text-[9px] uppercase tracking-widest text-brand-muted">
-              {content.nav.brandSub}
-            </span>
-          </div>
         </Link>
 
-        <nav className="hidden items-center gap-10 md:flex" aria-label="Primary">
+        <nav className="hidden items-center gap-6 xl:flex" aria-label="Primary">
           {links.map((link) => (
-            <NavLink key={link.to} to={link.to} className={({ isActive }) => linkClass(isActive)}>
+            <Link
+              key={link.hash}
+              to={homeSection(link.hash)}
+              className={linkClass(onHome && location.hash === `#${link.hash}`)}
+            >
               {link.label}
-            </NavLink>
+            </Link>
           ))}
+          {/* TODO: فعّل قسم الأعمال بعد موافقة عميلة "ترددي"
+          <NavLink to={siteRoutes.work} className={({ isActive }) => linkClass(isActive)}>
+            {content.nav.work}
+          </NavLink>
+          */}
         </nav>
 
-        <div className="hidden items-center gap-3 md:flex">
+        <div className="hidden items-center gap-3 xl:flex">
           <button
             type="button"
             id="lang-toggle"
@@ -80,15 +83,18 @@ const Navbar = () => {
           >
             {content.nav.language}
           </button>
-          <NavLink to={siteRoutes.contact} className="btn-primary-sm">
-            {content.nav.cta}
+          <NavLink to={siteRoutes.careers} className={({ isActive }) => linkClass(isActive)}>
+            {content.nav.careers}
           </NavLink>
+          <Link to={homeSection("contact")} className="btn-primary-sm">
+            {content.nav.cta}
+          </Link>
         </div>
 
         <button
           type="button"
           id="menu-toggle"
-          className="text-white md:hidden"
+          className="text-white xl:hidden"
           aria-label={content.nav.menuLabel}
           aria-expanded={mobileOpen}
           onClick={() => setMobileOpen((open) => !open)}
@@ -98,22 +104,31 @@ const Navbar = () => {
       </div>
 
       {mobileOpen ? (
-        <div className="border-t border-white/[0.06] bg-brand-charcoal md:hidden">
+        <div className="border-t border-white/[0.06] bg-brand-charcoal xl:hidden">
           <div className="grid-shell flex min-h-[calc(100dvh-5rem)] flex-col py-6">
             {links.map((link) => (
-              <NavLink
-                key={link.to}
-                to={link.to}
-                className={({ isActive }) =>
-                  cn("py-3 text-sm transition-colors", isActive ? "text-white" : "text-white/70 hover:text-white")
-                }
+              <Link
+                key={link.hash}
+                to={homeSection(link.hash)}
+                className={cn(
+                  "py-3 text-sm transition-colors",
+                  onHome && location.hash === `#${link.hash}` ? "text-white" : "text-white/70 hover:text-white",
+                )}
               >
                 {link.label}
-              </NavLink>
+              </Link>
             ))}
-            <NavLink to={siteRoutes.contact} className="btn-primary-sm mt-3 justify-center">
-              {content.nav.cta}
+            <NavLink
+              to={siteRoutes.careers}
+              className={({ isActive }) =>
+                cn("py-3 text-sm transition-colors", isActive ? "text-white" : "text-white/70 hover:text-white")
+              }
+            >
+              {content.nav.careers}
             </NavLink>
+            <Link to={homeSection("contact")} className="btn-primary-sm mt-3 justify-center">
+              {content.nav.cta}
+            </Link>
             <button
               type="button"
               onClick={() => setLanguage(isArabic ? "en" : "ar")}

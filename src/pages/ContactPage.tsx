@@ -1,9 +1,11 @@
 import ContactSection from "@/components/ContactSection";
-import { useSiteLanguage } from "@/context/LanguageContext";
+import FaqSection from "@/components/FaqSection";
 
-const ContactPage = () => {
-  const { content, language } = useSiteLanguage();
-  return <ContactSection content={content.contact} language={language} />;
-};
+const ContactPage = () => (
+  <>
+    <FaqSection />
+    <ContactSection />
+  </>
+);
 
 export default ContactPage;

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap");
 
 @font-face {
   font-family: "NT Panorama Naskh";
@@ -9,6 +9,14 @@
   font-weight: 100 900;
   font-style: normal;
   font-display: swap;
+  unicode-range:
+    U+0600-065F,
+    U+066B-06FF,
+    U+0750-077F,
+    U+08A0-08FF,
+    U+FB50-FDFF,
+    U+FE70-FEFF,
+    U+200C-200F;
 }
 
 @tailwind base;
@@ -38,6 +46,7 @@
     --brand-card: #1f1f1f;
     --brand-offwhite: #f7f7f5;
     --brand-muted: #8e8e8a;
+    --brand-ink: #3a3a36;
     --brand-border: #e5e5e1;
     --brand-orange: #f15a29;
     --brand-orange-hover: #d94c1d;
@@ -64,22 +73,22 @@
 
   body {
     @apply antialiased;
-    font-family: Inter, "NT Panorama Naskh", system-ui, sans-serif;
+    font-family: Manrope, "NT Panorama Naskh", system-ui, sans-serif;
   }
 
   :lang(ar),
   [dir="rtl"] {
-    font-family: "NT Panorama Naskh", Inter, system-ui, sans-serif;
+    font-family: "NT Panorama Naskh", Manrope, system-ui, sans-serif;
   }
 
   :lang(ar) .font-heading,
   [dir="rtl"] .font-heading {
-    font-family: "NT Panorama Naskh", "Space Grotesk", sans-serif;
+    font-family: "NT Panorama Naskh", Manrope, sans-serif;
   }
 
   :lang(en),
   [dir="ltr"] {
-    font-family: Inter, "NT Panorama Naskh", system-ui, sans-serif;
+    font-family: Manrope, "NT Panorama Naskh", system-ui, sans-serif;
   }
 
   ::selection {
@@ -94,11 +103,12 @@
   }
 
   .font-heading {
-    font-family: "Space Grotesk", "NT Panorama Naskh", sans-serif;
+    font-family: Manrope, "NT Panorama Naskh", sans-serif;
   }
 
   .font-mono-label {
-    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-family: Manrope, "NT Panorama Naskh", sans-serif;
+    letter-spacing: 0.08em;
   }
 
   .section-label {
@@ -172,8 +182,24 @@
   }
 }
 
+#capabilities,
+#approach,
+#about,
+#thinking,
+#faq,
+#contact {
+  scroll-margin-top: 5.5rem;
+}
+
 .hero-atmosphere {
   animation: hero-drift 14s ease-in-out infinite;
+}
+
+.liquid-gradient-fallback {
+  background:
+    radial-gradient(ellipse 55% 45% at 22% 35%, rgba(32, 72, 88, 0.55), transparent 72%),
+    radial-gradient(ellipse 50% 40% at 78% 60%, rgba(48, 40, 92, 0.42), transparent 74%),
+    #050812;
 }
 
 .animate-fade-up {
