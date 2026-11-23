@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import founderPhoto from "@/assets/founder-saja.png";
 import { useSiteLanguage } from "@/context/LanguageContext";
 import { siteRoutes } from "@/lib/routes";
 
@@ -26,13 +27,11 @@ const AboutPage = () => {
           <article className="rounded border border-brand-border bg-white p-8">
             <p className="section-label mb-6">{about.founderTitle}</p>
             <div className="flex flex-col gap-6 sm:flex-row sm:items-center">
-              <div
-                className="flex h-28 w-28 shrink-0 items-center justify-center rounded bg-brand-offwhite px-3 text-center text-xs text-brand-ink"
-                role="img"
-                aria-label={about.photoLabel}
-              >
-                {about.photoLabel}
-              </div>
+              <img
+                src={founderPhoto}
+                alt={about.photoLabel}
+                className="h-72 w-48 shrink-0 rounded object-cover object-[center_12%]"
+              />
               <div>
                 <h2 className="font-heading text-2xl font-semibold">{about.founderName}</h2>
                 <p className="mt-1 text-brand-ink">{about.founderRole}</p>
