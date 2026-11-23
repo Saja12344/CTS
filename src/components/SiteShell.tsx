@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import { LanguageProvider, useSiteLanguage } from "@/context/LanguageContext";
 import { cinematicEase } from "@/lib/motion";
 import { homeSection, sectionRedirects, siteRoutes } from "@/lib/routes";
+import { applyPageSeo } from "@/lib/seo";
 import CareersPage from "@/pages/CareersPage";
 import Index from "@/pages/Index";
 import NotFound from "@/pages/NotFound";
@@ -13,7 +14,7 @@ import NotFound from "@/pages/NotFound";
 // import WorkPage from "@/pages/WorkPage";
 
 const SiteFrame = () => {
-  const { content, dir } = useSiteLanguage();
+  const { content, dir, language } = useSiteLanguage();
   const location = useLocation();
   const reduceMotion = useReducedMotion();
 
@@ -31,13 +32,13 @@ const SiteFrame = () => {
       [siteRoutes.about]: content.about.seo.description,
       [siteRoutes.careers]: content.careers.seo.description,
     };
-    document.title = titles[location.pathname] ?? content.seo.title;
-
-    const description = document.querySelector<HTMLMetaElement>('meta[name="description"]');
-    if (description) {
-      description.content = descriptions[location.pathname] ?? content.seo.description;
-    }
-  }, [content, location.pathname]);
+    applyPageSeo({
+      language,
+      pathname: location.pathname,
+      title: titles[location.pathname] ?? content.seo.title,
+      description: descriptions[location.pathname] ?? content.seo.description,
+    });
+  }, [content, language, location.pathname]);
 
   useEffect(() => {
     if (location.hash) {
