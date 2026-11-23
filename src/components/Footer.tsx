@@ -49,9 +49,6 @@ const Footer = () => {
               <span className="font-heading text-base font-bold leading-none tracking-tight">
                 {footer.brand}
               </span>
-              <span className="font-mono-label text-[9px] uppercase tracking-wider text-brand-muted">
-                {footer.brandSub}
-              </span>
             </div>
           </div>
 

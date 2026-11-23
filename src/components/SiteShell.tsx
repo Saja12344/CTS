@@ -21,11 +21,11 @@ const SiteFrame = () => {
   useEffect(() => {
     const titles: Record<string, string> = {
       [siteRoutes.home]: content.seo.title,
-      [siteRoutes.build]: `${content.nav.build} — CTS`,
-      [siteRoutes.approach]: `${content.nav.approach} — CTS`,
+      [siteRoutes.build]: `${content.nav.build} — ${content.company.legalName}`,
+      [siteRoutes.approach]: `${content.nav.approach} — ${content.company.legalName}`,
       [siteRoutes.about]: content.about.seo.title,
-      [siteRoutes.thinking]: `${content.nav.thinking} — CTS`,
-      [siteRoutes.contact]: `${content.contact.label} — CTS`,
+      [siteRoutes.thinking]: `${content.nav.thinking} — ${content.company.legalName}`,
+      [siteRoutes.contact]: `${content.contact.label} — ${content.company.legalName}`,
       [siteRoutes.careers]: content.careers.seo.title,
     };
     const descriptions: Record<string, string> = {
