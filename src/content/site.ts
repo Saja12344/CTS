@@ -84,7 +84,7 @@ export const siteContent = {
       title: "حلول تبدأ من احتياج حقيقي.",
       description:
         "سواء كنت تطلق منتجًا أو تطوّر طريقة عملك، نساعدك على اتخاذ الخطوة التقنية الصحيحة.",
-      email: "contact@coretech.solutions",
+      email: "cortechsol@gmail.com",
       nda: "استشارة معمارية مباشرة تحت اتفاقية سرية قياسية.",
       nameLabel: "الاسم الكامل",
       namePlaceholder: "اسمك",
@@ -103,7 +103,7 @@ export const siteContent = {
       projectPlaceholder: "صف باختصار المنتج أو النظام أو عنق الزجاجة التشغيلي...",
       submit: "لنتحدث",
       success: "انفتحت محادثة واتساب. أرسلي الرسالة وسنرد عليك.",
-      error: "تعذّر فتح واتساب. اسمحي بالنوافذ المنبثقة، أو راسلينا على contact@coretech.solutions",
+      error: "تعذّر فتح واتساب. اسمحي بالنوافذ المنبثقة، أو راسلينا على cortechsol@gmail.com",
       whatsappIntro: "مرحباً Core Tech Solutions",
       nextTitle: "وش يصير بعد ما ترسل",
       nextSteps: [
@@ -137,16 +137,13 @@ export const siteContent = {
     about: {
       seo: {
         title: "من نحن — كور تيك سلوشنز",
-        description: "هدف كور تيك منتج مفيد يعمل. الجودة معيار من أول نطاق حتى التسليم، والمؤسس يتابع القرار والمخرج.",
+        description: "نحوّل الأفكار إلى حلول تقنية تتجاوز التوقعات، بجودة واهتمام بالتفاصيل وتفكير مستدام.",
       },
       label: "من نحن",
-      title: "هدف واضح، وجودة يمسكها المؤسس",
-      description:
-        "هدف كور تيك أن يتحول الاحتياج الحقيقي إلى منتج مفيد يعمل. الجودة معيار من أول نطاق حتى التسليم، والمؤسس يتابع القرار والمخرج من البداية للنهاية.",
-      points: [
-        "الهدف: منتج يحل مشكلة حقيقية، بنطاق مكتوب قبل البناء",
-        "الجودة: مراجعة للمخرج قبل التسليم، لا تسليم شكلي",
-        "المؤسس: قرار واحد ومتابعة واحدة من أول سؤال إلى التسليم",
+      title: "نحوّل الأفكار إلى حلول تقنية تتجاوز التوقعات.",
+      paragraphs: [
+        "في Core Tech Solutions، نطوّر منتجات رقمية ونبني حلولًا تقنية تنطلق من احتياجات حقيقية. نؤمن أن التقنية ليست مجرد تنفيذ، بل فهم للمشكلة، وتصميم للحل، وبناء تجربة تحقق قيمة ملموسة وتواكب تطلعات المستقبل.",
+        "نحرص على أن يكون كل مشروع انعكاسًا للجودة، والاهتمام بالتفاصيل، والتفكير المستدام.",
       ],
       founderTitle: "المؤسس",
       founderName: "Saja Alhomrany",
@@ -185,7 +182,7 @@ export const siteContent = {
       noteOptional: "اختياري",
       submit: "أرسل طلب الانضمام",
       success: "انفتحت محادثة واتساب. أرسلي طلبك من هناك.",
-      error: "تعذّر فتح واتساب. اسمحي بالنوافذ المنبثقة، أو راسلينا على contact@coretech.solutions",
+      error: "تعذّر فتح واتساب. اسمحي بالنوافذ المنبثقة، أو راسلينا على cortechsol@gmail.com",
       whatsappIntro: "طلب انضمام إلى شبكة كور تيك",
       back: "العودة للرئيسية",
     },
@@ -234,7 +231,7 @@ export const siteContent = {
       thinking: "تفكير المنتج",
       careers: "انضم إلينا",
       work: "أعمالنا",
-      email: "contact@coretech.solutions",
+      email: "cortechsol@gmail.com",
       rights: "جميع الحقوق محفوظة",
       socialLabel: "تواصل معنا",
       social: [
@@ -332,7 +329,7 @@ export const siteContent = {
       title: "Solutions that start from a real need.",
       description:
         "Whether you're launching a product or evolving how you work, we help you take the right technical step.",
-      email: "contact@coretech.solutions",
+      email: "cortechsol@gmail.com",
       nda: "Direct architectural consultation under standard NDA.",
       nameLabel: "Full Name",
       namePlaceholder: "Your name",
@@ -351,7 +348,7 @@ export const siteContent = {
       projectPlaceholder: "Briefly describe the product, system, or operational bottleneck...",
       submit: "Let's talk",
       success: "WhatsApp is open. Send the message and we will reply.",
-      error: "WhatsApp could not be opened. Allow pop-ups, or email contact@coretech.solutions",
+      error: "WhatsApp could not be opened. Allow pop-ups, or email cortechsol@gmail.com",
       whatsappIntro: "Hello Core Tech Solutions",
       nextTitle: "What happens after you send",
       nextSteps: [
@@ -385,16 +382,13 @@ export const siteContent = {
     about: {
       seo: {
         title: "About — Core Tech Solutions",
-        description: "Core Tech's goal is a useful product that works. Quality is the standard from scope to delivery, and the founder follows the decision and the output.",
+        description: "We turn ideas into technology solutions that go beyond expectations, with quality, care for detail, and sustainable thinking.",
       },
       label: "About",
-      title: "A clear goal, and quality the founder owns",
-      description:
-        "Core Tech's goal is to turn a real need into a useful product that works. Quality is the standard from the first scope through delivery, and the founder follows the decision and the output from start to finish.",
-      points: [
-        "The goal: a product that solves a real problem, with a written scope before building",
-        "Quality: the output is reviewed before delivery, not handed over as a formality",
-        "The founder: one decision and one line of follow-through from the first question to delivery",
+      title: "We turn ideas into technology solutions that go beyond expectations.",
+      paragraphs: [
+        "At Core Tech Solutions, we develop digital products and build technology solutions that start from real needs. Technology is not only execution. It is understanding the problem, designing the solution, and building an experience that creates tangible value and keeps pace with what comes next.",
+        "Every project should reflect quality, attention to detail, and sustainable thinking.",
       ],
       founderTitle: "Founder",
       founderName: "Saja Alhomrany",
@@ -433,7 +427,7 @@ export const siteContent = {
       noteOptional: "Optional",
       submit: "Send application",
       success: "WhatsApp is open. Send your application from there.",
-      error: "WhatsApp could not be opened. Allow pop-ups, or email contact@coretech.solutions",
+      error: "WhatsApp could not be opened. Allow pop-ups, or email cortechsol@gmail.com",
       whatsappIntro: "Application to join the Core Tech network",
       back: "Back to home",
     },
@@ -482,7 +476,7 @@ export const siteContent = {
       thinking: "Product Thinking",
       careers: "Join us",
       work: "Our Work",
-      email: "contact@coretech.solutions",
+      email: "cortechsol@gmail.com",
       rights: "All rights reserved",
       socialLabel: "Follow us",
       social: [

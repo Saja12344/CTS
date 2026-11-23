@@ -10,16 +10,13 @@ const AboutPage = () => {
       <div className="grid-shell">
         <span className="section-label mb-3 block">{about.label}</span>
         <h2 className="font-heading max-w-3xl text-4xl font-bold leading-tight sm:text-6xl">{about.title}</h2>
-        <p className="mt-6 max-w-3xl text-lg leading-relaxed text-brand-ink">{about.description}</p>
-
-        <ul className="mt-10 grid max-w-3xl gap-4">
-          {about.points.map((point) => (
-            <li key={point} className="flex gap-3 text-base leading-relaxed text-brand-ink">
-              <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-orange" aria-hidden="true" />
-              <span>{point}</span>
-            </li>
+        <div className="mt-6 max-w-3xl space-y-4">
+          {about.paragraphs.map((paragraph) => (
+            <p key={paragraph} className="text-lg leading-relaxed text-brand-ink">
+              {paragraph}
+            </p>
           ))}
-        </ul>
+        </div>
 
         <div className="mt-16 grid grid-cols-1 gap-6 lg:grid-cols-2">
           <article className="rounded border border-brand-border bg-white p-8">
