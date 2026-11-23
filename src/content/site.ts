@@ -3,7 +3,7 @@ export type Language = "ar" | "en";
 export const siteContent = {
   ar: {
     seo: {
-      title: "Core Tech Solutions (CTS) — استوديو منتجات رقمية",
+      title: "مؤسسة كور تيك سلوشنز",
       description:
         "نحوّل التحديات المعقدة إلى منتجات رقمية مفيدة، وهياكل برمجية قابلة للتوسع، وأدوات تشغيل بديهية.",
     },
@@ -231,8 +231,8 @@ export const siteContent = {
       action: "العودة للرئيسية",
     },
     footer: {
-      brand: "CTS",
-      brandSub: "Core Tech Solutions",
+      brand: "مؤسسة كور تيك سلوشنز",
+      brandSub: "",
       tagline: "نحوّل التحديات المعقدة إلى منتجات رقمية هادفة.",
       build: "ماذا نبني",
       approach: "منهجيتنا",
@@ -254,7 +254,7 @@ export const siteContent = {
   },
   en: {
     seo: {
-      title: "Core Tech Solutions (CTS) — Digital Product Studio",
+      title: "Core Tech Solutions",
       description:
         "We turn complex challenges into useful digital products, scalable software architectures, and intuitive operating tools.",
     },
@@ -485,8 +485,8 @@ export const siteContent = {
       action: "Back to home",
     },
     footer: {
-      brand: "CTS",
-      brandSub: "Core Tech Solutions",
+      brand: "Core Tech Solutions",
+      brandSub: "",
       tagline: "Turning complex challenges into purposeful digital products.",
       build: "What We Build",
       approach: "Our Approach",
