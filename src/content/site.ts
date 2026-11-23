@@ -147,13 +147,22 @@ export const siteContent = {
       ],
       founderTitle: "المؤسس",
       founderName: "Saja Alhomrany",
-      founderRole: "تقنية المعلومات",
-      founderExperience: "3 سنوات في تقنية المعلومات",
+      founderRole: "Founder & Technology Lead",
+      founderExperience:
+        "متخصصة في تقنية المعلومات وتطوير البرمجيات، تقود Core Tech Solutions من الفكرة إلى التنفيذ، مع التركيز على تطوير المنتجات الرقمية، وبناء الحلول التقنية، وتحويل احتياجات الأعمال إلى منتجات قابلة للتطبيق والنمو.",
       founderLinkedIn: "https://www.linkedin.com/in/saja-alghamdii/",
-      founderLinkedInLabel: "لينكدإن",
+      founderLinkedInLabel: "LinkedIn ↗",
       photoLabel: "Saja Alhomrany في حفل التخرج",
       networkTitle: "شبكة المتخصصين",
-      networkTags: ["تصميم UI/UX", "Frontend · React", "Backend", "iOS", "اختبار الجودة"],
+      networkDescription:
+        "نعمل مع متخصصين في مجالات تقنية متنوعة لتوفير الخبرات المناسبة لكل مشروع، وبناء حلول متكاملة وفق احتياجاته.",
+      networkTags: [
+        "UI/UX Design",
+        "Frontend Development",
+        "Backend Development",
+        "iOS Development",
+        "Quality Assurance",
+      ],
     },
     careers: {
       seo: {
@@ -392,13 +401,22 @@ export const siteContent = {
       ],
       founderTitle: "Founder",
       founderName: "Saja Alhomrany",
-      founderRole: "Information Technology",
-      founderExperience: "3 years in information technology",
+      founderRole: "Founder & Technology Lead",
+      founderExperience:
+        "An information technology and software development specialist. She leads Core Tech Solutions from idea to execution, focused on digital products, technical solutions, and turning business needs into products that can be applied and grown.",
       founderLinkedIn: "https://www.linkedin.com/in/saja-alghamdii/",
-      founderLinkedInLabel: "LinkedIn",
+      founderLinkedInLabel: "LinkedIn ↗",
       photoLabel: "Saja Alhomrany at a graduation ceremony",
       networkTitle: "Specialist network",
-      networkTags: ["UI/UX design", "Frontend · React", "Backend", "iOS", "Quality testing"],
+      networkDescription:
+        "We work with specialists across technical fields so each project gets the right expertise and a complete solution shaped around its needs.",
+      networkTags: [
+        "UI/UX Design",
+        "Frontend Development",
+        "Backend Development",
+        "iOS Development",
+        "Quality Assurance",
+      ],
     },
     careers: {
       seo: {

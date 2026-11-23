@@ -21,7 +21,7 @@ const AboutPage = () => {
         <div className="mt-16 grid grid-cols-1 gap-6 lg:grid-cols-2">
           <article className="rounded border border-brand-border bg-white p-8">
             <p className="section-label mb-6">{about.founderTitle}</p>
-            <div className="flex flex-col gap-6 sm:flex-row sm:items-center">
+            <div className="flex flex-col gap-6 sm:flex-row sm:items-start">
               <img
                 src={founderPhoto}
                 alt={about.photoLabel}
@@ -29,8 +29,8 @@ const AboutPage = () => {
               />
               <div>
                 <h2 className="font-heading text-2xl font-semibold">{about.founderName}</h2>
-                <p className="mt-1 text-brand-ink">{about.founderRole}</p>
-                <p className="mt-2 text-sm text-brand-ink">{about.founderExperience}</p>
+                <p className="mt-1 font-semibold text-brand-charcoal">{about.founderRole}</p>
+                <p className="mt-3 text-sm leading-relaxed text-brand-ink">{about.founderExperience}</p>
                 <a
                   href={about.founderLinkedIn}
                   target="_blank"
@@ -45,6 +45,7 @@ const AboutPage = () => {
 
           <article className="rounded border border-brand-border bg-white p-8">
             <h2 className="font-heading text-2xl font-semibold">{about.networkTitle}</h2>
+            <p className="mt-4 text-sm leading-relaxed text-brand-ink">{about.networkDescription}</p>
             <ul className="mt-6 flex flex-wrap gap-2">
               {about.networkTags.map((tag) => (
                 <li key={tag} className="rounded border border-brand-border px-3 py-2 text-sm text-brand-ink">
