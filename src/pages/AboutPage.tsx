@@ -35,6 +35,7 @@ const AboutPage = () => {
                   href={about.founderLinkedIn}
                   target="_blank"
                   rel="noopener noreferrer"
+                  dir="ltr"
                   className="mt-4 inline-flex text-sm font-semibold text-brand-charcoal underline decoration-brand-orange underline-offset-4"
                 >
                   {about.founderLinkedInLabel}
