@@ -1,8 +1,9 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { Link } from "react-router-dom";
+import NetworkField from "@/components/NetworkField";
 import atmosphere from "@/assets/hero-atmosphere.jpg";
 import { cinematicEase } from "@/lib/motion";
-import { siteRoutes } from "@/lib/routes";
+import { homeSection } from "@/lib/routes";
 import { Language, siteContent } from "@/content/site";
 
 type HeroSectionProps = {
@@ -35,18 +36,19 @@ const HeroSection = ({ content, language }: HeroSectionProps) => {
           src={atmosphere}
           alt=""
           aria-hidden="true"
-          className={`absolute inset-0 h-full w-full object-cover opacity-40 ${
+          className={`absolute inset-0 h-full w-full object-cover opacity-80 ${
             reduceMotion ? "" : "hero-atmosphere"
           }`}
         />
         <div
           className={`absolute inset-0 ${
             isArabic
-              ? "bg-gradient-to-l from-[#171717]/95 via-[#171717]/60 to-transparent"
-              : "bg-gradient-to-r from-[#171717]/95 via-[#171717]/60 to-transparent"
+              ? "bg-gradient-to-l from-[#171717]/80 via-[#171717]/45 to-[#171717]/25"
+              : "bg-gradient-to-r from-[#171717]/80 via-[#171717]/45 to-[#171717]/25"
           }`}
         />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,transparent_30%,#171717_90%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_20%,#171717_88%)]" />
+        <NetworkField />
       </div>
 
       <div className="grid-shell relative z-10 w-full py-12 md:py-16">
@@ -81,11 +83,11 @@ const HeroSection = ({ content, language }: HeroSectionProps) => {
             transition={{ duration: 0.65, ease: cinematicEase, delay: 0.18 }}
             className="flex w-full flex-col items-stretch gap-4 sm:w-auto sm:flex-row sm:flex-wrap sm:items-center"
           >
-            <Link to={siteRoutes.contact} className="btn-primary justify-center text-center shadow-lg shadow-brand-orange/20">
+            <Link to={homeSection("contact")} className="btn-primary justify-center text-center shadow-lg shadow-brand-orange/20">
               {content.primaryCta}
             </Link>
             <Link
-              to={siteRoutes.approach}
+              to={homeSection("approach")}
               className="inline-flex items-center justify-center px-2 py-3 text-sm font-medium text-white/80 transition-colors hover:text-white"
             >
               {content.secondaryCta}

@@ -182,8 +182,34 @@
   }
 }
 
+#capabilities,
+#approach,
+#about,
+#thinking,
+#faq,
+#contact {
+  scroll-margin-top: 5.5rem;
+}
+
 .hero-atmosphere {
   animation: hero-drift 14s ease-in-out infinite;
+}
+
+@keyframes network-breathe {
+  0%,
+  100% {
+    transform: scale(1) translate3d(0, 0, 0);
+    opacity: 0.55;
+  }
+  50% {
+    transform: scale(1.05) translate3d(-1.5%, 1%, 0);
+    opacity: 0.9;
+  }
+}
+
+.network-breathe {
+  transform-origin: center;
+  animation: network-breathe 9s ease-in-out infinite;
 }
 
 .animate-fade-up {

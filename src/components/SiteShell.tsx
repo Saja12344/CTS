@@ -1,34 +1,21 @@
 import { useEffect } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
+import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import { LanguageProvider, useSiteLanguage } from "@/context/LanguageContext";
 import { cinematicEase } from "@/lib/motion";
-import { hashRoutes, siteRoutes } from "@/lib/routes";
-import AboutPage from "@/pages/AboutPage";
-import ApproachPage from "@/pages/ApproachPage";
-import BuildPage from "@/pages/BuildPage";
+import { homeSection, sectionRedirects, siteRoutes } from "@/lib/routes";
 import CareersPage from "@/pages/CareersPage";
-import ContactPage from "@/pages/ContactPage";
 import Index from "@/pages/Index";
 import NotFound from "@/pages/NotFound";
-import ThinkingPage from "@/pages/ThinkingPage";
 // TODO: فعّل قسم الأعمال بعد موافقة عميلة "ترددي"
 // import WorkPage from "@/pages/WorkPage";
 
 const SiteFrame = () => {
   const { content, dir } = useSiteLanguage();
   const location = useLocation();
-  const navigate = useNavigate();
   const reduceMotion = useReducedMotion();
-
-  useEffect(() => {
-    const next = hashRoutes[location.hash];
-    if (next && next !== location.pathname) {
-      navigate(next, { replace: true });
-    }
-  }, [location.hash, location.pathname, navigate]);
 
   useEffect(() => {
     const titles: Record<string, string> = {
@@ -53,8 +40,15 @@ const SiteFrame = () => {
   }, [content, location.pathname]);
 
   useEffect(() => {
+    if (location.hash) {
+      const target = document.getElementById(location.hash.slice(1));
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth" });
+        return;
+      }
+    }
     window.scrollTo(0, 0);
-  }, [location.pathname]);
+  }, [location.pathname, location.hash]);
 
   return (
     <div dir={dir} className="bg-brand-charcoal text-brand-offwhite">
@@ -70,11 +64,13 @@ const SiteFrame = () => {
           >
             <Routes location={location}>
               <Route path={siteRoutes.home} element={<Index />} />
-              <Route path={siteRoutes.build} element={<BuildPage />} />
-              <Route path={siteRoutes.approach} element={<ApproachPage />} />
-              <Route path={siteRoutes.about} element={<AboutPage />} />
-              <Route path={siteRoutes.thinking} element={<ThinkingPage />} />
-              <Route path={siteRoutes.contact} element={<ContactPage />} />
+              {sectionRedirects.map((item) => (
+                <Route
+                  key={item.path}
+                  path={item.path}
+                  element={<Navigate to={homeSection(item.hash)} replace />}
+                />
+              ))}
               <Route path={siteRoutes.careers} element={<CareersPage />} />
               {/* TODO: فعّل قسم الأعمال بعد موافقة عميلة "ترددي"
               <Route path={siteRoutes.work} element={<WorkPage />} />

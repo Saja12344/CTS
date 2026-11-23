@@ -7,10 +7,10 @@ const AboutPage = () => {
   const about = content.about;
 
   return (
-    <section className="w-full bg-brand-offwhite py-32 text-brand-charcoal">
+    <section id="about" className="w-full scroll-mt-24 bg-brand-offwhite py-32 text-brand-charcoal">
       <div className="grid-shell">
         <span className="section-label mb-3 block">{about.label}</span>
-        <h1 className="font-heading max-w-3xl text-4xl font-bold leading-tight sm:text-6xl">{about.title}</h1>
+        <h2 className="font-heading max-w-3xl text-4xl font-bold leading-tight sm:text-6xl">{about.title}</h2>
         <p className="mt-6 max-w-3xl text-lg leading-relaxed text-brand-ink">{about.description}</p>
 
         <ul className="mt-10 grid max-w-3xl gap-4">

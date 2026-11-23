@@ -1,9 +1,8 @@
 import { Instagram, Linkedin, MessageCircle, Twitter } from "lucide-react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import logoMark from "@/assets/logo-mark-light.png";
 import { useSiteLanguage } from "@/context/LanguageContext";
-import { siteRoutes } from "@/lib/routes";
-import { cn } from "@/lib/utils";
+import { homeSection, siteRoutes } from "@/lib/routes";
 
 const TikTokIcon = ({ className }: { className?: string }) => (
   <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
@@ -33,10 +32,10 @@ const Footer = () => {
   const { content } = useSiteLanguage();
   const footer = content.footer;
   const links = [
-    { to: siteRoutes.build, label: footer.build },
-    { to: siteRoutes.approach, label: footer.approach },
-    { to: siteRoutes.about, label: footer.about },
-    { to: siteRoutes.thinking, label: footer.thinking },
+    { to: homeSection("capabilities"), label: footer.build },
+    { to: homeSection("approach"), label: footer.approach },
+    { to: homeSection("about"), label: footer.about },
+    { to: homeSection("thinking"), label: footer.thinking },
     { to: siteRoutes.careers, label: footer.careers },
   ];
 
@@ -60,13 +59,13 @@ const Footer = () => {
 
           <nav aria-label="Footer" className="flex flex-wrap items-center gap-8 text-sm text-brand-muted">
             {links.map((link) => (
-              <NavLink
-                key={link.to}
+              <Link
+                key={link.label}
                 to={link.to}
-                className={({ isActive }) => cn("transition-colors hover:text-white", isActive && "text-white")}
+                className="transition-colors hover:text-white"
               >
                 {link.label}
-              </NavLink>
+              </Link>
             ))}
             {/* TODO: فعّل قسم الأعمال بعد موافقة عميلة "ترددي"
             <NavLink to={siteRoutes.work}>{footer.work}</NavLink>
