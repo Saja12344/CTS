@@ -1,7 +1,5 @@
-import { Link } from "react-router-dom";
 import founderPhoto from "@/assets/founder-saja.png";
 import { useSiteLanguage } from "@/context/LanguageContext";
-import { siteRoutes } from "@/lib/routes";
 
 const AboutPage = () => {
   const { content } = useSiteLanguage();
@@ -59,10 +57,6 @@ const AboutPage = () => {
             </ul>
           </article>
         </div>
-
-        <Link to={siteRoutes.careers} className="btn-primary mt-12">
-          {about.careersPrompt}
-        </Link>
       </div>
     </section>
   );

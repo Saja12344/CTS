@@ -137,16 +137,16 @@ export const siteContent = {
     about: {
       seo: {
         title: "من نحن — كور تيك سلوشنز",
-        description: "مؤسسة يقودها مؤسسها، وتعمل مع شبكة من المتخصصين المستقلين حسب احتياج كل مشروع.",
+        description: "هدف كور تيك منتج مفيد يعمل. الجودة معيار من أول نطاق حتى التسليم، والمؤسس يتابع القرار والمخرج.",
       },
       label: "من نحن",
-      title: "فريق مرن يُبنى حول مشروعك",
+      title: "هدف واضح، وجودة يمسكها المؤسس",
       description:
-        "كور تيك مؤسسة يقودها مؤسسها، وتعمل مع شبكة من المتخصصين المستقلين نختارهم حسب احتياج كل مشروع.",
+        "هدف كور تيك أن يتحول الاحتياج الحقيقي إلى منتج مفيد يعمل. الجودة معيار من أول نطاق حتى التسليم، والمؤسس يتابع القرار والمخرج من البداية للنهاية.",
       points: [
-        "تتواصل مباشرة مع من يبني مشروعك بدون وسطاء",
-        "تدفع مقابل الخبرة التي يحتاجها مشروعك فقط",
-        "مسؤول واحد عن الجودة والتسليم من البداية للنهاية",
+        "الهدف: منتج يحل مشكلة حقيقية، بنطاق مكتوب قبل البناء",
+        "الجودة: مراجعة للمخرج قبل التسليم، لا تسليم شكلي",
+        "المؤسس: قرار واحد ومتابعة واحدة من أول سؤال إلى التسليم",
       ],
       founderTitle: "المؤسس",
       founderName: "Saja Alhomrany",
@@ -157,7 +157,6 @@ export const siteContent = {
       photoLabel: "Saja Alhomrany في حفل التخرج",
       networkTitle: "شبكة المتخصصين",
       networkTags: ["تصميم UI/UX", "Frontend · React", "Backend", "iOS", "اختبار الجودة"],
-      careersPrompt: "تبي تشتغل معنا؟ انضم لشبكتنا",
     },
     careers: {
       seo: {
@@ -386,16 +385,16 @@ export const siteContent = {
     about: {
       seo: {
         title: "About — Core Tech Solutions",
-        description: "A founder-led studio that brings in independent specialists for each project.",
+        description: "Core Tech's goal is a useful product that works. Quality is the standard from scope to delivery, and the founder follows the decision and the output.",
       },
       label: "About",
-      title: "A flexible team built around your project",
+      title: "A clear goal, and quality the founder owns",
       description:
-        "Core Tech is a founder-led company. We work with a network of independent specialists chosen for what each project needs.",
+        "Core Tech's goal is to turn a real need into a useful product that works. Quality is the standard from the first scope through delivery, and the founder follows the decision and the output from start to finish.",
       points: [
-        "You talk directly with the person building your project",
-        "You pay only for the expertise the project needs",
-        "One person owns quality and delivery from start to finish",
+        "The goal: a product that solves a real problem, with a written scope before building",
+        "Quality: the output is reviewed before delivery, not handed over as a formality",
+        "The founder: one decision and one line of follow-through from the first question to delivery",
       ],
       founderTitle: "Founder",
       founderName: "Saja Alhomrany",
@@ -406,7 +405,6 @@ export const siteContent = {
       photoLabel: "Saja Alhomrany at a graduation ceremony",
       networkTitle: "Specialist network",
       networkTags: ["UI/UX design", "Frontend · React", "Backend", "iOS", "Quality testing"],
-      careersPrompt: "Want to work with us? Join the network",
     },
     careers: {
       seo: {
