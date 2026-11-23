@@ -6,12 +6,16 @@ import Navbar from "@/components/Navbar";
 import { LanguageProvider, useSiteLanguage } from "@/context/LanguageContext";
 import { cinematicEase } from "@/lib/motion";
 import { hashRoutes, siteRoutes } from "@/lib/routes";
+import AboutPage from "@/pages/AboutPage";
 import ApproachPage from "@/pages/ApproachPage";
 import BuildPage from "@/pages/BuildPage";
+import CareersPage from "@/pages/CareersPage";
 import ContactPage from "@/pages/ContactPage";
 import Index from "@/pages/Index";
 import NotFound from "@/pages/NotFound";
 import ThinkingPage from "@/pages/ThinkingPage";
+// TODO: فعّل قسم الأعمال بعد موافقة عميلة "ترددي"
+// import WorkPage from "@/pages/WorkPage";
 
 const SiteFrame = () => {
   const { content, dir } = useSiteLanguage();
@@ -31,14 +35,20 @@ const SiteFrame = () => {
       [siteRoutes.home]: content.seo.title,
       [siteRoutes.build]: `${content.nav.build} — CTS`,
       [siteRoutes.approach]: `${content.nav.approach} — CTS`,
+      [siteRoutes.about]: content.about.seo.title,
       [siteRoutes.thinking]: `${content.nav.thinking} — CTS`,
       [siteRoutes.contact]: `${content.contact.label} — CTS`,
+      [siteRoutes.careers]: content.careers.seo.title,
+    };
+    const descriptions: Record<string, string> = {
+      [siteRoutes.about]: content.about.seo.description,
+      [siteRoutes.careers]: content.careers.seo.description,
     };
     document.title = titles[location.pathname] ?? content.seo.title;
 
     const description = document.querySelector<HTMLMetaElement>('meta[name="description"]');
     if (description) {
-      description.content = content.seo.description;
+      description.content = descriptions[location.pathname] ?? content.seo.description;
     }
   }, [content, location.pathname]);
 
@@ -62,8 +72,13 @@ const SiteFrame = () => {
               <Route path={siteRoutes.home} element={<Index />} />
               <Route path={siteRoutes.build} element={<BuildPage />} />
               <Route path={siteRoutes.approach} element={<ApproachPage />} />
+              <Route path={siteRoutes.about} element={<AboutPage />} />
               <Route path={siteRoutes.thinking} element={<ThinkingPage />} />
               <Route path={siteRoutes.contact} element={<ContactPage />} />
+              <Route path={siteRoutes.careers} element={<CareersPage />} />
+              {/* TODO: فعّل قسم الأعمال بعد موافقة عميلة "ترددي"
+              <Route path={siteRoutes.work} element={<WorkPage />} />
+              */}
               <Route path="*" element={<NotFound />} />
             </Routes>
           </motion.div>

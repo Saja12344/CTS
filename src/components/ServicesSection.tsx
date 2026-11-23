@@ -1,55 +1,57 @@
-import { ArrowUpRight } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
+import { serviceCatalog } from "@/content/services";
+import { useSiteLanguage } from "@/context/LanguageContext";
 import { cinematicEase } from "@/lib/motion";
-import { Language, siteContent } from "@/content/site";
 
-type WhatWeBuildProps = {
-  content: (typeof siteContent)[Language]["build"];
-};
-
-const ServicesSection = ({ content }: WhatWeBuildProps) => {
+const ServicesSection = () => {
+  const { content, language } = useSiteLanguage();
+  const catalog = serviceCatalog[language];
   const reduceMotion = useReducedMotion();
 
   return (
     <section id="capabilities" className="w-full bg-brand-offwhite py-32 text-brand-charcoal">
       <div className="grid-shell">
-        <div className="grid grid-cols-1 items-start gap-16 lg:grid-cols-12 lg:gap-20">
-          <div className="lg:sticky lg:top-32 lg:col-span-5">
-            <span className="section-label mb-3 block">{content.label}</span>
-            <h2 className="font-heading mb-6 text-3xl font-bold leading-[1.1] tracking-tight text-brand-charcoal sm:text-5xl">
-              {content.title}
-            </h2>
-            <p className="text-base leading-relaxed text-brand-muted sm:text-lg">{content.description}</p>
-          </div>
-
-          <div className="flex flex-col border-b border-brand-border lg:col-span-7">
-            {content.items.map((item, index) => (
-              <motion.div
-                key={item.title}
-                initial={reduceMotion ? false : { opacity: 0, y: 14 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-10%" }}
-                transition={{ duration: 0.55, ease: cinematicEase, delay: index * 0.05 }}
-                className="group border-t border-brand-border py-10 transition-colors"
-              >
-                <div className="flex items-start justify-between gap-6">
-                  <span className="font-mono-label shrink-0 pt-1.5 text-xs font-semibold tracking-widest text-brand-orange">
-                    {item.index}
-                  </span>
-                  <div className="flex-1">
-                    <h3 className="font-heading mb-2 text-2xl font-semibold text-brand-charcoal transition-colors duration-200 group-hover:text-brand-orange sm:text-3xl">
-                      {item.title}
-                    </h3>
-                    <p className="max-w-xl text-base leading-relaxed text-brand-muted">{item.description}</p>
-                  </div>
-                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-transparent opacity-0 transition-all group-hover:border-brand-border group-hover:bg-white group-hover:opacity-100">
-                    <ArrowUpRight className="h-[18px] w-[18px] text-brand-orange" />
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+        <div className="mb-16 max-w-3xl">
+          <span className="section-label mb-3 block">{content.build.label}</span>
+          <h2 className="font-heading mb-6 text-3xl font-bold leading-[1.1] tracking-tight sm:text-5xl">
+            {content.build.title}
+          </h2>
+          <p className="text-base leading-relaxed text-brand-ink sm:text-lg">{content.build.description}</p>
         </div>
+
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+          {catalog.items.map((item, index) => (
+            <motion.article
+              key={item.index}
+              initial={reduceMotion ? false : { opacity: 0, y: 14 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-10%" }}
+              transition={{ duration: 0.55, ease: cinematicEase, delay: index * 0.05 }}
+              className="flex h-full flex-col rounded border border-brand-border bg-white p-8"
+            >
+              <span className="font-mono-label text-xs font-semibold tracking-widest text-brand-orange">
+                {item.index}
+              </span>
+              <h3 className="font-heading mt-3 text-2xl font-semibold sm:text-3xl">{item.title}</h3>
+              <p className="mt-3 text-base leading-relaxed text-brand-ink">{item.description}</p>
+              <ul className="mt-6 space-y-2 text-sm leading-relaxed text-brand-ink">
+                {item.deliverables.map((deliverable) => (
+                  <li key={deliverable} className="flex gap-3">
+                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-orange" aria-hidden="true" />
+                    <span>{deliverable}</span>
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-8 border-t border-brand-border pt-4 text-sm font-semibold text-brand-charcoal">
+                {item.duration}
+                <span className="mx-2 text-brand-ink">|</span>
+                {item.price}
+              </p>
+            </motion.article>
+          ))}
+        </div>
+
+        <p className="mt-8 max-w-3xl text-sm leading-relaxed text-brand-ink">{catalog.note}</p>
       </div>
     </section>
   );

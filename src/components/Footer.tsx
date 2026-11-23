@@ -1,4 +1,4 @@
-import { Instagram, Linkedin, Twitter } from "lucide-react";
+import { Instagram, Linkedin, MessageCircle, Twitter } from "lucide-react";
 import { NavLink } from "react-router-dom";
 import logoMark from "@/assets/logo-mark-light.png";
 import { useSiteLanguage } from "@/context/LanguageContext";
@@ -14,6 +14,8 @@ const TikTokIcon = ({ className }: { className?: string }) => (
 const socialIcon = (name: string) => {
   const className = "h-4 w-4";
   switch (name) {
+    case "WhatsApp":
+      return <MessageCircle className={className} />;
     case "LinkedIn":
       return <Linkedin className={className} />;
     case "X":
@@ -33,7 +35,9 @@ const Footer = () => {
   const links = [
     { to: siteRoutes.build, label: footer.build },
     { to: siteRoutes.approach, label: footer.approach },
+    { to: siteRoutes.about, label: footer.about },
     { to: siteRoutes.thinking, label: footer.thinking },
+    { to: siteRoutes.careers, label: footer.careers },
   ];
 
   return (
@@ -41,7 +45,7 @@ const Footer = () => {
       <div className="grid-shell">
         <div className="flex flex-col items-start justify-between gap-8 border-b border-white/[0.06] pb-12 md:flex-row md:items-center">
           <div className="flex items-center gap-3">
-            <img src={logoMark} alt="" className="h-6 w-6 object-contain opacity-80" />
+            <img src={logoMark} alt={content.company.legalName} className="h-6 w-6 object-contain opacity-80" />
             <div className="flex flex-col">
               <span className="font-heading text-base font-bold leading-none tracking-tight">
                 {footer.brand}
@@ -64,6 +68,9 @@ const Footer = () => {
                 {link.label}
               </NavLink>
             ))}
+            {/* TODO: فعّل قسم الأعمال بعد موافقة عميلة "ترددي"
+            <NavLink to={siteRoutes.work}>{footer.work}</NavLink>
+            */}
           </nav>
         </div>
 
@@ -79,7 +86,7 @@ const Footer = () => {
                   href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label={item.name}
+                  aria-label={item.label}
                   className="inline-flex h-10 w-10 items-center justify-center rounded border border-white/10 text-brand-muted transition-colors hover:border-brand-orange/50 hover:text-white"
                 >
                   {socialIcon(item.name)}
@@ -90,7 +97,12 @@ const Footer = () => {
 
           <div className="flex flex-col items-start gap-2 text-xs text-brand-muted sm:items-end">
             <span>
-              © {new Date().getFullYear()} Core Tech Solutions. {footer.rights}
+              © {new Date().getFullYear()} {content.company.legalName}. {footer.rights}
+            </span>
+            <span>
+              {content.company.legalName} · {content.company.crLabel}: {content.company.cr} · {content.company.city}
+              {" · "}
+              {content.company.country}
             </span>
             <a
               href={`mailto:${footer.email}`}

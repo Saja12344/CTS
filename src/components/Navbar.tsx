@@ -24,7 +24,9 @@ const Navbar = () => {
   const links = [
     { to: siteRoutes.build, label: content.nav.build },
     { to: siteRoutes.approach, label: content.nav.approach },
+    { to: siteRoutes.about, label: content.nav.about },
     { to: siteRoutes.thinking, label: content.nav.thinking },
+    { to: siteRoutes.careers, label: content.nav.careers },
   ];
 
   useEffect(() => {
@@ -47,10 +49,10 @@ const Navbar = () => {
       }`}
     >
       <div className="grid-shell flex h-20 items-center justify-between">
-        <Link to={siteRoutes.home} className="group flex items-center gap-3.5" aria-label="Core Tech Solutions">
+        <Link to={siteRoutes.home} className="group flex items-center gap-3.5" aria-label={content.company.legalName}>
           <img
             src={logoMark}
-            alt=""
+            alt={content.company.legalName}
             className="h-7 w-7 object-contain opacity-90 transition-opacity group-hover:opacity-100"
           />
           <div className="flex flex-col">
@@ -63,15 +65,20 @@ const Navbar = () => {
           </div>
         </Link>
 
-        <nav className="hidden items-center gap-10 md:flex" aria-label="Primary">
+        <nav className="hidden items-center gap-6 xl:flex" aria-label="Primary">
           {links.map((link) => (
             <NavLink key={link.to} to={link.to} className={({ isActive }) => linkClass(isActive)}>
               {link.label}
             </NavLink>
           ))}
+          {/* TODO: فعّل قسم الأعمال بعد موافقة عميلة "ترددي"
+          <NavLink to={siteRoutes.work} className={({ isActive }) => linkClass(isActive)}>
+            {content.nav.work}
+          </NavLink>
+          */}
         </nav>
 
-        <div className="hidden items-center gap-3 md:flex">
+        <div className="hidden items-center gap-3 xl:flex">
           <button
             type="button"
             id="lang-toggle"
@@ -88,7 +95,7 @@ const Navbar = () => {
         <button
           type="button"
           id="menu-toggle"
-          className="text-white md:hidden"
+          className="text-white xl:hidden"
           aria-label={content.nav.menuLabel}
           aria-expanded={mobileOpen}
           onClick={() => setMobileOpen((open) => !open)}
@@ -98,7 +105,7 @@ const Navbar = () => {
       </div>
 
       {mobileOpen ? (
-        <div className="border-t border-white/[0.06] bg-brand-charcoal md:hidden">
+        <div className="border-t border-white/[0.06] bg-brand-charcoal xl:hidden">
           <div className="grid-shell flex min-h-[calc(100dvh-5rem)] flex-col py-6">
             {links.map((link) => (
               <NavLink
